@@ -1,0 +1,2249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Sdd Repository Dashboard</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Sdd Repository Dashboard" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Sdd Repository Dashboard&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress {
+  display: flex;
+  height: 6px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 6px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;sdd-repository-stage-board&quot;&gt;
+  &lt;style&gt;
+    @import url(&#x27;https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=Noto+Sans+SC:wght@400;500&amp;display=swap&#x27;);
+
+    #sdd-repository-stage-board {
+      --srb-canvas: light-dark(#e8eef4, #0d151e);
+      --srb-surface: light-dark(#f9fbfd, #14202b);
+      --srb-surface-strong: light-dark(#ffffff, #1a2936);
+      --srb-ink: light-dark(#102334, #edf5fc);
+      --srb-muted: light-dark(#5b6c7b, #9dafc0);
+      --srb-line: light-dark(#c2ced9, #334656);
+      --srb-line-strong: light-dark(#8596a5, #567083);
+      --srb-spec: light-dark(#145fc6, #78a9ff);
+      --srb-spec-soft: light-dark(#dceaff, #173861);
+      --srb-impl: light-dark(#a25d00, #ffc368);
+      --srb-impl-soft: light-dark(#fff0d7, #483315);
+      --srb-knowledge: light-dark(#08775a, #69d3b0);
+      --srb-knowledge-soft: light-dark(#daf3ea, #163d33);
+      --srb-alert: light-dark(#b43b30, #ff8d83);
+      --srb-alert-soft: light-dark(#ffe3df, #4a2526);
+      --srb-shadow: light-dark(rgba(30, 55, 76, 0.13), rgba(0, 0, 0, 0.3));
+      color-scheme: light dark;
+      color: var(--srb-ink);
+      font-family: &quot;IBM Plex Sans&quot;, &quot;Noto Sans SC&quot;, sans-serif;
+      width: 100%;
+    }
+
+    #sdd-repository-stage-board * {
+      box-sizing: border-box;
+    }
+
+    #sdd-repository-stage-board button {
+      font: inherit;
+    }
+
+    #sdd-repository-stage-board h1,
+    #sdd-repository-stage-board h2,
+    #sdd-repository-stage-board h3,
+    #sdd-repository-stage-board p,
+    #sdd-repository-stage-board dl,
+    #sdd-repository-stage-board dd,
+    #sdd-repository-stage-board dt,
+    #sdd-repository-stage-board ol,
+    #sdd-repository-stage-board ul {
+      margin: 0;
+    }
+
+    #sdd-repository-stage-board .srb-app {
+      background: var(--srb-canvas);
+      border: 1px solid var(--srb-line);
+      box-shadow: 0 18px 45px var(--srb-shadow);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    #sdd-repository-stage-board .srb-topbar {
+      align-items: center;
+      background: var(--srb-surface-strong);
+      border-bottom: 1px solid var(--srb-line-strong);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      padding: 22px 26px;
+    }
+
+    #sdd-repository-stage-board .srb-brand {
+      display: grid;
+      gap: 3px;
+    }
+
+    #sdd-repository-stage-board .srb-wordmark,
+    #sdd-repository-stage-board .srb-eyebrow,
+    #sdd-repository-stage-board .srb-meta,
+    #sdd-repository-stage-board .srb-stat-label,
+    #sdd-repository-stage-board .srb-repo-column-label,
+    #sdd-repository-stage-board .srb-stage-number,
+    #sdd-repository-stage-board .srb-threshold,
+    #sdd-repository-stage-board .srb-footnote {
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      letter-spacing: 0.03em;
+    }
+
+    #sdd-repository-stage-board .srb-wordmark {
+      color: var(--srb-spec);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #sdd-repository-stage-board .srb-brand strong {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-demo {
+      background: var(--srb-spec-soft);
+      border-radius: 999px;
+      color: var(--srb-spec);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 6px 10px;
+      text-transform: uppercase;
+    }
+
+    #sdd-repository-stage-board .srb-screen[hidden] {
+      display: none;
+    }
+
+    #sdd-repository-stage-board .srb-screen {
+      display: grid;
+      gap: 24px;
+      padding: 26px;
+    }
+
+    #sdd-repository-stage-board .srb-page-head {
+      align-items: end;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      justify-content: space-between;
+    }
+
+    #sdd-repository-stage-board .srb-page-head h1 {
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    #sdd-repository-stage-board .srb-page-head p {
+      color: var(--srb-muted);
+      margin-top: 6px;
+    }
+
+    #sdd-repository-stage-board .srb-meta {
+      color: var(--srb-muted);
+      font-size: 11px;
+      text-align: right;
+    }
+
+    #sdd-repository-stage-board .srb-repo-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    #sdd-repository-stage-board .srb-repo-columns,
+    #sdd-repository-stage-board .srb-repo-row {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: minmax(170px, 1.25fr) minmax(72px, 0.48fr) minmax(120px, 0.82fr) minmax(175px, 1.08fr) 22px;
+    }
+
+    #sdd-repository-stage-board .srb-repo-columns {
+      align-items: end;
+      border-bottom: 1px solid var(--srb-line-strong);
+      padding: 0 16px 9px;
+    }
+
+    #sdd-repository-stage-board .srb-repo-column-label {
+      color: var(--srb-muted);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    #sdd-repository-stage-board .srb-repo-column-label[data-stage=&quot;spec&quot;] {
+      color: var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-repo-column-label[data-stage=&quot;impl&quot;] {
+      color: var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-repo-row {
+      align-items: center;
+      background: var(--srb-surface-strong);
+      border: 1px solid var(--srb-line);
+      color: var(--srb-ink);
+      cursor: pointer;
+      padding: 17px 16px;
+      text-align: left;
+      transition: border-color 140ms ease, transform 140ms ease;
+      width: 100%;
+    }
+
+    #sdd-repository-stage-board .srb-repo-row:hover {
+      border-color: var(--srb-spec);
+      transform: translateY(-1px);
+    }
+
+    #sdd-repository-stage-board .srb-repo-row:focus-visible,
+    #sdd-repository-stage-board .srb-back:focus-visible,
+    #sdd-repository-stage-board .srb-spec-item:focus-visible {
+      outline: 2px solid var(--srb-spec);
+      outline-offset: 3px;
+    }
+
+    #sdd-repository-stage-board .srb-repo-name {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    #sdd-repository-stage-board .srb-repo-name strong {
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 16px;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+
+    #sdd-repository-stage-board .srb-repo-name small,
+    #sdd-repository-stage-board .srb-repo-cell small,
+    #sdd-repository-stage-board .srb-spec-item small,
+    #sdd-repository-stage-board .srb-path-caption,
+    #sdd-repository-stage-board .srb-empty-knowledge {
+      color: var(--srb-muted);
+      font-size: 11px;
+    }
+
+    #sdd-repository-stage-board .srb-repo-cell {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    #sdd-repository-stage-board .srb-repo-cell strong {
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-repo-cell[data-stage=&quot;spec&quot;] strong {
+      color: var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-repo-cell[data-stage=&quot;impl&quot;] strong {
+      color: var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-repo-cell .srb-mini-knowledge {
+      color: var(--srb-knowledge);
+    }
+
+    #sdd-repository-stage-board .srb-chevron {
+      color: var(--srb-spec);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      text-align: right;
+    }
+
+    #sdd-repository-stage-board .srb-boundary {
+      border-top: 1px solid var(--srb-line);
+      color: var(--srb-muted);
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 11px;
+      gap: 8px 24px;
+      justify-content: space-between;
+      padding-top: 14px;
+    }
+
+    #sdd-repository-stage-board .srb-detail-head {
+      display: grid;
+      gap: 18px;
+    }
+
+    #sdd-repository-stage-board .srb-back {
+      align-items: center;
+      background: transparent;
+      border: 0;
+      color: var(--srb-spec);
+      cursor: pointer;
+      display: inline-flex;
+      gap: 8px;
+      justify-self: start;
+      padding: 2px 0;
+    }
+
+    #sdd-repository-stage-board .srb-repo-title {
+      align-items: end;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      justify-content: space-between;
+    }
+
+    #sdd-repository-stage-board .srb-repo-title h1 {
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    #sdd-repository-stage-board .srb-repo-title p {
+      color: var(--srb-muted);
+      margin-top: 6px;
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary {
+      display: grid;
+      gap: 1px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block {
+      background: var(--srb-surface-strong);
+      border: 1px solid var(--srb-line);
+      display: grid;
+      gap: 14px;
+      min-width: 0;
+      padding: 17px 18px;
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;spec&quot;] {
+      border-top: 4px solid var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;impl&quot;] {
+      border-top: 4px solid var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-stage-title {
+      align-items: center;
+      display: flex;
+      gap: 9px;
+    }
+
+    #sdd-repository-stage-board .srb-stage-number {
+      background: var(--srb-spec-soft);
+      border-radius: 999px;
+      color: var(--srb-spec);
+      font-size: 10px;
+      padding: 4px 7px;
+    }
+
+    #sdd-repository-stage-board [data-stage=&quot;impl&quot;] .srb-stage-number {
+      background: var(--srb-impl-soft);
+      color: var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-stage-title h2,
+    #sdd-repository-stage-board .srb-stage-title h3 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-stage-title span:last-child {
+      color: var(--srb-muted);
+      font-size: 12px;
+    }
+
+    #sdd-repository-stage-board .srb-stage-stats {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;impl&quot;] .srb-stage-stats {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    #sdd-repository-stage-board .srb-stage-stat {
+      border-left: 1px solid var(--srb-line);
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      padding-left: 10px;
+    }
+
+    #sdd-repository-stage-board .srb-stage-stat:first-child {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    #sdd-repository-stage-board .srb-stat-label {
+      color: var(--srb-muted);
+      font-size: 9px;
+      text-transform: uppercase;
+    }
+
+    #sdd-repository-stage-board .srb-stage-stat strong {
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 18px;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;spec&quot;] .srb-stage-stat strong {
+      color: var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;impl&quot;] .srb-stage-stat strong {
+      color: var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;impl&quot;] .srb-stage-stat[data-kind=&quot;knowledge&quot;] strong {
+      color: var(--srb-knowledge);
+    }
+
+    #sdd-repository-stage-board .srb-detail-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: minmax(190px, 0.38fr) minmax(0, 1fr);
+    }
+
+    #sdd-repository-stage-board .srb-spec-nav {
+      align-content: start;
+      display: grid;
+      gap: 8px;
+    }
+
+    #sdd-repository-stage-board [data-spec-buttons] {
+      display: grid;
+      gap: 8px;
+    }
+
+    #sdd-repository-stage-board .srb-section-head {
+      border-bottom: 1px solid var(--srb-line-strong);
+      display: grid;
+      gap: 4px;
+      margin-bottom: 2px;
+      padding-bottom: 9px;
+    }
+
+    #sdd-repository-stage-board .srb-eyebrow {
+      color: var(--srb-spec);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    #sdd-repository-stage-board .srb-section-head h2 {
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-spec-item {
+      background: var(--srb-surface-strong);
+      border: 1px solid var(--srb-line);
+      color: var(--srb-ink);
+      cursor: pointer;
+      display: grid;
+      gap: 7px;
+      padding: 12px;
+      text-align: left;
+      width: 100%;
+    }
+
+    #sdd-repository-stage-board .srb-spec-item[aria-pressed=&quot;true&quot;] {
+      border-color: var(--srb-spec);
+      box-shadow: inset 3px 0 0 var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-spec-item-top {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    #sdd-repository-stage-board .srb-spec-item code {
+      color: var(--srb-spec);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-status {
+      border-radius: 999px;
+      display: inline-flex;
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 9px;
+      font-weight: 500;
+      padding: 4px 7px;
+      white-space: nowrap;
+    }
+
+    #sdd-repository-stage-board .srb-status[data-tone=&quot;alert&quot;] {
+      background: var(--srb-alert-soft);
+      color: var(--srb-alert);
+    }
+
+    #sdd-repository-stage-board .srb-status[data-tone=&quot;ok&quot;] {
+      background: var(--srb-knowledge-soft);
+      color: var(--srb-knowledge);
+    }
+
+    #sdd-repository-stage-board .srb-spec-detail {
+      display: grid;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    #sdd-repository-stage-board .srb-spec-head {
+      align-items: center;
+      background: var(--srb-surface-strong);
+      border: 1px solid var(--srb-line-strong);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      justify-content: space-between;
+      padding: 16px 17px;
+    }
+
+    #sdd-repository-stage-board .srb-spec-head code {
+      color: var(--srb-spec);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 12px;
+    }
+
+    #sdd-repository-stage-board .srb-spec-head h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    #sdd-repository-stage-board .srb-threshold {
+      color: var(--srb-muted);
+      font-size: 10px;
+      text-align: right;
+    }
+
+    #sdd-repository-stage-board .srb-phase-lanes {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #sdd-repository-stage-board .srb-phase {
+      background: var(--srb-surface-strong);
+      border: 1px solid var(--srb-line);
+      display: grid;
+      gap: 17px;
+      min-width: 0;
+      padding: 16px;
+    }
+
+    #sdd-repository-stage-board .srb-phase[data-stage=&quot;spec&quot;] {
+      border-top: 5px solid var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-phase[data-stage=&quot;impl&quot;] {
+      border-top: 5px solid var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-phase-metrics {
+      display: grid;
+      gap: 1px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #sdd-repository-stage-board .srb-phase-metric {
+      background: var(--srb-canvas);
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+      padding: 11px;
+    }
+
+    #sdd-repository-stage-board .srb-phase-metric strong {
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 17px;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+
+    #sdd-repository-stage-board .srb-phase[data-stage=&quot;spec&quot;] .srb-phase-metric strong {
+      color: var(--srb-spec);
+    }
+
+    #sdd-repository-stage-board .srb-phase[data-stage=&quot;impl&quot;] .srb-phase-metric strong {
+      color: var(--srb-impl);
+    }
+
+    #sdd-repository-stage-board .srb-granularity {
+      display: grid;
+      gap: 9px;
+    }
+
+    #sdd-repository-stage-board .srb-granularity-grid {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #sdd-repository-stage-board .srb-unit {
+      border-top: 2px solid var(--srb-spec);
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+      padding-top: 8px;
+    }
+
+    #sdd-repository-stage-board .srb-unit span:first-child {
+      color: var(--srb-muted);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 9px;
+    }
+
+    #sdd-repository-stage-board .srb-unit span:last-child {
+      overflow-wrap: anywhere;
+    }
+
+    #sdd-repository-stage-board .srb-path {
+      display: grid;
+      gap: 8px;
+    }
+
+    #sdd-repository-stage-board .srb-path ol {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0;
+    }
+
+    #sdd-repository-stage-board .srb-path li {
+      align-items: center;
+      color: var(--srb-muted);
+      display: inline-flex;
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 10px;
+      list-style: none;
+      overflow-wrap: anywhere;
+    }
+
+    #sdd-repository-stage-board .srb-path li:not(:last-child)::after {
+      color: var(--srb-line-strong);
+      content: &quot;→&quot;;
+      margin-left: 7px;
+    }
+
+    #sdd-repository-stage-board .srb-no-output {
+      background: var(--srb-spec-soft);
+      color: var(--srb-spec);
+      display: grid;
+      gap: 4px;
+      padding: 11px 12px;
+    }
+
+    #sdd-repository-stage-board .srb-no-output strong {
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-knowledge-output {
+      background: var(--srb-knowledge-soft);
+      display: grid;
+      gap: 10px;
+      padding: 11px 12px;
+    }
+
+    #sdd-repository-stage-board .srb-knowledge-counts {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #sdd-repository-stage-board .srb-knowledge-counts span {
+      color: var(--srb-muted);
+      display: grid;
+      font-size: 11px;
+      gap: 3px;
+    }
+
+    #sdd-repository-stage-board .srb-knowledge-counts strong {
+      color: var(--srb-knowledge);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 23px;
+      font-weight: 500;
+    }
+
+    #sdd-repository-stage-board .srb-output-list {
+      color: var(--srb-knowledge);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    #sdd-repository-stage-board .srb-footnote {
+      border-top: 1px solid var(--srb-line);
+      color: var(--srb-muted);
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 9px;
+      gap: 6px 18px;
+      justify-content: space-between;
+      padding-top: 12px;
+    }
+
+    @media (max-width: 820px) {
+      #sdd-repository-stage-board .srb-repo-row {
+        grid-template-columns: minmax(150px, 1.1fr) minmax(68px, 0.45fr) minmax(108px, 0.75fr) minmax(160px, 1fr) 18px;
+      }
+
+      #sdd-repository-stage-board .srb-stage-stats,
+      #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;impl&quot;] .srb-stage-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      #sdd-repository-stage-board .srb-phase-lanes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #sdd-repository-stage-board .srb-topbar,
+      #sdd-repository-stage-board .srb-screen {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      #sdd-repository-stage-board .srb-meta {
+        text-align: left;
+      }
+
+      #sdd-repository-stage-board .srb-repo-columns {
+        display: none;
+      }
+
+      #sdd-repository-stage-board .srb-repo-row {
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #sdd-repository-stage-board .srb-repo-name,
+      #sdd-repository-stage-board .srb-chevron {
+        grid-column: 1 / -1;
+      }
+
+      #sdd-repository-stage-board .srb-chevron {
+        border-top: 1px solid var(--srb-line);
+        padding-top: 7px;
+        text-align: left;
+      }
+
+      #sdd-repository-stage-board .srb-stage-summary,
+      #sdd-repository-stage-board .srb-phase-lanes {
+        grid-template-columns: 1fr;
+      }
+
+      #sdd-repository-stage-board .srb-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #sdd-repository-stage-board [data-spec-buttons] {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 420px) {
+      #sdd-repository-stage-board .srb-topbar,
+      #sdd-repository-stage-board .srb-screen {
+        padding-left: 13px;
+        padding-right: 13px;
+      }
+
+      #sdd-repository-stage-board .srb-page-head,
+      #sdd-repository-stage-board .srb-repo-title,
+      #sdd-repository-stage-board .srb-spec-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      #sdd-repository-stage-board .srb-stage-stats,
+      #sdd-repository-stage-board .srb-stage-summary-block[data-stage=&quot;impl&quot;] .srb-stage-stats,
+      #sdd-repository-stage-board .srb-phase-metrics,
+      #sdd-repository-stage-board .srb-granularity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #sdd-repository-stage-board .srb-stage-stat,
+      #sdd-repository-stage-board .srb-stage-stat:first-child {
+        border-left: 0;
+        border-top: 1px solid var(--srb-line);
+        padding-left: 0;
+        padding-top: 8px;
+      }
+
+      #sdd-repository-stage-board [data-spec-buttons] {
+        grid-template-columns: 1fr;
+      }
+
+      #sdd-repository-stage-board .srb-threshold {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #sdd-repository-stage-board * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  &lt;/style&gt;
+
+  &lt;section class=&quot;srb-app&quot; aria-label=&quot;SDD 代码仓看板 demo&quot;&gt;
+    &lt;header class=&quot;srb-topbar&quot;&gt;
+      &lt;div class=&quot;srb-brand&quot;&gt;
+        &lt;span class=&quot;srb-wordmark&quot;&gt;SDD Observatory&lt;/span&gt;
+        &lt;strong&gt;Repository operations&lt;/strong&gt;
+      &lt;/div&gt;
+      &lt;span class=&quot;srb-demo&quot;&gt;Demo data&lt;/span&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+      &lt;section class=&quot;srb-screen&quot; data-screen=&quot;repositories&quot; aria-label=&quot;代码仓入口&quot;&gt;
+        &lt;header class=&quot;srb-page-head&quot;&gt;
+          &lt;div&gt;
+            &lt;span class=&quot;srb-eyebrow&quot;&gt;Level 01&lt;/span&gt;
+            &lt;h1&gt;代码仓&lt;/h1&gt;
+            &lt;p&gt;先选择代码仓，再查看 Spec 与 Implement 的细则。&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;srb-meta&quot;&gt;3 repositories&lt;br&gt;last ingest · 2026-08-20 23:40&lt;/div&gt;
+        &lt;/header&gt;
+
+        &lt;section class=&quot;srb-repo-list&quot; aria-label=&quot;已接入代码仓&quot;&gt;
+          &lt;div class=&quot;srb-repo-columns&quot; aria-hidden=&quot;true&quot;&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot;&gt;Repository&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot;&gt;Specs&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot; data-stage=&quot;spec&quot;&gt;New Spec&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot; data-stage=&quot;impl&quot;&gt;Implement&lt;/span&gt;
+            &lt;span&gt;&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div data-repository-rows&gt;&lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;footer class=&quot;srb-boundary&quot;&gt;
+          &lt;span&gt;入口层级：代码仓&lt;/span&gt;
+          &lt;span&gt;上报方式：tar bundle → server unpack&lt;/span&gt;
+          &lt;span&gt;New Spec 与 Implement 不合并统计&lt;/span&gt;
+        &lt;/footer&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;srb-screen&quot; data-screen=&quot;repository-detail&quot; aria-label=&quot;代码仓细则&quot; hidden&gt;
+        &lt;header class=&quot;srb-detail-head&quot;&gt;
+          &lt;button class=&quot;srb-back&quot; type=&quot;button&quot; data-back&gt;← 返回代码仓&lt;/button&gt;
+          &lt;div class=&quot;srb-repo-title&quot;&gt;
+            &lt;div&gt;
+              &lt;span class=&quot;srb-eyebrow&quot;&gt;Level 02 · Repository detail&lt;/span&gt;
+              &lt;h1 data-repo-title&gt;prime-agent&lt;/h1&gt;
+              &lt;p data-repo-meta&gt;main · 最近 30 天 · 32 Specs&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;srb-meta&quot;&gt;stage metrics are isolated&lt;br&gt;all values are demo data&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/header&gt;
+
+        &lt;section class=&quot;srb-stage-summary&quot; aria-label=&quot;仓库阶段摘要&quot;&gt;
+          &lt;article class=&quot;srb-stage-summary-block&quot; data-stage=&quot;spec&quot;&gt;
+            &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;01&lt;/span&gt;&lt;h2&gt;New Spec&lt;/h2&gt;&lt;span&gt;规格粒度阶段&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;srb-stage-stats&quot;&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-repo-spec-token&gt;1.6M&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Median time&lt;/span&gt;&lt;strong data-repo-spec-time&gt;9m&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Avg exploration&lt;/span&gt;&lt;strong data-repo-spec-explore&gt;12&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Granularity alerts&lt;/span&gt;&lt;strong data-repo-alerts&gt;5&lt;/strong&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;srb-stage-summary-block&quot; data-stage=&quot;impl&quot;&gt;
+            &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Implement&lt;/h2&gt;&lt;span&gt;实现与知识沉淀阶段&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;srb-stage-stats&quot;&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-repo-impl-token&gt;16.7M&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Median time&lt;/span&gt;&lt;strong data-repo-impl-time&gt;33m&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Avg exploration&lt;/span&gt;&lt;strong data-repo-impl-explore&gt;46&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot; data-kind=&quot;knowledge&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Cards&lt;/span&gt;&lt;strong data-repo-cards&gt;86&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot; data-kind=&quot;knowledge&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;KU&lt;/span&gt;&lt;strong data-repo-ku&gt;21&lt;/strong&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;div class=&quot;srb-detail-grid&quot;&gt;
+          &lt;nav class=&quot;srb-spec-nav&quot; aria-label=&quot;选择 Spec&quot;&gt;
+            &lt;header class=&quot;srb-section-head&quot;&gt;&lt;span class=&quot;srb-eyebrow&quot;&gt;Specs&lt;/span&gt;&lt;h2&gt;规格列表&lt;/h2&gt;&lt;/header&gt;
+            &lt;div data-spec-buttons&gt;&lt;/div&gt;
+          &lt;/nav&gt;
+
+          &lt;section class=&quot;srb-spec-detail&quot; aria-label=&quot;Spec 两阶段明细&quot;&gt;
+            &lt;header class=&quot;srb-spec-head&quot;&gt;
+              &lt;div&gt;&lt;code data-spec-id&gt;S02&lt;/code&gt;&lt;h2 data-spec-title&gt;Authentication Refactor&lt;/h2&gt;&lt;/div&gt;
+              &lt;div&gt;&lt;span class=&quot;srb-status&quot; data-spec-status data-tone=&quot;alert&quot;&gt;粒度预警&lt;/span&gt;&lt;div class=&quot;srb-threshold&quot;&gt;Spec doc &amp;gt; 2K · Generated code &amp;gt; 1K&lt;/div&gt;&lt;/div&gt;
+            &lt;/header&gt;
+
+            &lt;div class=&quot;srb-phase-lanes&quot;&gt;
+              &lt;article class=&quot;srb-phase&quot; data-stage=&quot;spec&quot;&gt;
+                &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;01&lt;/span&gt;&lt;h3&gt;New Spec&lt;/h3&gt;&lt;span&gt;只看规格粒度&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&quot;srb-phase-metrics&quot;&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Spec document&lt;/span&gt;&lt;strong data-spec-doc&gt;2.6K ⚠&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-spec-token&gt;61K&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Overall time&lt;/span&gt;&lt;strong data-spec-time&gt;11m&lt;/strong&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;section class=&quot;srb-granularity&quot;&gt;
+                  &lt;span class=&quot;srb-path-caption&quot;&gt;规格拆解单元&lt;/span&gt;
+                  &lt;div class=&quot;srb-granularity-grid&quot; data-spec-units&gt;&lt;/div&gt;
+                &lt;/section&gt;
+                &lt;section class=&quot;srb-path&quot;&gt;
+                  &lt;span class=&quot;srb-path-caption&quot;&gt;探索路径 · &lt;b data-spec-path-count&gt;12&lt;/b&gt; calls&lt;/span&gt;
+                  &lt;ol data-spec-path&gt;&lt;/ol&gt;
+                &lt;/section&gt;
+                &lt;div class=&quot;srb-no-output&quot;&gt;&lt;strong&gt;知识沉淀不属于该阶段&lt;/strong&gt;&lt;span class=&quot;srb-empty-knowledge&quot;&gt;仅评价规格粒度与生成过程。&lt;/span&gt;&lt;/div&gt;
+              &lt;/article&gt;
+
+              &lt;article class=&quot;srb-phase&quot; data-stage=&quot;impl&quot;&gt;
+                &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;02&lt;/span&gt;&lt;h3&gt;Implement&lt;/h3&gt;&lt;span&gt;实现与知识沉淀&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&quot;srb-phase-metrics&quot;&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Generated code&lt;/span&gt;&lt;strong data-impl-code&gt;1.3K ⚠&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-impl-token&gt;1.10M&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Overall time&lt;/span&gt;&lt;strong data-impl-time&gt;116m&lt;/strong&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;section class=&quot;srb-path&quot;&gt;
+                  &lt;span class=&quot;srb-path-caption&quot;&gt;探索路径 · &lt;b data-impl-path-count&gt;87&lt;/b&gt; calls&lt;/span&gt;
+                  &lt;ol data-impl-path&gt;&lt;/ol&gt;
+                &lt;/section&gt;
+                &lt;section class=&quot;srb-knowledge-output&quot;&gt;
+                  &lt;div class=&quot;srb-knowledge-counts&quot;&gt;
+                    &lt;span&gt;Experience Cards&lt;strong data-impl-cards&gt;8&lt;/strong&gt;&lt;/span&gt;
+                    &lt;span&gt;Knowledge Units&lt;strong data-impl-ku&gt;3&lt;/strong&gt;&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;srb-output-list&quot; data-impl-knowledge&gt;EC-103 plugin reload pitfall · KU-31 auth boundary&lt;/div&gt;
+                &lt;/section&gt;
+              &lt;/article&gt;
+            &lt;/div&gt;
+
+            &lt;footer class=&quot;srb-footnote&quot;&gt;&lt;span&gt;NEW SPEC：规格粒度 / Token / 路径 / 耗时&lt;/span&gt;&lt;span&gt;IMPLEMENT：代码 / Token / 路径 / 耗时 / Cards / KU&lt;/span&gt;&lt;/footer&gt;
+          &lt;/section&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
+  &lt;/section&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;sdd-repository-stage-board&#x27;);
+      if (!root) return;
+
+      const repositories = [
+        {
+          id: &#x27;prime-agent&#x27;, branch: &#x27;main&#x27;, specsCount: 32, alerts: 5,
+          specSummary: { token: &#x27;1.6M&#x27;, time: &#x27;9m&#x27;, explore: &#x27;12&#x27; },
+          implSummary: { token: &#x27;16.7M&#x27;, time: &#x27;33m&#x27;, explore: &#x27;46&#x27;, cards: 86, ku: 21 },
+          specs: [
+            { id: &#x27;S02&#x27;, title: &#x27;Authentication Refactor&#x27;, alert: true, spec: { doc: 2.6, token: &#x27;61K&#x27;, time: &#x27;11m&#x27;, calls: 12, units: [&#x27;Access model&#x27;, &#x27;Session migration&#x27;, &#x27;Compatibility tests&#x27;], path: [&#x27;repo root&#x27;, &#x27;matspec&#x27;, &#x27;auth design&#x27;, &#x27;decision notes&#x27;] }, impl: { code: 1.3, token: &#x27;1.10M&#x27;, time: &#x27;116m&#x27;, calls: 87, path: [&#x27;repo root&#x27;, &#x27;src/auth&#x27;, &#x27;src/session&#x27;, &#x27;tests/auth&#x27;, &#x27;src/auth · repeated&#x27;], cards: 8, ku: 3, knowledge: &#x27;EC-103 plugin reload pitfall · KU-31 auth boundary&#x27; } },
+            { id: &#x27;S04&#x27;, title: &#x27;CLI Migration&#x27;, alert: false, spec: { doc: 1.1, token: &#x27;27K&#x27;, time: &#x27;7m&#x27;, calls: 9, units: [&#x27;Command surface&#x27;, &#x27;Keybinding map&#x27;, &#x27;Focused tests&#x27;], path: [&#x27;repo root&#x27;, &#x27;matspec&#x27;, &#x27;cli contract&#x27;] }, impl: { code: 0.46, token: &#x27;720K&#x27;, time: &#x27;91m&#x27;, calls: 73, path: [&#x27;repo root&#x27;, &#x27;src/cli&#x27;, &#x27;src/utils&#x27;, &#x27;tests&#x27;, &#x27;src/cli · repeated&#x27;], cards: 0, ku: 0, knowledge: &#x27;本次 Implement 未形成知识沉淀&#x27; } },
+            { id: &#x27;S12&#x27;, title: &#x27;Provider Registry&#x27;, alert: true, spec: { doc: 2.4, token: &#x27;53K&#x27;, time: &#x27;13m&#x27;, calls: 18, units: [&#x27;Provider map&#x27;, &#x27;Lazy registration&#x27;, &#x27;Credential detection&#x27;], path: [&#x27;repo root&#x27;, &#x27;packages/ai&#x27;, &#x27;providers&#x27;, &#x27;contracts&#x27;] }, impl: { code: 0.82, token: &#x27;430K&#x27;, time: &#x27;50m&#x27;, calls: 51, path: [&#x27;packages/ai&#x27;, &#x27;providers&#x27;, &#x27;registry&#x27;, &#x27;provider tests&#x27;], cards: 5, ku: 2, knowledge: &#x27;EC-109 lazy registration · KU-37 provider contract&#x27; } },
+            { id: &#x27;S21&#x27;, title: &#x27;Session Export&#x27;, alert: false, spec: { doc: 0.9, token: &#x27;29K&#x27;, time: &#x27;8m&#x27;, calls: 8, units: [&#x27;HTML export&#x27;, &#x27;Asset bundling&#x27;, &#x27;Smoke check&#x27;], path: [&#x27;repo root&#x27;, &#x27;export contract&#x27;, &#x27;asset plan&#x27;] }, impl: { code: 0.71, token: &#x27;380K&#x27;, time: &#x27;39m&#x27;, calls: 36, path: [&#x27;export-html&#x27;, &#x27;assets&#x27;, &#x27;template&#x27;, &#x27;smoke&#x27;], cards: 4, ku: 1, knowledge: &#x27;EC-121 export assets · KU-44 export contract&#x27; } }
+          ]
+        },
+        {
+          id: &#x27;workflow-arena&#x27;, branch: &#x27;main&#x27;, specsCount: 18, alerts: 4,
+          specSummary: { token: &#x27;1.1M&#x27;, time: &#x27;12m&#x27;, explore: &#x27;16&#x27; },
+          implSummary: { token: &#x27;12.4M&#x27;, time: &#x27;54m&#x27;, explore: &#x27;58&#x27;, cards: 62, ku: 17 },
+          specs: [
+            { id: &#x27;S07&#x27;, title: &#x27;Controller Scheduling&#x27;, alert: true, spec: { doc: 2.3, token: &#x27;58K&#x27;, time: &#x27;14m&#x27;, calls: 17, units: [&#x27;Attempt queue&#x27;, &#x27;Resource isolation&#x27;, &#x27;Completion state&#x27;], path: [&#x27;repo root&#x27;, &#x27;controller&#x27;, &#x27;protocol&#x27;, &#x27;decision notes&#x27;] }, impl: { code: 1.12, token: &#x27;930K&#x27;, time: &#x27;102m&#x27;, calls: 82, path: [&#x27;controller&#x27;, &#x27;scheduler&#x27;, &#x27;attempts&#x27;, &#x27;tests&#x27;, &#x27;scheduler · repeated&#x27;], cards: 7, ku: 2, knowledge: &#x27;EC-207 attempt isolation · KU-71 scheduler boundary&#x27; } },
+            { id: &#x27;S11&#x27;, title: &#x27;Judge Recovery&#x27;, alert: false, spec: { doc: 1.4, token: &#x27;39K&#x27;, time: &#x27;10m&#x27;, calls: 13, units: [&#x27;Archive lookup&#x27;, &#x27;Judge-only rerun&#x27;, &#x27;Summary repair&#x27;], path: [&#x27;archive&#x27;, &#x27;judge contract&#x27;, &#x27;recovery plan&#x27;] }, impl: { code: 0.63, token: &#x27;510K&#x27;, time: &#x27;48m&#x27;, calls: 49, path: [&#x27;archive&#x27;, &#x27;judge&#x27;, &#x27;summary&#x27;, &#x27;verification&#x27;], cards: 6, ku: 2, knowledge: &#x27;EC-214 judge recovery · KU-75 archive authority&#x27; } },
+            { id: &#x27;S15&#x27;, title: &#x27;Bare Baseline&#x27;, alert: false, spec: { doc: 1.0, token: &#x27;31K&#x27;, time: &#x27;8m&#x27;, calls: 9, units: [&#x27;Candidate run&#x27;, &#x27;Freeze&#x27;, &#x27;Judge&#x27;], path: [&#x27;baseline&#x27;, &#x27;protocol&#x27;, &#x27;judge inputs&#x27;] }, impl: { code: 0.48, token: &#x27;420K&#x27;, time: &#x27;41m&#x27;, calls: 38, path: [&#x27;candidate&#x27;, &#x27;freeze&#x27;, &#x27;judge&#x27;, &#x27;summary&#x27;], cards: 3, ku: 1, knowledge: &#x27;EC-220 baseline boundary · KU-79 comparator lineage&#x27; } }
+          ]
+        },
+        {
+          id: &#x27;deepseek-harness&#x27;, branch: &#x27;main&#x27;, specsCount: 24, alerts: 3,
+          specSummary: { token: &#x27;1.3M&#x27;, time: &#x27;10m&#x27;, explore: &#x27;14&#x27; },
+          implSummary: { token: &#x27;14.8M&#x27;, time: &#x27;46m&#x27;, explore: &#x27;52&#x27;, cards: 73, ku: 19 },
+          specs: [
+            { id: &#x27;S03&#x27;, title: &#x27;Note Lifecycle&#x27;, alert: true, spec: { doc: 2.2, token: &#x27;55K&#x27;, time: &#x27;12m&#x27;, calls: 15, units: [&#x27;Capture&#x27;, &#x27;Supersession&#x27;, &#x27;Retrieval&#x27;], path: [&#x27;repo root&#x27;, &#x27;notes&#x27;, &#x27;authority&#x27;, &#x27;lifecycle&#x27;] }, impl: { code: 1.08, token: &#x27;870K&#x27;, time: &#x27;83m&#x27;, calls: 71, path: [&#x27;notes&#x27;, &#x27;index&#x27;, &#x27;retrieval&#x27;, &#x27;tests&#x27;, &#x27;notes · repeated&#x27;], cards: 9, ku: 3, knowledge: &#x27;EC-304 supersession · KU-92 note authority&#x27; } },
+            { id: &#x27;S09&#x27;, title: &#x27;Tool Protocol&#x27;, alert: false, spec: { doc: 1.5, token: &#x27;42K&#x27;, time: &#x27;9m&#x27;, calls: 12, units: [&#x27;Invocation&#x27;, &#x27;Result envelope&#x27;, &#x27;Failure state&#x27;], path: [&#x27;protocol&#x27;, &#x27;tool schema&#x27;, &#x27;failure model&#x27;] }, impl: { code: 0.78, token: &#x27;620K&#x27;, time: &#x27;52m&#x27;, calls: 54, path: [&#x27;runtime&#x27;, &#x27;tools&#x27;, &#x27;envelope&#x27;, &#x27;tests&#x27;], cards: 6, ku: 2, knowledge: &#x27;EC-311 envelope decoding · KU-96 tool contract&#x27; } },
+            { id: &#x27;S14&#x27;, title: &#x27;Agent Replay&#x27;, alert: false, spec: { doc: 1.2, token: &#x27;34K&#x27;, time: &#x27;8m&#x27;, calls: 10, units: [&#x27;Ledger read&#x27;, &#x27;State rebuild&#x27;, &#x27;Replay check&#x27;], path: [&#x27;ledger&#x27;, &#x27;state model&#x27;, &#x27;replay plan&#x27;] }, impl: { code: 0.69, token: &#x27;560K&#x27;, time: &#x27;44m&#x27;, calls: 47, path: [&#x27;ledger&#x27;, &#x27;replay&#x27;, &#x27;state&#x27;, &#x27;verification&#x27;], cards: 5, ku: 1, knowledge: &#x27;EC-318 replay checkpoint · KU-101 ledger source&#x27; } }
+          ]
+        }
+      ];
+
+      const state = { repository: null, spec: null };
+      const repoRows = root.querySelector(&#x27;[data-repository-rows]&#x27;);
+      const specButtons = root.querySelector(&#x27;[data-spec-buttons]&#x27;);
+
+      function screen(name) {
+        root.querySelectorAll(&#x27;[data-screen]&#x27;).forEach((element) =&gt; { element.hidden = element.dataset.screen !== name; });
+      }
+
+      function warningText(value, threshold) {
+        return `${value.toFixed(value &lt; 1 ? 2 : 1)}K${value &gt; threshold ? &#x27; ⚠&#x27; : &#x27;&#x27;}`;
+      }
+
+      function renderRepositories() {
+        repoRows.replaceChildren(...repositories.map((repo) =&gt; {
+          const button = document.createElement(&#x27;button&#x27;);
+          button.className = &#x27;srb-repo-row&#x27;;
+          button.type = &#x27;button&#x27;;
+          button.dataset.openRepository = repo.id;
+          button.innerHTML = `
+            &lt;span class=&quot;srb-repo-name&quot;&gt;&lt;strong&gt;${repo.id}&lt;/strong&gt;&lt;small&gt;${repo.branch} · tar synced&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-cell&quot;&gt;&lt;strong&gt;${repo.specsCount}&lt;/strong&gt;&lt;small&gt;${repo.alerts} 粒度预警&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-cell&quot; data-stage=&quot;spec&quot;&gt;&lt;strong&gt;${repo.specSummary.token}&lt;/strong&gt;&lt;small&gt;median ${repo.specSummary.time}&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-cell&quot; data-stage=&quot;impl&quot;&gt;&lt;strong&gt;${repo.implSummary.token}&lt;/strong&gt;&lt;small&gt;median ${repo.implSummary.time}&lt;/small&gt;&lt;small class=&quot;srb-mini-knowledge&quot;&gt;${repo.implSummary.cards} Cards · ${repo.implSummary.ku} KU&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;srb-chevron&quot;&gt;→&lt;/span&gt;`;
+          return button;
+        }));
+      }
+
+      function openRepository(id) {
+        const repo = repositories.find((item) =&gt; item.id === id);
+        if (!repo) return;
+        state.repository = repo;
+        state.spec = repo.specs[0];
+        root.querySelector(&#x27;[data-repo-title]&#x27;).textContent = repo.id;
+        root.querySelector(&#x27;[data-repo-meta]&#x27;).textContent = `${repo.branch} · 最近 30 天 · ${repo.specsCount} Specs`;
+        root.querySelector(&#x27;[data-repo-spec-token]&#x27;).textContent = repo.specSummary.token;
+        root.querySelector(&#x27;[data-repo-spec-time]&#x27;).textContent = repo.specSummary.time;
+        root.querySelector(&#x27;[data-repo-spec-explore]&#x27;).textContent = repo.specSummary.explore;
+        root.querySelector(&#x27;[data-repo-alerts]&#x27;).textContent = String(repo.alerts);
+        root.querySelector(&#x27;[data-repo-impl-token]&#x27;).textContent = repo.implSummary.token;
+        root.querySelector(&#x27;[data-repo-impl-time]&#x27;).textContent = repo.implSummary.time;
+        root.querySelector(&#x27;[data-repo-impl-explore]&#x27;).textContent = repo.implSummary.explore;
+        root.querySelector(&#x27;[data-repo-cards]&#x27;).textContent = String(repo.implSummary.cards);
+        root.querySelector(&#x27;[data-repo-ku]&#x27;).textContent = String(repo.implSummary.ku);
+        renderSpecButtons();
+        updateSpec();
+        screen(&#x27;repository-detail&#x27;);
+      }
+
+      function renderSpecButtons() {
+        specButtons.replaceChildren(...state.repository.specs.map((spec) =&gt; {
+          const button = document.createElement(&#x27;button&#x27;);
+          button.className = &#x27;srb-spec-item&#x27;;
+          button.type = &#x27;button&#x27;;
+          button.dataset.selectSpec = spec.id;
+          button.setAttribute(&#x27;aria-pressed&#x27;, String(spec.id === state.spec.id));
+          button.innerHTML = `&lt;span class=&quot;srb-spec-item-top&quot;&gt;&lt;code&gt;${spec.id}&lt;/code&gt;&lt;span class=&quot;srb-status&quot; data-tone=&quot;${spec.alert ? &#x27;alert&#x27; : &#x27;ok&#x27;}&quot;&gt;${spec.alert ? &#x27;粒度预警&#x27; : &#x27;正常&#x27;}&lt;/span&gt;&lt;/span&gt;&lt;strong&gt;${spec.title}&lt;/strong&gt;&lt;small&gt;Spec ${spec.spec.doc.toFixed(1)}K · Implement ${spec.impl.code.toFixed(2)}K&lt;/small&gt;`;
+          return button;
+        }));
+      }
+
+      function setText(selector, value) {
+        root.querySelector(selector).textContent = String(value);
+      }
+
+      function listItems(target, values, className) {
+        const container = root.querySelector(target);
+        container.replaceChildren(...values.map((value, index) =&gt; {
+          const item = document.createElement(&#x27;li&#x27;);
+          if (className) item.className = className;
+          item.textContent = value;
+          item.dataset.index = String(index);
+          return item;
+        }));
+      }
+
+      function renderUnits(values) {
+        const container = root.querySelector(&#x27;[data-spec-units]&#x27;);
+        container.replaceChildren(...values.map((value, index) =&gt; {
+          const item = document.createElement(&#x27;div&#x27;);
+          item.className = &#x27;srb-unit&#x27;;
+          item.innerHTML = `&lt;span&gt;0${index + 1}&lt;/span&gt;&lt;span&gt;${value}&lt;/span&gt;`;
+          return item;
+        }));
+      }
+
+      function updateSpec() {
+        const spec = state.spec;
+        if (!spec) return;
+        root.querySelectorAll(&#x27;[data-select-spec]&#x27;).forEach((button) =&gt; { button.setAttribute(&#x27;aria-pressed&#x27;, String(button.dataset.selectSpec === spec.id)); });
+        setText(&#x27;[data-spec-id]&#x27;, spec.id);
+        setText(&#x27;[data-spec-title]&#x27;, spec.title);
+        const status = root.querySelector(&#x27;[data-spec-status]&#x27;);
+        status.textContent = spec.alert ? &#x27;粒度预警&#x27; : &#x27;粒度正常&#x27;;
+        status.dataset.tone = spec.alert ? &#x27;alert&#x27; : &#x27;ok&#x27;;
+        setText(&#x27;[data-spec-doc]&#x27;, warningText(spec.spec.doc, 2));
+        setText(&#x27;[data-spec-token]&#x27;, spec.spec.token);
+        setText(&#x27;[data-spec-time]&#x27;, spec.spec.time);
+        setText(&#x27;[data-spec-path-count]&#x27;, spec.spec.calls);
+        setText(&#x27;[data-impl-code]&#x27;, warningText(spec.impl.code, 1));
+        setText(&#x27;[data-impl-token]&#x27;, spec.impl.token);
+        setText(&#x27;[data-impl-time]&#x27;, spec.impl.time);
+        setText(&#x27;[data-impl-path-count]&#x27;, spec.impl.calls);
+        setText(&#x27;[data-impl-cards]&#x27;, spec.impl.cards);
+        setText(&#x27;[data-impl-ku]&#x27;, spec.impl.ku);
+        setText(&#x27;[data-impl-knowledge]&#x27;, spec.impl.knowledge);
+        renderUnits(spec.spec.units);
+        listItems(&#x27;[data-spec-path]&#x27;, spec.spec.path);
+        listItems(&#x27;[data-impl-path]&#x27;, spec.impl.path);
+      }
+
+      root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
+        const repositoryButton = event.target.closest(&#x27;[data-open-repository]&#x27;);
+        if (repositoryButton &amp;&amp; root.contains(repositoryButton)) {
+          openRepository(repositoryButton.dataset.openRepository);
+          return;
+        }
+        const specButton = event.target.closest(&#x27;[data-select-spec]&#x27;);
+        if (specButton &amp;&amp; root.contains(specButton) &amp;&amp; state.repository) {
+          const spec = state.repository.specs.find((item) =&gt; item.id === specButton.dataset.selectSpec);
+          if (spec) {
+            state.spec = spec;
+            updateSpec();
+          }
+          return;
+        }
+        const backButton = event.target.closest(&#x27;[data-back]&#x27;);
+        if (backButton &amp;&amp; root.contains(backButton)) screen(&#x27;repositories&#x27;);
+      });
+
+      renderRepositories();
+      screen(&#x27;repositories&#x27;);
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
