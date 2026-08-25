@@ -1306,7 +1306,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #sdd-repository-stage-board .srb-detail-grid {
       display: grid;
       gap: 22px;
-      grid-template-columns: minmax(190px, 0.38fr) minmax(0, 1fr);
+      grid-template-columns: 1fr;
     }
 
     #sdd-repository-stage-board .srb-spec-nav {
@@ -1318,6 +1318,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #sdd-repository-stage-board [data-spec-buttons] {
       display: grid;
       gap: 8px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     #sdd-repository-stage-board .srb-section-head {
@@ -1426,7 +1427,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
     #sdd-repository-stage-board .srb-phase-lanes {
       display: grid;
-      gap: 14px;
+      gap: 1px;
       grid-template-columns: 1fr 1fr;
     }
 
@@ -1580,6 +1581,37 @@ html&gt;body{padding:0}&lt;/style&gt;
       overflow-wrap: anywhere;
     }
 
+    #sdd-repository-stage-board .srb-knowledge-lists {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #sdd-repository-stage-board .srb-output-group {
+      display: grid;
+      gap: 5px;
+      min-width: 0;
+    }
+
+    #sdd-repository-stage-board .srb-output-label {
+      color: var(--srb-muted);
+      font-size: 11px;
+    }
+
+    #sdd-repository-stage-board .srb-output-items {
+      display: grid;
+      gap: 4px;
+      list-style: none;
+      padding: 0;
+    }
+
+    #sdd-repository-stage-board .srb-output-items li {
+      color: var(--srb-knowledge);
+      font-family: &quot;IBM Plex Mono&quot;, monospace;
+      font-size: 10px;
+      overflow-wrap: anywhere;
+    }
+
     #sdd-repository-stage-board .srb-footnote {
       border-top: 1px solid var(--srb-line);
       color: var(--srb-muted);
@@ -1601,9 +1633,6 @@ html&gt;body{padding:0}&lt;/style&gt;
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      #sdd-repository-stage-board .srb-phase-lanes {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 640px) {
@@ -1639,6 +1668,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
       #sdd-repository-stage-board .srb-stage-summary,
       #sdd-repository-stage-board .srb-phase-lanes {
+        gap: 14px;
         grid-template-columns: 1fr;
       }
 
@@ -1648,6 +1678,10 @@ html&gt;body{padding:0}&lt;/style&gt;
 
       #sdd-repository-stage-board [data-spec-buttons] {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #sdd-repository-stage-board .srb-knowledge-lists {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1699,29 +1733,29 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;section class=&quot;srb-app&quot; aria-label=&quot;SDD 代码仓看板 demo&quot;&gt;
     &lt;header class=&quot;srb-topbar&quot;&gt;
       &lt;div class=&quot;srb-brand&quot;&gt;
-        &lt;span class=&quot;srb-wordmark&quot;&gt;SDD Observatory&lt;/span&gt;
-        &lt;strong&gt;Repository operations&lt;/strong&gt;
+        &lt;span class=&quot;srb-wordmark&quot;&gt;SDD 运行观察&lt;/span&gt;
+        &lt;strong&gt;代码仓运行看板&lt;/strong&gt;
       &lt;/div&gt;
-      &lt;span class=&quot;srb-demo&quot;&gt;Demo data&lt;/span&gt;
+      &lt;span class=&quot;srb-demo&quot;&gt;演示数据&lt;/span&gt;
     &lt;/header&gt;
 
     &lt;main&gt;
       &lt;section class=&quot;srb-screen&quot; data-screen=&quot;repositories&quot; aria-label=&quot;代码仓入口&quot;&gt;
         &lt;header class=&quot;srb-page-head&quot;&gt;
           &lt;div&gt;
-            &lt;span class=&quot;srb-eyebrow&quot;&gt;Level 01&lt;/span&gt;
+            &lt;span class=&quot;srb-eyebrow&quot;&gt;层级 01&lt;/span&gt;
             &lt;h1&gt;代码仓&lt;/h1&gt;
-            &lt;p&gt;先选择代码仓，再查看 Spec 与 Implement 的细则。&lt;/p&gt;
+            &lt;p&gt;先选择代码仓，再查看新建 Spec 与 Implement 实现细则。&lt;/p&gt;
           &lt;/div&gt;
-          &lt;div class=&quot;srb-meta&quot;&gt;3 repositories&lt;br&gt;last ingest · 2026-08-20 23:40&lt;/div&gt;
+          &lt;div class=&quot;srb-meta&quot;&gt;3 个代码仓&lt;br&gt;最近导入 · 2026-08-20 23:40&lt;/div&gt;
         &lt;/header&gt;
 
         &lt;section class=&quot;srb-repo-list&quot; aria-label=&quot;已接入代码仓&quot;&gt;
           &lt;div class=&quot;srb-repo-columns&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;span class=&quot;srb-repo-column-label&quot;&gt;Repository&lt;/span&gt;
-            &lt;span class=&quot;srb-repo-column-label&quot;&gt;Specs&lt;/span&gt;
-            &lt;span class=&quot;srb-repo-column-label&quot; data-stage=&quot;spec&quot;&gt;New Spec&lt;/span&gt;
-            &lt;span class=&quot;srb-repo-column-label&quot; data-stage=&quot;impl&quot;&gt;Implement&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot;&gt;代码仓&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot;&gt;Spec 数&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot; data-stage=&quot;spec&quot;&gt;新建 Spec&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-column-label&quot; data-stage=&quot;impl&quot;&gt;Implement 实现&lt;/span&gt;
             &lt;span&gt;&lt;/span&gt;
           &lt;/div&gt;
           &lt;div data-repository-rows&gt;&lt;/div&gt;
@@ -1729,8 +1763,8 @@ html&gt;body{padding:0}&lt;/style&gt;
 
         &lt;footer class=&quot;srb-boundary&quot;&gt;
           &lt;span&gt;入口层级：代码仓&lt;/span&gt;
-          &lt;span&gt;上报方式：tar bundle → server unpack&lt;/span&gt;
-          &lt;span&gt;New Spec 与 Implement 不合并统计&lt;/span&gt;
+          &lt;span&gt;上报方式：tar 包 → 服务端解包&lt;/span&gt;
+          &lt;span&gt;新建 Spec 与 Implement 分开统计&lt;/span&gt;
         &lt;/footer&gt;
       &lt;/section&gt;
 
@@ -1739,89 +1773,92 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;button class=&quot;srb-back&quot; type=&quot;button&quot; data-back&gt;← 返回代码仓&lt;/button&gt;
           &lt;div class=&quot;srb-repo-title&quot;&gt;
             &lt;div&gt;
-              &lt;span class=&quot;srb-eyebrow&quot;&gt;Level 02 · Repository detail&lt;/span&gt;
+              &lt;span class=&quot;srb-eyebrow&quot;&gt;层级 02 · 代码仓细则&lt;/span&gt;
               &lt;h1 data-repo-title&gt;prime-agent&lt;/h1&gt;
-              &lt;p data-repo-meta&gt;main · 最近 30 天 · 32 Specs&lt;/p&gt;
+              &lt;p data-repo-meta&gt;main · 最近 30 天 · 32 个 Spec&lt;/p&gt;
             &lt;/div&gt;
-            &lt;div class=&quot;srb-meta&quot;&gt;stage metrics are isolated&lt;br&gt;all values are demo data&lt;/div&gt;
+            &lt;div class=&quot;srb-meta&quot;&gt;阶段指标已分开&lt;br&gt;全部为演示数据&lt;/div&gt;
           &lt;/div&gt;
         &lt;/header&gt;
 
         &lt;section class=&quot;srb-stage-summary&quot; aria-label=&quot;仓库阶段摘要&quot;&gt;
           &lt;article class=&quot;srb-stage-summary-block&quot; data-stage=&quot;spec&quot;&gt;
-            &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;01&lt;/span&gt;&lt;h2&gt;New Spec&lt;/h2&gt;&lt;span&gt;规格粒度阶段&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;01&lt;/span&gt;&lt;h2&gt;新建 Spec&lt;/h2&gt;&lt;span&gt;规格粒度阶段&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;srb-stage-stats&quot;&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-repo-spec-token&gt;1.6M&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Median time&lt;/span&gt;&lt;strong data-repo-spec-time&gt;9m&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Avg exploration&lt;/span&gt;&lt;strong data-repo-spec-explore&gt;12&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Granularity alerts&lt;/span&gt;&lt;strong data-repo-alerts&gt;5&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token 消耗&lt;/span&gt;&lt;strong data-repo-spec-token&gt;1.6M&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;中位耗时&lt;/span&gt;&lt;strong data-repo-spec-time&gt;9m&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;平均探索次数&lt;/span&gt;&lt;strong data-repo-spec-explore&gt;12&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;粒度预警&lt;/span&gt;&lt;strong data-repo-alerts&gt;5&lt;/strong&gt;&lt;/div&gt;
             &lt;/div&gt;
           &lt;/article&gt;
           &lt;article class=&quot;srb-stage-summary-block&quot; data-stage=&quot;impl&quot;&gt;
-            &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Implement&lt;/h2&gt;&lt;span&gt;实现与知识沉淀阶段&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;02&lt;/span&gt;&lt;h2&gt;Implement 实现&lt;/h2&gt;&lt;span&gt;实现与知识沉淀阶段&lt;/span&gt;&lt;/div&gt;
             &lt;div class=&quot;srb-stage-stats&quot;&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-repo-impl-token&gt;16.7M&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Median time&lt;/span&gt;&lt;strong data-repo-impl-time&gt;33m&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Avg exploration&lt;/span&gt;&lt;strong data-repo-impl-explore&gt;46&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot; data-kind=&quot;knowledge&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Cards&lt;/span&gt;&lt;strong data-repo-cards&gt;86&lt;/strong&gt;&lt;/div&gt;
-              &lt;div class=&quot;srb-stage-stat&quot; data-kind=&quot;knowledge&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;KU&lt;/span&gt;&lt;strong data-repo-ku&gt;21&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token 消耗&lt;/span&gt;&lt;strong data-repo-impl-token&gt;16.7M&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;中位耗时&lt;/span&gt;&lt;strong data-repo-impl-time&gt;33m&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;平均探索次数&lt;/span&gt;&lt;strong data-repo-impl-explore&gt;46&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot; data-kind=&quot;knowledge&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;经验卡片&lt;/span&gt;&lt;strong data-repo-cards&gt;86&lt;/strong&gt;&lt;/div&gt;
+              &lt;div class=&quot;srb-stage-stat&quot; data-kind=&quot;knowledge&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;知识单元&lt;/span&gt;&lt;strong data-repo-ku&gt;21&lt;/strong&gt;&lt;/div&gt;
             &lt;/div&gt;
           &lt;/article&gt;
         &lt;/section&gt;
 
         &lt;div class=&quot;srb-detail-grid&quot;&gt;
           &lt;nav class=&quot;srb-spec-nav&quot; aria-label=&quot;选择 Spec&quot;&gt;
-            &lt;header class=&quot;srb-section-head&quot;&gt;&lt;span class=&quot;srb-eyebrow&quot;&gt;Specs&lt;/span&gt;&lt;h2&gt;规格列表&lt;/h2&gt;&lt;/header&gt;
+            &lt;header class=&quot;srb-section-head&quot;&gt;&lt;span class=&quot;srb-eyebrow&quot;&gt;Spec 列表&lt;/span&gt;&lt;h2&gt;规格列表&lt;/h2&gt;&lt;/header&gt;
             &lt;div data-spec-buttons&gt;&lt;/div&gt;
           &lt;/nav&gt;
 
-          &lt;section class=&quot;srb-spec-detail&quot; aria-label=&quot;Spec 两阶段明细&quot;&gt;
+            &lt;section class=&quot;srb-spec-detail&quot; aria-label=&quot;Spec 两阶段明细&quot; aria-live=&quot;polite&quot;&gt;
             &lt;header class=&quot;srb-spec-head&quot;&gt;
               &lt;div&gt;&lt;code data-spec-id&gt;S02&lt;/code&gt;&lt;h2 data-spec-title&gt;Authentication Refactor&lt;/h2&gt;&lt;/div&gt;
-              &lt;div&gt;&lt;span class=&quot;srb-status&quot; data-spec-status data-tone=&quot;alert&quot;&gt;粒度预警&lt;/span&gt;&lt;div class=&quot;srb-threshold&quot;&gt;Spec doc &amp;gt; 2K · Generated code &amp;gt; 1K&lt;/div&gt;&lt;/div&gt;
+              &lt;div&gt;&lt;span class=&quot;srb-status&quot; data-spec-status data-tone=&quot;alert&quot;&gt;粒度预警&lt;/span&gt;&lt;div class=&quot;srb-threshold&quot;&gt;规格文档 &amp;gt; 2K · 生成代码 &amp;gt; 1K&lt;/div&gt;&lt;/div&gt;
             &lt;/header&gt;
 
             &lt;div class=&quot;srb-phase-lanes&quot;&gt;
               &lt;article class=&quot;srb-phase&quot; data-stage=&quot;spec&quot;&gt;
-                &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;01&lt;/span&gt;&lt;h3&gt;New Spec&lt;/h3&gt;&lt;span&gt;只看规格粒度&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;01&lt;/span&gt;&lt;h3&gt;新建 Spec&lt;/h3&gt;&lt;span&gt;只看规格粒度&lt;/span&gt;&lt;/div&gt;
                 &lt;div class=&quot;srb-phase-metrics&quot;&gt;
-                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Spec document&lt;/span&gt;&lt;strong data-spec-doc&gt;2.6K ⚠&lt;/strong&gt;&lt;/div&gt;
-                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-spec-token&gt;61K&lt;/strong&gt;&lt;/div&gt;
-                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Overall time&lt;/span&gt;&lt;strong data-spec-time&gt;11m&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;规格文档&lt;/span&gt;&lt;strong data-spec-doc&gt;2.6K ⚠&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token 消耗&lt;/span&gt;&lt;strong data-spec-token&gt;61K&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;阶段耗时&lt;/span&gt;&lt;strong data-spec-time&gt;11m&lt;/strong&gt;&lt;/div&gt;
                 &lt;/div&gt;
                 &lt;section class=&quot;srb-granularity&quot;&gt;
                   &lt;span class=&quot;srb-path-caption&quot;&gt;规格拆解单元&lt;/span&gt;
                   &lt;div class=&quot;srb-granularity-grid&quot; data-spec-units&gt;&lt;/div&gt;
                 &lt;/section&gt;
                 &lt;section class=&quot;srb-path&quot;&gt;
-                  &lt;span class=&quot;srb-path-caption&quot;&gt;探索路径 · &lt;b data-spec-path-count&gt;12&lt;/b&gt; calls&lt;/span&gt;
+                  &lt;span class=&quot;srb-path-caption&quot;&gt;探索路径 · &lt;b data-spec-path-count&gt;12&lt;/b&gt; 次调用&lt;/span&gt;
                   &lt;ol data-spec-path&gt;&lt;/ol&gt;
                 &lt;/section&gt;
                 &lt;div class=&quot;srb-no-output&quot;&gt;&lt;strong&gt;知识沉淀不属于该阶段&lt;/strong&gt;&lt;span class=&quot;srb-empty-knowledge&quot;&gt;仅评价规格粒度与生成过程。&lt;/span&gt;&lt;/div&gt;
               &lt;/article&gt;
 
               &lt;article class=&quot;srb-phase&quot; data-stage=&quot;impl&quot;&gt;
-                &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;02&lt;/span&gt;&lt;h3&gt;Implement&lt;/h3&gt;&lt;span&gt;实现与知识沉淀&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&quot;srb-stage-title&quot;&gt;&lt;span class=&quot;srb-stage-number&quot;&gt;02&lt;/span&gt;&lt;h3&gt;Implement 实现&lt;/h3&gt;&lt;span&gt;实现与知识沉淀&lt;/span&gt;&lt;/div&gt;
                 &lt;div class=&quot;srb-phase-metrics&quot;&gt;
-                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Generated code&lt;/span&gt;&lt;strong data-impl-code&gt;1.3K ⚠&lt;/strong&gt;&lt;/div&gt;
-                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token&lt;/span&gt;&lt;strong data-impl-token&gt;1.10M&lt;/strong&gt;&lt;/div&gt;
-                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Overall time&lt;/span&gt;&lt;strong data-impl-time&gt;116m&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;生成代码&lt;/span&gt;&lt;strong data-impl-code&gt;1.3K ⚠&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;Token 消耗&lt;/span&gt;&lt;strong data-impl-token&gt;1.10M&lt;/strong&gt;&lt;/div&gt;
+                  &lt;div class=&quot;srb-phase-metric&quot;&gt;&lt;span class=&quot;srb-stat-label&quot;&gt;阶段耗时&lt;/span&gt;&lt;strong data-impl-time&gt;116m&lt;/strong&gt;&lt;/div&gt;
                 &lt;/div&gt;
                 &lt;section class=&quot;srb-path&quot;&gt;
-                  &lt;span class=&quot;srb-path-caption&quot;&gt;探索路径 · &lt;b data-impl-path-count&gt;87&lt;/b&gt; calls&lt;/span&gt;
+                  &lt;span class=&quot;srb-path-caption&quot;&gt;探索路径 · &lt;b data-impl-path-count&gt;87&lt;/b&gt; 次调用&lt;/span&gt;
                   &lt;ol data-impl-path&gt;&lt;/ol&gt;
                 &lt;/section&gt;
                 &lt;section class=&quot;srb-knowledge-output&quot;&gt;
                   &lt;div class=&quot;srb-knowledge-counts&quot;&gt;
-                    &lt;span&gt;Experience Cards&lt;strong data-impl-cards&gt;8&lt;/strong&gt;&lt;/span&gt;
-                    &lt;span&gt;Knowledge Units&lt;strong data-impl-ku&gt;3&lt;/strong&gt;&lt;/span&gt;
+                    &lt;span&gt;经验卡片&lt;strong data-impl-cards&gt;8&lt;/strong&gt;&lt;/span&gt;
+                    &lt;span&gt;知识单元&lt;strong data-impl-ku&gt;3&lt;/strong&gt;&lt;/span&gt;
                   &lt;/div&gt;
-                  &lt;div class=&quot;srb-output-list&quot; data-impl-knowledge&gt;EC-103 plugin reload pitfall · KU-31 auth boundary&lt;/div&gt;
+                  &lt;div class=&quot;srb-knowledge-lists&quot;&gt;
+                    &lt;div class=&quot;srb-output-group&quot;&gt;&lt;span class=&quot;srb-output-label&quot;&gt;经验卡片条目&lt;/span&gt;&lt;ul class=&quot;srb-output-items&quot; data-impl-card-list&gt;&lt;/ul&gt;&lt;/div&gt;
+                    &lt;div class=&quot;srb-output-group&quot;&gt;&lt;span class=&quot;srb-output-label&quot;&gt;知识单元条目&lt;/span&gt;&lt;ul class=&quot;srb-output-items&quot; data-impl-ku-list&gt;&lt;/ul&gt;&lt;/div&gt;
+                  &lt;/div&gt;
                 &lt;/section&gt;
               &lt;/article&gt;
             &lt;/div&gt;
 
-            &lt;footer class=&quot;srb-footnote&quot;&gt;&lt;span&gt;NEW SPEC：规格粒度 / Token / 路径 / 耗时&lt;/span&gt;&lt;span&gt;IMPLEMENT：代码 / Token / 路径 / 耗时 / Cards / KU&lt;/span&gt;&lt;/footer&gt;
+            &lt;footer class=&quot;srb-footnote&quot;&gt;&lt;span&gt;新建 Spec：规格粒度 / Token / 路径 / 耗时&lt;/span&gt;&lt;span&gt;Implement：代码 / Token / 路径 / 耗时 / 经验卡片 / 知识单元&lt;/span&gt;&lt;/footer&gt;
           &lt;/section&gt;
         &lt;/div&gt;
       &lt;/section&gt;
@@ -1839,10 +1876,10 @@ html&gt;body{padding:0}&lt;/style&gt;
           specSummary: { token: &#x27;1.6M&#x27;, time: &#x27;9m&#x27;, explore: &#x27;12&#x27; },
           implSummary: { token: &#x27;16.7M&#x27;, time: &#x27;33m&#x27;, explore: &#x27;46&#x27;, cards: 86, ku: 21 },
           specs: [
-            { id: &#x27;S02&#x27;, title: &#x27;Authentication Refactor&#x27;, alert: true, spec: { doc: 2.6, token: &#x27;61K&#x27;, time: &#x27;11m&#x27;, calls: 12, units: [&#x27;Access model&#x27;, &#x27;Session migration&#x27;, &#x27;Compatibility tests&#x27;], path: [&#x27;repo root&#x27;, &#x27;matspec&#x27;, &#x27;auth design&#x27;, &#x27;decision notes&#x27;] }, impl: { code: 1.3, token: &#x27;1.10M&#x27;, time: &#x27;116m&#x27;, calls: 87, path: [&#x27;repo root&#x27;, &#x27;src/auth&#x27;, &#x27;src/session&#x27;, &#x27;tests/auth&#x27;, &#x27;src/auth · repeated&#x27;], cards: 8, ku: 3, knowledge: &#x27;EC-103 plugin reload pitfall · KU-31 auth boundary&#x27; } },
-            { id: &#x27;S04&#x27;, title: &#x27;CLI Migration&#x27;, alert: false, spec: { doc: 1.1, token: &#x27;27K&#x27;, time: &#x27;7m&#x27;, calls: 9, units: [&#x27;Command surface&#x27;, &#x27;Keybinding map&#x27;, &#x27;Focused tests&#x27;], path: [&#x27;repo root&#x27;, &#x27;matspec&#x27;, &#x27;cli contract&#x27;] }, impl: { code: 0.46, token: &#x27;720K&#x27;, time: &#x27;91m&#x27;, calls: 73, path: [&#x27;repo root&#x27;, &#x27;src/cli&#x27;, &#x27;src/utils&#x27;, &#x27;tests&#x27;, &#x27;src/cli · repeated&#x27;], cards: 0, ku: 0, knowledge: &#x27;本次 Implement 未形成知识沉淀&#x27; } },
-            { id: &#x27;S12&#x27;, title: &#x27;Provider Registry&#x27;, alert: true, spec: { doc: 2.4, token: &#x27;53K&#x27;, time: &#x27;13m&#x27;, calls: 18, units: [&#x27;Provider map&#x27;, &#x27;Lazy registration&#x27;, &#x27;Credential detection&#x27;], path: [&#x27;repo root&#x27;, &#x27;packages/ai&#x27;, &#x27;providers&#x27;, &#x27;contracts&#x27;] }, impl: { code: 0.82, token: &#x27;430K&#x27;, time: &#x27;50m&#x27;, calls: 51, path: [&#x27;packages/ai&#x27;, &#x27;providers&#x27;, &#x27;registry&#x27;, &#x27;provider tests&#x27;], cards: 5, ku: 2, knowledge: &#x27;EC-109 lazy registration · KU-37 provider contract&#x27; } },
-            { id: &#x27;S21&#x27;, title: &#x27;Session Export&#x27;, alert: false, spec: { doc: 0.9, token: &#x27;29K&#x27;, time: &#x27;8m&#x27;, calls: 8, units: [&#x27;HTML export&#x27;, &#x27;Asset bundling&#x27;, &#x27;Smoke check&#x27;], path: [&#x27;repo root&#x27;, &#x27;export contract&#x27;, &#x27;asset plan&#x27;] }, impl: { code: 0.71, token: &#x27;380K&#x27;, time: &#x27;39m&#x27;, calls: 36, path: [&#x27;export-html&#x27;, &#x27;assets&#x27;, &#x27;template&#x27;, &#x27;smoke&#x27;], cards: 4, ku: 1, knowledge: &#x27;EC-121 export assets · KU-44 export contract&#x27; } }
+            { id: &#x27;S02&#x27;, title: &#x27;身份认证重构&#x27;, alert: true, spec: { doc: 2.6, token: &#x27;61K&#x27;, time: &#x27;11m&#x27;, calls: 12, units: [&#x27;访问模型&#x27;, &#x27;会话迁移&#x27;, &#x27;兼容性测试&#x27;], path: [&#x27;仓库根目录&#x27;, &#x27;matspec&#x27;, &#x27;认证设计&#x27;, &#x27;决策记录&#x27;] }, impl: { code: 1.3, token: &#x27;1.10M&#x27;, time: &#x27;116m&#x27;, calls: 87, path: [&#x27;仓库根目录&#x27;, &#x27;src/auth&#x27;, &#x27;src/session&#x27;, &#x27;tests/auth&#x27;, &#x27;src/auth · 重复探索&#x27;], cards: 8, ku: 3, cardsList: [&#x27;EC-103 插件重载陷阱&#x27;, &#x27;EC-104 会话迁移边界&#x27;, &#x27;EC-108 兼容性验证&#x27;], knowledgeUnits: [&#x27;KU-31 身份认证边界&#x27;, &#x27;KU-32 会话迁移约束&#x27;, &#x27;KU-33 兼容性验证规则&#x27;] } },
+            { id: &#x27;S04&#x27;, title: &#x27;命令行迁移&#x27;, alert: false, spec: { doc: 1.1, token: &#x27;27K&#x27;, time: &#x27;7m&#x27;, calls: 9, units: [&#x27;命令面&#x27;, &#x27;快捷键映射&#x27;, &#x27;聚焦测试&#x27;], path: [&#x27;仓库根目录&#x27;, &#x27;matspec&#x27;, &#x27;命令行契约&#x27;] }, impl: { code: 0.46, token: &#x27;720K&#x27;, time: &#x27;91m&#x27;, calls: 73, path: [&#x27;仓库根目录&#x27;, &#x27;src/cli&#x27;, &#x27;src/utils&#x27;, &#x27;tests&#x27;, &#x27;src/cli · 重复探索&#x27;], cards: 0, ku: 0, cardsList: [], knowledgeUnits: [] } },
+            { id: &#x27;S12&#x27;, title: &#x27;Provider 注册表&#x27;, alert: true, spec: { doc: 2.4, token: &#x27;53K&#x27;, time: &#x27;13m&#x27;, calls: 18, units: [&#x27;Provider 映射&#x27;, &#x27;延迟注册&#x27;, &#x27;凭证识别&#x27;], path: [&#x27;仓库根目录&#x27;, &#x27;packages/ai&#x27;, &#x27;providers&#x27;, &#x27;契约&#x27;] }, impl: { code: 0.82, token: &#x27;430K&#x27;, time: &#x27;50m&#x27;, calls: 51, path: [&#x27;packages/ai&#x27;, &#x27;providers&#x27;, &#x27;registry&#x27;, &#x27;provider tests&#x27;], cards: 5, ku: 2, cardsList: [&#x27;EC-109 延迟注册&#x27;, &#x27;EC-110 Provider 凭证识别&#x27;], knowledgeUnits: [&#x27;KU-37 Provider 注册约束&#x27;, &#x27;KU-39 凭证检测边界&#x27;] } },
+            { id: &#x27;S21&#x27;, title: &#x27;会话导出&#x27;, alert: false, spec: { doc: 0.9, token: &#x27;29K&#x27;, time: &#x27;8m&#x27;, calls: 8, units: [&#x27;HTML 导出&#x27;, &#x27;资源打包&#x27;, &#x27;冒烟检查&#x27;], path: [&#x27;仓库根目录&#x27;, &#x27;导出契约&#x27;, &#x27;资源方案&#x27;] }, impl: { code: 0.71, token: &#x27;380K&#x27;, time: &#x27;39m&#x27;, calls: 36, path: [&#x27;export-html&#x27;, &#x27;assets&#x27;, &#x27;template&#x27;, &#x27;smoke&#x27;], cards: 4, ku: 1, cardsList: [&#x27;EC-121 导出资源打包&#x27;], knowledgeUnits: [&#x27;KU-44 导出契约&#x27;] } }
           ]
         },
         {
@@ -1850,9 +1887,9 @@ html&gt;body{padding:0}&lt;/style&gt;
           specSummary: { token: &#x27;1.1M&#x27;, time: &#x27;12m&#x27;, explore: &#x27;16&#x27; },
           implSummary: { token: &#x27;12.4M&#x27;, time: &#x27;54m&#x27;, explore: &#x27;58&#x27;, cards: 62, ku: 17 },
           specs: [
-            { id: &#x27;S07&#x27;, title: &#x27;Controller Scheduling&#x27;, alert: true, spec: { doc: 2.3, token: &#x27;58K&#x27;, time: &#x27;14m&#x27;, calls: 17, units: [&#x27;Attempt queue&#x27;, &#x27;Resource isolation&#x27;, &#x27;Completion state&#x27;], path: [&#x27;repo root&#x27;, &#x27;controller&#x27;, &#x27;protocol&#x27;, &#x27;decision notes&#x27;] }, impl: { code: 1.12, token: &#x27;930K&#x27;, time: &#x27;102m&#x27;, calls: 82, path: [&#x27;controller&#x27;, &#x27;scheduler&#x27;, &#x27;attempts&#x27;, &#x27;tests&#x27;, &#x27;scheduler · repeated&#x27;], cards: 7, ku: 2, knowledge: &#x27;EC-207 attempt isolation · KU-71 scheduler boundary&#x27; } },
-            { id: &#x27;S11&#x27;, title: &#x27;Judge Recovery&#x27;, alert: false, spec: { doc: 1.4, token: &#x27;39K&#x27;, time: &#x27;10m&#x27;, calls: 13, units: [&#x27;Archive lookup&#x27;, &#x27;Judge-only rerun&#x27;, &#x27;Summary repair&#x27;], path: [&#x27;archive&#x27;, &#x27;judge contract&#x27;, &#x27;recovery plan&#x27;] }, impl: { code: 0.63, token: &#x27;510K&#x27;, time: &#x27;48m&#x27;, calls: 49, path: [&#x27;archive&#x27;, &#x27;judge&#x27;, &#x27;summary&#x27;, &#x27;verification&#x27;], cards: 6, ku: 2, knowledge: &#x27;EC-214 judge recovery · KU-75 archive authority&#x27; } },
-            { id: &#x27;S15&#x27;, title: &#x27;Bare Baseline&#x27;, alert: false, spec: { doc: 1.0, token: &#x27;31K&#x27;, time: &#x27;8m&#x27;, calls: 9, units: [&#x27;Candidate run&#x27;, &#x27;Freeze&#x27;, &#x27;Judge&#x27;], path: [&#x27;baseline&#x27;, &#x27;protocol&#x27;, &#x27;judge inputs&#x27;] }, impl: { code: 0.48, token: &#x27;420K&#x27;, time: &#x27;41m&#x27;, calls: 38, path: [&#x27;candidate&#x27;, &#x27;freeze&#x27;, &#x27;judge&#x27;, &#x27;summary&#x27;], cards: 3, ku: 1, knowledge: &#x27;EC-220 baseline boundary · KU-79 comparator lineage&#x27; } }
+            { id: &#x27;S07&#x27;, title: &#x27;Controller 调度&#x27;, alert: true, spec: { doc: 2.3, token: &#x27;58K&#x27;, time: &#x27;14m&#x27;, calls: 17, units: [&#x27;尝试队列&#x27;, &#x27;资源隔离&#x27;, &#x27;完成状态&#x27;], path: [&#x27;仓库根目录&#x27;, &#x27;controller&#x27;, &#x27;protocol&#x27;, &#x27;决策记录&#x27;] }, impl: { code: 1.12, token: &#x27;930K&#x27;, time: &#x27;102m&#x27;, calls: 82, path: [&#x27;controller&#x27;, &#x27;scheduler&#x27;, &#x27;attempts&#x27;, &#x27;tests&#x27;, &#x27;scheduler · 重复探索&#x27;], cards: 7, ku: 2, cardsList: [&#x27;EC-207 尝试隔离&#x27;, &#x27;EC-209 调度资源边界&#x27;], knowledgeUnits: [&#x27;KU-71 调度器边界&#x27;, &#x27;KU-72 尝试队列状态&#x27;] } },
+            { id: &#x27;S11&#x27;, title: &#x27;Judge 恢复&#x27;, alert: false, spec: { doc: 1.4, token: &#x27;39K&#x27;, time: &#x27;10m&#x27;, calls: 13, units: [&#x27;归档查找&#x27;, &#x27;仅 Judge 重跑&#x27;, &#x27;摘要修复&#x27;], path: [&#x27;archive&#x27;, &#x27;Judge 契约&#x27;, &#x27;恢复方案&#x27;] }, impl: { code: 0.63, token: &#x27;510K&#x27;, time: &#x27;48m&#x27;, calls: 49, path: [&#x27;archive&#x27;, &#x27;judge&#x27;, &#x27;summary&#x27;, &#x27;verification&#x27;], cards: 6, ku: 2, cardsList: [&#x27;EC-214 Judge 恢复路径&#x27;], knowledgeUnits: [&#x27;KU-75 归档权威边界&#x27;, &#x27;KU-76 仅 Judge 重跑&#x27;] } },
+            { id: &#x27;S15&#x27;, title: &#x27;Bare 基线&#x27;, alert: false, spec: { doc: 1.0, token: &#x27;31K&#x27;, time: &#x27;8m&#x27;, calls: 9, units: [&#x27;候选运行&#x27;, &#x27;冻结&#x27;, &#x27;Judge&#x27;], path: [&#x27;baseline&#x27;, &#x27;protocol&#x27;, &#x27;Judge 输入&#x27;] }, impl: { code: 0.48, token: &#x27;420K&#x27;, time: &#x27;41m&#x27;, calls: 38, path: [&#x27;candidate&#x27;, &#x27;freeze&#x27;, &#x27;judge&#x27;, &#x27;summary&#x27;], cards: 3, ku: 1, cardsList: [&#x27;EC-220 基线比较边界&#x27;], knowledgeUnits: [&#x27;KU-79 对照实验血缘&#x27;] } }
           ]
         },
         {
@@ -1860,9 +1897,9 @@ html&gt;body{padding:0}&lt;/style&gt;
           specSummary: { token: &#x27;1.3M&#x27;, time: &#x27;10m&#x27;, explore: &#x27;14&#x27; },
           implSummary: { token: &#x27;14.8M&#x27;, time: &#x27;46m&#x27;, explore: &#x27;52&#x27;, cards: 73, ku: 19 },
           specs: [
-            { id: &#x27;S03&#x27;, title: &#x27;Note Lifecycle&#x27;, alert: true, spec: { doc: 2.2, token: &#x27;55K&#x27;, time: &#x27;12m&#x27;, calls: 15, units: [&#x27;Capture&#x27;, &#x27;Supersession&#x27;, &#x27;Retrieval&#x27;], path: [&#x27;repo root&#x27;, &#x27;notes&#x27;, &#x27;authority&#x27;, &#x27;lifecycle&#x27;] }, impl: { code: 1.08, token: &#x27;870K&#x27;, time: &#x27;83m&#x27;, calls: 71, path: [&#x27;notes&#x27;, &#x27;index&#x27;, &#x27;retrieval&#x27;, &#x27;tests&#x27;, &#x27;notes · repeated&#x27;], cards: 9, ku: 3, knowledge: &#x27;EC-304 supersession · KU-92 note authority&#x27; } },
-            { id: &#x27;S09&#x27;, title: &#x27;Tool Protocol&#x27;, alert: false, spec: { doc: 1.5, token: &#x27;42K&#x27;, time: &#x27;9m&#x27;, calls: 12, units: [&#x27;Invocation&#x27;, &#x27;Result envelope&#x27;, &#x27;Failure state&#x27;], path: [&#x27;protocol&#x27;, &#x27;tool schema&#x27;, &#x27;failure model&#x27;] }, impl: { code: 0.78, token: &#x27;620K&#x27;, time: &#x27;52m&#x27;, calls: 54, path: [&#x27;runtime&#x27;, &#x27;tools&#x27;, &#x27;envelope&#x27;, &#x27;tests&#x27;], cards: 6, ku: 2, knowledge: &#x27;EC-311 envelope decoding · KU-96 tool contract&#x27; } },
-            { id: &#x27;S14&#x27;, title: &#x27;Agent Replay&#x27;, alert: false, spec: { doc: 1.2, token: &#x27;34K&#x27;, time: &#x27;8m&#x27;, calls: 10, units: [&#x27;Ledger read&#x27;, &#x27;State rebuild&#x27;, &#x27;Replay check&#x27;], path: [&#x27;ledger&#x27;, &#x27;state model&#x27;, &#x27;replay plan&#x27;] }, impl: { code: 0.69, token: &#x27;560K&#x27;, time: &#x27;44m&#x27;, calls: 47, path: [&#x27;ledger&#x27;, &#x27;replay&#x27;, &#x27;state&#x27;, &#x27;verification&#x27;], cards: 5, ku: 1, knowledge: &#x27;EC-318 replay checkpoint · KU-101 ledger source&#x27; } }
+            { id: &#x27;S03&#x27;, title: &#x27;笔记生命周期&#x27;, alert: true, spec: { doc: 2.2, token: &#x27;55K&#x27;, time: &#x27;12m&#x27;, calls: 15, units: [&#x27;采集&#x27;, &#x27;替代关系&#x27;, &#x27;检索&#x27;], path: [&#x27;仓库根目录&#x27;, &#x27;notes&#x27;, &#x27;权威来源&#x27;, &#x27;生命周期&#x27;] }, impl: { code: 1.08, token: &#x27;870K&#x27;, time: &#x27;83m&#x27;, calls: 71, path: [&#x27;notes&#x27;, &#x27;index&#x27;, &#x27;retrieval&#x27;, &#x27;tests&#x27;, &#x27;notes · 重复探索&#x27;], cards: 9, ku: 3, cardsList: [&#x27;EC-304 知识替代关系&#x27;, &#x27;EC-305 权威来源&#x27;], knowledgeUnits: [&#x27;KU-92 记录权威&#x27;, &#x27;KU-93 替代关系&#x27;, &#x27;KU-94 检索边界&#x27;] } },
+            { id: &#x27;S09&#x27;, title: &#x27;工具协议&#x27;, alert: false, spec: { doc: 1.5, token: &#x27;42K&#x27;, time: &#x27;9m&#x27;, calls: 12, units: [&#x27;调用&#x27;, &#x27;结果封装&#x27;, &#x27;失败状态&#x27;], path: [&#x27;protocol&#x27;, &#x27;工具结构&#x27;, &#x27;失败模型&#x27;] }, impl: { code: 0.78, token: &#x27;620K&#x27;, time: &#x27;52m&#x27;, calls: 54, path: [&#x27;runtime&#x27;, &#x27;tools&#x27;, &#x27;envelope&#x27;, &#x27;tests&#x27;], cards: 6, ku: 2, cardsList: [&#x27;EC-311 工具结果封装&#x27;], knowledgeUnits: [&#x27;KU-96 工具契约&#x27;, &#x27;KU-97 失败状态&#x27;] } },
+            { id: &#x27;S14&#x27;, title: &#x27;Agent 重放&#x27;, alert: false, spec: { doc: 1.2, token: &#x27;34K&#x27;, time: &#x27;8m&#x27;, calls: 10, units: [&#x27;台账读取&#x27;, &#x27;状态重建&#x27;, &#x27;重放检查&#x27;], path: [&#x27;ledger&#x27;, &#x27;状态模型&#x27;, &#x27;重放方案&#x27;] }, impl: { code: 0.69, token: &#x27;560K&#x27;, time: &#x27;44m&#x27;, calls: 47, path: [&#x27;ledger&#x27;, &#x27;replay&#x27;, &#x27;state&#x27;, &#x27;verification&#x27;], cards: 5, ku: 1, cardsList: [&#x27;EC-318 重放检查点&#x27;], knowledgeUnits: [&#x27;KU-101 台账来源&#x27;] } }
           ]
         }
       ];
@@ -1888,8 +1925,8 @@ html&gt;body{padding:0}&lt;/style&gt;
           button.innerHTML = `
             &lt;span class=&quot;srb-repo-name&quot;&gt;&lt;strong&gt;${repo.id}&lt;/strong&gt;&lt;small&gt;${repo.branch} · tar synced&lt;/small&gt;&lt;/span&gt;
             &lt;span class=&quot;srb-repo-cell&quot;&gt;&lt;strong&gt;${repo.specsCount}&lt;/strong&gt;&lt;small&gt;${repo.alerts} 粒度预警&lt;/small&gt;&lt;/span&gt;
-            &lt;span class=&quot;srb-repo-cell&quot; data-stage=&quot;spec&quot;&gt;&lt;strong&gt;${repo.specSummary.token}&lt;/strong&gt;&lt;small&gt;median ${repo.specSummary.time}&lt;/small&gt;&lt;/span&gt;
-            &lt;span class=&quot;srb-repo-cell&quot; data-stage=&quot;impl&quot;&gt;&lt;strong&gt;${repo.implSummary.token}&lt;/strong&gt;&lt;small&gt;median ${repo.implSummary.time}&lt;/small&gt;&lt;small class=&quot;srb-mini-knowledge&quot;&gt;${repo.implSummary.cards} Cards · ${repo.implSummary.ku} KU&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-cell&quot; data-stage=&quot;spec&quot;&gt;&lt;strong&gt;${repo.specSummary.token}&lt;/strong&gt;&lt;small&gt;中位耗时 ${repo.specSummary.time}&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;srb-repo-cell&quot; data-stage=&quot;impl&quot;&gt;&lt;strong&gt;${repo.implSummary.token}&lt;/strong&gt;&lt;small&gt;中位耗时 ${repo.implSummary.time}&lt;/small&gt;&lt;small class=&quot;srb-mini-knowledge&quot;&gt;${repo.implSummary.cards} 经验卡片 · ${repo.implSummary.ku} 知识单元&lt;/small&gt;&lt;/span&gt;
             &lt;span class=&quot;srb-chevron&quot;&gt;→&lt;/span&gt;`;
           return button;
         }));
@@ -1901,7 +1938,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         state.repository = repo;
         state.spec = repo.specs[0];
         root.querySelector(&#x27;[data-repo-title]&#x27;).textContent = repo.id;
-        root.querySelector(&#x27;[data-repo-meta]&#x27;).textContent = `${repo.branch} · 最近 30 天 · ${repo.specsCount} Specs`;
+        root.querySelector(&#x27;[data-repo-meta]&#x27;).textContent = `${repo.branch} · 最近 30 天 · ${repo.specsCount} 个 Spec`;
         root.querySelector(&#x27;[data-repo-spec-token]&#x27;).textContent = repo.specSummary.token;
         root.querySelector(&#x27;[data-repo-spec-time]&#x27;).textContent = repo.specSummary.time;
         root.querySelector(&#x27;[data-repo-spec-explore]&#x27;).textContent = repo.specSummary.explore;
@@ -1923,7 +1960,7 @@ html&gt;body{padding:0}&lt;/style&gt;
           button.type = &#x27;button&#x27;;
           button.dataset.selectSpec = spec.id;
           button.setAttribute(&#x27;aria-pressed&#x27;, String(spec.id === state.spec.id));
-          button.innerHTML = `&lt;span class=&quot;srb-spec-item-top&quot;&gt;&lt;code&gt;${spec.id}&lt;/code&gt;&lt;span class=&quot;srb-status&quot; data-tone=&quot;${spec.alert ? &#x27;alert&#x27; : &#x27;ok&#x27;}&quot;&gt;${spec.alert ? &#x27;粒度预警&#x27; : &#x27;正常&#x27;}&lt;/span&gt;&lt;/span&gt;&lt;strong&gt;${spec.title}&lt;/strong&gt;&lt;small&gt;Spec ${spec.spec.doc.toFixed(1)}K · Implement ${spec.impl.code.toFixed(2)}K&lt;/small&gt;`;
+          button.innerHTML = `&lt;span class=&quot;srb-spec-item-top&quot;&gt;&lt;code&gt;${spec.id}&lt;/code&gt;&lt;span class=&quot;srb-status&quot; data-tone=&quot;${spec.alert ? &#x27;alert&#x27; : &#x27;ok&#x27;}&quot;&gt;${spec.alert ? &#x27;粒度预警&#x27; : &#x27;正常&#x27;}&lt;/span&gt;&lt;/span&gt;&lt;strong&gt;${spec.title}&lt;/strong&gt;&lt;small&gt;规格文档 ${spec.spec.doc.toFixed(1)}K · 生成代码 ${spec.impl.code.toFixed(2)}K · 知识单元 ${spec.impl.ku}&lt;/small&gt;`;
           return button;
         }));
       }
@@ -1941,6 +1978,18 @@ html&gt;body{padding:0}&lt;/style&gt;
           item.dataset.index = String(index);
           return item;
         }));
+      }
+
+      function renderOutputItems(target, values, emptyText) {
+        const container = root.querySelector(target);
+        if (!values.length) {
+          const empty = document.createElement(&#x27;li&#x27;);
+          empty.className = &#x27;srb-empty-knowledge&#x27;;
+          empty.textContent = emptyText;
+          container.replaceChildren(empty);
+          return;
+        }
+        listItems(target, values);
       }
 
       function renderUnits(values) {
@@ -1972,10 +2021,11 @@ html&gt;body{padding:0}&lt;/style&gt;
         setText(&#x27;[data-impl-path-count]&#x27;, spec.impl.calls);
         setText(&#x27;[data-impl-cards]&#x27;, spec.impl.cards);
         setText(&#x27;[data-impl-ku]&#x27;, spec.impl.ku);
-        setText(&#x27;[data-impl-knowledge]&#x27;, spec.impl.knowledge);
         renderUnits(spec.spec.units);
         listItems(&#x27;[data-spec-path]&#x27;, spec.spec.path);
         listItems(&#x27;[data-impl-path]&#x27;, spec.impl.path);
+        renderOutputItems(&#x27;[data-impl-card-list]&#x27;, spec.impl.cardsList, &#x27;本 Spec 未形成经验卡片&#x27;);
+        renderOutputItems(&#x27;[data-impl-ku-list]&#x27;, spec.impl.knowledgeUnits, &#x27;本 Spec 未形成知识单元&#x27;);
       }
 
       root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
