@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'SDD 执行成本观察',
     description: '管理口代码仓总览与六阶段 SDD / Implement 平均成本对比。',
     url: 'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
-    siteName: 'SDD 个人运行观察',
+    siteName: 'SDD 执行成本观察',
     images: [
       {
         url: '/og.png',
