@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>SDD 个人运行观察与全流程看板</title>
+<title>SDD 管理口代码仓看板</title>
 <style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
 <body>
-<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="SDD 个人运行观察与全流程看板" srcdoc="&lt;!doctype html&gt;
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="SDD 管理口代码仓看板" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
 &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
-&lt;title&gt;SDD 个人运行观察与全流程看板&lt;/title&gt;
+&lt;title&gt;SDD 管理口代码仓看板&lt;/title&gt;
 &lt;style&gt;:root {
   color-scheme: light dark;
   background-color: var(
@@ -905,22 +905,22 @@ svg.lucide {
 html&gt;body{padding:0}&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;div id=&quot;sdd-dashboard&quot; aria-label=&quot;SDD 个人运行观察看板&quot;&gt;
+&lt;div id=&quot;sdd-dashboard&quot; aria-label=&quot;SDD 管理口代码仓看板&quot;&gt;
   &lt;style&gt;
     html,
     body { margin: 0; min-width: 320px; }
 
     #sdd-dashboard {
       --ink: #142333;
-      --muted: #66798a;
-      --faint: #8b9aaa;
+      --muted: #687b8a;
+      --faint: #91a0ad;
       --paper: #f3f6f8;
       --panel: #ffffff;
       --line: #d9e2e8;
-      --line-strong: #bdcbd4;
+      --line-strong: #becdd6;
       --blue: #2d6c84;
       --blue-soft: #e8f1f5;
-      --teal: #149587;
+      --teal: #159688;
       --teal-soft: #e7f5f1;
       --amber: #be7f1d;
       --amber-soft: #fff4df;
@@ -931,8 +931,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       min-height: 100vh;
       color: var(--ink);
       background:
-        radial-gradient(circle at 8% -10%, rgba(45, 108, 132, 0.13), transparent 30rem),
-        linear-gradient(145deg, #edf3f6 0%, var(--paper) 42%, #eef2f4 100%);
+        radial-gradient(circle at 10% -8%, rgba(45, 108, 132, 0.13), transparent 31rem),
+        linear-gradient(145deg, #edf3f6 0%, var(--paper) 43%, #eef2f4 100%);
       font-family: -apple-system, BlinkMacSystemFont, &quot;PingFang SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;Segoe UI&quot;, sans-serif;
       font-size: 15px;
       line-height: 1.5;
@@ -943,19 +943,20 @@ html&gt;body{padding:0}&lt;/style&gt;
     #sdd-dashboard *::after { box-sizing: border-box; }
 
     #sdd-dashboard [hidden] { display: none !important; }
-
+    #sdd-dashboard button { color: inherit; font: inherit; }
     #sdd-dashboard button,
     #sdd-dashboard a { font: inherit; }
-
-    #sdd-dashboard button { color: inherit; }
-
     #sdd-dashboard a { color: inherit; text-decoration: none; }
+    #sdd-dashboard h1,
+    #sdd-dashboard h2,
+    #sdd-dashboard h3,
+    #sdd-dashboard p { margin: 0; }
 
     #sdd-dashboard .sdd-shell {
       width: min(1280px, 100%);
       min-height: 100vh;
       margin: 0 auto;
-      padding: 20px 28px 48px;
+      padding: 20px 28px 54px;
     }
 
     #sdd-dashboard .sdd-topbar {
@@ -964,14 +965,10 @@ html&gt;body{padding:0}&lt;/style&gt;
       justify-content: space-between;
       gap: 20px;
       min-height: 54px;
-      margin-bottom: 34px;
+      margin-bottom: 35px;
     }
 
-    #sdd-dashboard .sdd-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    #sdd-dashboard .sdd-brand { display: flex; align-items: center; gap: 12px; }
 
     #sdd-dashboard .sdd-brand-mark {
       display: grid;
@@ -985,15 +982,11 @@ html&gt;body{padding:0}&lt;/style&gt;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.07em;
     }
 
     #sdd-dashboard .sdd-brand-copy { display: grid; gap: 1px; }
-
-    #sdd-dashboard .sdd-brand-copy strong {
-      font-size: 15px;
-      letter-spacing: -0.01em;
-    }
+    #sdd-dashboard .sdd-brand-copy strong { font-size: 15px; letter-spacing: -0.01em; }
 
     #sdd-dashboard .sdd-kicker,
     #sdd-dashboard .sdd-eyebrow {
@@ -1015,13 +1008,14 @@ html&gt;body{padding:0}&lt;/style&gt;
       border-radius: 999px;
       padding: 6px 10px;
       color: var(--muted);
-      background: rgba(255, 255, 255, 0.74);
+      background: rgba(255, 255, 255, 0.76);
       font-size: 11px;
       font-weight: 700;
       white-space: nowrap;
     }
 
-    #sdd-dashboard .sdd-demo-badge::before {
+    #sdd-dashboard .sdd-demo-badge::before,
+    #sdd-dashboard .sdd-status::before {
       width: 7px;
       height: 7px;
       border-radius: 50%;
@@ -1029,48 +1023,40 @@ html&gt;body{padding:0}&lt;/style&gt;
       content: &quot;&quot;;
     }
 
-    #sdd-dashboard h1,
-    #sdd-dashboard h2,
-    #sdd-dashboard h3,
-    #sdd-dashboard p { margin: 0; }
+    #sdd-dashboard .sdd-status { padding: 5px 9px; font-size: 10px; }
+    #sdd-dashboard .sdd-status::before { width: 6px; height: 6px; background: currentColor; }
+    #sdd-dashboard .sdd-status[data-tone=&quot;ok&quot;] { border-color: rgba(21, 150, 136, 0.24); color: var(--teal); background: var(--teal-soft); }
+    #sdd-dashboard .sdd-status[data-tone=&quot;warn&quot;] { border-color: rgba(190, 127, 29, 0.25); color: var(--amber); background: var(--amber-soft); }
+    #sdd-dashboard .sdd-status[data-tone=&quot;fail&quot;] { border-color: rgba(182, 84, 77, 0.24); color: var(--red); background: var(--red-soft); }
+    #sdd-dashboard .sdd-status[data-tone=&quot;muted&quot;] { color: var(--muted); background: #f4f6f7; }
 
     #sdd-dashboard h1 {
-      max-width: 750px;
-      font-size: clamp(30px, 5vw, 58px);
+      max-width: 790px;
+      font-size: clamp(30px, 5vw, 57px);
       font-weight: 760;
       letter-spacing: -0.055em;
       line-height: 0.98;
     }
 
     #sdd-dashboard h2 {
-      font-size: clamp(22px, 3vw, 32px);
+      font-size: clamp(21px, 3vw, 31px);
       font-weight: 760;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.045em;
       line-height: 1.05;
     }
 
-    #sdd-dashboard h3 {
-      font-size: 15px;
-      font-weight: 760;
-      letter-spacing: -0.02em;
-    }
+    #sdd-dashboard h3 { font-size: 15px; font-weight: 760; letter-spacing: -0.02em; }
 
     #sdd-dashboard .sdd-page-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 24px;
-      margin-bottom: 24px;
+      margin-bottom: 25px;
     }
 
     #sdd-dashboard .sdd-page-head-copy { display: grid; gap: 12px; }
-
-    #sdd-dashboard .sdd-page-head-copy &gt; p,
-    #sdd-dashboard .sdd-flow-head-copy &gt; p {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    #sdd-dashboard .sdd-page-head-copy &gt; p { max-width: 670px; color: var(--muted); font-size: 14px; }
 
     #sdd-dashboard .sdd-date-note {
       color: var(--muted);
@@ -1081,133 +1067,79 @@ html&gt;body{padding:0}&lt;/style&gt;
       white-space: nowrap;
     }
 
-    #sdd-dashboard .sdd-range-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    #sdd-dashboard .sdd-range-tabs {
-      display: inline-flex;
-      gap: 4px;
-      padding: 4px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.64);
-    }
-
-    #sdd-dashboard .sdd-range-tab,
-    #sdd-dashboard .sdd-back-button,
-    #sdd-dashboard .sdd-node-button,
-    #sdd-dashboard .sdd-action-button {
-      border: 0;
-      cursor: pointer;
-    }
-
-    #sdd-dashboard .sdd-range-tab {
-      border-radius: 8px;
-      padding: 8px 14px;
-      color: var(--muted);
-      background: transparent;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    #sdd-dashboard .sdd-range-tab[aria-pressed=&quot;true&quot;] {
-      color: var(--ink);
-      background: var(--panel);
-      box-shadow: 0 3px 12px rgba(27, 59, 77, 0.09);
-    }
-
-    #sdd-dashboard .sdd-range-hint {
-      color: var(--faint);
-      font-size: 12px;
-    }
-
-    #sdd-dashboard .sdd-kpi-grid {
+    #sdd-dashboard .sdd-summary-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       margin-bottom: 26px;
     }
 
-    #sdd-dashboard .sdd-kpi-card,
-    #sdd-dashboard .sdd-session-panel,
+    #sdd-dashboard .sdd-summary-card,
+    #sdd-dashboard .sdd-repo-panel,
     #sdd-dashboard .sdd-process-panel,
-    #sdd-dashboard .sdd-detail-panel {
+    #sdd-dashboard .sdd-analysis-panel,
+    #sdd-dashboard .sdd-stage-table-panel {
       border: 1px solid rgba(190, 205, 214, 0.84);
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.89);
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: var(--shadow);
     }
 
-    #sdd-dashboard .sdd-kpi-card {
+    #sdd-dashboard .sdd-summary-card {
       position: relative;
       display: grid;
-      min-height: 122px;
+      min-height: 116px;
       align-content: space-between;
       gap: 14px;
-      padding: 18px 18px 16px;
+      padding: 17px 18px;
       overflow: hidden;
     }
 
-    #sdd-dashboard .sdd-kpi-card::after {
+    #sdd-dashboard .sdd-summary-card::after {
       position: absolute;
       right: -32px;
-      bottom: -45px;
-      width: 115px;
-      height: 115px;
+      bottom: -46px;
+      width: 116px;
+      height: 116px;
       border: 1px solid rgba(45, 108, 132, 0.12);
       border-radius: 50%;
       content: &quot;&quot;;
     }
 
-    #sdd-dashboard .sdd-kpi-label {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
+    #sdd-dashboard .sdd-summary-label { color: var(--muted); font-size: 12px; font-weight: 700; }
 
-    #sdd-dashboard .sdd-kpi-value,
-    #sdd-dashboard .sdd-metric-value,
-    #sdd-dashboard .sdd-node-metric strong {
+    #sdd-dashboard .sdd-summary-value,
+    #sdd-dashboard .sdd-stage-metric strong,
+    #sdd-dashboard .sdd-detail-number,
+    #sdd-dashboard .sdd-bar-value {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-variant-numeric: tabular-nums;
-      letter-spacing: -0.06em;
+      letter-spacing: -0.07em;
     }
 
-    #sdd-dashboard .sdd-kpi-value {
-      color: var(--ink);
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 760;
-      line-height: 0.95;
-    }
+    #sdd-dashboard .sdd-summary-value { font-size: clamp(25px, 4vw, 37px); font-weight: 760; line-height: 0.95; }
 
     #sdd-dashboard .sdd-panel-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 20px;
-      padding: 22px 22px 18px;
+      gap: 18px;
+      padding: 21px 22px 17px;
     }
 
     #sdd-dashboard .sdd-panel-head-copy { display: grid; gap: 7px; }
-
     #sdd-dashboard .sdd-panel-head-copy &gt; p { color: var(--muted); font-size: 12px; }
+    #sdd-dashboard .sdd-repo-panel { overflow: hidden; }
 
-    #sdd-dashboard .sdd-session-panel { overflow: hidden; }
-
-    #sdd-dashboard .sdd-session-table-head,
-    #sdd-dashboard .sdd-session-row {
+    #sdd-dashboard .sdd-repo-table-head,
+    #sdd-dashboard .sdd-repo-row {
       display: grid;
-      grid-template-columns: minmax(170px, 1.6fr) minmax(125px, 1.16fr) minmax(118px, 1fr) minmax(96px, 0.82fr) minmax(88px, 0.72fr) minmax(88px, 0.72fr) minmax(120px, 0.95fr) minmax(176px, 1.3fr);
+      grid-template-columns: minmax(92px, 0.75fr) minmax(220px, 1.6fr) minmax(105px, 0.84fr) minmax(82px, 0.7fr) minmax(112px, 0.93fr) minmax(105px, 0.88fr) minmax(93px, 0.72fr) minmax(86px, 0.68fr);
       align-items: center;
       gap: 14px;
     }
 
-    #sdd-dashboard .sdd-session-table-head {
+    #sdd-dashboard .sdd-repo-table-head {
       min-height: 38px;
       padding: 0 22px;
       border-top: 1px solid var(--line);
@@ -1219,543 +1151,387 @@ html&gt;body{padding:0}&lt;/style&gt;
       text-transform: uppercase;
     }
 
-    #sdd-dashboard .sdd-session-row {
+    #sdd-dashboard .sdd-repo-row {
       width: 100%;
-      min-height: 86px;
-      padding: 14px 22px;
+      min-height: 90px;
       border: 0;
       border-bottom: 1px solid var(--line);
+      padding: 14px 22px;
       background: transparent;
+      cursor: pointer;
       text-align: left;
       transition: background 160ms ease, transform 160ms ease;
     }
 
-    #sdd-dashboard .sdd-session-row:last-child { border-bottom: 0; }
+    #sdd-dashboard .sdd-repo-row:last-child { border-bottom: 0; }
+    #sdd-dashboard .sdd-repo-row:hover { background: #f6fafb; }
+    #sdd-dashboard .sdd-repo-row:active { transform: translateY(1px); }
 
-    #sdd-dashboard .sdd-session-row:hover { background: #f6fafb; }
+    #sdd-dashboard .sdd-repo-component { color: var(--muted); font-size: 13px; font-weight: 700; }
 
-    #sdd-dashboard .sdd-session-project,
-    #sdd-dashboard .sdd-session-cell,
-    #sdd-dashboard .sdd-action-stack { min-width: 0; }
+    #sdd-dashboard .sdd-repo-name,
+    #sdd-dashboard .sdd-repo-cell { min-width: 0; }
+    #sdd-dashboard .sdd-repo-name { display: flex; align-items: center; gap: 10px; }
 
-    #sdd-dashboard .sdd-session-project { display: grid; gap: 3px; }
+    #sdd-dashboard .sdd-repo-name-copy { display: grid; min-width: 0; gap: 3px; }
+    #sdd-dashboard .sdd-repo-name-copy strong { overflow: hidden; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
+    #sdd-dashboard .sdd-repo-name-copy small { color: var(--muted); font-size: 11px; }
 
-    #sdd-dashboard .sdd-session-project strong {
-      overflow: hidden;
-      font-size: 14px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    #sdd-dashboard .sdd-repo-icon {
+      position: relative;
+      display: grid;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(45, 108, 132, 0.27);
+      border-radius: 10px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 20px;
+      line-height: 1;
     }
 
-    #sdd-dashboard .sdd-session-project code,
-    #sdd-dashboard .sdd-session-cell code,
-    #sdd-dashboard .sdd-flow-meta code {
-      color: var(--muted);
+    #sdd-dashboard .sdd-repo-icon::after {
+      position: absolute;
+      right: 6px;
+      bottom: 5px;
+      width: 10px;
+      height: 5px;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      content: &quot;&quot;;
+      opacity: 0.55;
+    }
+
+    #sdd-dashboard .sdd-repo-icon img { width: 20px; height: 20px; display: block; }
+
+    #sdd-dashboard .sdd-repo-cell { display: grid; gap: 2px; }
+    #sdd-dashboard .sdd-repo-cell strong { font-size: 13px; }
+    #sdd-dashboard .sdd-repo-cell small { color: var(--muted); font-size: 11px; }
+
+    #sdd-dashboard .sdd-branch {
+      width: fit-content;
+      border-radius: 6px;
+      padding: 4px 7px;
+      color: var(--blue);
+      background: var(--blue-soft);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 11px;
-    }
-
-    #sdd-dashboard .sdd-session-cell { display: grid; gap: 2px; }
-
-    #sdd-dashboard .sdd-session-cell strong { font-size: 13px; }
-
-    #sdd-dashboard .sdd-session-cell small {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    #sdd-dashboard .sdd-status { padding: 5px 9px; font-size: 10px; }
-
-    #sdd-dashboard .sdd-status::before {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-      content: &quot;&quot;;
-    }
-
-    #sdd-dashboard .sdd-status[data-tone=&quot;ok&quot;] { border-color: rgba(20, 149, 135, 0.24); color: var(--teal); background: var(--teal-soft); }
-    #sdd-dashboard .sdd-status[data-tone=&quot;warn&quot;] { border-color: rgba(190, 127, 29, 0.25); color: var(--amber); background: var(--amber-soft); }
-    #sdd-dashboard .sdd-status[data-tone=&quot;fail&quot;] { border-color: rgba(182, 84, 77, 0.24); color: var(--red); background: var(--red-soft); }
-    #sdd-dashboard .sdd-status[data-tone=&quot;muted&quot;] { color: var(--muted); background: #f4f6f7; }
-
-    #sdd-dashboard .sdd-action-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    #sdd-dashboard .sdd-action-link,
-    #sdd-dashboard .sdd-action-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      min-height: 30px;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      padding: 6px 9px;
-      color: var(--blue);
-      background: #fff;
-      font-size: 11px;
       font-weight: 800;
-      white-space: nowrap;
     }
 
-    #sdd-dashboard .sdd-action-link:hover,
-    #sdd-dashboard .sdd-action-button:hover { border-color: var(--blue); background: var(--blue-soft); }
+    #sdd-dashboard .sdd-row-arrow { color: var(--blue); font-size: 19px; text-align: right; }
 
-    #sdd-dashboard .sdd-action-link[aria-disabled=&quot;true&quot;] {
-      cursor: default;
-      border-color: var(--line);
-      color: var(--faint);
-      background: #fafbfb;
-    }
-
-    #sdd-dashboard .sdd-session-footer {
+    #sdd-dashboard .sdd-repo-footer {
       display: flex;
       justify-content: space-between;
       gap: 18px;
-      padding: 15px 22px;
+      padding: 14px 22px;
       border-top: 1px solid var(--line);
       color: var(--faint);
       font-size: 11px;
     }
 
-    #sdd-dashboard .sdd-flow-head {
+    #sdd-dashboard .sdd-detail-head {
       display: flex;
       align-items: start;
       justify-content: space-between;
-      gap: 22px;
-      margin-bottom: 24px;
+      gap: 24px;
+      margin-bottom: 22px;
     }
 
-    #sdd-dashboard .sdd-flow-head-copy { display: grid; gap: 10px; }
-
-    #sdd-dashboard .sdd-flow-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 9px; }
+    #sdd-dashboard .sdd-detail-head-copy { display: grid; gap: 11px; }
+    #sdd-dashboard .sdd-detail-head-copy &gt; p { color: var(--muted); font-size: 13px; }
 
     #sdd-dashboard .sdd-back-button {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      min-height: 34px;
+      width: fit-content;
+      min-height: 33px;
       border: 1px solid var(--line-strong);
       border-radius: 9px;
-      padding: 7px 11px;
+      padding: 6px 10px;
       color: var(--blue);
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.74);
+      cursor: pointer;
       font-size: 12px;
       font-weight: 800;
     }
 
-    #sdd-dashboard .sdd-flow-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px 14px;
+    #sdd-dashboard .sdd-detail-meta {
+      display: grid;
+      justify-items: end;
+      gap: 8px;
       color: var(--muted);
       font-size: 12px;
+      text-align: right;
     }
 
-    #sdd-dashboard .sdd-process-panel { padding: 22px; }
+    #sdd-dashboard .sdd-detail-meta strong { color: var(--ink); font-size: 18px; }
+    #sdd-dashboard .sdd-detail-meta code { color: var(--blue); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
 
-    #sdd-dashboard .sdd-process-title {
+    #sdd-dashboard .sdd-detail-summary {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 19px;
+    }
+
+    #sdd-dashboard .sdd-detail-summary-card {
+      display: grid;
+      min-height: 100px;
+      align-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    #sdd-dashboard .sdd-detail-summary-card span { color: var(--muted); font-size: 11px; font-weight: 700; }
+    #sdd-dashboard .sdd-detail-number { font-size: 23px; font-weight: 760; line-height: 1; }
+    #sdd-dashboard .sdd-detail-sub { color: var(--faint); font-size: 10px; }
+
+    #sdd-dashboard .sdd-process-panel { padding: 21px 22px 18px; margin-bottom: 18px; }
+
+    #sdd-dashboard .sdd-section-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 17px;
+      margin-bottom: 16px;
     }
 
-    #sdd-dashboard .sdd-process-title &gt; p { color: var(--muted); font-size: 12px; }
+    #sdd-dashboard .sdd-section-head-copy { display: grid; gap: 6px; }
+    #sdd-dashboard .sdd-section-head-copy &gt; p { color: var(--muted); font-size: 12px; }
 
-    #sdd-dashboard .sdd-top-process {
+    #sdd-dashboard .sdd-flow-grid {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 14px;
       isolation: isolate;
     }
 
-    #sdd-dashboard .sdd-top-process::before,
-    #sdd-dashboard .sdd-detail-process::before {
+    #sdd-dashboard .sdd-flow-grid::before {
       position: absolute;
       z-index: -1;
+      top: 83px;
+      right: 5%;
+      left: 5%;
       height: 2px;
-      background: linear-gradient(90deg, rgba(20, 149, 135, 0.55), rgba(45, 108, 132, 0.4), rgba(190, 127, 29, 0.42));
+      background: linear-gradient(90deg, rgba(20, 149, 135, 0.55), rgba(45, 108, 132, 0.48), rgba(190, 127, 29, 0.5));
       content: &quot;&quot;;
     }
 
-    #sdd-dashboard .sdd-top-process::before {
-      top: 90px;
-      right: 8%;
-      left: 8%;
-    }
-
-    #sdd-dashboard .sdd-flow-node {
+    #sdd-dashboard .sdd-stage-node {
       position: relative;
       display: grid;
       min-width: 0;
       min-height: 164px;
       align-content: space-between;
-      gap: 15px;
+      gap: 13px;
       border: 1px solid var(--line);
-      border-radius: 15px;
-      padding: 16px;
+      border-radius: 14px;
+      padding: 15px;
       background: rgba(255, 255, 255, 0.96);
     }
 
-    #sdd-dashboard .sdd-flow-node[data-kind=&quot;summary&quot;] {
-      border-style: dashed;
-      background: #f6f8f9;
-    }
+    #sdd-dashboard .sdd-stage-node[data-tone=&quot;warn&quot;] { border-color: rgba(190, 127, 29, 0.45); }
 
-    #sdd-dashboard .sdd-node-button {
-      width: 100%;
-      min-width: 0;
-      text-align: left;
-    }
+    #sdd-dashboard .sdd-stage-top,
+    #sdd-dashboard .sdd-stage-bottom { display: flex; align-items: start; justify-content: space-between; gap: 8px; }
+    #sdd-dashboard .sdd-stage-index { color: var(--faint); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; }
+    #sdd-dashboard .sdd-stage-title { display: grid; gap: 4px; }
+    #sdd-dashboard .sdd-stage-title h3 { font-size: 15px; }
+    #sdd-dashboard .sdd-stage-title p { color: var(--muted); font-size: 10px; line-height: 1.35; }
+    #sdd-dashboard .sdd-stage-metric { display: grid; gap: 3px; }
+    #sdd-dashboard .sdd-stage-metric span { color: var(--muted); font-size: 10px; font-weight: 700; }
+    #sdd-dashboard .sdd-stage-metric strong { font-size: 20px; line-height: 1; }
+    #sdd-dashboard .sdd-stage-secondary { color: var(--muted); font-size: 10px; text-align: right; }
+    #sdd-dashboard .sdd-stage-secondary strong { display: block; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
 
-    #sdd-dashboard .sdd-node-button:hover,
-    #sdd-dashboard .sdd-node-button:focus-visible { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(45, 108, 132, 0.13); }
+    #sdd-dashboard .sdd-status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 4px; border-radius: 50%; background: var(--teal); }
+    #sdd-dashboard .sdd-status-dot[data-tone=&quot;warn&quot;] { background: var(--amber); }
+    #sdd-dashboard .sdd-status-dot[data-tone=&quot;fail&quot;] { background: var(--red); }
 
-    #sdd-dashboard .sdd-flow-node[data-active=&quot;true&quot;] { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(45, 108, 132, 0.12); }
-
-    #sdd-dashboard .sdd-node-top,
-    #sdd-dashboard .sdd-node-bottom { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
-
-    #sdd-dashboard .sdd-node-number {
-      color: var(--faint);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-    }
-
-    #sdd-dashboard .sdd-node-label { display: grid; gap: 5px; }
-
-    #sdd-dashboard .sdd-node-label h3 { font-size: 16px; }
-
-    #sdd-dashboard .sdd-node-label p { color: var(--muted); font-size: 11px; }
-
-    #sdd-dashboard .sdd-node-metric { display: grid; gap: 3px; }
-
-    #sdd-dashboard .sdd-node-metric span { color: var(--muted); font-size: 10px; font-weight: 700; }
-
-    #sdd-dashboard .sdd-node-metric strong { font-size: 22px; line-height: 1; }
-
-    #sdd-dashboard .sdd-node-secondary { color: var(--muted); font-size: 11px; text-align: right; }
-
-    #sdd-dashboard .sdd-node-secondary strong { color: var(--ink); display: block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
-
-    #sdd-dashboard .sdd-stage-rail { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; font-weight: 700; }
-
-    #sdd-dashboard .sdd-stage-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
-    #sdd-dashboard .sdd-stage-dot[data-tone=&quot;warn&quot;] { background: var(--amber); }
-    #sdd-dashboard .sdd-stage-dot[data-tone=&quot;fail&quot;] { background: var(--red); }
-    #sdd-dashboard .sdd-stage-dot[data-tone=&quot;muted&quot;] { background: var(--faint); }
-
-    #sdd-dashboard .sdd-detail-frame {
-      position: relative;
-      margin-top: 26px;
-      border: 1px dashed rgba(45, 108, 132, 0.42);
-      border-radius: 17px;
-      padding: 19px;
-      background: rgba(246, 250, 251, 0.72);
-    }
-
-    #sdd-dashboard .sdd-detail-frame-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    #sdd-dashboard .sdd-detail-frame-head &gt; p { color: var(--muted); font-size: 11px; }
-
-    #sdd-dashboard .sdd-detail-process {
-      position: relative;
+    #sdd-dashboard .sdd-analysis-grid {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 11px;
-      isolation: isolate;
-    }
-
-    #sdd-dashboard .sdd-detail-process::before {
-      top: 62px;
-      right: 4%;
-      left: 4%;
-    }
-
-    #sdd-dashboard .sdd-detail-process .sdd-flow-node {
-      min-height: 126px;
-      padding: 13px;
-      border-radius: 12px;
-    }
-
-    #sdd-dashboard .sdd-detail-process .sdd-node-label h3 { font-size: 13px; }
-    #sdd-dashboard .sdd-detail-process .sdd-node-label p { font-size: 10px; }
-    #sdd-dashboard .sdd-detail-process .sdd-node-metric strong { font-size: 18px; }
-
-    #sdd-dashboard .sdd-detail-panel {
-      margin-top: 17px;
-      overflow: hidden;
-    }
-
-    #sdd-dashboard .sdd-detail-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      padding: 23px 23px 19px;
-      border-bottom: 1px solid var(--line);
+      margin-bottom: 18px;
     }
 
-    #sdd-dashboard .sdd-detail-heading { display: grid; gap: 7px; }
+    #sdd-dashboard .sdd-analysis-panel { min-width: 0; padding: 19px 20px 20px; }
 
-    #sdd-dashboard .sdd-detail-heading h2 { font-size: 26px; }
+    #sdd-dashboard .sdd-analysis-head { display: flex; align-items: end; justify-content: space-between; gap: 14px; margin-bottom: 17px; }
+    #sdd-dashboard .sdd-analysis-head &gt; div { display: grid; gap: 6px; }
+    #sdd-dashboard .sdd-analysis-head p { color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .sdd-analysis-head strong { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
 
-    #sdd-dashboard .sdd-detail-heading p { color: var(--muted); font-size: 12px; }
+    #sdd-dashboard .sdd-bar-list { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+    #sdd-dashboard .sdd-bar-row { display: grid; grid-template-columns: minmax(76px, 0.75fr) minmax(0, 2.2fr) minmax(68px, 0.65fr); align-items: center; gap: 11px; }
+    #sdd-dashboard .sdd-bar-label { overflow: hidden; color: var(--ink); font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+    #sdd-dashboard .sdd-bar-track { height: 9px; overflow: hidden; border-radius: 999px; background: #edf1f3; }
+    #sdd-dashboard .sdd-bar-fill { display: block; height: 100%; min-width: 4px; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #55a0a0); }
+    #sdd-dashboard .sdd-bar-fill[data-tone=&quot;warn&quot;] { background: linear-gradient(90deg, var(--amber), #e4bb69); }
+    #sdd-dashboard .sdd-bar-value { color: var(--ink); font-size: 11px; text-align: right; }
+    #sdd-dashboard .sdd-bar-empty { color: var(--muted); font-size: 12px; }
 
-    #sdd-dashboard .sdd-detail-kpis {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 11px;
-      padding: 17px 23px;
-      border-bottom: 1px solid var(--line);
-    }
+    #sdd-dashboard .sdd-breakdown-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 18px; }
+    #sdd-dashboard .sdd-breakdown-panel { min-width: 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255, 255, 255, 0.84); }
+    #sdd-dashboard .sdd-breakdown-panel &gt; header { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    #sdd-dashboard .sdd-breakdown-panel &gt; header p { color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .sdd-breakdown-panel &gt; header strong { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    #sdd-dashboard .sdd-stack-bar { display: flex; height: 13px; overflow: hidden; border-radius: 999px; background: #edf1f3; }
+    #sdd-dashboard .sdd-stack-bar span { min-width: 2px; }
+    #sdd-dashboard .sdd-stack-bar span:nth-child(1) { background: #4f8fa5; }
+    #sdd-dashboard .sdd-stack-bar span:nth-child(2) { background: #74b2b1; }
+    #sdd-dashboard .sdd-stack-bar span:nth-child(3) { background: #a7c9bf; }
+    #sdd-dashboard .sdd-stack-bar span:nth-child(4) { background: #d2a850; }
+    #sdd-dashboard .sdd-stack-bar span:nth-child(5) { background: #c77955; }
+    #sdd-dashboard .sdd-stack-bar span:nth-child(6) { background: #af6460; }
+    #sdd-dashboard .sdd-legend { display: flex; flex-wrap: wrap; gap: 7px 13px; margin-top: 12px; }
+    #sdd-dashboard .sdd-legend-item { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .sdd-legend-item i { width: 7px; height: 7px; border-radius: 50%; background: #4f8fa5; }
 
-    #sdd-dashboard .sdd-detail-kpi {
-      display: grid;
-      gap: 5px;
-      min-height: 58px;
-      padding-right: 16px;
-      border-right: 1px solid var(--line);
-    }
+    #sdd-dashboard .sdd-output-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
+    #sdd-dashboard .sdd-output-card { display: grid; min-height: 96px; align-content: space-between; gap: 10px; border: 1px solid var(--line); border-radius: 13px; padding: 14px; background: rgba(255, 255, 255, 0.86); }
+    #sdd-dashboard .sdd-output-card span { color: var(--muted); font-size: 11px; font-weight: 700; }
+    #sdd-dashboard .sdd-output-card strong { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 22px; letter-spacing: -0.06em; line-height: 1; }
 
-    #sdd-dashboard .sdd-detail-kpi:last-child { border-right: 0; }
-
-    #sdd-dashboard .sdd-detail-kpi span { color: var(--muted); font-size: 11px; font-weight: 700; }
-
-    #sdd-dashboard .sdd-detail-kpi strong { font-size: 21px; line-height: 1.05; }
-
-    #sdd-dashboard .sdd-detail-content { padding: 22px 23px 25px; }
-
-    #sdd-dashboard .sdd-detail-columns {
-      display: grid;
-      grid-template-columns: minmax(0, 1.18fr) minmax(240px, 0.82fr);
-      gap: 17px;
-    }
-
-    #sdd-dashboard .sdd-detail-section {
-      min-width: 0;
-      border: 1px solid var(--line);
-      border-radius: 13px;
-      padding: 15px;
-      background: #fbfcfc;
-    }
-
-    #sdd-dashboard .sdd-detail-section &gt; header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    #sdd-dashboard .sdd-detail-section &gt; header span { color: var(--faint); font-size: 10px; font-weight: 700; }
-
-    #sdd-dashboard .sdd-detail-section h3 small { margin-left: 4px; color: var(--faint); font-size: 10px; font-weight: 700; }
-
-    #sdd-dashboard .sdd-check-list,
-    #sdd-dashboard .sdd-item-list,
-    #sdd-dashboard .sdd-outline-list,
-    #sdd-dashboard .sdd-attempt-list {
-      display: grid;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    #sdd-dashboard .sdd-check-item,
-    #sdd-dashboard .sdd-item-row,
-    #sdd-dashboard .sdd-attempt-item {
+    #sdd-dashboard .sdd-insight {
       display: flex;
       align-items: start;
-      justify-content: space-between;
-      gap: 12px;
-      min-width: 0;
-      padding: 9px 10px;
-      border: 1px solid #e4eaed;
-      border-radius: 9px;
-      background: #fff;
-      font-size: 12px;
-    }
-
-    #sdd-dashboard .sdd-check-item &gt; div,
-    #sdd-dashboard .sdd-item-row &gt; div,
-    #sdd-dashboard .sdd-attempt-item &gt; div { min-width: 0; }
-
-    #sdd-dashboard .sdd-check-item strong,
-    #sdd-dashboard .sdd-item-row strong,
-    #sdd-dashboard .sdd-attempt-item strong { display: block; font-size: 12px; }
-
-    #sdd-dashboard .sdd-check-item small,
-    #sdd-dashboard .sdd-item-row small,
-    #sdd-dashboard .sdd-attempt-item small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
-
-    #sdd-dashboard .sdd-check-icon {
-      display: inline-grid;
-      width: 21px;
-      height: 21px;
-      flex: 0 0 auto;
-      place-items: center;
-      border-radius: 7px;
-      color: var(--teal);
-      background: var(--teal-soft);
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    #sdd-dashboard .sdd-check-icon[data-tone=&quot;fail&quot;] { color: var(--red); background: var(--red-soft); }
-
-    #sdd-dashboard .sdd-outline-list { counter-reset: outline; }
-
-    #sdd-dashboard .sdd-outline-list li {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--ink);
-      font-size: 12px;
-    }
-
-    #sdd-dashboard .sdd-outline-list li::before {
-      display: inline-grid;
-      width: 21px;
-      height: 21px;
-      flex: 0 0 auto;
-      place-items: center;
-      border-radius: 7px;
-      color: var(--blue);
-      background: var(--blue-soft);
-      content: counter(outline, decimal-leading-zero);
-      counter-increment: outline;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-    #sdd-dashboard .sdd-path {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 7px;
+      gap: 11px;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 12px 12px 0;
+      padding: 12px 14px;
       color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11px;
-      line-height: 1.8;
-    }
-
-    #sdd-dashboard .sdd-path span { color: var(--ink); }
-    #sdd-dashboard .sdd-path i { color: var(--line-strong); font-style: normal; }
-
-    #sdd-dashboard .sdd-note {
-      display: grid;
-      gap: 7px;
-      border-left: 3px solid var(--teal);
-      padding: 3px 0 3px 12px;
-      color: var(--muted);
+      background: rgba(232, 241, 245, 0.74);
       font-size: 12px;
     }
 
-    #sdd-dashboard .sdd-note strong { color: var(--ink); }
+    #sdd-dashboard .sdd-insight strong { color: var(--ink); }
 
-    #sdd-dashboard .sdd-empty {
-      display: grid;
-      min-height: 178px;
-      place-items: center;
-      padding: 26px;
-      color: var(--muted);
-      text-align: center;
-    }
+    #sdd-dashboard .sdd-trend-panel { margin-bottom: 18px; padding: 19px 20px 20px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255, 255, 255, 0.84); }
+    #sdd-dashboard .sdd-trend-head { display: flex; align-items: end; justify-content: space-between; gap: 15px; margin-bottom: 15px; }
+    #sdd-dashboard .sdd-trend-head &gt; div { display: grid; gap: 6px; }
+    #sdd-dashboard .sdd-trend-head p { color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .sdd-trend-legend { display: flex; gap: 12px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .sdd-trend-legend span { display: inline-flex; align-items: center; gap: 5px; }
+    #sdd-dashboard .sdd-trend-legend i { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+    #sdd-dashboard .sdd-trend-legend span:last-child i { background: var(--amber); }
+    #sdd-dashboard .sdd-trend-chart { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; gap: 8px; min-height: 146px; padding: 12px 6px 0; border-bottom: 1px solid var(--line); background: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, rgba(217, 226, 232, 0.53) 36px); }
+    #sdd-dashboard .sdd-trend-column { display: grid; grid-template-rows: 1fr auto; align-items: end; gap: 7px; min-width: 0; height: 132px; }
+    #sdd-dashboard .sdd-trend-bars { display: flex; align-items: end; justify-content: center; gap: 3px; height: 100%; }
+    #sdd-dashboard .sdd-trend-bars i { display: block; width: 6px; min-height: 3px; border-radius: 4px 4px 0 0; background: var(--blue); }
+    #sdd-dashboard .sdd-trend-bars i:last-child { background: var(--amber); }
+    #sdd-dashboard .sdd-trend-column small { overflow: hidden; color: var(--faint); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 
-    #sdd-dashboard .sdd-empty strong { display: block; margin-bottom: 4px; color: var(--ink); }
+    #sdd-dashboard .sdd-stage-table-panel { overflow: hidden; }
+    #sdd-dashboard .sdd-stage-table-head { padding: 20px 22px 16px; }
+    #sdd-dashboard .sdd-stage-table-head p { margin-top: 6px; color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .sdd-stat-grid { display: grid; grid-template-columns: minmax(155px, 1.35fr) minmax(54px, 0.48fr) minmax(92px, 0.85fr) minmax(92px, 0.85fr) minmax(125px, 1.1fr) minmax(82px, 0.72fr); align-items: center; gap: 13px; }
+    #sdd-dashboard .sdd-stat-grid-head { min-height: 35px; padding: 0 22px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--faint); font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    #sdd-dashboard .sdd-stat-grid-row { min-height: 58px; padding: 10px 22px; border-bottom: 1px solid var(--line); font-size: 12px; }
+    #sdd-dashboard .sdd-stat-grid-row:last-child { border-bottom: 0; }
+    #sdd-dashboard .sdd-stat-stage { display: flex; align-items: center; gap: 8px; font-weight: 760; }
+    #sdd-dashboard .sdd-stat-grid-row code { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    #sdd-dashboard .sdd-stat-grid-row strong { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    #sdd-dashboard .sdd-success { color: var(--teal); }
+    #sdd-dashboard .sdd-warning { color: var(--amber); }
+    #sdd-dashboard .sdd-fail { color: var(--red); }
+    #sdd-dashboard .sdd-detail-footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 14px; color: var(--faint); font-size: 10px; }
 
-    #sdd-dashboard .sdd-footnote {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 14px;
-      color: var(--faint);
-      font-size: 10px;
-    }
-
-    #sdd-dashboard :focus-visible {
-      outline: 3px solid rgba(45, 108, 132, 0.33);
-      outline-offset: 2px;
-    }
+    #sdd-dashboard :focus-visible { outline: 3px solid rgba(45, 108, 132, 0.33); outline-offset: 2px; }
 
     @media (max-width: 1080px) {
-      #sdd-dashboard .sdd-session-table-head,
-      #sdd-dashboard .sdd-session-row {
-        grid-template-columns: minmax(150px, 1.5fr) minmax(115px, 1.05fr) minmax(110px, 0.9fr) minmax(92px, 0.78fr) minmax(76px, 0.68fr) minmax(80px, 0.7fr) minmax(150px, 1.15fr);
-      }
-
-      #sdd-dashboard .sdd-session-table-head &gt; :nth-child(8),
-      #sdd-dashboard .sdd-session-row &gt; :nth-child(8) { display: none; }
-
-      #sdd-dashboard .sdd-detail-process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      #sdd-dashboard .sdd-detail-process::before { display: none; }
+      #sdd-dashboard .sdd-repo-table-head,
+      #sdd-dashboard .sdd-repo-row { grid-template-columns: minmax(82px, 0.7fr) minmax(180px, 1.55fr) minmax(95px, 0.78fr) minmax(70px, 0.64fr) minmax(102px, 0.88fr) minmax(96px, 0.84fr) minmax(86px, 0.7fr) minmax(78px, 0.6fr); }
+      #sdd-dashboard .sdd-repo-table-head &gt; :nth-child(7),
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(7) { display: none; }
+      #sdd-dashboard .sdd-detail-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-output-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-stat-grid { grid-template-columns: minmax(145px, 1.25fr) minmax(48px, 0.45fr) minmax(84px, 0.8fr) minmax(84px, 0.8fr) minmax(110px, 1fr) minmax(78px, 0.7fr); }
     }
 
     @media (max-width: 860px) {
       #sdd-dashboard .sdd-shell { padding-right: 18px; padding-left: 18px; }
       #sdd-dashboard .sdd-page-head,
-      #sdd-dashboard .sdd-flow-head { align-items: start; flex-direction: column; }
-      #sdd-dashboard .sdd-date-note { text-align: left; }
-      #sdd-dashboard .sdd-flow-actions { justify-content: start; }
-      #sdd-dashboard .sdd-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      #sdd-dashboard .sdd-top-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      #sdd-dashboard .sdd-top-process::before { display: none; }
-      #sdd-dashboard .sdd-detail-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-detail-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .sdd-date-note,
+      #sdd-dashboard .sdd-detail-meta { justify-items: start; text-align: left; }
+      #sdd-dashboard .sdd-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-flow-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-flow-grid::before { display: none; }
+      #sdd-dashboard .sdd-analysis-grid,
+      #sdd-dashboard .sdd-breakdown-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .sdd-repo-table-head,
+      #sdd-dashboard .sdd-repo-row { grid-template-columns: minmax(80px, 0.72fr) minmax(180px, 1.48fr) minmax(92px, 0.78fr) minmax(72px, 0.62fr) minmax(98px, 0.86fr) minmax(94px, 0.82fr) minmax(70px, 0.55fr); }
+      #sdd-dashboard .sdd-repo-table-head &gt; :nth-child(6),
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(6) { display: none; }
+      #sdd-dashboard .sdd-stat-grid-head,
+      #sdd-dashboard .sdd-stat-grid-row { padding-right: 18px; padding-left: 18px; }
     }
 
     @media (max-width: 620px) {
-      #sdd-dashboard .sdd-shell { padding: 14px 12px 32px; }
-      #sdd-dashboard .sdd-topbar { margin-bottom: 25px; }
-      #sdd-dashboard .sdd-page-head { margin-bottom: 19px; }
+      #sdd-dashboard .sdd-shell { padding: 14px 12px 34px; }
+      #sdd-dashboard .sdd-topbar { margin-bottom: 26px; }
       #sdd-dashboard h1 { font-size: 35px; }
-      #sdd-dashboard .sdd-range-bar { align-items: start; flex-direction: column; }
-      #sdd-dashboard .sdd-range-tabs { width: 100%; }
-      #sdd-dashboard .sdd-range-tab { flex: 1; padding-right: 9px; padding-left: 9px; }
-      #sdd-dashboard .sdd-kpi-grid { gap: 8px; }
-      #sdd-dashboard .sdd-kpi-card { min-height: 104px; padding: 14px; }
-      #sdd-dashboard .sdd-kpi-value { font-size: 27px; }
+      #sdd-dashboard .sdd-summary-grid { gap: 8px; }
+      #sdd-dashboard .sdd-summary-card { min-height: 103px; padding: 14px; }
+      #sdd-dashboard .sdd-summary-value { font-size: 27px; }
       #sdd-dashboard .sdd-panel-head { padding: 17px 15px 14px; }
-      #sdd-dashboard .sdd-session-table-head { display: none; }
-      #sdd-dashboard .sdd-session-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(100px, 0.85fr);
-        gap: 12px 14px;
-        padding: 15px;
-      }
-      #sdd-dashboard .sdd-session-row &gt; :nth-child(3),
-      #sdd-dashboard .sdd-session-row &gt; :nth-child(5),
-      #sdd-dashboard .sdd-session-row &gt; :nth-child(8) { display: none; }
-      #sdd-dashboard .sdd-session-row &gt; :nth-child(8) { grid-column: 1 / -1; }
-      #sdd-dashboard .sdd-session-footer { align-items: start; flex-direction: column; padding: 13px 15px; }
-      #sdd-dashboard .sdd-process-panel { padding: 14px; }
-      #sdd-dashboard .sdd-process-title { align-items: start; flex-direction: column; }
-      #sdd-dashboard .sdd-top-process,
-      #sdd-dashboard .sdd-detail-process { grid-template-columns: minmax(0, 1fr); }
-      #sdd-dashboard .sdd-flow-node { min-height: 146px; }
-      #sdd-dashboard .sdd-detail-frame { margin-top: 17px; padding: 12px; }
-      #sdd-dashboard .sdd-detail-frame-head { align-items: start; flex-direction: column; }
-      #sdd-dashboard .sdd-detail-head { align-items: start; flex-direction: column; padding: 18px 15px 15px; }
-      #sdd-dashboard .sdd-detail-heading h2 { font-size: 23px; }
-      #sdd-dashboard .sdd-detail-kpis { gap: 8px; padding: 14px 15px; }
-      #sdd-dashboard .sdd-detail-kpi { padding-right: 8px; }
-      #sdd-dashboard .sdd-detail-kpi strong { font-size: 16px; }
-      #sdd-dashboard .sdd-detail-content { padding: 15px; }
-      #sdd-dashboard .sdd-detail-columns { grid-template-columns: minmax(0, 1fr); }
-      #sdd-dashboard .sdd-footnote { align-items: start; flex-direction: column; gap: 5px; }
+      #sdd-dashboard .sdd-repo-table-head { display: none; }
+      #sdd-dashboard .sdd-repo-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(90px, 0.75fr); gap: 11px 12px; padding: 14px 15px; }
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(3),
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(4),
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(5),
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(6),
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(7) { display: none; }
+      #sdd-dashboard .sdd-repo-row &gt; :nth-child(8) { grid-column: 2; grid-row: 1; }
+      #sdd-dashboard .sdd-repo-component { grid-row: 1; }
+      #sdd-dashboard .sdd-repo-name { grid-column: 1 / -1; grid-row: 2; }
+      #sdd-dashboard .sdd-repo-footer { align-items: start; flex-direction: column; padding: 13px 15px; }
+      #sdd-dashboard .sdd-detail-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      #sdd-dashboard .sdd-detail-summary-card { min-height: 88px; padding: 12px; }
+      #sdd-dashboard .sdd-detail-number { font-size: 20px; }
+      #sdd-dashboard .sdd-process-panel { padding: 15px; }
+      #sdd-dashboard .sdd-section-head,
+      #sdd-dashboard .sdd-trend-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .sdd-flow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+      #sdd-dashboard .sdd-stage-node { min-height: 150px; padding: 12px; }
+      #sdd-dashboard .sdd-stage-title h3 { font-size: 13px; }
+      #sdd-dashboard .sdd-stage-metric strong { font-size: 17px; }
+      #sdd-dashboard .sdd-analysis-panel,
+      #sdd-dashboard .sdd-breakdown-panel,
+      #sdd-dashboard .sdd-trend-panel { padding-right: 14px; padding-left: 14px; }
+      #sdd-dashboard .sdd-bar-row { grid-template-columns: minmax(70px, 0.7fr) minmax(0, 1.7fr) minmax(59px, 0.65fr); gap: 8px; }
+      #sdd-dashboard .sdd-output-grid { gap: 8px; }
+      #sdd-dashboard .sdd-output-card { min-height: 87px; padding: 12px; }
+      #sdd-dashboard .sdd-output-card strong { font-size: 19px; }
+      #sdd-dashboard .sdd-trend-chart { gap: 4px; }
+      #sdd-dashboard .sdd-trend-bars i { width: 4px; }
+      #sdd-dashboard .sdd-stat-grid-head { display: none; }
+      #sdd-dashboard .sdd-stat-grid-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 12px; padding: 12px 15px; }
+      #sdd-dashboard .sdd-stat-grid-row &gt; :nth-child(1) { grid-column: 1 / -1; }
+      #sdd-dashboard .sdd-stat-grid-row &gt; :nth-child(2)::before { content: &#x27;样本 &#x27;; color: var(--faint); font-family: inherit; }
+      #sdd-dashboard .sdd-stat-grid-row &gt; :nth-child(3)::before { content: &#x27;Token &#x27;; color: var(--faint); font-family: inherit; }
+      #sdd-dashboard .sdd-stat-grid-row &gt; :nth-child(4)::before { content: &#x27;耗时 &#x27;; color: var(--faint); font-family: inherit; }
+      #sdd-dashboard .sdd-stat-grid-row &gt; :nth-child(5)::before { content: &#x27;产物 &#x27;; color: var(--faint); font-family: inherit; }
+      #sdd-dashboard .sdd-stat-grid-row &gt; :nth-child(6)::before { content: &#x27;成功 &#x27;; color: var(--faint); font-family: inherit; }
+      #sdd-dashboard .sdd-detail-footer { align-items: start; flex-direction: column; gap: 5px; }
+    }
+
+    @media (max-width: 410px) {
+      #sdd-dashboard .sdd-summary-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .sdd-flow-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .sdd-flow-grid::before { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1770,92 +1546,111 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;div class=&quot;sdd-brand&quot;&gt;
         &lt;span class=&quot;sdd-brand-mark&quot;&gt;SDD&lt;/span&gt;
         &lt;div class=&quot;sdd-brand-copy&quot;&gt;
-          &lt;span class=&quot;sdd-kicker&quot;&gt;个人运行观察&lt;/span&gt;
-          &lt;strong&gt;Session 看板&lt;/strong&gt;
+          &lt;span class=&quot;sdd-kicker&quot;&gt;管理视角 · 代码仓看板&lt;/span&gt;
+          &lt;strong&gt;SDD 执行成本观察&lt;/strong&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;span class=&quot;sdd-demo-badge&quot;&gt;演示数据 · 2026-08-26&lt;/span&gt;
+      &lt;span class=&quot;sdd-demo-badge&quot;&gt;演示数据 · 近 30 天&lt;/span&gt;
     &lt;/header&gt;
 
     &lt;main&gt;
-      &lt;section class=&quot;sdd-view&quot; data-view=&quot;usage&quot; aria-label=&quot;个人 Session 使用看板&quot;&gt;
+      &lt;section class=&quot;sdd-view&quot; data-view=&quot;overview&quot; aria-label=&quot;代码仓总览&quot;&gt;
         &lt;header class=&quot;sdd-page-head&quot;&gt;
           &lt;div class=&quot;sdd-page-head-copy&quot;&gt;
-            &lt;span class=&quot;sdd-eyebrow&quot;&gt;个人 Session 使用情况&lt;/span&gt;
-            &lt;h1&gt;我的 Agent 运行台账&lt;/h1&gt;
-            &lt;p&gt;按时间范围查看最近跑过的 Session、Token 消耗和项目分布；从单行 Session 进入 Step6 报告或 SDD 全流程。&lt;/p&gt;
+            &lt;span class=&quot;sdd-eyebrow&quot;&gt;代码仓资产总览&lt;/span&gt;
+            &lt;h1&gt;代码仓总览&lt;/h1&gt;
+            &lt;p&gt;按代码仓比较 SDD / Implement 的平均执行成本：哪个仓最耗 Token、最耗时间，直接从一行数据进入详情。&lt;/p&gt;
           &lt;/div&gt;
-          &lt;div class=&quot;sdd-date-note&quot;&gt;数据截止&lt;br&gt;&lt;strong&gt;2026-08-26 23:59&lt;/strong&gt;&lt;/div&gt;
+          &lt;div class=&quot;sdd-date-note&quot;&gt;统计周期&lt;br&gt;&lt;strong&gt;2026-08-01 — 2026-08-26&lt;/strong&gt;&lt;/div&gt;
         &lt;/header&gt;
 
-        &lt;div class=&quot;sdd-range-bar&quot;&gt;
-          &lt;div class=&quot;sdd-range-tabs&quot; role=&quot;group&quot; aria-label=&quot;Session 时间范围&quot;&gt;
-            &lt;button class=&quot;sdd-range-tab&quot; type=&quot;button&quot; data-range=&quot;today&quot; aria-pressed=&quot;true&quot;&gt;今天&lt;/button&gt;
-            &lt;button class=&quot;sdd-range-tab&quot; type=&quot;button&quot; data-range=&quot;week&quot; aria-pressed=&quot;false&quot;&gt;本周&lt;/button&gt;
-            &lt;button class=&quot;sdd-range-tab&quot; type=&quot;button&quot; data-range=&quot;month&quot; aria-pressed=&quot;false&quot;&gt;本月&lt;/button&gt;
-          &lt;/div&gt;
-          &lt;span class=&quot;sdd-range-hint&quot; data-range-caption&gt;今天 · 2026-08-26&lt;/span&gt;
-        &lt;/div&gt;
-
-        &lt;section class=&quot;sdd-kpi-grid&quot; aria-label=&quot;Session 汇总指标&quot;&gt;
-          &lt;article class=&quot;sdd-kpi-card&quot;&gt;&lt;span class=&quot;sdd-kpi-label&quot;&gt;Session 数&lt;/span&gt;&lt;strong class=&quot;sdd-kpi-value&quot; data-usage-sessions&gt;0&lt;/strong&gt;&lt;/article&gt;
-          &lt;article class=&quot;sdd-kpi-card&quot;&gt;&lt;span class=&quot;sdd-kpi-label&quot;&gt;Token 总量&lt;/span&gt;&lt;strong class=&quot;sdd-kpi-value&quot; data-usage-tokens&gt;0&lt;/strong&gt;&lt;/article&gt;
-          &lt;article class=&quot;sdd-kpi-card&quot;&gt;&lt;span class=&quot;sdd-kpi-label&quot;&gt;平均 Token / Session&lt;/span&gt;&lt;strong class=&quot;sdd-kpi-value&quot; data-usage-average&gt;0&lt;/strong&gt;&lt;/article&gt;
-          &lt;article class=&quot;sdd-kpi-card&quot;&gt;&lt;span class=&quot;sdd-kpi-label&quot;&gt;项目数&lt;/span&gt;&lt;strong class=&quot;sdd-kpi-value&quot; data-usage-projects&gt;0&lt;/strong&gt;&lt;/article&gt;
+        &lt;section class=&quot;sdd-summary-grid&quot; aria-label=&quot;代码仓总体指标&quot;&gt;
+          &lt;article class=&quot;sdd-summary-card&quot;&gt;&lt;span class=&quot;sdd-summary-label&quot;&gt;代码仓数&lt;/span&gt;&lt;strong class=&quot;sdd-summary-value&quot; data-overview-repos&gt;4&lt;/strong&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-summary-card&quot;&gt;&lt;span class=&quot;sdd-summary-label&quot;&gt;有效 SDD 任务&lt;/span&gt;&lt;strong class=&quot;sdd-summary-value&quot; data-overview-tasks&gt;118&lt;/strong&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-summary-card&quot;&gt;&lt;span class=&quot;sdd-summary-label&quot;&gt;平均 Token / 任务&lt;/span&gt;&lt;strong class=&quot;sdd-summary-value&quot; data-overview-token&gt;489K&lt;/strong&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-summary-card&quot;&gt;&lt;span class=&quot;sdd-summary-label&quot;&gt;平均耗时 / 任务&lt;/span&gt;&lt;strong class=&quot;sdd-summary-value&quot; data-overview-time&gt;46分&lt;/strong&gt;&lt;/article&gt;
         &lt;/section&gt;
 
-        &lt;section class=&quot;sdd-session-panel&quot; aria-labelledby=&quot;session-list-title&quot;&gt;
+        &lt;section class=&quot;sdd-repo-panel&quot; aria-labelledby=&quot;repo-list-title&quot;&gt;
           &lt;header class=&quot;sdd-panel-head&quot;&gt;
             &lt;div class=&quot;sdd-panel-head-copy&quot;&gt;
-              &lt;span class=&quot;sdd-eyebrow&quot;&gt;Session 列表&lt;/span&gt;
-              &lt;h2 id=&quot;session-list-title&quot;&gt;最近运行&lt;/h2&gt;
-              &lt;p&gt;项目名称优先展示，Session ID 用于追踪原始运行。&lt;/p&gt;
+              &lt;span class=&quot;sdd-eyebrow&quot;&gt;代码仓列表&lt;/span&gt;
+              &lt;h2 id=&quot;repo-list-title&quot;&gt;代码仓执行情况&lt;/h2&gt;
+              &lt;p&gt;点击任意代码仓，查看六阶段平均 Token、耗时和产物规模。&lt;/p&gt;
             &lt;/div&gt;
-            &lt;span class=&quot;sdd-status&quot; data-tone=&quot;ok&quot; data-session-status&gt;已按创建时间倒序&lt;/span&gt;
+            &lt;span class=&quot;sdd-status&quot; data-tone=&quot;ok&quot;&gt;4 个代码仓&lt;/span&gt;
           &lt;/header&gt;
-          &lt;div class=&quot;sdd-session-table-head&quot; aria-hidden=&quot;true&quot;&gt;
-            &lt;span&gt;项目 / Session&lt;/span&gt;&lt;span&gt;创建时间&lt;/span&gt;&lt;span&gt;Token 总数&lt;/span&gt;&lt;span&gt;耗时&lt;/span&gt;&lt;span&gt;状态&lt;/span&gt;&lt;span&gt;报告&lt;/span&gt;&lt;span&gt;全流程&lt;/span&gt;&lt;span&gt;入口说明&lt;/span&gt;
+          &lt;div class=&quot;sdd-repo-table-head&quot; aria-hidden=&quot;true&quot;&gt;
+            &lt;span&gt;组件&lt;/span&gt;&lt;span&gt;代码仓 / 图标&lt;/span&gt;&lt;span&gt;主干分支&lt;/span&gt;&lt;span&gt;SDD 任务数&lt;/span&gt;&lt;span&gt;平均 Token&lt;/span&gt;&lt;span&gt;平均耗时&lt;/span&gt;&lt;span&gt;更新时间&lt;/span&gt;&lt;span&gt;详情&lt;/span&gt;
           &lt;/div&gt;
-          &lt;div data-session-rows&gt;&lt;/div&gt;
-          &lt;footer class=&quot;sdd-session-footer&quot;&gt;
-            &lt;span&gt;数据范围：个人视角 · 演示数据&lt;/span&gt;
-            &lt;span&gt;Step6 报告与 SDD 全流程分开进入&lt;/span&gt;
-          &lt;/footer&gt;
+          &lt;div data-repo-rows&gt;&lt;/div&gt;
+          &lt;footer class=&quot;sdd-repo-footer&quot;&gt;&lt;span&gt;管理口视角 · 统计单位为每次有效执行的平均值&lt;/span&gt;&lt;span&gt;数据来源：阶段指标汇总 · 演示数据&lt;/span&gt;&lt;/footer&gt;
         &lt;/section&gt;
       &lt;/section&gt;
 
-      &lt;section class=&quot;sdd-view&quot; data-view=&quot;flow&quot; aria-label=&quot;SDD 全流程看板&quot; hidden&gt;
-        &lt;header class=&quot;sdd-flow-head&quot;&gt;
-          &lt;div class=&quot;sdd-flow-head-copy&quot;&gt;
-            &lt;button class=&quot;sdd-back-button&quot; type=&quot;button&quot; data-back-to-usage&gt;← 返回 Session 看板&lt;/button&gt;
-            &lt;span class=&quot;sdd-eyebrow&quot;&gt;单次 Session · SDD 全流程&lt;/span&gt;
-            &lt;h1 data-flow-title&gt;SDD 全流程&lt;/h1&gt;
-            &lt;p data-flow-description&gt;从前置资产到自改进沉淀，点击流程节点查看当前节点细节。&lt;/p&gt;
-            &lt;div class=&quot;sdd-flow-meta&quot;&gt;&lt;span data-flow-project&gt;项目：—&lt;/span&gt;&lt;code data-flow-session&gt;Session：—&lt;/code&gt;&lt;span data-flow-created&gt;创建：—&lt;/span&gt;&lt;/div&gt;
+      &lt;section class=&quot;sdd-view&quot; data-view=&quot;detail&quot; aria-label=&quot;代码仓执行详情&quot; hidden&gt;
+        &lt;header class=&quot;sdd-detail-head&quot;&gt;
+          &lt;div class=&quot;sdd-detail-head-copy&quot;&gt;
+            &lt;button class=&quot;sdd-back-button&quot; type=&quot;button&quot; data-back-to-overview&gt;← 返回代码仓总览&lt;/button&gt;
+            &lt;span class=&quot;sdd-eyebrow&quot;&gt;代码仓详情 · Implement&lt;/span&gt;
+            &lt;h1 data-detail-title&gt;agent-harness&lt;/h1&gt;
+            &lt;p data-detail-description&gt;代码仓整体 SDD / Implement 执行成本和阶段分布。&lt;/p&gt;
           &lt;/div&gt;
-          &lt;div class=&quot;sdd-flow-actions&quot;&gt;&lt;span class=&quot;sdd-demo-badge&quot;&gt;仅展示演示链路&lt;/span&gt;&lt;a class=&quot;sdd-action-link&quot; data-flow-report data-report-link href=&quot;/reports/step6/index.html&quot;&gt;打开 Step6 报告 ↗&lt;/a&gt;&lt;/div&gt;
+          &lt;div class=&quot;sdd-detail-meta&quot;&gt;&lt;span data-detail-component&gt;组件：Harness&lt;/span&gt;&lt;code data-detail-branch&gt;main&lt;/code&gt;&lt;span data-detail-period&gt;统计周期：近 30 天&lt;/span&gt;&lt;strong data-detail-sample&gt;N = 27&lt;/strong&gt;&lt;span&gt;有效执行&lt;/span&gt;&lt;/div&gt;
         &lt;/header&gt;
 
-        &lt;section class=&quot;sdd-process-panel&quot; aria-labelledby=&quot;process-map-title&quot;&gt;
-              &lt;div class=&quot;sdd-process-title&quot;&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;流程图&lt;/span&gt;&lt;h2 id=&quot;process-map-title&quot;&gt;SDD 总体阶段&lt;/h2&gt;&lt;/div&gt;&lt;p&gt;实心节点可点击；虚线节点只表达总体汇总。&lt;/p&gt;&lt;/div&gt;
-          &lt;div class=&quot;sdd-top-process&quot; data-top-process&gt;&lt;/div&gt;
-
-          &lt;div class=&quot;sdd-detail-frame&quot;&gt;
-            &lt;div class=&quot;sdd-detail-frame-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;SDD 执行细节&lt;/span&gt;&lt;h3&gt;规格到验证的六步展开&lt;/h3&gt;&lt;/div&gt;&lt;p&gt;节点之间保持同一条执行基线&lt;/p&gt;&lt;/div&gt;
-            &lt;div class=&quot;sdd-detail-process&quot; data-detail-process&gt;&lt;/div&gt;
-          &lt;/div&gt;
-
-          &lt;div class=&quot;sdd-footnote&quot;&gt;&lt;span&gt;汇总：SDD 规格拆解 / SDD 执行&lt;/span&gt;&lt;span&gt;可交互：前置资产、规格生成、详设生成、Plan、代码、编译、DT、自改进&lt;/span&gt;&lt;/div&gt;
+        &lt;section class=&quot;sdd-detail-summary&quot; aria-label=&quot;代码仓平均总指标&quot;&gt;
+          &lt;article class=&quot;sdd-detail-summary-card&quot;&gt;&lt;span&gt;平均总 Token&lt;/span&gt;&lt;strong class=&quot;sdd-detail-number&quot; data-detail-total-token&gt;538K&lt;/strong&gt;&lt;small class=&quot;sdd-detail-sub&quot;&gt;六阶段模型消耗&lt;/small&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-detail-summary-card&quot;&gt;&lt;span&gt;平均总耗时&lt;/span&gt;&lt;strong class=&quot;sdd-detail-number&quot; data-detail-total-time&gt;41分13秒&lt;/strong&gt;&lt;small class=&quot;sdd-detail-sub&quot;&gt;规格到 DT&lt;/small&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-detail-summary-card&quot;&gt;&lt;span&gt;平均文档生成量&lt;/span&gt;&lt;strong class=&quot;sdd-detail-number&quot; data-detail-doc-output&gt;3,327 行&lt;/strong&gt;&lt;small class=&quot;sdd-detail-sub&quot;&gt;规格 + 详设&lt;/small&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-detail-summary-card&quot;&gt;&lt;span&gt;平均代码生成量&lt;/span&gt;&lt;strong class=&quot;sdd-detail-number&quot; data-detail-code-output&gt;812 LOC&lt;/strong&gt;&lt;small class=&quot;sdd-detail-sub&quot;&gt;代码阶段&lt;/small&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-detail-summary-card&quot;&gt;&lt;span&gt;DT 通过率&lt;/span&gt;&lt;strong class=&quot;sdd-detail-number&quot; data-detail-dt-pass&gt;92.3%&lt;/strong&gt;&lt;small class=&quot;sdd-detail-sub&quot;&gt;按实际 DT 样本&lt;/small&gt;&lt;/article&gt;
         &lt;/section&gt;
 
-        &lt;section class=&quot;sdd-detail-panel&quot; aria-live=&quot;polite&quot; aria-labelledby=&quot;active-node-title&quot;&gt;
-          &lt;header class=&quot;sdd-detail-head&quot;&gt;
-            &lt;div class=&quot;sdd-detail-heading&quot;&gt;&lt;span class=&quot;sdd-eyebrow&quot; data-active-breadcrumb&gt;当前节点 · 前置资产&lt;/span&gt;&lt;h2 id=&quot;active-node-title&quot; data-active-title&gt;SDD 前置资产建设&lt;/h2&gt;&lt;p data-active-description&gt;检查进入 SDD 之前的仓库资产是否齐备。&lt;/p&gt;&lt;/div&gt;
-            &lt;span class=&quot;sdd-status&quot; data-tone=&quot;ok&quot; data-active-status&gt;已完成&lt;/span&gt;
+        &lt;section class=&quot;sdd-process-panel&quot; aria-labelledby=&quot;flow-title&quot;&gt;
+          &lt;header class=&quot;sdd-section-head&quot;&gt;
+            &lt;div class=&quot;sdd-section-head-copy&quot;&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;Implement 六阶段&lt;/span&gt;&lt;h2 id=&quot;flow-title&quot;&gt;六阶段执行流程&lt;/h2&gt;&lt;p&gt;每个框展示该代码仓的平均值；编译和 DT 不产生模型 Token 时保留“—”。&lt;/p&gt;&lt;/div&gt;
+            &lt;span class=&quot;sdd-status&quot; data-tone=&quot;ok&quot;&gt;平均口径&lt;/span&gt;
           &lt;/header&gt;
-          &lt;div class=&quot;sdd-detail-kpis&quot; data-detail-kpis&gt;&lt;/div&gt;
-          &lt;div class=&quot;sdd-detail-content&quot; data-detail-content&gt;&lt;/div&gt;
+          &lt;div class=&quot;sdd-flow-grid&quot; data-flow-grid&gt;&lt;/div&gt;
         &lt;/section&gt;
+
+        &lt;section class=&quot;sdd-analysis-grid&quot; aria-label=&quot;平均 Token 与耗时对比&quot;&gt;
+          &lt;article class=&quot;sdd-analysis-panel&quot;&gt;
+            &lt;header class=&quot;sdd-analysis-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;Token 消耗&lt;/span&gt;&lt;h3&gt;平均 Token / 次执行&lt;/h3&gt;&lt;p&gt;只比较有模型 Token 的阶段。&lt;/p&gt;&lt;/div&gt;&lt;strong data-token-total-label&gt;总计 538K&lt;/strong&gt;&lt;/header&gt;
+            &lt;ol class=&quot;sdd-bar-list&quot; data-token-bars&gt;&lt;/ol&gt;
+          &lt;/article&gt;
+          &lt;article class=&quot;sdd-analysis-panel&quot;&gt;
+            &lt;header class=&quot;sdd-analysis-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;耗时对比&lt;/span&gt;&lt;h3&gt;平均耗时 / 次执行&lt;/h3&gt;&lt;p&gt;六个阶段各自使用独立的时间比例。&lt;/p&gt;&lt;/div&gt;&lt;strong data-time-total-label&gt;总计 41分13秒&lt;/strong&gt;&lt;/header&gt;
+            &lt;ol class=&quot;sdd-bar-list&quot; data-time-bars&gt;&lt;/ol&gt;
+          &lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;section class=&quot;sdd-output-grid&quot; aria-label=&quot;平均产物规模&quot;&gt;
+          &lt;article class=&quot;sdd-output-card&quot;&gt;&lt;span&gt;规格文档&lt;/span&gt;&lt;strong data-output-spec&gt;1,286 行&lt;/strong&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-output-card&quot;&gt;&lt;span&gt;详设文档&lt;/span&gt;&lt;strong data-output-design&gt;2,041 行&lt;/strong&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-output-card&quot;&gt;&lt;span&gt;Plan&lt;/span&gt;&lt;strong data-output-plan&gt;7.4 个&lt;/strong&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-output-card&quot;&gt;&lt;span&gt;代码&lt;/span&gt;&lt;strong data-output-code&gt;812 LOC&lt;/strong&gt;&lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;section class=&quot;sdd-breakdown-grid&quot; aria-label=&quot;阶段占比&quot;&gt;
+          &lt;article class=&quot;sdd-breakdown-panel&quot;&gt;&lt;header&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;Token 阶段占比&lt;/span&gt;&lt;p&gt;总模型 Token 的阶段占比&lt;/p&gt;&lt;/div&gt;&lt;strong data-token-breakdown-total&gt;100%&lt;/strong&gt;&lt;/header&gt;&lt;div class=&quot;sdd-stack-bar&quot; data-token-stack&gt;&lt;/div&gt;&lt;div class=&quot;sdd-legend&quot; data-token-legend&gt;&lt;/div&gt;&lt;/article&gt;
+          &lt;article class=&quot;sdd-breakdown-panel&quot;&gt;&lt;header&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;耗时阶段占比&lt;/span&gt;&lt;p&gt;总执行耗时的阶段占比&lt;/p&gt;&lt;/div&gt;&lt;strong data-time-breakdown-total&gt;100%&lt;/strong&gt;&lt;/header&gt;&lt;div class=&quot;sdd-stack-bar&quot; data-time-stack&gt;&lt;/div&gt;&lt;div class=&quot;sdd-legend&quot; data-time-legend&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;div class=&quot;sdd-insight&quot; data-detail-insight&gt;&lt;strong&gt;管理判断&lt;/strong&gt;&lt;span&gt;代码阶段是当前代码仓的主要资源消耗点。&lt;/span&gt;&lt;/div&gt;
+
+        &lt;section class=&quot;sdd-trend-panel&quot; aria-labelledby=&quot;trend-title&quot;&gt;
+          &lt;header class=&quot;sdd-trend-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;最近任务&lt;/span&gt;&lt;h3 id=&quot;trend-title&quot;&gt;最近任务趋势&lt;/h3&gt;&lt;p&gt;只展示最近 12 次演示任务，观察 Token / 耗时是否出现突然爆量。&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;sdd-trend-legend&quot;&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;Token&lt;/span&gt;&lt;span&gt;&lt;i&gt;&lt;/i&gt;耗时&lt;/span&gt;&lt;/div&gt;&lt;/header&gt;
+          &lt;div class=&quot;sdd-trend-chart&quot; data-trend-chart&gt;&lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;section class=&quot;sdd-stage-table-panel&quot; aria-labelledby=&quot;stage-table-title&quot;&gt;
+          &lt;header class=&quot;sdd-stage-table-head&quot;&gt;&lt;span class=&quot;sdd-eyebrow&quot;&gt;阶段统计&lt;/span&gt;&lt;h3 id=&quot;stage-table-title&quot;&gt;阶段统计表&lt;/h3&gt;&lt;p&gt;平均值只表示平均口径；样本数 N 以实际进入该阶段的任务数为准。&lt;/p&gt;&lt;/header&gt;
+          &lt;div class=&quot;sdd-stat-grid sdd-stat-grid-head&quot; aria-hidden=&quot;true&quot;&gt;&lt;span&gt;阶段&lt;/span&gt;&lt;span&gt;N&lt;/span&gt;&lt;span&gt;平均 Token&lt;/span&gt;&lt;span&gt;平均耗时&lt;/span&gt;&lt;span&gt;平均产物&lt;/span&gt;&lt;span&gt;成功率&lt;/span&gt;&lt;/div&gt;
+          &lt;div data-stage-table&gt;&lt;/div&gt;
+        &lt;/section&gt;
+        &lt;footer class=&quot;sdd-detail-footer&quot;&gt;&lt;span&gt;阶段顺序：规格生成 → 详设生成 → Plan → 代码 → 编译 → DT&lt;/span&gt;&lt;span&gt;全部数据为代码仓级演示汇总，不代表实时监控&lt;/span&gt;&lt;/footer&gt;
       &lt;/section&gt;
     &lt;/main&gt;
   &lt;/div&gt;
@@ -1865,51 +1660,79 @@ html&gt;body{padding:0}&lt;/style&gt;
       const root = document.getElementById(&#x27;sdd-dashboard&#x27;);
       if (!root) return;
 
-      const rangeCaptions = {
-        today: &#x27;今天 · 2026-08-26&#x27;,
-        week: &#x27;本周 · 2026-08-20 至 2026-08-26&#x27;,
-        month: &#x27;本月 · 2026-08-01 至 2026-08-26&#x27;
+      const stageLabels = {
+        spec: &#x27;规格生成&#x27;,
+        design: &#x27;详设生成&#x27;,
+        plan: &#x27;Plan&#x27;,
+        code: &#x27;代码&#x27;,
+        compile: &#x27;编译&#x27;,
+        dt: &#x27;DT&#x27;
       };
+      const stageDescriptions = {
+        spec: &#x27;需求形成可验收规格&#x27;,
+        design: &#x27;规格展开为详设&#x27;,
+        plan: &#x27;拆成可执行计划&#x27;,
+        code: &#x27;按 Plan 修改代码&#x27;,
+        compile: &#x27;构建与产物加载&#x27;,
+        dt: &#x27;行为与失败边界确认&#x27;
+      };
+      const stageOrder = [&#x27;spec&#x27;, &#x27;design&#x27;, &#x27;plan&#x27;, &#x27;code&#x27;, &#x27;compile&#x27;, &#x27;dt&#x27;];
+      const colors = [&#x27;#4f8fa5&#x27;, &#x27;#74b2b1&#x27;, &#x27;#a7c9bf&#x27;, &#x27;#d2a850&#x27;, &#x27;#c77955&#x27;, &#x27;#af6460&#x27;];
 
-      const sessions = [
+      const repositories = [
         {
-          id: &#x27;a82f-7d2c&#x27;, project: &#x27;prime-agent&#x27;, createdAt: &#x27;2026-08-26T10:21:00+08:00&#x27;, tokenTotal: 682000, durationSec: 2699, status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27;, reportHref: &#x27;/reports/step6/index.html&#x27;, flow: {
-            assets: { compliance: 92, passed: 12, total: 13, checks: [
-              [&#x27;AGENTS.md&#x27;, &#x27;已存在并通过&#x27;, &#x27;仓库规则入口可定位&#x27;, &#x27;ok&#x27;],
-              [&#x27;架构说明&#x27;, &#x27;已存在&#x27;, &#x27;模块边界和依赖关系可追溯&#x27;, &#x27;ok&#x27;],
-              [&#x27;测试规则&#x27;, &#x27;需补充&#x27;, &#x27;缺少 DT 失败分级说明&#x27;, &#x27;fail&#x27;],
-              [&#x27;决策记录&#x27;, &#x27;已存在&#x27;, &#x27;当前决策可追溯&#x27;, &#x27;ok&#x27;],
-              [&#x27;产出索引&#x27;, &#x27;已生成&#x27;, &#x27;规格、计划、代码产物已关联&#x27;, &#x27;ok&#x27;]
-            ] },
-            decomposition: { docSize: &#x27;1.6K&#x27;, codeSize: &#x27;836 行&#x27;, verdict: &#x27;粒度正常&#x27;, tone: &#x27;ok&#x27; },
-            execution: { tokens: 682000, durationSec: 2699, codeLines: 836, verdict: &#x27;已完成&#x27;, tone: &#x27;ok&#x27; },
-            improvement: { enabled: true, mining: 1, cards: [&#x27;EC-001 CLI 入口定位规律&#x27;, &#x27;EC-002 重复搜索问题&#x27;, &#x27;EC-003 测试执行最优路径&#x27;, &#x27;EC-004 配置修改约束&#x27;], knowledgeUnits: [&#x27;KU-021 CLI Command Registration Knowledge&#x27;], reportHref: &#x27;/reports/step6/index.html&#x27; },
-            detail: {
-              specGeneration: { tokens: 38000, durationSec: 42, output: &#x27;1,283 行&#x27;, artifact: &#x27;spec.md&#x27;, outline: [&#x27;需求边界&#x27;, &#x27;约束与不变量&#x27;, &#x27;验收场景&#x27;, &#x27;证据范围&#x27;], status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27; },
-              designGeneration: { tokens: 51000, durationSec: 67, output: &#x27;1,892 行&#x27;, artifact: &#x27;design.md&#x27;, sections: [&#x27;架构与模块边界&#x27;, &#x27;数据流与状态变化&#x27;, &#x27;接口与失败模型&#x27;, &#x27;测试策略&#x27;], status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27; },
-              plan: { tokens: 27000, durationSec: 31, count: 8, plans: [&#x27;定位 CLI 入口&#x27;, &#x27;补齐规格字段&#x27;, &#x27;调整状态模型&#x27;, &#x27;实现报告导航&#x27;, &#x27;增加 DT 入口&#x27;, &#x27;补充失败态&#x27;, &#x27;运行回归检查&#x27;, &#x27;整理知识产出&#x27;], status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27; },
-              code: { tokens: 566000, durationSec: 2280, lines: 836, toolCalls: 83, searchCalls: 21, filesRead: 37, path: [&#x27;仓库根目录&#x27;, &#x27;src/cli&#x27;, &#x27;runtime&#x27;, &#x27;reporting&#x27;, &#x27;tests&#x27;], files: [
-                [&#x27;src/cli/session.ts&#x27;, &#x27;+203 / -31&#x27;], [&#x27;src/reporting/flow.ts&#x27;, &#x27;+181 / -43&#x27;], [&#x27;tests/session-flow.test.ts&#x27;, &#x27;+317 / -21&#x27;], [&#x27;docs/dashboard.md&#x27;, &#x27;+135 / -18&#x27;]
-              ], status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27; },
-              compile: { durationSec: 93, attempts: [[&#x27;第 1 次&#x27;, &#x27;失败&#x27;, &#x27;缺少报告资源路径&#x27;, &#x27;fail&#x27;], [&#x27;第 2 次&#x27;, &#x27;通过&#x27;, &#x27;入口与静态资源均可加载&#x27;, &#x27;ok&#x27;]], result: &#x27;通过&#x27;, tone: &#x27;ok&#x27; },
-              dt: { durationSec: 186, cases: 129, passed: 127, failed: 2, failedCases: [&#x27;test_report_relative_assets&#x27;, &#x27;test_flow_empty_state&#x27;], result: &#x27;通过（有 2 个待跟进）&#x27;, tone: &#x27;warn&#x27; }
-            }
+          id: &#x27;router-core&#x27;, component: &#x27;路由&#x27;, branch: &#x27;master&#x27;, tasks: 32, updated: &#x27;08-26&#x27;, icon: &#x27;◇&#x27;,
+          stages: {
+            spec: { tokens: 32000, durationSec: 38, output: { value: 1180, unit: &#x27;行&#x27; }, samples: 32, success: 100 },
+            design: { tokens: 44000, durationSec: 60, output: { value: 1740, unit: &#x27;行&#x27; }, samples: 32, success: 100 },
+            plan: { tokens: 24000, durationSec: 31, output: { value: 6.2, unit: &#x27;个 Plan&#x27; }, samples: 32, success: 100 },
+            code: { tokens: 382000, durationSec: 2360, output: { value: 642, unit: &#x27;LOC&#x27; }, samples: 32, success: 96.9 },
+            compile: { tokens: null, durationSec: 82, output: null, samples: 32, success: 93.8 },
+            dt: { tokens: null, durationSec: 164, output: { value: 98, unit: &#x27;个 Case&#x27; }, samples: 31, success: 91.4 }
           }
         },
-        { id: &#x27;b932-11af&#x27;, project: &#x27;DeepSeek Harness&#x27;, createdAt: &#x27;2026-08-26T09:07:00+08:00&#x27;, tokenTotal: 432000, durationSec: 3480, status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27;, reportHref: null, flow: null },
-        { id: &#x27;c281-9e40&#x27;, project: &#x27;Router&#x27;, createdAt: &#x27;2026-08-25T21:43:00+08:00&#x27;, tokenTotal: 91000, durationSec: 1020, status: &#x27;失败&#x27;, tone: &#x27;fail&#x27;, reportHref: null, flow: null },
-        { id: &#x27;d614-5b08&#x27;, project: &#x27;prime-agent&#x27;, createdAt: &#x27;2026-08-20T16:18:00+08:00&#x27;, tokenTotal: 918000, durationSec: 5020, status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27;, reportHref: &#x27;/reports/step6/index.html&#x27;, flow: null },
-        { id: &#x27;e021-2ca7&#x27;, project: &#x27;MatrixSpec&#x27;, createdAt: &#x27;2026-08-12T11:32:00+08:00&#x27;, tokenTotal: 243000, durationSec: 2280, status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27;, reportHref: null, flow: null },
-        { id: &#x27;f755-8ac2&#x27;, project: &#x27;workflow-arena&#x27;, createdAt: &#x27;2026-08-03T14:05:00+08:00&#x27;, tokenTotal: 377000, durationSec: 3140, status: &#x27;已完成&#x27;, tone: &#x27;ok&#x27;, reportHref: null, flow: null }
+        {
+          id: &#x27;cli-framework&#x27;, component: &#x27;CLI&#x27;, branch: &#x27;main&#x27;, tasks: 18, updated: &#x27;08-26&#x27;, icon: &#x27;◇&#x27;,
+          stages: {
+            spec: { tokens: 24000, durationSec: 33, output: { value: 920, unit: &#x27;行&#x27; }, samples: 18, success: 100 },
+            design: { tokens: 34000, durationSec: 53, output: { value: 1420, unit: &#x27;行&#x27; }, samples: 18, success: 100 },
+            plan: { tokens: 18000, durationSec: 28, output: { value: 5.1, unit: &#x27;个 Plan&#x27; }, samples: 18, success: 100 },
+            code: { tokens: 240000, durationSec: 1500, output: { value: 508, unit: &#x27;LOC&#x27; }, samples: 18, success: 100 },
+            compile: { tokens: null, durationSec: 68, output: null, samples: 18, success: 94.4 },
+            dt: { tokens: null, durationSec: 120, output: { value: 74, unit: &#x27;个 Case&#x27; }, samples: 17, success: 94.1 }
+          }
+        },
+        {
+          id: &#x27;agent-gateway&#x27;, component: &#x27;网关&#x27;, branch: &#x27;master&#x27;, tasks: 41, updated: &#x27;08-25&#x27;, icon: &#x27;◇&#x27;,
+          stages: {
+            spec: { tokens: 44000, durationSec: 49, output: { value: 1480, unit: &#x27;行&#x27; }, samples: 41, success: 100 },
+            design: { tokens: 61000, durationSec: 77, output: { value: 2390, unit: &#x27;行&#x27; }, samples: 41, success: 97.6 },
+            plan: { tokens: 30000, durationSec: 41, output: { value: 8.6, unit: &#x27;个 Plan&#x27; }, samples: 41, success: 97.6 },
+            code: { tokens: 486000, durationSec: 2780, output: { value: 1042, unit: &#x27;LOC&#x27; }, samples: 41, success: 95.1 },
+            compile: { tokens: null, durationSec: 104, output: null, samples: 41, success: 92.7 },
+            dt: { tokens: null, durationSec: 216, output: { value: 148, unit: &#x27;个 Case&#x27; }, samples: 39, success: 89.7 }
+          }
+        },
+        {
+          id: &#x27;agent-harness&#x27;, component: &#x27;Harness&#x27;, branch: &#x27;main&#x27;, tasks: 27, updated: &#x27;08-25&#x27;, icon: &#x27;◇&#x27;,
+          stages: {
+            spec: { tokens: 38000, durationSec: 42, output: { value: 1286, unit: &#x27;行&#x27; }, samples: 27, success: 100 },
+            design: { tokens: 52000, durationSec: 71, output: { value: 2041, unit: &#x27;行&#x27; }, samples: 27, success: 100 },
+            plan: { tokens: 29000, durationSec: 36, output: { value: 7.4, unit: &#x27;个 Plan&#x27; }, samples: 27, success: 100 },
+            code: { tokens: 419000, durationSec: 2040, output: { value: 812, unit: &#x27;LOC&#x27; }, samples: 27, success: 96.3 },
+            compile: { tokens: null, durationSec: 96, output: null, samples: 27, success: 92.6 },
+            dt: { tokens: null, durationSec: 188, output: { value: 126, unit: &#x27;个 Case&#x27; }, samples: 26, success: 92.3 }
+          }
+        }
       ];
 
-      const state = { range: &#x27;today&#x27;, sessionId: null, activeNode: &#x27;assets&#x27; };
-      const views = { usage: root.querySelector(&#x27;[data-view=&quot;usage&quot;]&#x27;), flow: root.querySelector(&#x27;[data-view=&quot;flow&quot;]&#x27;) };
+      const state = { repoId: null };
+      const views = { overview: root.querySelector(&#x27;[data-view=&quot;overview&quot;]&#x27;), detail: root.querySelector(&#x27;[data-view=&quot;detail&quot;]&#x27;) };
 
       const esc = (value) =&gt; String(value).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, (char) =&gt; ({ &#x27;&amp;&#x27;: &#x27;&amp;amp;&#x27;, &#x27;&lt;&#x27;: &#x27;&amp;lt;&#x27;, &#x27;&gt;&#x27;: &#x27;&amp;gt;&#x27;, &#x27;&quot;&#x27;: &#x27;&amp;quot;&#x27;, &quot;&#x27;&quot;: &#x27;&amp;#39;&#x27; }[char]));
       const fmtTokens = (value) =&gt; {
         if (value === null || value === undefined) return &#x27;—&#x27;;
-        if (value &gt;= 1000000) return `${(value / 1000000).toFixed(value % 1000000 === 0 ? 0 : 2)}M`;
+        if (value &gt;= 1000000) return `${(value / 1000000).toFixed(value % 1000000 === 0 ? 0 : 1)}M`;
         if (value &gt;= 1000) return `${Math.round(value / 1000)}K`;
         return String(value);
       };
@@ -1921,220 +1744,151 @@ html&gt;body{padding:0}&lt;/style&gt;
         if (minutes === 0) return `${remain}秒`;
         return `${minutes}分${remain ? `${remain}秒` : &#x27;&#x27;}`;
       };
-      const fmtDate = (value) =&gt; value.slice(5, 16).replace(&#x27;T&#x27;, &#x27; &#x27;);
-      const sessionDate = (session) =&gt; session.createdAt.slice(0, 10);
-      const statusLabel = (tone) =&gt; ({ ok: &#x27;已完成&#x27;, warn: &#x27;预警&#x27;, fail: &#x27;失败&#x27;, muted: &#x27;未提供&#x27; }[tone] || &#x27;未提供&#x27;);
+      const fmtNumber = (value) =&gt; Number.isInteger(value) ? value.toLocaleString(&#x27;en-US&#x27;) : value.toFixed(1);
+      const stageTotal = (repo, field) =&gt; stageOrder.reduce((sum, id) =&gt; sum + (repo.stages[id][field] || 0), 0);
+      const tokenTotal = (repo) =&gt; stageOrder.reduce((sum, id) =&gt; sum + (repo.stages[id].tokens || 0), 0);
+      const durationTotal = (repo) =&gt; stageTotal(repo, &#x27;durationSec&#x27;);
+      const docsTotal = (repo) =&gt; repo.stages.spec.output.value + repo.stages.design.output.value;
+      const outputText = (output) =&gt; output ? `${fmtNumber(output.value)} ${output.unit}` : &#x27;—&#x27;;
 
-      function filteredSessions() {
-        const start = state.range === &#x27;today&#x27; ? &#x27;2026-08-26&#x27; : state.range === &#x27;week&#x27; ? &#x27;2026-08-20&#x27; : &#x27;2026-08-01&#x27;;
-        return sessions.filter((session) =&gt; sessionDate(session) &gt;= start &amp;&amp; sessionDate(session) &lt;= &#x27;2026-08-26&#x27;);
-      }
-
-      function renderUsage() {
-        const filtered = filteredSessions();
-        const totalTokens = filtered.reduce((sum, session) =&gt; sum + session.tokenTotal, 0);
-        const projects = new Set(filtered.map((session) =&gt; session.project));
-        root.querySelector(&#x27;[data-range-caption]&#x27;).textContent = rangeCaptions[state.range];
-        root.querySelectorAll(&#x27;[data-range]&#x27;).forEach((tab) =&gt; tab.setAttribute(&#x27;aria-pressed&#x27;, String(tab.dataset.range === state.range)));
-        root.querySelector(&#x27;[data-usage-sessions]&#x27;).textContent = String(filtered.length);
-        root.querySelector(&#x27;[data-usage-tokens]&#x27;).textContent = fmtTokens(totalTokens);
-        root.querySelector(&#x27;[data-usage-average]&#x27;).textContent = filtered.length ? fmtTokens(Math.round(totalTokens / filtered.length)) : &#x27;—&#x27;;
-        root.querySelector(&#x27;[data-usage-projects]&#x27;).textContent = String(projects.size);
-        root.querySelector(&#x27;[data-session-status]&#x27;).textContent = filtered.length ? `共 ${filtered.length} 条` : &#x27;暂无记录&#x27;;
-        root.querySelector(&#x27;[data-session-status]&#x27;).dataset.tone = filtered.length ? &#x27;ok&#x27; : &#x27;muted&#x27;;
-
-        const rows = root.querySelector(&#x27;[data-session-rows]&#x27;);
-        if (!filtered.length) {
-          rows.innerHTML = &#x27;&lt;div class=&quot;sdd-empty&quot;&gt;&lt;div&gt;&lt;strong&gt;该时间范围暂无 Session&lt;/strong&gt;&lt;span&gt;切换到本周或本月查看演示数据。&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&#x27;;
-          return;
-        }
-        rows.innerHTML = filtered.map((session) =&gt; `
-          &lt;div class=&quot;sdd-session-row&quot;&gt;
-            &lt;div class=&quot;sdd-session-project&quot;&gt;&lt;strong&gt;${esc(session.project)}&lt;/strong&gt;&lt;code&gt;${esc(session.id)}&lt;/code&gt;&lt;/div&gt;
-            &lt;div class=&quot;sdd-session-cell&quot;&gt;&lt;strong&gt;${fmtDate(session.createdAt)}&lt;/strong&gt;&lt;small&gt;${sessionDate(session)}&lt;/small&gt;&lt;/div&gt;
-            &lt;div class=&quot;sdd-session-cell&quot;&gt;&lt;strong&gt;${fmtTokens(session.tokenTotal)}&lt;/strong&gt;&lt;small&gt;总 Token&lt;/small&gt;&lt;/div&gt;
-            &lt;div class=&quot;sdd-session-cell&quot;&gt;&lt;strong&gt;${fmtDuration(session.durationSec)}&lt;/strong&gt;&lt;small&gt;运行耗时&lt;/small&gt;&lt;/div&gt;
-            &lt;div&gt;&lt;span class=&quot;sdd-status&quot; data-tone=&quot;${session.tone}&quot;&gt;${esc(session.status)}&lt;/span&gt;&lt;/div&gt;
-            &lt;div&gt;${session.reportHref ? `&lt;a class=&quot;sdd-action-link&quot; data-report-link href=&quot;${esc(session.reportHref)}&quot;&gt;Step6 ↗&lt;/a&gt;` : &#x27;&lt;span class=&quot;sdd-action-link&quot; aria-disabled=&quot;true&quot;&gt;未生成&lt;/span&gt;&#x27;}&lt;/div&gt;
-            &lt;div&gt;${session.flow ? `&lt;button class=&quot;sdd-action-button&quot; type=&quot;button&quot; data-open-flow=&quot;${esc(session.id)}&quot;&gt;看全流程 →&lt;/button&gt;` : &#x27;&lt;span class=&quot;sdd-action-link&quot; aria-disabled=&quot;true&quot;&gt;非 SDD&lt;/span&gt;&#x27;}&lt;/div&gt;
-            &lt;div class=&quot;sdd-session-cell&quot;&gt;&lt;small&gt;${session.flow ? &#x27;点击进入节点流程图&#x27; : session.reportHref ? &#x27;仅提供静态报告&#x27; : &#x27;暂无下钻内容&#x27;}&lt;/small&gt;&lt;/div&gt;
-          &lt;/div&gt;`).join(&#x27;&#x27;);
-      }
-
-      const nodeDefs = {
-        assets: { label: &#x27;SDD 前置资产建设&#x27;, short: &#x27;前置资产&#x27;, number: &#x27;01&#x27;, metricLabel: &#x27;合规率&#x27;, metric: (flow) =&gt; `${flow.assets.compliance}%`, secondary: (flow) =&gt; `${flow.assets.passed} / ${flow.assets.total} 通过`, description: &#x27;检查 SDD 进入前的规则、架构和决策资产。&#x27;, tone: &#x27;ok&#x27;, interactive: true },
-        decompose: { label: &#x27;SDD 规格拆解&#x27;, short: &#x27;规格拆解&#x27;, number: &#x27;02&#x27;, metricLabel: &#x27;规格大小&#x27;, metric: (flow) =&gt; flow.decomposition.docSize, secondary: (flow) =&gt; `${flow.decomposition.codeSize} · ${flow.decomposition.verdict}`, description: &#x27;规格大小与预计代码规模的总体判断。&#x27;, tone: &#x27;ok&#x27;, interactive: false },
-        execution: { label: &#x27;SDD 执行&#x27;, short: &#x27;SDD 执行&#x27;, number: &#x27;03&#x27;, metricLabel: &#x27;Token 总量&#x27;, metric: (flow) =&gt; fmtTokens(flow.execution.tokens), secondary: (flow) =&gt; `${fmtDuration(flow.execution.durationSec)} · ${flow.execution.codeLines} 行代码`, description: &#x27;规格、详设、Plan、代码、编译和 DT 的执行汇总。&#x27;, tone: &#x27;ok&#x27;, interactive: false },
-        improvement: { label: &#x27;自改进沉淀&#x27;, short: &#x27;自改进&#x27;, number: &#x27;04&#x27;, metricLabel: &#x27;是否沉淀&#x27;, metric: (flow) =&gt; flow.improvement.enabled ? &#x27;是&#x27; : &#x27;否&#x27;, secondary: (flow) =&gt; `${flow.improvement.cards.length} Cards · ${flow.improvement.knowledgeUnits.length} KU`, description: &#x27;把本次执行中可复用的经验整理为长期知识。&#x27;, tone: &#x27;ok&#x27;, interactive: true }
-      };
-
-      const lowerDefs = [
-        { id: &#x27;specGeneration&#x27;, label: &#x27;规格生成&#x27;, number: &#x27;01&#x27;, metricLabel: &#x27;Token&#x27;, metric: (flow) =&gt; fmtTokens(flow.detail.specGeneration.tokens), secondary: (flow) =&gt; `${fmtDuration(flow.detail.specGeneration.durationSec)} · ${flow.detail.specGeneration.output}`, description: &#x27;从需求输入形成可验收规格。&#x27; },
-        { id: &#x27;designGeneration&#x27;, label: &#x27;详设生成&#x27;, number: &#x27;02&#x27;, metricLabel: &#x27;Token&#x27;, metric: (flow) =&gt; fmtTokens(flow.detail.designGeneration.tokens), secondary: (flow) =&gt; `${fmtDuration(flow.detail.designGeneration.durationSec)} · ${flow.detail.designGeneration.output}`, description: &#x27;把规格展开为架构、接口和测试策略。&#x27; },
-        { id: &#x27;plan&#x27;, label: &#x27;Plan&#x27;, number: &#x27;03&#x27;, metricLabel: &#x27;Token&#x27;, metric: (flow) =&gt; fmtTokens(flow.detail.plan.tokens), secondary: (flow) =&gt; `${fmtDuration(flow.detail.plan.durationSec)} · ${flow.detail.plan.count} 个 Plan`, description: &#x27;把详设拆成可执行的计划单元。&#x27; },
-        { id: &#x27;code&#x27;, label: &#x27;代码&#x27;, number: &#x27;04&#x27;, metricLabel: &#x27;Token&#x27;, metric: (flow) =&gt; fmtTokens(flow.detail.code.tokens), secondary: (flow) =&gt; `${fmtDuration(flow.detail.code.durationSec)} · ${flow.detail.code.lines} 行`, description: &#x27;按 Plan 修改代码并记录探索路径。&#x27; },
-        { id: &#x27;compile&#x27;, label: &#x27;编译&#x27;, number: &#x27;05&#x27;, metricLabel: &#x27;耗时&#x27;, metric: (flow) =&gt; fmtDuration(flow.detail.compile.durationSec), secondary: (flow) =&gt; `${flow.detail.compile.attempts.length} 次尝试 · ${flow.detail.compile.result}`, description: &#x27;检查代码能否完成构建和产物加载。&#x27; },
-        { id: &#x27;dt&#x27;, label: &#x27;DT&#x27;, number: &#x27;06&#x27;, metricLabel: &#x27;耗时&#x27;, metric: (flow) =&gt; fmtDuration(flow.detail.dt.durationSec), secondary: (flow) =&gt; `${flow.detail.dt.passed} / ${flow.detail.dt.cases} 通过`, description: &#x27;用 DT 结果确认流程行为和失败边界。&#x27; }
-      ];
-
-      function nodeStatus(flow, id) {
-        if (id === &#x27;dt&#x27;) return flow.detail.dt.tone;
-        if (id === &#x27;compile&#x27;) return flow.detail.compile.tone;
-        return &#x27;ok&#x27;;
-      }
-
-      function nodeMarkup(def, flow, interactive, active) {
-        const tone = nodeStatus(flow, def.id);
-        const status = statusLabel(tone);
-        const body = `&lt;div class=&quot;sdd-node-top&quot;&gt;&lt;span class=&quot;sdd-node-number&quot;&gt;${def.number}&lt;/span&gt;&lt;span class=&quot;sdd-stage-rail&quot;&gt;&lt;i class=&quot;sdd-stage-dot&quot; data-tone=&quot;${tone}&quot;&gt;&lt;/i&gt;${status}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;sdd-node-label&quot;&gt;&lt;h3&gt;${def.label}&lt;/h3&gt;&lt;p&gt;${def.description}&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;sdd-node-bottom&quot;&gt;&lt;div class=&quot;sdd-node-metric&quot;&gt;&lt;span&gt;${def.metricLabel}&lt;/span&gt;&lt;strong&gt;${def.metric(flow)}&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;sdd-node-secondary&quot;&gt;&lt;strong&gt;${def.secondary(flow)}&lt;/strong&gt;&lt;span&gt;${interactive ? &#x27;点击查看详情&#x27; : &#x27;总体汇总&#x27;}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
-        if (interactive) return `&lt;button class=&quot;sdd-flow-node sdd-node-button&quot; type=&quot;button&quot; data-node=&quot;${def.id}&quot; data-active=&quot;${String(active)}&quot; aria-pressed=&quot;${String(active)}&quot;&gt;${body}&lt;/button&gt;`;
-        return `&lt;article class=&quot;sdd-flow-node&quot; data-kind=&quot;summary&quot; aria-label=&quot;${def.label}，汇总节点&quot;&gt;${body}&lt;/article&gt;`;
-      }
-
-      function renderFlowMap(flow) {
-        const top = root.querySelector(&#x27;[data-top-process]&#x27;);
-        top.innerHTML = Object.entries(nodeDefs).map(([id, def]) =&gt; nodeMarkup({ ...def, id }, flow, def.interactive, state.activeNode === id)).join(&#x27;&#x27;);
-        root.querySelector(&#x27;[data-detail-process]&#x27;).innerHTML = lowerDefs.map((def) =&gt; nodeMarkup(def, flow, true, state.activeNode === def.id)).join(&#x27;&#x27;);
-      }
-
-      function kpis(items) {
-        return items.map(([label, value]) =&gt; `&lt;div class=&quot;sdd-detail-kpi&quot;&gt;&lt;span&gt;${esc(label)}&lt;/span&gt;&lt;strong class=&quot;sdd-metric-value&quot;&gt;${esc(value)}&lt;/strong&gt;&lt;/div&gt;`).join(&#x27;&#x27;);
-      }
-
-      function checkList(items) {
-        return `&lt;ul class=&quot;sdd-check-list&quot;&gt;${items.map(([title, detail, note, tone]) =&gt; `&lt;li class=&quot;sdd-check-item&quot;&gt;&lt;div&gt;&lt;strong&gt;${esc(title)}&lt;/strong&gt;&lt;small&gt;${esc(note)}&lt;/small&gt;&lt;/div&gt;&lt;span class=&quot;sdd-check-icon&quot; data-tone=&quot;${tone}&quot;&gt;${tone === &#x27;ok&#x27; ? &#x27;✓&#x27; : &#x27;!&#x27;}&lt;/span&gt;&lt;/li&gt;`).join(&#x27;&#x27;)}&lt;/ul&gt;`;
-      }
-
-      function itemList(items, emptyText = &#x27;暂无条目&#x27;) {
-        if (!items || !items.length) return `&lt;div class=&quot;sdd-empty&quot;&gt;&lt;span&gt;${esc(emptyText)}&lt;/span&gt;&lt;/div&gt;`;
-        return `&lt;ul class=&quot;sdd-item-list&quot;&gt;${items.map((item) =&gt; `&lt;li class=&quot;sdd-item-row&quot;&gt;&lt;div&gt;&lt;strong&gt;${esc(item)}&lt;/strong&gt;&lt;/div&gt;&lt;span class=&quot;sdd-check-icon&quot; data-tone=&quot;ok&quot;&gt;✓&lt;/span&gt;&lt;/li&gt;`).join(&#x27;&#x27;)}&lt;/ul&gt;`;
-      }
-
-      function detailFor(flow, id) {
-        const shared = { breadcrumb: &#x27;&#x27;, title: &#x27;&#x27;, description: &#x27;&#x27;, tone: &#x27;ok&#x27;, status: &#x27;已完成&#x27;, kpis: [], content: &#x27;&#x27; };
-        if (id === &#x27;assets&#x27;) {
-          shared.breadcrumb = &#x27;当前节点 · 前置资产&#x27;; shared.title = &#x27;SDD 前置资产建设&#x27;; shared.description = &#x27;检查进入 SDD 之前的仓库资产是否齐备。&#x27;; shared.kpis = [[&#x27;合规率&#x27;, `${flow.assets.compliance}%`], [&#x27;通过项&#x27;, `${flow.assets.passed} / ${flow.assets.total}`], [&#x27;待补项&#x27;, String(flow.assets.total - flow.assets.passed)]];
-          shared.content = `&lt;div class=&quot;sdd-detail-columns&quot;&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;前置资产检查&lt;/h3&gt;&lt;span&gt;${flow.assets.passed} / ${flow.assets.total} 通过&lt;/span&gt;&lt;/header&gt;${checkList(flow.assets.checks)}&lt;/section&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;判断&lt;/h3&gt;&lt;span&gt;合规率来源&lt;/span&gt;&lt;/header&gt;&lt;div class=&quot;sdd-note&quot;&gt;&lt;strong&gt;当前可进入 SDD 执行&lt;/strong&gt;&lt;span&gt;合规率由检查项通过数计算。测试规则仍有一项需要补齐，流程页将它保留为预警而不是隐藏。&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`;
-          return shared;
-        }
-        if (id === &#x27;specGeneration&#x27;) {
-          const d = flow.detail.specGeneration; shared.breadcrumb = &#x27;执行细节 · 规格生成&#x27;; shared.title = &#x27;规格生成&#x27;; shared.description = &#x27;把需求输入整理成可验收的规格产物。&#x27;; shared.kpis = [[&#x27;Token&#x27;, fmtTokens(d.tokens)], [&#x27;阶段耗时&#x27;, fmtDuration(d.durationSec)], [&#x27;输出行数&#x27;, d.output]];
-          shared.content = `&lt;div class=&quot;sdd-detail-columns&quot;&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;规格产物&lt;/h3&gt;&lt;span&gt;${esc(d.artifact)}&lt;/span&gt;&lt;/header&gt;&lt;div class=&quot;sdd-note&quot;&gt;&lt;strong&gt;${esc(d.artifact)}&lt;/strong&gt;&lt;span&gt;规格文件已生成，可从需求边界、约束和验收场景继续下钻。&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;规格结构预览&lt;/h3&gt;&lt;span&gt;4 个单元&lt;/span&gt;&lt;/header&gt;&lt;ol class=&quot;sdd-outline-list&quot;&gt;${d.outline.map((item) =&gt; `&lt;li&gt;${esc(item)}&lt;/li&gt;`).join(&#x27;&#x27;)}&lt;/ol&gt;&lt;/section&gt;&lt;/div&gt;`;
-          return shared;
-        }
-        if (id === &#x27;designGeneration&#x27;) {
-          const d = flow.detail.designGeneration; shared.breadcrumb = &#x27;执行细节 · 详设生成&#x27;; shared.title = &#x27;详设生成&#x27;; shared.description = &#x27;把规格展开为架构、接口和测试策略。&#x27;; shared.kpis = [[&#x27;Token&#x27;, fmtTokens(d.tokens)], [&#x27;阶段耗时&#x27;, fmtDuration(d.durationSec)], [&#x27;输出行数&#x27;, d.output]];
-          shared.content = `&lt;div class=&quot;sdd-detail-columns&quot;&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;详设章节&lt;/h3&gt;&lt;span&gt;${d.sections.length} 个章节&lt;/span&gt;&lt;/header&gt;${itemList(d.sections)}&lt;/section&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;产物入口&lt;/h3&gt;&lt;span&gt;${esc(d.artifact)}&lt;/span&gt;&lt;/header&gt;&lt;div class=&quot;sdd-note&quot;&gt;&lt;strong&gt;${esc(d.artifact)}&lt;/strong&gt;&lt;span&gt;这里展示详设的结构，不复制 Step6 报告内容。&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`;
-          return shared;
-        }
-        if (id === &#x27;plan&#x27;) {
-          const d = flow.detail.plan; shared.breadcrumb = &#x27;执行细节 · Plan&#x27;; shared.title = &#x27;Plan&#x27;; shared.description = &#x27;把详设拆成可执行、可追踪的计划单元。&#x27;; shared.kpis = [[&#x27;Token&#x27;, fmtTokens(d.tokens)], [&#x27;阶段耗时&#x27;, fmtDuration(d.durationSec)], [&#x27;Plan 数&#x27;, String(d.count)]];
-          shared.content = `&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;计划单元&lt;/h3&gt;&lt;span&gt;全部已完成&lt;/span&gt;&lt;/header&gt;&lt;ul class=&quot;sdd-item-list&quot;&gt;${d.plans.map((item, index) =&gt; `&lt;li class=&quot;sdd-item-row&quot;&gt;&lt;div&gt;&lt;strong&gt;Plan ${String(index + 1).padStart(2, &#x27;0&#x27;)} · ${esc(item)}&lt;/strong&gt;&lt;small&gt;已完成并进入下一步&lt;/small&gt;&lt;/div&gt;&lt;span class=&quot;sdd-check-icon&quot; data-tone=&quot;ok&quot;&gt;✓&lt;/span&gt;&lt;/li&gt;`).join(&#x27;&#x27;)}&lt;/ul&gt;&lt;/section&gt;`;
-          return shared;
-        }
-        if (id === &#x27;code&#x27;) {
-          const d = flow.detail.code; shared.breadcrumb = &#x27;执行细节 · 代码&#x27;; shared.title = &#x27;代码&#x27;; shared.description = &#x27;按 Plan 修改代码，同时保留可复核的探索路径。&#x27;; shared.kpis = [[&#x27;Token&#x27;, fmtTokens(d.tokens)], [&#x27;阶段耗时&#x27;, fmtDuration(d.durationSec)], [&#x27;生成代码&#x27;, `${d.lines} 行`]];
-          shared.content = `&lt;div class=&quot;sdd-detail-columns&quot;&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;修改文件&lt;/h3&gt;&lt;span&gt;${d.files.length} 个示例&lt;/span&gt;&lt;/header&gt;&lt;ul class=&quot;sdd-item-list&quot;&gt;${d.files.map(([file, change]) =&gt; `&lt;li class=&quot;sdd-item-row&quot;&gt;&lt;div&gt;&lt;strong&gt;&lt;code&gt;${esc(file)}&lt;/code&gt;&lt;/strong&gt;&lt;small&gt;${esc(change)}&lt;/small&gt;&lt;/div&gt;&lt;span class=&quot;sdd-check-icon&quot; data-tone=&quot;ok&quot;&gt;+&lt;/span&gt;&lt;/li&gt;`).join(&#x27;&#x27;)}&lt;/ul&gt;&lt;/section&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;探索情况&lt;/h3&gt;&lt;span&gt;可回溯&lt;/span&gt;&lt;/header&gt;&lt;div class=&quot;sdd-note&quot;&gt;&lt;strong&gt;${d.toolCalls} 次工具调用 · ${d.searchCalls} 次搜索&lt;/strong&gt;&lt;span&gt;${d.filesRead} 个文件被读取，路径没有被合并成一个笼统的“探索量”。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;sdd-path&quot; style=&quot;margin-top:14px&quot;&gt;${d.path.map((item, index) =&gt; `${index ? &#x27;&lt;i&gt;→&lt;/i&gt;&#x27; : &#x27;&#x27;}&lt;span&gt;${esc(item)}&lt;/span&gt;`).join(&#x27;&#x27;)}&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`;
-          return shared;
-        }
-        if (id === &#x27;compile&#x27;) {
-          const d = flow.detail.compile; shared.breadcrumb = &#x27;执行细节 · 编译&#x27;; shared.title = &#x27;编译&#x27;; shared.description = &#x27;确认代码和报告产物可以完成构建与加载。&#x27;; shared.kpis = [[&#x27;编译耗时&#x27;, fmtDuration(d.durationSec)], [&#x27;尝试次数&#x27;, String(d.attempts.length)], [&#x27;结果&#x27;, d.result]];
-          shared.content = `&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;编译尝试&lt;/h3&gt;&lt;span&gt;保留失败原因&lt;/span&gt;&lt;/header&gt;&lt;ul class=&quot;sdd-attempt-list&quot;&gt;${d.attempts.map(([title, result, detail, tone]) =&gt; `&lt;li class=&quot;sdd-attempt-item&quot;&gt;&lt;div&gt;&lt;strong&gt;${esc(title)} · ${esc(result)}&lt;/strong&gt;&lt;small&gt;${esc(detail)}&lt;/small&gt;&lt;/div&gt;&lt;span class=&quot;sdd-check-icon&quot; data-tone=&quot;${tone}&quot;&gt;${tone === &#x27;ok&#x27; ? &#x27;✓&#x27; : &#x27;!&#x27;}&lt;/span&gt;&lt;/li&gt;`).join(&#x27;&#x27;)}&lt;/ul&gt;&lt;/section&gt;`;
-          return shared;
-        }
-        if (id === &#x27;dt&#x27;) {
-          const d = flow.detail.dt; shared.breadcrumb = &#x27;执行细节 · DT&#x27;; shared.title = &#x27;DT&#x27;; shared.description = &#x27;用测试结果确认流程行为和失败边界。&#x27;; shared.status = d.result; shared.tone = d.tone; shared.kpis = [[&#x27;DT 耗时&#x27;, fmtDuration(d.durationSec)], [&#x27;通过率&#x27;, `${Math.round((d.passed / d.cases) * 100)}%`], [&#x27;用例数&#x27;, `${d.passed} / ${d.cases}`]];
-          shared.content = `&lt;div class=&quot;sdd-detail-columns&quot;&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;失败用例&lt;/h3&gt;&lt;span&gt;${d.failed} 个待跟进&lt;/span&gt;&lt;/header&gt;${itemList(d.failedCases, &#x27;没有失败用例&#x27;)}&lt;/section&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;结果说明&lt;/h3&gt;&lt;span&gt;DT&lt;/span&gt;&lt;/header&gt;&lt;div class=&quot;sdd-note&quot;&gt;&lt;strong&gt;${esc(d.result)}&lt;/strong&gt;&lt;span&gt;失败用例会留在当前节点详情，不影响查看前置产物和编译尝试。&lt;/span&gt;&lt;/div&gt;&lt;/section&gt;&lt;/div&gt;`;
-          return shared;
-        }
-        if (id === &#x27;improvement&#x27;) {
-          const d = flow.improvement; shared.breadcrumb = &#x27;总体阶段 · 自改进&#x27;; shared.title = &#x27;自改进沉淀&#x27;; shared.description = &#x27;把本次执行中可复用的经验整理为 Experience Card 和 Knowledge Unit。&#x27;; shared.status = d.enabled ? &#x27;已沉淀&#x27; : &#x27;无沉淀&#x27;; shared.tone = d.enabled ? &#x27;ok&#x27; : &#x27;muted&#x27;; shared.kpis = [[&#x27;是否沉淀&#x27;, d.enabled ? &#x27;是&#x27; : &#x27;否&#x27;], [&#x27;经验卡片&#x27;, String(d.cards.length)], [&#x27;知识单元&#x27;, String(d.knowledgeUnits.length)]];
-          shared.content = `&lt;div class=&quot;sdd-detail-columns&quot;&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;经验卡片 &lt;small&gt;Experience Card&lt;/small&gt;&lt;/h3&gt;&lt;span&gt;${d.cards.length} 条&lt;/span&gt;&lt;/header&gt;${itemList(d.cards)}&lt;/section&gt;&lt;section class=&quot;sdd-detail-section&quot;&gt;&lt;header&gt;&lt;h3&gt;知识单元 &lt;small&gt;Knowledge Unit&lt;/small&gt;&lt;/h3&gt;&lt;span&gt;${d.knowledgeUnits.length} 条&lt;/span&gt;&lt;/header&gt;${itemList(d.knowledgeUnits, &#x27;本次没有形成知识单元&#x27;)}&lt;a class=&quot;sdd-action-link&quot; data-report-link style=&quot;margin-top:12px&quot; href=&quot;${esc(d.reportHref)}&quot;&gt;查看 Step6 自改进报告 ↗&lt;/a&gt;&lt;/section&gt;&lt;/div&gt;`;
-          return shared;
-        }
-        return detailFor(flow, &#x27;assets&#x27;);
-      }
-
-      function updateDetail(flow) {
-        const detail = detailFor(flow, state.activeNode);
-        root.querySelector(&#x27;[data-active-breadcrumb]&#x27;).textContent = detail.breadcrumb;
-        root.querySelector(&#x27;[data-active-title]&#x27;).textContent = detail.title;
-        root.querySelector(&#x27;[data-active-description]&#x27;).textContent = detail.description;
-        const status = root.querySelector(&#x27;[data-active-status]&#x27;);
-        status.textContent = detail.status;
-        status.dataset.tone = detail.tone;
-        root.querySelector(&#x27;[data-detail-kpis]&#x27;).innerHTML = kpis(detail.kpis);
-        root.querySelector(&#x27;[data-detail-content]&#x27;).innerHTML = detail.content;
-        root.querySelectorAll(&#x27;[data-node]&#x27;).forEach((node) =&gt; {
-          const active = node.dataset.node === state.activeNode;
-          node.dataset.active = String(active);
-          node.setAttribute(&#x27;aria-pressed&#x27;, String(active));
-        });
-      }
-
-      function showView(name) {
+      function setView(name) {
         Object.entries(views).forEach(([key, view]) =&gt; { view.hidden = key !== name; });
       }
 
-      function openFlow(id, node = &#x27;assets&#x27;) {
-        const session = sessions.find((item) =&gt; item.id === id &amp;&amp; item.flow);
-        if (!session) return;
-        state.sessionId = id;
-        state.activeNode = nodeDefs[node] || lowerDefs.some((item) =&gt; item.id === node) ? node : &#x27;assets&#x27;;
-        window.location.hash = `flow/${encodeURIComponent(id)}/${encodeURIComponent(state.activeNode)}`;
+      function renderOverviewSummary() {
+        const taskTotal = repositories.reduce((sum, repo) =&gt; sum + repo.tasks, 0);
+        const weightedTokens = repositories.reduce((sum, repo) =&gt; sum + tokenTotal(repo) * repo.tasks, 0) / taskTotal;
+        const weightedDuration = repositories.reduce((sum, repo) =&gt; sum + durationTotal(repo) * repo.tasks, 0) / taskTotal;
+        root.querySelector(&#x27;[data-overview-repos]&#x27;).textContent = String(repositories.length);
+        root.querySelector(&#x27;[data-overview-tasks]&#x27;).textContent = String(taskTotal);
+        root.querySelector(&#x27;[data-overview-token]&#x27;).textContent = fmtTokens(Math.round(weightedTokens));
+        root.querySelector(&#x27;[data-overview-time]&#x27;).textContent = fmtDuration(Math.round(weightedDuration));
       }
 
-      function renderFlow() {
-        const session = sessions.find((item) =&gt; item.id === state.sessionId &amp;&amp; item.flow);
-        if (!session) { showView(&#x27;usage&#x27;); return; }
-        showView(&#x27;flow&#x27;);
-        const flow = session.flow;
-        root.querySelector(&#x27;[data-flow-title]&#x27;).textContent = `${session.project} · SDD 全流程`;
-        root.querySelector(&#x27;[data-flow-description]&#x27;).textContent = &#x27;从前置资产到自改进沉淀，点击流程节点查看当前节点细节。&#x27;;
-        root.querySelector(&#x27;[data-flow-project]&#x27;).textContent = `项目：${session.project}`;
-        root.querySelector(&#x27;[data-flow-session]&#x27;).textContent = `Session：${session.id}`;
-        root.querySelector(&#x27;[data-flow-created]&#x27;).textContent = `创建：${fmtDate(session.createdAt)}`;
-        const report = root.querySelector(&#x27;[data-flow-report]&#x27;);
-        report.href = session.reportHref || flow.improvement.reportHref;
-        renderFlowMap(flow);
-        updateDetail(flow);
+      function renderOverview() {
+        renderOverviewSummary();
+        const rows = root.querySelector(&#x27;[data-repo-rows]&#x27;);
+        rows.innerHTML = repositories.map((repo) =&gt; `
+          &lt;button class=&quot;sdd-repo-row&quot; type=&quot;button&quot; data-open-repo=&quot;${esc(repo.id)}&quot;&gt;
+            &lt;span class=&quot;sdd-repo-component&quot;&gt;${esc(repo.component)}&lt;/span&gt;
+            &lt;span class=&quot;sdd-repo-name&quot;&gt;&lt;span class=&quot;sdd-repo-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;img src=&quot;/favicon.svg&quot; alt=&quot;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sdd-repo-name-copy&quot;&gt;&lt;strong&gt;${esc(repo.id)}&lt;/strong&gt;&lt;small&gt;代码仓整体平均&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;span&gt;&lt;code class=&quot;sdd-branch&quot;&gt;${esc(repo.branch)}&lt;/code&gt;&lt;/span&gt;
+            &lt;span class=&quot;sdd-repo-cell&quot;&gt;&lt;strong&gt;${repo.tasks}&lt;/strong&gt;&lt;small&gt;有效任务&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;sdd-repo-cell&quot;&gt;&lt;strong&gt;${fmtTokens(tokenTotal(repo))}&lt;/strong&gt;&lt;small&gt;每次执行&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;sdd-repo-cell&quot;&gt;&lt;strong&gt;${fmtDuration(durationTotal(repo))}&lt;/strong&gt;&lt;small&gt;每次执行&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;sdd-repo-cell&quot;&gt;&lt;strong&gt;${esc(repo.updated)}&lt;/strong&gt;&lt;small&gt;最近更新&lt;/small&gt;&lt;/span&gt;
+            &lt;span class=&quot;sdd-row-arrow&quot; aria-hidden=&quot;true&quot;&gt;→&lt;/span&gt;
+          &lt;/button&gt;`).join(&#x27;&#x27;);
+      }
+
+      function stageStatus(stage) {
+        if (stage.success &gt;= 98) return { label: &#x27;正常&#x27;, tone: &#x27;ok&#x27; };
+        if (stage.success &gt;= 90) return { label: &#x27;关注&#x27;, tone: &#x27;warn&#x27; };
+        return { label: &#x27;异常&#x27;, tone: &#x27;fail&#x27; };
+      }
+
+      function renderFlow(repo) {
+        const flow = root.querySelector(&#x27;[data-flow-grid]&#x27;);
+        flow.innerHTML = stageOrder.map((id, index) =&gt; {
+          const stage = repo.stages[id];
+          const status = stageStatus(stage);
+          const metricLabel = stage.tokens === null ? &#x27;平均耗时&#x27; : &#x27;平均 Token&#x27;;
+          const metricValue = stage.tokens === null ? fmtDuration(stage.durationSec) : fmtTokens(stage.tokens);
+          const secondary = stage.tokens === null ? `${stage.success.toFixed(1)}% 成功` : `${fmtDuration(stage.durationSec)} · ${outputText(stage.output)}`;
+          return `&lt;article class=&quot;sdd-stage-node&quot; data-tone=&quot;${status.tone}&quot;&gt;&lt;div class=&quot;sdd-stage-top&quot;&gt;&lt;span class=&quot;sdd-stage-index&quot;&gt;0${index + 1}&lt;/span&gt;&lt;span class=&quot;sdd-stage-secondary&quot;&gt;&lt;i class=&quot;sdd-status-dot&quot; data-tone=&quot;${status.tone}&quot;&gt;&lt;/i&gt;${status.label}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;sdd-stage-title&quot;&gt;&lt;h3&gt;${stageLabels[id]}&lt;/h3&gt;&lt;p&gt;${stageDescriptions[id]}&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;sdd-stage-bottom&quot;&gt;&lt;div class=&quot;sdd-stage-metric&quot;&gt;&lt;span&gt;${metricLabel}&lt;/span&gt;&lt;strong&gt;${metricValue}&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;sdd-stage-secondary&quot;&gt;&lt;strong&gt;${secondary}&lt;/strong&gt;&lt;span&gt;${stage.samples} 个样本&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;`;
+        }).join(&#x27;&#x27;);
+      }
+
+      function renderBars(repo, selector, field, total, includeMissing) {
+        const list = root.querySelector(selector);
+        const values = stageOrder.filter((id) =&gt; includeMissing || repo.stages[id][field] !== null).map((id) =&gt; ({ id, value: repo.stages[id][field] || 0 }));
+        const max = Math.max(...values.map((item) =&gt; item.value), 1);
+        list.innerHTML = values.map(({ id, value }) =&gt; {
+          const width = Math.max(4, Math.round((value / max) * 100));
+          const display = field === &#x27;tokens&#x27; ? fmtTokens(value) : fmtDuration(value);
+          return `&lt;li class=&quot;sdd-bar-row&quot;&gt;&lt;span class=&quot;sdd-bar-label&quot;&gt;${stageLabels[id]}&lt;/span&gt;&lt;span class=&quot;sdd-bar-track&quot; role=&quot;img&quot; aria-label=&quot;${stageLabels[id]} ${display}&quot;&gt;&lt;span class=&quot;sdd-bar-fill${id === &#x27;code&#x27; ? &#x27;&#x27; : &#x27;&#x27;}&quot; style=&quot;width:${width}%&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;strong class=&quot;sdd-bar-value&quot;&gt;${display}&lt;/strong&gt;&lt;/li&gt;`;
+        }).join(&#x27;&#x27;);
+        if (!values.length) list.innerHTML = &#x27;&lt;li class=&quot;sdd-bar-empty&quot;&gt;暂无可比数据&lt;/li&gt;&#x27;;
+        return total;
+      }
+
+      function renderBreakdown(repo, field, stackSelector, legendSelector, total) {
+        const stack = root.querySelector(stackSelector);
+        const legend = root.querySelector(legendSelector);
+        const values = stageOrder.filter((id) =&gt; repo.stages[id][field] !== null).map((id) =&gt; ({ id, value: repo.stages[id][field] || 0 }));
+        stack.innerHTML = values.map(({ id, value }) =&gt; `&lt;span style=&quot;width:${(value / total) * 100}%&quot; title=&quot;${stageLabels[id]} ${(value / total * 100).toFixed(1)}%&quot;&gt;&lt;/span&gt;`).join(&#x27;&#x27;);
+        legend.innerHTML = values.map(({ id, value }, index) =&gt; `&lt;span class=&quot;sdd-legend-item&quot;&gt;&lt;i style=&quot;background:${colors[index]}&quot;&gt;&lt;/i&gt;${stageLabels[id]} ${(value / total * 100).toFixed(1)}%&lt;/span&gt;`).join(&#x27;&#x27;);
+      }
+
+      function renderTrend(repo) {
+        const factors = [0.82, 0.91, 0.88, 1.03, 0.96, 1.08, 0.93, 1.18, 0.99, 0.86, 1.05, 0.94];
+        const chart = root.querySelector(&#x27;[data-trend-chart]&#x27;);
+        const rows = factors.map((factor, index) =&gt; ({ label: `T${String(index + 9).padStart(2, &#x27;0&#x27;)}`, tokens: tokenTotal(repo) * factor, duration: durationTotal(repo) * (factor * (index % 3 === 0 ? 1.06 : 0.97)) }));
+        const maxToken = Math.max(...rows.map((row) =&gt; row.tokens));
+        const maxDuration = Math.max(...rows.map((row) =&gt; row.duration));
+        chart.innerHTML = rows.map((row) =&gt; `&lt;div class=&quot;sdd-trend-column&quot;&gt;&lt;div class=&quot;sdd-trend-bars&quot;&gt;&lt;i title=&quot;${row.label} Token ${fmtTokens(Math.round(row.tokens))}&quot; style=&quot;height:${Math.max(5, row.tokens / maxToken * 100)}%&quot;&gt;&lt;/i&gt;&lt;i title=&quot;${row.label} 耗时 ${fmtDuration(Math.round(row.duration))}&quot; style=&quot;height:${Math.max(5, row.duration / maxDuration * 100)}%&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;small&gt;${row.label}&lt;/small&gt;&lt;/div&gt;`).join(&#x27;&#x27;);
+      }
+
+      function renderStageTable(repo) {
+        root.querySelector(&#x27;[data-stage-table]&#x27;).innerHTML = stageOrder.map((id) =&gt; {
+          const stage = repo.stages[id];
+          const status = stageStatus(stage);
+          return `&lt;div class=&quot;sdd-stat-grid sdd-stat-grid-row&quot;&gt;&lt;span class=&quot;sdd-stat-stage&quot;&gt;&lt;i class=&quot;sdd-status-dot&quot; data-tone=&quot;${status.tone}&quot;&gt;&lt;/i&gt;${stageLabels[id]}&lt;/span&gt;&lt;strong&gt;${stage.samples}&lt;/strong&gt;&lt;strong&gt;${stage.tokens === null ? &#x27;—&#x27; : fmtTokens(stage.tokens)}&lt;/strong&gt;&lt;strong&gt;${fmtDuration(stage.durationSec)}&lt;/strong&gt;&lt;strong&gt;${outputText(stage.output)}&lt;/strong&gt;&lt;strong class=&quot;${status.tone === &#x27;ok&#x27; ? &#x27;sdd-success&#x27; : status.tone === &#x27;warn&#x27; ? &#x27;sdd-warning&#x27; : &#x27;sdd-fail&#x27;}&quot;&gt;${stage.success.toFixed(1)}%&lt;/strong&gt;&lt;/div&gt;`;
+        }).join(&#x27;&#x27;);
+      }
+
+      function renderDetail(id) {
+        const repo = repositories.find((item) =&gt; item.id === id);
+        if (!repo) { setView(&#x27;overview&#x27;); return; }
+        state.repoId = id;
+        const tokens = tokenTotal(repo);
+        const duration = durationTotal(repo);
+        root.querySelector(&#x27;[data-detail-title]&#x27;).textContent = repo.id;
+        root.querySelector(&#x27;[data-detail-description]&#x27;).textContent = `${repo.component} 代码仓整体 SDD / Implement 执行成本和阶段分布。`;
+        root.querySelector(&#x27;[data-detail-component]&#x27;).textContent = `组件：${repo.component}`;
+        root.querySelector(&#x27;[data-detail-branch]&#x27;).textContent = repo.branch;
+        root.querySelector(&#x27;[data-detail-sample]&#x27;).textContent = `N = ${repo.tasks}`;
+        root.querySelector(&#x27;[data-detail-total-token]&#x27;).textContent = fmtTokens(tokens);
+        root.querySelector(&#x27;[data-detail-total-time]&#x27;).textContent = fmtDuration(duration);
+        root.querySelector(&#x27;[data-detail-doc-output]&#x27;).textContent = `${fmtNumber(docsTotal(repo))} 行`;
+        root.querySelector(&#x27;[data-detail-code-output]&#x27;).textContent = `${fmtNumber(repo.stages.code.output.value)} LOC`;
+        root.querySelector(&#x27;[data-detail-dt-pass]&#x27;).textContent = `${repo.stages.dt.success.toFixed(1)}%`;
+        root.querySelector(&#x27;[data-token-total-label]&#x27;).textContent = `总计 ${fmtTokens(tokens)}`;
+        root.querySelector(&#x27;[data-time-total-label]&#x27;).textContent = `总计 ${fmtDuration(duration)}`;
+        root.querySelector(&#x27;[data-output-spec]&#x27;).textContent = outputText(repo.stages.spec.output);
+        root.querySelector(&#x27;[data-output-design]&#x27;).textContent = outputText(repo.stages.design.output);
+        root.querySelector(&#x27;[data-output-plan]&#x27;).textContent = outputText(repo.stages.plan.output);
+        root.querySelector(&#x27;[data-output-code]&#x27;).textContent = outputText(repo.stages.code.output);
+        renderFlow(repo);
+        renderBars(repo, &#x27;[data-token-bars]&#x27;, &#x27;tokens&#x27;, tokens, false);
+        renderBars(repo, &#x27;[data-time-bars]&#x27;, &#x27;durationSec&#x27;, duration, true);
+        renderBreakdown(repo, &#x27;tokens&#x27;, &#x27;[data-token-stack]&#x27;, &#x27;[data-token-legend]&#x27;, tokens);
+        renderBreakdown(repo, &#x27;durationSec&#x27;, &#x27;[data-time-stack]&#x27;, &#x27;[data-time-legend]&#x27;, duration);
+        renderTrend(repo);
+        renderStageTable(repo);
+        const codeShare = repo.stages.code.tokens / tokens * 100;
+        const timeShare = repo.stages.code.durationSec / duration * 100;
+        root.querySelector(&#x27;[data-detail-insight]&#x27;).innerHTML = `&lt;strong&gt;管理判断&lt;/strong&gt;&lt;span&gt;代码阶段占平均 Token 的 ${codeShare.toFixed(1)}%，占平均耗时的 ${timeShare.toFixed(1)}%，是当前 ${esc(repo.id)} 的主要资源消耗点。&lt;/span&gt;`;
+        setView(&#x27;detail&#x27;);
       }
 
       function syncHash() {
         const parts = window.location.hash.replace(/^#/, &#x27;&#x27;).split(&#x27;/&#x27;).filter(Boolean);
-        if (parts[0] === &#x27;flow&#x27; &amp;&amp; parts[1]) {
-          const id = decodeURIComponent(parts[1]);
-          const session = sessions.find((item) =&gt; item.id === id &amp;&amp; item.flow);
-          if (session) {
-            state.sessionId = id;
-            const requested = parts[2] ? decodeURIComponent(parts[2]) : &#x27;assets&#x27;;
-            state.activeNode = nodeDefs[requested] || lowerDefs.some((item) =&gt; item.id === requested) ? requested : &#x27;assets&#x27;;
-            renderFlow();
-            return;
-          }
+        if (parts[0] === &#x27;repo&#x27; &amp;&amp; parts[1] &amp;&amp; repositories.some((repo) =&gt; repo.id === decodeURIComponent(parts[1]))) {
+          renderDetail(decodeURIComponent(parts[1]));
+          return;
         }
-        showView(&#x27;usage&#x27;);
-        renderUsage();
+        state.repoId = null;
+        setView(&#x27;overview&#x27;);
+        renderOverview();
       }
 
       root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
-        const reportLink = event.target.closest(&#x27;[data-report-link]&#x27;);
-        if (reportLink) {
-          event.preventDefault();
-          const href = new URL(reportLink.getAttribute(&#x27;href&#x27;), window.location.href).href;
-          try { window.parent.location.href = href; } catch (_) { window.location.href = href; }
-          return;
-        }
-        const range = event.target.closest(&#x27;[data-range]&#x27;);
-        if (range) { state.range = range.dataset.range; renderUsage(); return; }
-        const flowButton = event.target.closest(&#x27;[data-open-flow]&#x27;);
-        if (flowButton) { openFlow(flowButton.dataset.openFlow); return; }
-        const node = event.target.closest(&#x27;[data-node]&#x27;);
-        if (node &amp;&amp; state.sessionId) { window.location.hash = `flow/${encodeURIComponent(state.sessionId)}/${encodeURIComponent(node.dataset.node)}`; return; }
-        const back = event.target.closest(&#x27;[data-back-to-usage]&#x27;);
-        if (back) { window.location.hash = &#x27;usage&#x27;; return; }
+        const repoButton = event.target.closest(&#x27;[data-open-repo]&#x27;);
+        if (repoButton) { window.location.hash = `repo/${encodeURIComponent(repoButton.dataset.openRepo)}`; return; }
+        const backButton = event.target.closest(&#x27;[data-back-to-overview]&#x27;);
+        if (backButton) { window.location.hash = &#x27;&#x27;; return; }
       });
-
       window.addEventListener(&#x27;hashchange&#x27;, syncHash);
       syncHash();
     })();
