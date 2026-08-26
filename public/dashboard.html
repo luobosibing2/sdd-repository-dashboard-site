@@ -1,0 +1,1235 @@
+<div id="sdd-dashboard" aria-label="SDD 个人运行观察看板">
+  <style>
+    html,
+    body { margin: 0; min-width: 320px; }
+
+    #sdd-dashboard {
+      --ink: #142333;
+      --muted: #66798a;
+      --faint: #8b9aaa;
+      --paper: #f3f6f8;
+      --panel: #ffffff;
+      --line: #d9e2e8;
+      --line-strong: #bdcbd4;
+      --blue: #2d6c84;
+      --blue-soft: #e8f1f5;
+      --teal: #149587;
+      --teal-soft: #e7f5f1;
+      --amber: #be7f1d;
+      --amber-soft: #fff4df;
+      --red: #b6544d;
+      --red-soft: #fceceb;
+      --shadow: 0 18px 42px rgba(35, 61, 77, 0.08);
+      box-sizing: border-box;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% -10%, rgba(45, 108, 132, 0.13), transparent 30rem),
+        linear-gradient(145deg, #edf3f6 0%, var(--paper) 42%, #eef2f4 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #sdd-dashboard *,
+    #sdd-dashboard *::before,
+    #sdd-dashboard *::after { box-sizing: border-box; }
+
+    #sdd-dashboard [hidden] { display: none !important; }
+
+    #sdd-dashboard button,
+    #sdd-dashboard a { font: inherit; }
+
+    #sdd-dashboard button { color: inherit; }
+
+    #sdd-dashboard a { color: inherit; text-decoration: none; }
+
+    #sdd-dashboard .sdd-shell {
+      width: min(1280px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 20px 28px 48px;
+    }
+
+    #sdd-dashboard .sdd-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 54px;
+      margin-bottom: 34px;
+    }
+
+    #sdd-dashboard .sdd-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #sdd-dashboard .sdd-brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid rgba(45, 108, 132, 0.32);
+      border-radius: 12px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+    }
+
+    #sdd-dashboard .sdd-brand-copy { display: grid; gap: 1px; }
+
+    #sdd-dashboard .sdd-brand-copy strong {
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    #sdd-dashboard .sdd-kicker,
+    #sdd-dashboard .sdd-eyebrow {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    #sdd-dashboard .sdd-demo-badge,
+    #sdd-dashboard .sdd-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.74);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    #sdd-dashboard .sdd-demo-badge::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+      content: "";
+    }
+
+    #sdd-dashboard h1,
+    #sdd-dashboard h2,
+    #sdd-dashboard h3,
+    #sdd-dashboard p { margin: 0; }
+
+    #sdd-dashboard h1 {
+      max-width: 750px;
+      font-size: clamp(30px, 5vw, 58px);
+      font-weight: 760;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    #sdd-dashboard h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 760;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    #sdd-dashboard h3 {
+      font-size: 15px;
+      font-weight: 760;
+      letter-spacing: -0.02em;
+    }
+
+    #sdd-dashboard .sdd-page-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    #sdd-dashboard .sdd-page-head-copy { display: grid; gap: 12px; }
+
+    #sdd-dashboard .sdd-page-head-copy > p,
+    #sdd-dashboard .sdd-flow-head-copy > p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    #sdd-dashboard .sdd-date-note {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      line-height: 1.65;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    #sdd-dashboard .sdd-range-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    #sdd-dashboard .sdd-range-tabs {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.64);
+    }
+
+    #sdd-dashboard .sdd-range-tab,
+    #sdd-dashboard .sdd-back-button,
+    #sdd-dashboard .sdd-node-button,
+    #sdd-dashboard .sdd-action-button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    #sdd-dashboard .sdd-range-tab {
+      border-radius: 8px;
+      padding: 8px 14px;
+      color: var(--muted);
+      background: transparent;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    #sdd-dashboard .sdd-range-tab[aria-pressed="true"] {
+      color: var(--ink);
+      background: var(--panel);
+      box-shadow: 0 3px 12px rgba(27, 59, 77, 0.09);
+    }
+
+    #sdd-dashboard .sdd-range-hint {
+      color: var(--faint);
+      font-size: 12px;
+    }
+
+    #sdd-dashboard .sdd-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    #sdd-dashboard .sdd-kpi-card,
+    #sdd-dashboard .sdd-session-panel,
+    #sdd-dashboard .sdd-process-panel,
+    #sdd-dashboard .sdd-detail-panel {
+      border: 1px solid rgba(190, 205, 214, 0.84);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.89);
+      box-shadow: var(--shadow);
+    }
+
+    #sdd-dashboard .sdd-kpi-card {
+      position: relative;
+      display: grid;
+      min-height: 122px;
+      align-content: space-between;
+      gap: 14px;
+      padding: 18px 18px 16px;
+      overflow: hidden;
+    }
+
+    #sdd-dashboard .sdd-kpi-card::after {
+      position: absolute;
+      right: -32px;
+      bottom: -45px;
+      width: 115px;
+      height: 115px;
+      border: 1px solid rgba(45, 108, 132, 0.12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    #sdd-dashboard .sdd-kpi-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    #sdd-dashboard .sdd-kpi-value,
+    #sdd-dashboard .sdd-metric-value,
+    #sdd-dashboard .sdd-node-metric strong {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.06em;
+    }
+
+    #sdd-dashboard .sdd-kpi-value {
+      color: var(--ink);
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 760;
+      line-height: 0.95;
+    }
+
+    #sdd-dashboard .sdd-panel-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 22px 18px;
+    }
+
+    #sdd-dashboard .sdd-panel-head-copy { display: grid; gap: 7px; }
+
+    #sdd-dashboard .sdd-panel-head-copy > p { color: var(--muted); font-size: 12px; }
+
+    #sdd-dashboard .sdd-session-panel { overflow: hidden; }
+
+    #sdd-dashboard .sdd-session-table-head,
+    #sdd-dashboard .sdd-session-row {
+      display: grid;
+      grid-template-columns: minmax(170px, 1.6fr) minmax(125px, 1.16fr) minmax(118px, 1fr) minmax(96px, 0.82fr) minmax(88px, 0.72fr) minmax(88px, 0.72fr) minmax(120px, 0.95fr) minmax(176px, 1.3fr);
+      align-items: center;
+      gap: 14px;
+    }
+
+    #sdd-dashboard .sdd-session-table-head {
+      min-height: 38px;
+      padding: 0 22px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    #sdd-dashboard .sdd-session-row {
+      width: 100%;
+      min-height: 86px;
+      padding: 14px 22px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    #sdd-dashboard .sdd-session-row:last-child { border-bottom: 0; }
+
+    #sdd-dashboard .sdd-session-row:hover { background: #f6fafb; }
+
+    #sdd-dashboard .sdd-session-project,
+    #sdd-dashboard .sdd-session-cell,
+    #sdd-dashboard .sdd-action-stack { min-width: 0; }
+
+    #sdd-dashboard .sdd-session-project { display: grid; gap: 3px; }
+
+    #sdd-dashboard .sdd-session-project strong {
+      overflow: hidden;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #sdd-dashboard .sdd-session-project code,
+    #sdd-dashboard .sdd-session-cell code,
+    #sdd-dashboard .sdd-flow-meta code {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+    }
+
+    #sdd-dashboard .sdd-session-cell { display: grid; gap: 2px; }
+
+    #sdd-dashboard .sdd-session-cell strong { font-size: 13px; }
+
+    #sdd-dashboard .sdd-session-cell small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    #sdd-dashboard .sdd-status { padding: 5px 9px; font-size: 10px; }
+
+    #sdd-dashboard .sdd-status::before {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      content: "";
+    }
+
+    #sdd-dashboard .sdd-status[data-tone="ok"] { border-color: rgba(20, 149, 135, 0.24); color: var(--teal); background: var(--teal-soft); }
+    #sdd-dashboard .sdd-status[data-tone="warn"] { border-color: rgba(190, 127, 29, 0.25); color: var(--amber); background: var(--amber-soft); }
+    #sdd-dashboard .sdd-status[data-tone="fail"] { border-color: rgba(182, 84, 77, 0.24); color: var(--red); background: var(--red-soft); }
+    #sdd-dashboard .sdd-status[data-tone="muted"] { color: var(--muted); background: #f4f6f7; }
+
+    #sdd-dashboard .sdd-action-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    #sdd-dashboard .sdd-action-link,
+    #sdd-dashboard .sdd-action-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-height: 30px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      padding: 6px 9px;
+      color: var(--blue);
+      background: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    #sdd-dashboard .sdd-action-link:hover,
+    #sdd-dashboard .sdd-action-button:hover { border-color: var(--blue); background: var(--blue-soft); }
+
+    #sdd-dashboard .sdd-action-link[aria-disabled="true"] {
+      cursor: default;
+      border-color: var(--line);
+      color: var(--faint);
+      background: #fafbfb;
+    }
+
+    #sdd-dashboard .sdd-session-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 15px 22px;
+      border-top: 1px solid var(--line);
+      color: var(--faint);
+      font-size: 11px;
+    }
+
+    #sdd-dashboard .sdd-flow-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    #sdd-dashboard .sdd-flow-head-copy { display: grid; gap: 10px; }
+
+    #sdd-dashboard .sdd-flow-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: 9px; }
+
+    #sdd-dashboard .sdd-back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      border: 1px solid var(--line-strong);
+      border-radius: 9px;
+      padding: 7px 11px;
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    #sdd-dashboard .sdd-flow-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #sdd-dashboard .sdd-process-panel { padding: 22px; }
+
+    #sdd-dashboard .sdd-process-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 17px;
+    }
+
+    #sdd-dashboard .sdd-process-title > p { color: var(--muted); font-size: 12px; }
+
+    #sdd-dashboard .sdd-top-process {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      isolation: isolate;
+    }
+
+    #sdd-dashboard .sdd-top-process::before,
+    #sdd-dashboard .sdd-detail-process::before {
+      position: absolute;
+      z-index: -1;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(20, 149, 135, 0.55), rgba(45, 108, 132, 0.4), rgba(190, 127, 29, 0.42));
+      content: "";
+    }
+
+    #sdd-dashboard .sdd-top-process::before {
+      top: 90px;
+      right: 8%;
+      left: 8%;
+    }
+
+    #sdd-dashboard .sdd-flow-node {
+      position: relative;
+      display: grid;
+      min-width: 0;
+      min-height: 164px;
+      align-content: space-between;
+      gap: 15px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    #sdd-dashboard .sdd-flow-node[data-kind="summary"] {
+      border-style: dashed;
+      background: #f6f8f9;
+    }
+
+    #sdd-dashboard .sdd-node-button {
+      width: 100%;
+      min-width: 0;
+      text-align: left;
+    }
+
+    #sdd-dashboard .sdd-node-button:hover,
+    #sdd-dashboard .sdd-node-button:focus-visible { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(45, 108, 132, 0.13); }
+
+    #sdd-dashboard .sdd-flow-node[data-active="true"] { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(45, 108, 132, 0.12); }
+
+    #sdd-dashboard .sdd-node-top,
+    #sdd-dashboard .sdd-node-bottom { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
+
+    #sdd-dashboard .sdd-node-number {
+      color: var(--faint);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    #sdd-dashboard .sdd-node-label { display: grid; gap: 5px; }
+
+    #sdd-dashboard .sdd-node-label h3 { font-size: 16px; }
+
+    #sdd-dashboard .sdd-node-label p { color: var(--muted); font-size: 11px; }
+
+    #sdd-dashboard .sdd-node-metric { display: grid; gap: 3px; }
+
+    #sdd-dashboard .sdd-node-metric span { color: var(--muted); font-size: 10px; font-weight: 700; }
+
+    #sdd-dashboard .sdd-node-metric strong { font-size: 22px; line-height: 1; }
+
+    #sdd-dashboard .sdd-node-secondary { color: var(--muted); font-size: 11px; text-align: right; }
+
+    #sdd-dashboard .sdd-node-secondary strong { color: var(--ink); display: block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+
+    #sdd-dashboard .sdd-stage-rail { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; font-weight: 700; }
+
+    #sdd-dashboard .sdd-stage-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); }
+    #sdd-dashboard .sdd-stage-dot[data-tone="warn"] { background: var(--amber); }
+    #sdd-dashboard .sdd-stage-dot[data-tone="fail"] { background: var(--red); }
+    #sdd-dashboard .sdd-stage-dot[data-tone="muted"] { background: var(--faint); }
+
+    #sdd-dashboard .sdd-detail-frame {
+      position: relative;
+      margin-top: 26px;
+      border: 1px dashed rgba(45, 108, 132, 0.42);
+      border-radius: 17px;
+      padding: 19px;
+      background: rgba(246, 250, 251, 0.72);
+    }
+
+    #sdd-dashboard .sdd-detail-frame-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    #sdd-dashboard .sdd-detail-frame-head > p { color: var(--muted); font-size: 11px; }
+
+    #sdd-dashboard .sdd-detail-process {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 11px;
+      isolation: isolate;
+    }
+
+    #sdd-dashboard .sdd-detail-process::before {
+      top: 62px;
+      right: 4%;
+      left: 4%;
+    }
+
+    #sdd-dashboard .sdd-detail-process .sdd-flow-node {
+      min-height: 126px;
+      padding: 13px;
+      border-radius: 12px;
+    }
+
+    #sdd-dashboard .sdd-detail-process .sdd-node-label h3 { font-size: 13px; }
+    #sdd-dashboard .sdd-detail-process .sdd-node-label p { font-size: 10px; }
+    #sdd-dashboard .sdd-detail-process .sdd-node-metric strong { font-size: 18px; }
+
+    #sdd-dashboard .sdd-detail-panel {
+      margin-top: 17px;
+      overflow: hidden;
+    }
+
+    #sdd-dashboard .sdd-detail-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 23px 23px 19px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #sdd-dashboard .sdd-detail-heading { display: grid; gap: 7px; }
+
+    #sdd-dashboard .sdd-detail-heading h2 { font-size: 26px; }
+
+    #sdd-dashboard .sdd-detail-heading p { color: var(--muted); font-size: 12px; }
+
+    #sdd-dashboard .sdd-detail-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+      padding: 17px 23px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    #sdd-dashboard .sdd-detail-kpi {
+      display: grid;
+      gap: 5px;
+      min-height: 58px;
+      padding-right: 16px;
+      border-right: 1px solid var(--line);
+    }
+
+    #sdd-dashboard .sdd-detail-kpi:last-child { border-right: 0; }
+
+    #sdd-dashboard .sdd-detail-kpi span { color: var(--muted); font-size: 11px; font-weight: 700; }
+
+    #sdd-dashboard .sdd-detail-kpi strong { font-size: 21px; line-height: 1.05; }
+
+    #sdd-dashboard .sdd-detail-content { padding: 22px 23px 25px; }
+
+    #sdd-dashboard .sdd-detail-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(240px, 0.82fr);
+      gap: 17px;
+    }
+
+    #sdd-dashboard .sdd-detail-section {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 15px;
+      background: #fbfcfc;
+    }
+
+    #sdd-dashboard .sdd-detail-section > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    #sdd-dashboard .sdd-detail-section > header span { color: var(--faint); font-size: 10px; font-weight: 700; }
+
+    #sdd-dashboard .sdd-detail-section h3 small { margin-left: 4px; color: var(--faint); font-size: 10px; font-weight: 700; }
+
+    #sdd-dashboard .sdd-check-list,
+    #sdd-dashboard .sdd-item-list,
+    #sdd-dashboard .sdd-outline-list,
+    #sdd-dashboard .sdd-attempt-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #sdd-dashboard .sdd-check-item,
+    #sdd-dashboard .sdd-item-row,
+    #sdd-dashboard .sdd-attempt-item {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+      padding: 9px 10px;
+      border: 1px solid #e4eaed;
+      border-radius: 9px;
+      background: #fff;
+      font-size: 12px;
+    }
+
+    #sdd-dashboard .sdd-check-item > div,
+    #sdd-dashboard .sdd-item-row > div,
+    #sdd-dashboard .sdd-attempt-item > div { min-width: 0; }
+
+    #sdd-dashboard .sdd-check-item strong,
+    #sdd-dashboard .sdd-item-row strong,
+    #sdd-dashboard .sdd-attempt-item strong { display: block; font-size: 12px; }
+
+    #sdd-dashboard .sdd-check-item small,
+    #sdd-dashboard .sdd-item-row small,
+    #sdd-dashboard .sdd-attempt-item small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; }
+
+    #sdd-dashboard .sdd-check-icon {
+      display: inline-grid;
+      width: 21px;
+      height: 21px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 7px;
+      color: var(--teal);
+      background: var(--teal-soft);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    #sdd-dashboard .sdd-check-icon[data-tone="fail"] { color: var(--red); background: var(--red-soft); }
+
+    #sdd-dashboard .sdd-outline-list { counter-reset: outline; }
+
+    #sdd-dashboard .sdd-outline-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    #sdd-dashboard .sdd-outline-list li::before {
+      display: inline-grid;
+      width: 21px;
+      height: 21px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 7px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      content: counter(outline, decimal-leading-zero);
+      counter-increment: outline;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    #sdd-dashboard .sdd-path {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    #sdd-dashboard .sdd-path span { color: var(--ink); }
+    #sdd-dashboard .sdd-path i { color: var(--line-strong); font-style: normal; }
+
+    #sdd-dashboard .sdd-note {
+      display: grid;
+      gap: 7px;
+      border-left: 3px solid var(--teal);
+      padding: 3px 0 3px 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    #sdd-dashboard .sdd-note strong { color: var(--ink); }
+
+    #sdd-dashboard .sdd-empty {
+      display: grid;
+      min-height: 178px;
+      place-items: center;
+      padding: 26px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    #sdd-dashboard .sdd-empty strong { display: block; margin-bottom: 4px; color: var(--ink); }
+
+    #sdd-dashboard .sdd-footnote {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 14px;
+      color: var(--faint);
+      font-size: 10px;
+    }
+
+    #sdd-dashboard :focus-visible {
+      outline: 3px solid rgba(45, 108, 132, 0.33);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 1080px) {
+      #sdd-dashboard .sdd-session-table-head,
+      #sdd-dashboard .sdd-session-row {
+        grid-template-columns: minmax(150px, 1.5fr) minmax(115px, 1.05fr) minmax(110px, 0.9fr) minmax(92px, 0.78fr) minmax(76px, 0.68fr) minmax(80px, 0.7fr) minmax(150px, 1.15fr);
+      }
+
+      #sdd-dashboard .sdd-session-table-head > :nth-child(8),
+      #sdd-dashboard .sdd-session-row > :nth-child(8) { display: none; }
+
+      #sdd-dashboard .sdd-detail-process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-detail-process::before { display: none; }
+    }
+
+    @media (max-width: 860px) {
+      #sdd-dashboard .sdd-shell { padding-right: 18px; padding-left: 18px; }
+      #sdd-dashboard .sdd-page-head,
+      #sdd-dashboard .sdd-flow-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .sdd-date-note { text-align: left; }
+      #sdd-dashboard .sdd-flow-actions { justify-content: start; }
+      #sdd-dashboard .sdd-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-top-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .sdd-top-process::before { display: none; }
+      #sdd-dashboard .sdd-detail-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      #sdd-dashboard .sdd-shell { padding: 14px 12px 32px; }
+      #sdd-dashboard .sdd-topbar { margin-bottom: 25px; }
+      #sdd-dashboard .sdd-page-head { margin-bottom: 19px; }
+      #sdd-dashboard h1 { font-size: 35px; }
+      #sdd-dashboard .sdd-range-bar { align-items: start; flex-direction: column; }
+      #sdd-dashboard .sdd-range-tabs { width: 100%; }
+      #sdd-dashboard .sdd-range-tab { flex: 1; padding-right: 9px; padding-left: 9px; }
+      #sdd-dashboard .sdd-kpi-grid { gap: 8px; }
+      #sdd-dashboard .sdd-kpi-card { min-height: 104px; padding: 14px; }
+      #sdd-dashboard .sdd-kpi-value { font-size: 27px; }
+      #sdd-dashboard .sdd-panel-head { padding: 17px 15px 14px; }
+      #sdd-dashboard .sdd-session-table-head { display: none; }
+      #sdd-dashboard .sdd-session-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(100px, 0.85fr);
+        gap: 12px 14px;
+        padding: 15px;
+      }
+      #sdd-dashboard .sdd-session-row > :nth-child(3),
+      #sdd-dashboard .sdd-session-row > :nth-child(5),
+      #sdd-dashboard .sdd-session-row > :nth-child(8) { display: none; }
+      #sdd-dashboard .sdd-session-row > :nth-child(8) { grid-column: 1 / -1; }
+      #sdd-dashboard .sdd-session-footer { align-items: start; flex-direction: column; padding: 13px 15px; }
+      #sdd-dashboard .sdd-process-panel { padding: 14px; }
+      #sdd-dashboard .sdd-process-title { align-items: start; flex-direction: column; }
+      #sdd-dashboard .sdd-top-process,
+      #sdd-dashboard .sdd-detail-process { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .sdd-flow-node { min-height: 146px; }
+      #sdd-dashboard .sdd-detail-frame { margin-top: 17px; padding: 12px; }
+      #sdd-dashboard .sdd-detail-frame-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .sdd-detail-head { align-items: start; flex-direction: column; padding: 18px 15px 15px; }
+      #sdd-dashboard .sdd-detail-heading h2 { font-size: 23px; }
+      #sdd-dashboard .sdd-detail-kpis { gap: 8px; padding: 14px 15px; }
+      #sdd-dashboard .sdd-detail-kpi { padding-right: 8px; }
+      #sdd-dashboard .sdd-detail-kpi strong { font-size: 16px; }
+      #sdd-dashboard .sdd-detail-content { padding: 15px; }
+      #sdd-dashboard .sdd-detail-columns { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .sdd-footnote { align-items: start; flex-direction: column; gap: 5px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #sdd-dashboard *,
+      #sdd-dashboard *::before,
+      #sdd-dashboard *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+
+  <div class="sdd-shell">
+    <header class="sdd-topbar">
+      <div class="sdd-brand">
+        <span class="sdd-brand-mark">SDD</span>
+        <div class="sdd-brand-copy">
+          <span class="sdd-kicker">个人运行观察</span>
+          <strong>Session 看板</strong>
+        </div>
+      </div>
+      <span class="sdd-demo-badge">演示数据 · 2026-08-26</span>
+    </header>
+
+    <main>
+      <section class="sdd-view" data-view="usage" aria-label="个人 Session 使用看板">
+        <header class="sdd-page-head">
+          <div class="sdd-page-head-copy">
+            <span class="sdd-eyebrow">个人 Session 使用情况</span>
+            <h1>我的 Agent 运行台账</h1>
+            <p>按时间范围查看最近跑过的 Session、Token 消耗和项目分布；从单行 Session 进入 Step6 报告或 SDD 全流程。</p>
+          </div>
+          <div class="sdd-date-note">数据截止<br><strong>2026-08-26 23:59</strong></div>
+        </header>
+
+        <div class="sdd-range-bar">
+          <div class="sdd-range-tabs" role="group" aria-label="Session 时间范围">
+            <button class="sdd-range-tab" type="button" data-range="today" aria-pressed="true">今天</button>
+            <button class="sdd-range-tab" type="button" data-range="week" aria-pressed="false">本周</button>
+            <button class="sdd-range-tab" type="button" data-range="month" aria-pressed="false">本月</button>
+          </div>
+          <span class="sdd-range-hint" data-range-caption>今天 · 2026-08-26</span>
+        </div>
+
+        <section class="sdd-kpi-grid" aria-label="Session 汇总指标">
+          <article class="sdd-kpi-card"><span class="sdd-kpi-label">Session 数</span><strong class="sdd-kpi-value" data-usage-sessions>0</strong></article>
+          <article class="sdd-kpi-card"><span class="sdd-kpi-label">Token 总量</span><strong class="sdd-kpi-value" data-usage-tokens>0</strong></article>
+          <article class="sdd-kpi-card"><span class="sdd-kpi-label">平均 Token / Session</span><strong class="sdd-kpi-value" data-usage-average>0</strong></article>
+          <article class="sdd-kpi-card"><span class="sdd-kpi-label">项目数</span><strong class="sdd-kpi-value" data-usage-projects>0</strong></article>
+        </section>
+
+        <section class="sdd-session-panel" aria-labelledby="session-list-title">
+          <header class="sdd-panel-head">
+            <div class="sdd-panel-head-copy">
+              <span class="sdd-eyebrow">Session 列表</span>
+              <h2 id="session-list-title">最近运行</h2>
+              <p>项目名称优先展示，Session ID 用于追踪原始运行。</p>
+            </div>
+            <span class="sdd-status" data-tone="ok" data-session-status>已按创建时间倒序</span>
+          </header>
+          <div class="sdd-session-table-head" aria-hidden="true">
+            <span>项目 / Session</span><span>创建时间</span><span>Token 总数</span><span>耗时</span><span>状态</span><span>报告</span><span>全流程</span><span>入口说明</span>
+          </div>
+          <div data-session-rows></div>
+          <footer class="sdd-session-footer">
+            <span>数据范围：个人视角 · 演示数据</span>
+            <span>Step6 报告与 SDD 全流程分开进入</span>
+          </footer>
+        </section>
+      </section>
+
+      <section class="sdd-view" data-view="flow" aria-label="SDD 全流程看板" hidden>
+        <header class="sdd-flow-head">
+          <div class="sdd-flow-head-copy">
+            <button class="sdd-back-button" type="button" data-back-to-usage>← 返回 Session 看板</button>
+            <span class="sdd-eyebrow">单次 Session · SDD 全流程</span>
+            <h1 data-flow-title>SDD 全流程</h1>
+            <p data-flow-description>从前置资产到自改进沉淀，点击流程节点查看当前节点细节。</p>
+            <div class="sdd-flow-meta"><span data-flow-project>项目：—</span><code data-flow-session>Session：—</code><span data-flow-created>创建：—</span></div>
+          </div>
+          <div class="sdd-flow-actions"><span class="sdd-demo-badge">仅展示演示链路</span><a class="sdd-action-link" data-flow-report data-report-link href="/reports/step6/index.html">打开 Step6 报告 ↗</a></div>
+        </header>
+
+        <section class="sdd-process-panel" aria-labelledby="process-map-title">
+              <div class="sdd-process-title"><div><span class="sdd-eyebrow">流程图</span><h2 id="process-map-title">SDD 总体阶段</h2></div><p>实心节点可点击；虚线节点只表达总体汇总。</p></div>
+          <div class="sdd-top-process" data-top-process></div>
+
+          <div class="sdd-detail-frame">
+            <div class="sdd-detail-frame-head"><div><span class="sdd-eyebrow">SDD 执行细节</span><h3>规格到验证的六步展开</h3></div><p>节点之间保持同一条执行基线</p></div>
+            <div class="sdd-detail-process" data-detail-process></div>
+          </div>
+
+          <div class="sdd-footnote"><span>汇总：SDD 规格拆解 / SDD 执行</span><span>可交互：前置资产、规格生成、详设生成、Plan、代码、编译、DT、自改进</span></div>
+        </section>
+
+        <section class="sdd-detail-panel" aria-live="polite" aria-labelledby="active-node-title">
+          <header class="sdd-detail-head">
+            <div class="sdd-detail-heading"><span class="sdd-eyebrow" data-active-breadcrumb>当前节点 · 前置资产</span><h2 id="active-node-title" data-active-title>SDD 前置资产建设</h2><p data-active-description>检查进入 SDD 之前的仓库资产是否齐备。</p></div>
+            <span class="sdd-status" data-tone="ok" data-active-status>已完成</span>
+          </header>
+          <div class="sdd-detail-kpis" data-detail-kpis></div>
+          <div class="sdd-detail-content" data-detail-content></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.getElementById('sdd-dashboard');
+      if (!root) return;
+
+      const rangeCaptions = {
+        today: '今天 · 2026-08-26',
+        week: '本周 · 2026-08-20 至 2026-08-26',
+        month: '本月 · 2026-08-01 至 2026-08-26'
+      };
+
+      const sessions = [
+        {
+          id: 'a82f-7d2c', project: 'prime-agent', createdAt: '2026-08-26T10:21:00+08:00', tokenTotal: 682000, durationSec: 2699, status: '已完成', tone: 'ok', reportHref: '/reports/step6/index.html', flow: {
+            assets: { compliance: 92, passed: 12, total: 13, checks: [
+              ['AGENTS.md', '已存在并通过', '仓库规则入口可定位', 'ok'],
+              ['架构说明', '已存在', '模块边界和依赖关系可追溯', 'ok'],
+              ['测试规则', '需补充', '缺少 DT 失败分级说明', 'fail'],
+              ['决策记录', '已存在', '当前决策可追溯', 'ok'],
+              ['产出索引', '已生成', '规格、计划、代码产物已关联', 'ok']
+            ] },
+            decomposition: { docSize: '1.6K', codeSize: '836 行', verdict: '粒度正常', tone: 'ok' },
+            execution: { tokens: 682000, durationSec: 2699, codeLines: 836, verdict: '已完成', tone: 'ok' },
+            improvement: { enabled: true, mining: 1, cards: ['EC-001 CLI 入口定位规律', 'EC-002 重复搜索问题', 'EC-003 测试执行最优路径', 'EC-004 配置修改约束'], knowledgeUnits: ['KU-021 CLI Command Registration Knowledge'], reportHref: '/reports/step6/index.html' },
+            detail: {
+              specGeneration: { tokens: 38000, durationSec: 42, output: '1,283 行', artifact: 'spec.md', outline: ['需求边界', '约束与不变量', '验收场景', '证据范围'], status: '已完成', tone: 'ok' },
+              designGeneration: { tokens: 51000, durationSec: 67, output: '1,892 行', artifact: 'design.md', sections: ['架构与模块边界', '数据流与状态变化', '接口与失败模型', '测试策略'], status: '已完成', tone: 'ok' },
+              plan: { tokens: 27000, durationSec: 31, count: 8, plans: ['定位 CLI 入口', '补齐规格字段', '调整状态模型', '实现报告导航', '增加 DT 入口', '补充失败态', '运行回归检查', '整理知识产出'], status: '已完成', tone: 'ok' },
+              code: { tokens: 566000, durationSec: 2280, lines: 836, toolCalls: 83, searchCalls: 21, filesRead: 37, path: ['仓库根目录', 'src/cli', 'runtime', 'reporting', 'tests'], files: [
+                ['src/cli/session.ts', '+203 / -31'], ['src/reporting/flow.ts', '+181 / -43'], ['tests/session-flow.test.ts', '+317 / -21'], ['docs/dashboard.md', '+135 / -18']
+              ], status: '已完成', tone: 'ok' },
+              compile: { durationSec: 93, attempts: [['第 1 次', '失败', '缺少报告资源路径', 'fail'], ['第 2 次', '通过', '入口与静态资源均可加载', 'ok']], result: '通过', tone: 'ok' },
+              dt: { durationSec: 186, cases: 129, passed: 127, failed: 2, failedCases: ['test_report_relative_assets', 'test_flow_empty_state'], result: '通过（有 2 个待跟进）', tone: 'warn' }
+            }
+          }
+        },
+        { id: 'b932-11af', project: 'DeepSeek Harness', createdAt: '2026-08-26T09:07:00+08:00', tokenTotal: 432000, durationSec: 3480, status: '已完成', tone: 'ok', reportHref: null, flow: null },
+        { id: 'c281-9e40', project: 'Router', createdAt: '2026-08-25T21:43:00+08:00', tokenTotal: 91000, durationSec: 1020, status: '失败', tone: 'fail', reportHref: null, flow: null },
+        { id: 'd614-5b08', project: 'prime-agent', createdAt: '2026-08-20T16:18:00+08:00', tokenTotal: 918000, durationSec: 5020, status: '已完成', tone: 'ok', reportHref: '/reports/step6/index.html', flow: null },
+        { id: 'e021-2ca7', project: 'MatrixSpec', createdAt: '2026-08-12T11:32:00+08:00', tokenTotal: 243000, durationSec: 2280, status: '已完成', tone: 'ok', reportHref: null, flow: null },
+        { id: 'f755-8ac2', project: 'workflow-arena', createdAt: '2026-08-03T14:05:00+08:00', tokenTotal: 377000, durationSec: 3140, status: '已完成', tone: 'ok', reportHref: null, flow: null }
+      ];
+
+      const state = { range: 'today', sessionId: null, activeNode: 'assets' };
+      const views = { usage: root.querySelector('[data-view="usage"]'), flow: root.querySelector('[data-view="flow"]') };
+
+      const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+      const fmtTokens = (value) => {
+        if (value === null || value === undefined) return '—';
+        if (value >= 1000000) return `${(value / 1000000).toFixed(value % 1000000 === 0 ? 0 : 2)}M`;
+        if (value >= 1000) return `${Math.round(value / 1000)}K`;
+        return String(value);
+      };
+      const fmtDuration = (seconds) => {
+        if (seconds === null || seconds === undefined) return '—';
+        const minutes = Math.floor(seconds / 60);
+        const remain = seconds % 60;
+        if (minutes >= 60) return `${Math.floor(minutes / 60)}小时${minutes % 60 ? `${minutes % 60}分` : ''}`;
+        if (minutes === 0) return `${remain}秒`;
+        return `${minutes}分${remain ? `${remain}秒` : ''}`;
+      };
+      const fmtDate = (value) => value.slice(5, 16).replace('T', ' ');
+      const sessionDate = (session) => session.createdAt.slice(0, 10);
+      const statusLabel = (tone) => ({ ok: '已完成', warn: '预警', fail: '失败', muted: '未提供' }[tone] || '未提供');
+
+      function filteredSessions() {
+        const start = state.range === 'today' ? '2026-08-26' : state.range === 'week' ? '2026-08-20' : '2026-08-01';
+        return sessions.filter((session) => sessionDate(session) >= start && sessionDate(session) <= '2026-08-26');
+      }
+
+      function renderUsage() {
+        const filtered = filteredSessions();
+        const totalTokens = filtered.reduce((sum, session) => sum + session.tokenTotal, 0);
+        const projects = new Set(filtered.map((session) => session.project));
+        root.querySelector('[data-range-caption]').textContent = rangeCaptions[state.range];
+        root.querySelectorAll('[data-range]').forEach((tab) => tab.setAttribute('aria-pressed', String(tab.dataset.range === state.range)));
+        root.querySelector('[data-usage-sessions]').textContent = String(filtered.length);
+        root.querySelector('[data-usage-tokens]').textContent = fmtTokens(totalTokens);
+        root.querySelector('[data-usage-average]').textContent = filtered.length ? fmtTokens(Math.round(totalTokens / filtered.length)) : '—';
+        root.querySelector('[data-usage-projects]').textContent = String(projects.size);
+        root.querySelector('[data-session-status]').textContent = filtered.length ? `共 ${filtered.length} 条` : '暂无记录';
+        root.querySelector('[data-session-status]').dataset.tone = filtered.length ? 'ok' : 'muted';
+
+        const rows = root.querySelector('[data-session-rows]');
+        if (!filtered.length) {
+          rows.innerHTML = '<div class="sdd-empty"><div><strong>该时间范围暂无 Session</strong><span>切换到本周或本月查看演示数据。</span></div></div>';
+          return;
+        }
+        rows.innerHTML = filtered.map((session) => `
+          <div class="sdd-session-row">
+            <div class="sdd-session-project"><strong>${esc(session.project)}</strong><code>${esc(session.id)}</code></div>
+            <div class="sdd-session-cell"><strong>${fmtDate(session.createdAt)}</strong><small>${sessionDate(session)}</small></div>
+            <div class="sdd-session-cell"><strong>${fmtTokens(session.tokenTotal)}</strong><small>总 Token</small></div>
+            <div class="sdd-session-cell"><strong>${fmtDuration(session.durationSec)}</strong><small>运行耗时</small></div>
+            <div><span class="sdd-status" data-tone="${session.tone}">${esc(session.status)}</span></div>
+            <div>${session.reportHref ? `<a class="sdd-action-link" data-report-link href="${esc(session.reportHref)}">Step6 ↗</a>` : '<span class="sdd-action-link" aria-disabled="true">未生成</span>'}</div>
+            <div>${session.flow ? `<button class="sdd-action-button" type="button" data-open-flow="${esc(session.id)}">看全流程 →</button>` : '<span class="sdd-action-link" aria-disabled="true">非 SDD</span>'}</div>
+            <div class="sdd-session-cell"><small>${session.flow ? '点击进入节点流程图' : session.reportHref ? '仅提供静态报告' : '暂无下钻内容'}</small></div>
+          </div>`).join('');
+      }
+
+      const nodeDefs = {
+        assets: { label: 'SDD 前置资产建设', short: '前置资产', number: '01', metricLabel: '合规率', metric: (flow) => `${flow.assets.compliance}%`, secondary: (flow) => `${flow.assets.passed} / ${flow.assets.total} 通过`, description: '检查 SDD 进入前的规则、架构和决策资产。', tone: 'ok', interactive: true },
+        decompose: { label: 'SDD 规格拆解', short: '规格拆解', number: '02', metricLabel: '规格大小', metric: (flow) => flow.decomposition.docSize, secondary: (flow) => `${flow.decomposition.codeSize} · ${flow.decomposition.verdict}`, description: '规格大小与预计代码规模的总体判断。', tone: 'ok', interactive: false },
+        execution: { label: 'SDD 执行', short: 'SDD 执行', number: '03', metricLabel: 'Token 总量', metric: (flow) => fmtTokens(flow.execution.tokens), secondary: (flow) => `${fmtDuration(flow.execution.durationSec)} · ${flow.execution.codeLines} 行代码`, description: '规格、详设、Plan、代码、编译和 DT 的执行汇总。', tone: 'ok', interactive: false },
+        improvement: { label: '自改进沉淀', short: '自改进', number: '04', metricLabel: '是否沉淀', metric: (flow) => flow.improvement.enabled ? '是' : '否', secondary: (flow) => `${flow.improvement.cards.length} Cards · ${flow.improvement.knowledgeUnits.length} KU`, description: '把本次执行中可复用的经验整理为长期知识。', tone: 'ok', interactive: true }
+      };
+
+      const lowerDefs = [
+        { id: 'specGeneration', label: '规格生成', number: '01', metricLabel: 'Token', metric: (flow) => fmtTokens(flow.detail.specGeneration.tokens), secondary: (flow) => `${fmtDuration(flow.detail.specGeneration.durationSec)} · ${flow.detail.specGeneration.output}`, description: '从需求输入形成可验收规格。' },
+        { id: 'designGeneration', label: '详设生成', number: '02', metricLabel: 'Token', metric: (flow) => fmtTokens(flow.detail.designGeneration.tokens), secondary: (flow) => `${fmtDuration(flow.detail.designGeneration.durationSec)} · ${flow.detail.designGeneration.output}`, description: '把规格展开为架构、接口和测试策略。' },
+        { id: 'plan', label: 'Plan', number: '03', metricLabel: 'Token', metric: (flow) => fmtTokens(flow.detail.plan.tokens), secondary: (flow) => `${fmtDuration(flow.detail.plan.durationSec)} · ${flow.detail.plan.count} 个 Plan`, description: '把详设拆成可执行的计划单元。' },
+        { id: 'code', label: '代码', number: '04', metricLabel: 'Token', metric: (flow) => fmtTokens(flow.detail.code.tokens), secondary: (flow) => `${fmtDuration(flow.detail.code.durationSec)} · ${flow.detail.code.lines} 行`, description: '按 Plan 修改代码并记录探索路径。' },
+        { id: 'compile', label: '编译', number: '05', metricLabel: '耗时', metric: (flow) => fmtDuration(flow.detail.compile.durationSec), secondary: (flow) => `${flow.detail.compile.attempts.length} 次尝试 · ${flow.detail.compile.result}`, description: '检查代码能否完成构建和产物加载。' },
+        { id: 'dt', label: 'DT', number: '06', metricLabel: '耗时', metric: (flow) => fmtDuration(flow.detail.dt.durationSec), secondary: (flow) => `${flow.detail.dt.passed} / ${flow.detail.dt.cases} 通过`, description: '用 DT 结果确认流程行为和失败边界。' }
+      ];
+
+      function nodeStatus(flow, id) {
+        if (id === 'dt') return flow.detail.dt.tone;
+        if (id === 'compile') return flow.detail.compile.tone;
+        return 'ok';
+      }
+
+      function nodeMarkup(def, flow, interactive, active) {
+        const tone = nodeStatus(flow, def.id);
+        const status = statusLabel(tone);
+        const body = `<div class="sdd-node-top"><span class="sdd-node-number">${def.number}</span><span class="sdd-stage-rail"><i class="sdd-stage-dot" data-tone="${tone}"></i>${status}</span></div><div class="sdd-node-label"><h3>${def.label}</h3><p>${def.description}</p></div><div class="sdd-node-bottom"><div class="sdd-node-metric"><span>${def.metricLabel}</span><strong>${def.metric(flow)}</strong></div><div class="sdd-node-secondary"><strong>${def.secondary(flow)}</strong><span>${interactive ? '点击查看详情' : '总体汇总'}</span></div></div>`;
+        if (interactive) return `<button class="sdd-flow-node sdd-node-button" type="button" data-node="${def.id}" data-active="${String(active)}" aria-pressed="${String(active)}">${body}</button>`;
+        return `<article class="sdd-flow-node" data-kind="summary" aria-label="${def.label}，汇总节点">${body}</article>`;
+      }
+
+      function renderFlowMap(flow) {
+        const top = root.querySelector('[data-top-process]');
+        top.innerHTML = Object.entries(nodeDefs).map(([id, def]) => nodeMarkup({ ...def, id }, flow, def.interactive, state.activeNode === id)).join('');
+        root.querySelector('[data-detail-process]').innerHTML = lowerDefs.map((def) => nodeMarkup(def, flow, true, state.activeNode === def.id)).join('');
+      }
+
+      function kpis(items) {
+        return items.map(([label, value]) => `<div class="sdd-detail-kpi"><span>${esc(label)}</span><strong class="sdd-metric-value">${esc(value)}</strong></div>`).join('');
+      }
+
+      function checkList(items) {
+        return `<ul class="sdd-check-list">${items.map(([title, detail, note, tone]) => `<li class="sdd-check-item"><div><strong>${esc(title)}</strong><small>${esc(note)}</small></div><span class="sdd-check-icon" data-tone="${tone}">${tone === 'ok' ? '✓' : '!'}</span></li>`).join('')}</ul>`;
+      }
+
+      function itemList(items, emptyText = '暂无条目') {
+        if (!items || !items.length) return `<div class="sdd-empty"><span>${esc(emptyText)}</span></div>`;
+        return `<ul class="sdd-item-list">${items.map((item) => `<li class="sdd-item-row"><div><strong>${esc(item)}</strong></div><span class="sdd-check-icon" data-tone="ok">✓</span></li>`).join('')}</ul>`;
+      }
+
+      function detailFor(flow, id) {
+        const shared = { breadcrumb: '', title: '', description: '', tone: 'ok', status: '已完成', kpis: [], content: '' };
+        if (id === 'assets') {
+          shared.breadcrumb = '当前节点 · 前置资产'; shared.title = 'SDD 前置资产建设'; shared.description = '检查进入 SDD 之前的仓库资产是否齐备。'; shared.kpis = [['合规率', `${flow.assets.compliance}%`], ['通过项', `${flow.assets.passed} / ${flow.assets.total}`], ['待补项', String(flow.assets.total - flow.assets.passed)]];
+          shared.content = `<div class="sdd-detail-columns"><section class="sdd-detail-section"><header><h3>前置资产检查</h3><span>${flow.assets.passed} / ${flow.assets.total} 通过</span></header>${checkList(flow.assets.checks)}</section><section class="sdd-detail-section"><header><h3>判断</h3><span>合规率来源</span></header><div class="sdd-note"><strong>当前可进入 SDD 执行</strong><span>合规率由检查项通过数计算。测试规则仍有一项需要补齐，流程页将它保留为预警而不是隐藏。</span></div></section></div>`;
+          return shared;
+        }
+        if (id === 'specGeneration') {
+          const d = flow.detail.specGeneration; shared.breadcrumb = '执行细节 · 规格生成'; shared.title = '规格生成'; shared.description = '把需求输入整理成可验收的规格产物。'; shared.kpis = [['Token', fmtTokens(d.tokens)], ['阶段耗时', fmtDuration(d.durationSec)], ['输出行数', d.output]];
+          shared.content = `<div class="sdd-detail-columns"><section class="sdd-detail-section"><header><h3>规格产物</h3><span>${esc(d.artifact)}</span></header><div class="sdd-note"><strong>${esc(d.artifact)}</strong><span>规格文件已生成，可从需求边界、约束和验收场景继续下钻。</span></div></section><section class="sdd-detail-section"><header><h3>规格结构预览</h3><span>4 个单元</span></header><ol class="sdd-outline-list">${d.outline.map((item) => `<li>${esc(item)}</li>`).join('')}</ol></section></div>`;
+          return shared;
+        }
+        if (id === 'designGeneration') {
+          const d = flow.detail.designGeneration; shared.breadcrumb = '执行细节 · 详设生成'; shared.title = '详设生成'; shared.description = '把规格展开为架构、接口和测试策略。'; shared.kpis = [['Token', fmtTokens(d.tokens)], ['阶段耗时', fmtDuration(d.durationSec)], ['输出行数', d.output]];
+          shared.content = `<div class="sdd-detail-columns"><section class="sdd-detail-section"><header><h3>详设章节</h3><span>${d.sections.length} 个章节</span></header>${itemList(d.sections)}</section><section class="sdd-detail-section"><header><h3>产物入口</h3><span>${esc(d.artifact)}</span></header><div class="sdd-note"><strong>${esc(d.artifact)}</strong><span>这里展示详设的结构，不复制 Step6 报告内容。</span></div></section></div>`;
+          return shared;
+        }
+        if (id === 'plan') {
+          const d = flow.detail.plan; shared.breadcrumb = '执行细节 · Plan'; shared.title = 'Plan'; shared.description = '把详设拆成可执行、可追踪的计划单元。'; shared.kpis = [['Token', fmtTokens(d.tokens)], ['阶段耗时', fmtDuration(d.durationSec)], ['Plan 数', String(d.count)]];
+          shared.content = `<section class="sdd-detail-section"><header><h3>计划单元</h3><span>全部已完成</span></header><ul class="sdd-item-list">${d.plans.map((item, index) => `<li class="sdd-item-row"><div><strong>Plan ${String(index + 1).padStart(2, '0')} · ${esc(item)}</strong><small>已完成并进入下一步</small></div><span class="sdd-check-icon" data-tone="ok">✓</span></li>`).join('')}</ul></section>`;
+          return shared;
+        }
+        if (id === 'code') {
+          const d = flow.detail.code; shared.breadcrumb = '执行细节 · 代码'; shared.title = '代码'; shared.description = '按 Plan 修改代码，同时保留可复核的探索路径。'; shared.kpis = [['Token', fmtTokens(d.tokens)], ['阶段耗时', fmtDuration(d.durationSec)], ['生成代码', `${d.lines} 行`]];
+          shared.content = `<div class="sdd-detail-columns"><section class="sdd-detail-section"><header><h3>修改文件</h3><span>${d.files.length} 个示例</span></header><ul class="sdd-item-list">${d.files.map(([file, change]) => `<li class="sdd-item-row"><div><strong><code>${esc(file)}</code></strong><small>${esc(change)}</small></div><span class="sdd-check-icon" data-tone="ok">+</span></li>`).join('')}</ul></section><section class="sdd-detail-section"><header><h3>探索情况</h3><span>可回溯</span></header><div class="sdd-note"><strong>${d.toolCalls} 次工具调用 · ${d.searchCalls} 次搜索</strong><span>${d.filesRead} 个文件被读取，路径没有被合并成一个笼统的“探索量”。</span></div><div class="sdd-path" style="margin-top:14px">${d.path.map((item, index) => `${index ? '<i>→</i>' : ''}<span>${esc(item)}</span>`).join('')}</div></section></div>`;
+          return shared;
+        }
+        if (id === 'compile') {
+          const d = flow.detail.compile; shared.breadcrumb = '执行细节 · 编译'; shared.title = '编译'; shared.description = '确认代码和报告产物可以完成构建与加载。'; shared.kpis = [['编译耗时', fmtDuration(d.durationSec)], ['尝试次数', String(d.attempts.length)], ['结果', d.result]];
+          shared.content = `<section class="sdd-detail-section"><header><h3>编译尝试</h3><span>保留失败原因</span></header><ul class="sdd-attempt-list">${d.attempts.map(([title, result, detail, tone]) => `<li class="sdd-attempt-item"><div><strong>${esc(title)} · ${esc(result)}</strong><small>${esc(detail)}</small></div><span class="sdd-check-icon" data-tone="${tone}">${tone === 'ok' ? '✓' : '!'}</span></li>`).join('')}</ul></section>`;
+          return shared;
+        }
+        if (id === 'dt') {
+          const d = flow.detail.dt; shared.breadcrumb = '执行细节 · DT'; shared.title = 'DT'; shared.description = '用测试结果确认流程行为和失败边界。'; shared.status = d.result; shared.tone = d.tone; shared.kpis = [['DT 耗时', fmtDuration(d.durationSec)], ['通过率', `${Math.round((d.passed / d.cases) * 100)}%`], ['用例数', `${d.passed} / ${d.cases}`]];
+          shared.content = `<div class="sdd-detail-columns"><section class="sdd-detail-section"><header><h3>失败用例</h3><span>${d.failed} 个待跟进</span></header>${itemList(d.failedCases, '没有失败用例')}</section><section class="sdd-detail-section"><header><h3>结果说明</h3><span>DT</span></header><div class="sdd-note"><strong>${esc(d.result)}</strong><span>失败用例会留在当前节点详情，不影响查看前置产物和编译尝试。</span></div></section></div>`;
+          return shared;
+        }
+        if (id === 'improvement') {
+          const d = flow.improvement; shared.breadcrumb = '总体阶段 · 自改进'; shared.title = '自改进沉淀'; shared.description = '把本次执行中可复用的经验整理为 Experience Card 和 Knowledge Unit。'; shared.status = d.enabled ? '已沉淀' : '无沉淀'; shared.tone = d.enabled ? 'ok' : 'muted'; shared.kpis = [['是否沉淀', d.enabled ? '是' : '否'], ['经验卡片', String(d.cards.length)], ['知识单元', String(d.knowledgeUnits.length)]];
+          shared.content = `<div class="sdd-detail-columns"><section class="sdd-detail-section"><header><h3>经验卡片 <small>Experience Card</small></h3><span>${d.cards.length} 条</span></header>${itemList(d.cards)}</section><section class="sdd-detail-section"><header><h3>知识单元 <small>Knowledge Unit</small></h3><span>${d.knowledgeUnits.length} 条</span></header>${itemList(d.knowledgeUnits, '本次没有形成知识单元')}<a class="sdd-action-link" data-report-link style="margin-top:12px" href="${esc(d.reportHref)}">查看 Step6 自改进报告 ↗</a></section></div>`;
+          return shared;
+        }
+        return detailFor(flow, 'assets');
+      }
+
+      function updateDetail(flow) {
+        const detail = detailFor(flow, state.activeNode);
+        root.querySelector('[data-active-breadcrumb]').textContent = detail.breadcrumb;
+        root.querySelector('[data-active-title]').textContent = detail.title;
+        root.querySelector('[data-active-description]').textContent = detail.description;
+        const status = root.querySelector('[data-active-status]');
+        status.textContent = detail.status;
+        status.dataset.tone = detail.tone;
+        root.querySelector('[data-detail-kpis]').innerHTML = kpis(detail.kpis);
+        root.querySelector('[data-detail-content]').innerHTML = detail.content;
+        root.querySelectorAll('[data-node]').forEach((node) => {
+          const active = node.dataset.node === state.activeNode;
+          node.dataset.active = String(active);
+          node.setAttribute('aria-pressed', String(active));
+        });
+      }
+
+      function showView(name) {
+        Object.entries(views).forEach(([key, view]) => { view.hidden = key !== name; });
+      }
+
+      function openFlow(id, node = 'assets') {
+        const session = sessions.find((item) => item.id === id && item.flow);
+        if (!session) return;
+        state.sessionId = id;
+        state.activeNode = nodeDefs[node] || lowerDefs.some((item) => item.id === node) ? node : 'assets';
+        window.location.hash = `flow/${encodeURIComponent(id)}/${encodeURIComponent(state.activeNode)}`;
+      }
+
+      function renderFlow() {
+        const session = sessions.find((item) => item.id === state.sessionId && item.flow);
+        if (!session) { showView('usage'); return; }
+        showView('flow');
+        const flow = session.flow;
+        root.querySelector('[data-flow-title]').textContent = `${session.project} · SDD 全流程`;
+        root.querySelector('[data-flow-description]').textContent = '从前置资产到自改进沉淀，点击流程节点查看当前节点细节。';
+        root.querySelector('[data-flow-project]').textContent = `项目：${session.project}`;
+        root.querySelector('[data-flow-session]').textContent = `Session：${session.id}`;
+        root.querySelector('[data-flow-created]').textContent = `创建：${fmtDate(session.createdAt)}`;
+        const report = root.querySelector('[data-flow-report]');
+        report.href = session.reportHref || flow.improvement.reportHref;
+        renderFlowMap(flow);
+        updateDetail(flow);
+      }
+
+      function syncHash() {
+        const parts = window.location.hash.replace(/^#/, '').split('/').filter(Boolean);
+        if (parts[0] === 'flow' && parts[1]) {
+          const id = decodeURIComponent(parts[1]);
+          const session = sessions.find((item) => item.id === id && item.flow);
+          if (session) {
+            state.sessionId = id;
+            const requested = parts[2] ? decodeURIComponent(parts[2]) : 'assets';
+            state.activeNode = nodeDefs[requested] || lowerDefs.some((item) => item.id === requested) ? requested : 'assets';
+            renderFlow();
+            return;
+          }
+        }
+        showView('usage');
+        renderUsage();
+      }
+
+      root.addEventListener('click', (event) => {
+        const reportLink = event.target.closest('[data-report-link]');
+        if (reportLink) {
+          event.preventDefault();
+          const href = new URL(reportLink.getAttribute('href'), window.location.href).href;
+          try { window.parent.location.href = href; } catch (_) { window.location.href = href; }
+          return;
+        }
+        const range = event.target.closest('[data-range]');
+        if (range) { state.range = range.dataset.range; renderUsage(); return; }
+        const flowButton = event.target.closest('[data-open-flow]');
+        if (flowButton) { openFlow(flowButton.dataset.openFlow); return; }
+        const node = event.target.closest('[data-node]');
+        if (node && state.sessionId) { window.location.hash = `flow/${encodeURIComponent(state.sessionId)}/${encodeURIComponent(node.dataset.node)}`; return; }
+        const back = event.target.closest('[data-back-to-usage]');
+        if (back) { window.location.hash = 'usage'; return; }
+      });
+
+      window.addEventListener('hashchange', syncHash);
+      syncHash();
+    })();
+  </script>
+</div>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知识消费报告 · Session 执行质量摘要</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumb" aria-label="面包屑"><a href="index.html">管理摘要</a><span aria-hidden="true">/</span><span>知识消费报告</span></nav>
+    <header class="page-header">
+      <p class="eyebrow">Topic 04</p>
+      <h1>知识消费报告</h1>
+      <p class="lede">保持原报告的消费分类和数字，不引入新的命中等级；重点说明知识是否满足任务，以及下一轮应补什么。</p>
+    </header>
+
+    <section class="panel executive-summary" aria-labelledby="knowledge-result">
+      <p class="eyebrow">本轮知识消费</p>
+      <p id="knowledge-result">读取 8 次，成功/满足 5 次，未满足 3 次；知识卡片 4 张。最重要缺口仍是 DAO 数据访问层的调用规范和 CRUD 模板。</p>
+    </section>
+
+    <section class="panel" aria-labelledby="knowledge-metrics">
+      <h2 id="knowledge-metrics">核心数字</h2>
+      <div class="stat-grid">
+        <div class="stat"><strong>读取 8 次</strong><span>知识消费总次数</span></div>
+        <div class="stat"><strong>成功/满足 5 次</strong><span>沿用现有满足判断</span></div>
+        <div class="stat"><strong>未满足 3 次</strong><span>内容缺失或不足</span></div>
+        <div class="stat"><strong>知识卡片 4 张</strong><span>本轮经验知识沉淀</span></div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="consumption-detail">
+      <h2 id="consumption-detail">按 SubAgent 阶段划分的消费记录</h2>
+      <div class="stage-list">
+        <section class="stage-group" aria-labelledby="knowledge-stage-1">
+          <header class="stage-header"><div><p class="eyebrow">SubAgent 阶段</p><h3 id="knowledge-stage-1"><span class="stage-agent">SubAgent_2</span><span class="stage-separator"> · </span>数据模型与数据库映射</h3></div><span class="stage-count">1 条消费记录</span></header>
+          <div class="table-wrap"><table aria-labelledby="knowledge-stage-1"><thead><tr><th scope="col">意图</th><th scope="col">读取知识</th><th scope="col">原报告判断</th><th scope="col">后续结果</th></tr></thead><tbody><tr><td>定位 ORM 映射</td><td>架构经验知识 / 文件命名约定</td><td><span class="status-badge ok">满足</span></td><td>第三次搜索发现 <code>*_orm.xml</code> 规范。</td></tr></tbody></table></div>
+        </section>
+        <section class="stage-group" aria-labelledby="knowledge-stage-2">
+          <header class="stage-header"><div><p class="eyebrow">SubAgent 阶段</p><h3 id="knowledge-stage-2"><span class="stage-agent">SubAgent_3</span><span class="stage-separator"> · </span>用户查询接口</h3></div><span class="stage-count">2 条消费记录</span></header>
+          <div class="table-wrap"><table aria-labelledby="knowledge-stage-2"><thead><tr><th scope="col">意图</th><th scope="col">读取知识</th><th scope="col">原报告判断</th><th scope="col">后续结果</th></tr></thead><tbody><tr><td>请求公共字段</td><td>架构经验知识 / 消息结构体命名规范</td><td><span class="status-badge warn">不满足</span></td><td>知识未描述 req_id/operator_id/timestamp 公共字段。</td></tr><tr><td>查询 DAO 调用</td><td>架构经验知识 / 数据访问层</td><td><span class="status-badge risk">未找到</span></td><td>尝试四种路径失败，最终由主 Agent 指导使用 DAO。</td></tr></tbody></table></div>
+        </section>
+        <section class="stage-group" aria-labelledby="knowledge-stage-3">
+          <header class="stage-header"><div><p class="eyebrow">SubAgent 阶段</p><h3 id="knowledge-stage-3"><span class="stage-agent">SubAgent_4</span><span class="stage-separator"> · </span>用户创建接口</h3></div><span class="stage-count">2 条消费记录</span></header>
+          <div class="table-wrap"><table aria-labelledby="knowledge-stage-3"><thead><tr><th scope="col">意图</th><th scope="col">读取知识</th><th scope="col">原报告判断</th><th scope="col">后续结果</th></tr></thead><tbody><tr><td>定位校验函数</td><td>项目约定经验知识 / 文件命名约定</td><td><span class="status-badge ok">满足</span></td><td>第二次搜索命中 <code>check_*_input</code> 模式。</td></tr><tr><td>调用 DAO</td><td>架构经验知识 / DAO 层调用规范</td><td><span class="status-badge ok">满足</span></td><td>直接实现创建逻辑并调用 DAO。</td></tr></tbody></table></div>
+        </section>
+      </div>
+      <div class="callout">
+        <strong>证据边界：</strong>原摘要给出 8/5/3 的完整汇总，但当前示例明细只显式列出以上消费记录；本页保留原口径和总数，不补造缺失的逐条记录。
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="gap-title">
+      <h2 id="gap-title">经验知识缺口</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>优先级</th><th>类型</th><th>缺失内容</th><th>涉及 Agent</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td><span class="status-badge risk">P0</span></td><td>Location-Pattern</td><td>消息结构体按模块组织的目录规范</td><td>SubAgent_2、3</td><td>已生成知识卡片</td></tr>
+            <tr><td><span class="status-badge risk">P0</span></td><td>Best-Path</td><td>DAO 数据访问层调用规范和 CRUD 模板</td><td>SubAgent_3</td><td>待人工补充</td></tr>
+            <tr><td><span class="status-badge risk">P0</span></td><td>Location-Pattern</td><td>ORM、校验函数和请求消息的命名约定</td><td>SubAgent_2、3、4</td><td>已生成知识卡片</td></tr>
+            <tr><td><span class="status-badge warn">P1</span></td><td>Best-Path</td><td>请求消息公共头字段约定</td><td>SubAgent_3</td><td>已生成知识卡片</td></tr>
+            <tr><td><span class="status-badge warn">P1</span></td><td>Pitfall</td><td>如何快速找到前序 SubAgent 产出文件</td><td>SubAgent_3、5</td><td>待人工补充</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="execution-evidence.html#knowledge-gaps">查看知识缺口原始表述 →</a></p>
+    </section>
+
+    <section class="panel" aria-labelledby="deposition-title">
+      <h2 id="deposition-title">知识沉淀与下一轮</h2>
+      <div class="two-column">
+        <div>
+          <p><strong>本轮沉淀：</strong>4 张经验知识卡片，原摘要分类为 Location-Pattern 2 张、Best-Path 2 张，confidence 均为 inferred。</p>
+          <p class="muted">知识沉淀与知识消费分别呈现；生成卡片不自动提高本轮消费满足率。</p>
+        </div>
+        <div class="callout danger"><strong>强烈建议启动次轮</strong><p>优先补齐 DAO 指南和跨 Agent 产出物索引规范，再验证耗时和未满足次数是否下降。</p></div>
+      </div>
+    </section>
+
+    <nav class="page-nav"><a href="index.html">← 返回管理摘要</a><a href="execution-evidence.html#knowledge-gaps">查看知识证据 →</a></nav>
+  </main>
+</body>
+</html>

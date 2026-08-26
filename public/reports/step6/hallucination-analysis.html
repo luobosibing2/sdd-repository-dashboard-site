@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>模型幻觉分析 · Session 执行质量摘要</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumb" aria-label="面包屑"><a href="index.html">管理摘要</a><span aria-hidden="true">/</span><span>模型幻觉分析</span></nav>
+    <header class="page-header">
+      <p class="eyebrow">Topic 02</p>
+      <h1>模型幻觉分析</h1>
+      <p class="lede">只把有明确模型主张和直接反证的事件记为幻觉，避免把搜索失败或知识缺口扩大解释成模型幻觉。</p>
+    </header>
+
+    <section class="panel executive-summary" aria-labelledby="hallucination-result">
+      <p class="eyebrow">本轮判断</p>
+      <p id="hallucination-result">无确认事件，需原始日志复核。现有摘要只有行为结果，没有保留可与工具证据逐句比对的模型原始主张。</p>
+    </section>
+
+    <section class="panel" aria-labelledby="criteria-title">
+      <h2 id="criteria-title">严格判定口径</h2>
+      <dl class="definition-list">
+        <dt>确认幻觉</dt><dd>模型明确声称某文件、接口、字段、执行结果或项目规范存在，但后续工具证据直接证明该主张不成立。</dd>
+        <dt>疑似幻觉</dt><dd>模型在证据不足时作出推断并据此执行，但当前材料不足以直接证伪。</dd>
+        <dt>不属于幻觉</dt><dd>搜索未命中、尝试失败、错误定位、执行低效或知识缺失；这些行为分别进入耗时、瓶颈或知识报告。</dd>
+      </dl>
+    </section>
+
+    <section class="panel" aria-labelledby="review-title">
+      <h2 id="review-title">现有可疑行为复核</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>行为</th><th>现有证据</th><th>判定</th><th>原因</th></tr></thead>
+          <tbody>
+            <tr><td>连续搜索 QueryUserReq 5 次</td><td>最终在模块级 msg 目录找到定义</td><td><span class="status-badge info">不是幻觉</span></td><td>这是定位低效；没有证据表明模型曾明确断言该定义不存在。</td></tr>
+            <tr><td>尝试直接 SQL、ORM、存储过程、内存过滤</td><td>四种方式失败，主 Agent 指导改用 DAO 层</td><td><span class="status-badge warn">无法确认</span></td><td>只有失败结果，没有保留模型对接口存在性的原始主张与反证。</td></tr>
+            <tr><td>首次使用 validate 搜索校验函数</td><td>第二次改用 check_*_input 后命中</td><td><span class="status-badge info">不是幻觉</span></td><td>属于关键词选择不匹配和轻度搜索低效。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="needed-title">
+      <h2 id="needed-title">要形成确认事件，还缺什么</h2>
+      <div class="three-column">
+        <div class="stat"><strong>原始主张</strong><span>模型当时明确说了什么</span></div>
+        <div class="stat"><strong>直接反证</strong><span>哪个工具结果或源码否定主张</span></div>
+        <div class="stat"><strong>影响区间</strong><span>从错误主张到纠正所损失的时间</span></div>
+      </div>
+      <p class="muted">在以上三项不完整时，首页保持“无确认事件”，而不是用搜索次数代替幻觉次数。</p>
+    </section>
+
+    <nav class="page-nav"><a href="index.html">← 返回管理摘要</a><a href="execution-evidence.html#hallucination-evidence">查看复核证据 →</a></nav>
+  </main>
+</body>
+</html>

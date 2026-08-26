@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>全量执行证据 · Session 执行质量摘要</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumb" aria-label="面包屑"><a href="index.html">管理摘要</a><span aria-hidden="true">/</span><span>全量执行证据</span></nav>
+    <header class="page-header">
+      <p class="eyebrow">Evidence Appendix</p>
+      <h1>全量执行证据</h1>
+      <p class="lede">本页是各专题的共同证据入口，保留逐意图执行明细和跨 SubAgent 问题，不进入领导默认阅读路径。</p>
+    </header>
+
+    <div class="callout danger">
+      <strong>证据范围：</strong>源文件声明自身为 Session Summary 输出格式示例，基于“实现用户管理 CRUD 接口”的构造场景，并非原始 Session 日志。因此可以证明报告示例写了什么，但不能单独证明真实运行中发生过模型幻觉、Agent 挂死或 API 卡死。
+    </div>
+
+    <section id="intent-detail" class="panel" aria-labelledby="intent-title">
+      <h2 id="intent-title">全量意图执行明细</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Agent / 任务</th><th>意图</th><th class="number">耗时</th><th>问题、根因与转折</th><th>知识消费 / 沉淀</th></tr></thead>
+          <tbody>
+            <tr><td>SubAgent_1 · 设计评审</td><td>读取 AGENTS.md 了解整体架构</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_1 · 设计评审</td><td>读取 plan.md 理解任务分解</td><td class="number">2s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_1 · 设计评审</td><td>搜索现有用户相关结构体定义</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_1 · 设计评审</td><td>确认接口文件命名和存放规范</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_1 · 设计评审</td><td>输出设计概要文档</td><td class="number">5s</td><td>—</td><td>—</td></tr>
+
+            <tr><td>SubAgent_2 · 数据模型</td><td>读取 SubAgent_1 设计概要</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_2 · 数据模型</td><td>定义 UserInfo 结构体</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_2 · 数据模型</td><td>定义 UserStatus 枚举</td><td class="number">2s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_2 · 数据模型</td><td>查找数据库表映射配置目录</td><td class="number">2m15s</td><td>前两次搜索 <code>*_mapper.xml</code>、<code>*_db.xml</code> 无果；第三次在 <code>src/db/mapping/</code> 找到 <code>*_orm.xml</code>，确认 ORM 命名模式。</td><td>读取“文件命名约定”，原报告判断满足；沉淀 ORM 位置模式。</td></tr>
+            <tr><td>SubAgent_2 · 数据模型</td><td>编写 UserInfo ORM 映射</td><td class="number">5s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_2 · 数据模型</td><td>注册新表到数据库初始化脚本</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_2 · 数据模型</td><td>验证数据模型编译通过</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+
+            <tr><td>SubAgent_3 · 查询接口</td><td>读取 plan 和设计概要</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_3 · 查询接口</td><td>搜索 QueryUserReq 定义</td><td class="number">4m30s</td><td>前四次未限定模块级 msg 目录；第五次在 <code>src/user/msg/user_msg.h</code> 找到。根因是错误假设请求消息位于公共头文件。</td><td>沉淀“消息结构体按模块组织”的位置模式。</td></tr>
+            <tr><td>SubAgent_3 · 查询接口</td><td>定位请求消息成员字段规范</td><td class="number">2m15s</td><td>三次对比后发现 Req 消息公共头为 req_id/operator_id/timestamp；现有知识未描述该约定。</td><td>读取“消息结构体命名规范”，原报告判断不满足。</td></tr>
+            <tr><td>SubAgent_3 · 查询接口</td><td>实现查询处理逻辑</td><td class="number">1m56s</td><td>直接 SQL、ORM、存储过程、内存过滤四种方式均失败，主 Agent 指导使用 DAO 层。</td><td>数据访问层知识未找到；列为 P0 知识缺口。</td></tr>
+            <tr><td>SubAgent_3 · 查询接口</td><td>编写编译配置</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+
+            <tr><td>SubAgent_4 · 创建接口</td><td>读取前序 SubAgent 产出</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_4 · 创建接口</td><td>定义 CreateUserReq / CreateUserResp</td><td class="number">5s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_4 · 创建接口</td><td>搜索输入校验函数实现模式</td><td class="number">45s</td><td>首次搜索 validate 返回过多；第二次搜索 <code>check_*_input</code> 命中项目命名模式。</td><td>读取“文件命名约定”，原报告判断满足。</td></tr>
+            <tr><td>SubAgent_4 · 创建接口</td><td>实现校验逻辑</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_4 · 创建接口</td><td>实现创建逻辑并调用 DAO</td><td class="number">3s</td><td>—</td><td>读取“DAO 层调用规范”，原报告判断满足。</td></tr>
+            <tr><td>SubAgent_4 · 创建接口</td><td>注册接口到路由表</td><td class="number">2s</td><td>—</td><td>—</td></tr>
+
+            <tr><td>SubAgent_5 · 单元测试</td><td>读取接口实现代码</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_5 · 单元测试</td><td>查找测试文件存放位置</td><td class="number">3s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_5 · 单元测试</td><td>编写查询接口测试用例</td><td class="number">5s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_5 · 单元测试</td><td>编写创建接口测试用例</td><td class="number">5s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_5 · 单元测试</td><td>编写删除接口测试用例</td><td class="number">4s</td><td>—</td><td>—</td></tr>
+            <tr><td>SubAgent_5 · 单元测试</td><td>运行测试验证通过</td><td class="number">6s</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="hallucination-evidence" class="panel" aria-labelledby="hallucination-evidence-title">
+      <h2 id="hallucination-evidence-title">模型幻觉复核证据</h2>
+      <p>可疑候选只有 DAO 四种失败尝试，但摘要没有提供模型当时对接口、存储过程或 ORM 能力的明确主张，也没有逐句反证。因此该候选保持“无法确认”，不能升级为确认幻觉。</p>
+      <p><a href="hallucination-analysis.html">返回模型幻觉分析 →</a></p>
+    </section>
+
+    <section id="bottleneck-evidence" class="panel" aria-labelledby="bottleneck-evidence-title">
+      <h2 id="bottleneck-evidence-title">执行瓶颈证据</h2>
+      <p>摘要提供了各意图累计耗时，但没有连续空白事件区间、外部 API 调用起止、timeout 或 cancelled 结果。可确认的是 4m30s 搜索、2m15s 定位和 1m56s DAO 试错构成执行低效；不能据此确认 Agent 挂死或 API 卡死。</p>
+      <p><a href="bottleneck-analysis.html">返回执行瓶颈分析 →</a></p>
+    </section>
+
+    <section id="cross-agent" class="panel" aria-labelledby="cross-agent-title">
+      <h2 id="cross-agent-title">跨 SubAgent 问题</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>类型</th><th>问题</th><th>涉及 Agent</th><th>根因</th><th>建议</th></tr></thead>
+          <tbody>
+            <tr><td>重复造轮子</td><td>分别实现相似字段校验逻辑</td><td>SubAgent_3、4</td><td>缺少公共校验工具库的经验知识</td><td>沉淀公共校验函数位置和复用方式</td></tr>
+            <tr><td>生产—消费</td><td>SubAgent_3 在错误路径查找 UserInfo</td><td>SubAgent_2 → 3</td><td>model 与 msg 目录分离，产出位置不透明</td><td>沉淀目录分离约定和产出索引</td></tr>
+            <tr><td>生产—消费</td><td>SubAgent_5 找不到字段校验测试基准</td><td>SubAgent_3 → 5</td><td>接口实现未附字段约束说明</td><td>接口产出附带字段约束</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="knowledge-gaps" class="panel" aria-labelledby="knowledge-gap-evidence-title">
+      <h2 id="knowledge-gap-evidence-title">知识缺口原始清单</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>优先级</th><th>类型</th><th>缺失描述</th><th>涉及 Agent</th><th>状态 / 行动</th></tr></thead>
+          <tbody>
+            <tr><td>P0</td><td>Location-Pattern</td><td>消息结构体按模块组织的目录规范</td><td>SubAgent_2、3</td><td>已自动生成知识卡片</td></tr>
+            <tr><td>P0</td><td>Best-Path</td><td>DAO 数据访问层调用规范和 CRUD 模板</td><td>SubAgent_3</td><td>待人工补充建设</td></tr>
+            <tr><td>P0</td><td>Location-Pattern</td><td>ORM、校验函数和请求消息命名约定</td><td>SubAgent_2、3、4</td><td>已自动生成知识卡片</td></tr>
+            <tr><td>P1</td><td>Best-Path</td><td>请求消息公共头字段约定</td><td>SubAgent_3</td><td>已自动生成知识卡片</td></tr>
+            <tr><td>P1</td><td>Pitfall</td><td>如何快速找到前序 SubAgent 产出文件</td><td>SubAgent_3、5</td><td>待人工补充建设</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <strong>源数据内部边界：</strong>摘要称 DAO 知识“完全缺失”，但 SubAgent_4 明细又写到读取 DAO 层调用规范且满足。当前重构不改变知识消费口径，只把这个范围冲突显式暴露，后续应以原始知识读取日志核验。
+      </div>
+    </section>
+
+    <nav class="page-nav"><a href="index.html">← 返回管理摘要</a><a href="#intent-detail">回到全量明细 ↑</a></nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>执行瓶颈分析 · Session 执行质量摘要</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumb" aria-label="面包屑"><a href="index.html">管理摘要</a><span aria-hidden="true">/</span><span>执行瓶颈分析</span></nav>
+    <header class="page-header">
+      <p class="eyebrow">Topic 03</p>
+      <h1>执行瓶颈分析</h1>
+      <p class="lede">严格区分真正的 Agent/API 阻塞与普通执行低效，避免把“耗时较长”直接等同于“挂死”。</p>
+    </header>
+
+    <section class="panel executive-summary" aria-labelledby="bottleneck-result">
+      <p class="eyebrow">本轮判断</p>
+      <p id="bottleneck-result">现有摘要没有确认 Agent 挂死或 API 卡死；已确认的主要瓶颈类型是反复搜索、错误定位和 DAO 路径试错造成的执行低效。</p>
+    </section>
+
+    <section class="panel" aria-labelledby="threshold-title">
+      <h2 id="threshold-title">判定阈值</h2>
+      <div class="stat-grid">
+        <div class="stat"><strong>120 秒</strong><span>Agent 无新事件阈值</span></div>
+        <div class="stat"><strong>60 秒</strong><span>API 未返回阈值</span></div>
+        <div class="stat"><strong>成功返回</strong><span>超过 60 秒记为 API 慢调用</span></div>
+        <div class="stat"><strong>排除</strong><span>build/test、本地脚本、明确等待</span></div>
+      </div>
+      <dl class="definition-list">
+        <dt>Agent 挂死</dt><dd>Session 仍在执行、不处于工具调用期间，连续 120 秒没有 request、response、tool call 或 tool result 等新事件。</dd>
+        <dt>API 卡死</dt><dd>外部 API 调用超过 60 秒仍未返回，或最终以 timeout/cancelled 结束。</dd>
+        <dt>API 慢调用</dt><dd>外部 API 调用超过 60 秒但最终成功返回；单独统计，不记为卡死。</dd>
+        <dt>执行低效</dt><dd>反复搜索、错误定位、重复尝试和不必要路径探索；可能耗时很长，但不是进程或 API 阻塞。</dd>
+      </dl>
+    </section>
+
+    <section class="panel" aria-labelledby="status-title">
+      <h2 id="status-title">本轮分类结果</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>类型</th><th>状态</th><th>当前证据</th><th>报告处理</th></tr></thead>
+          <tbody>
+            <tr><td>Agent 挂死</td><td><span class="status-badge info">无法确认</span></td><td>现有材料未提供 Agent 空白事件时间段</td><td>首页显示“无确认挂死”，不显示虚构计数</td></tr>
+            <tr><td>API 卡死</td><td><span class="status-badge info">无法确认</span></td><td>现有材料未提供外部 API 调用起止和 timeout/cancelled</td><td>首页显示“无确认卡死”，等待原始日志</td></tr>
+            <tr><td>API 慢调用</td><td><span class="status-badge info">未采集</span></td><td>没有单次外部 API 延迟记录</td><td>保留指标位，不用 0 代替未知</td></tr>
+            <tr><td>执行低效</td><td><span class="status-badge risk">已确认</span></td><td>SubAgent_3 反复搜索 5 次、定位 3 次，并尝试 4 种错误 DAO 路径</td><td>计入耗时分析和知识缺口，不计为挂死</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="loss-title">
+      <h2 id="loss-title">主要执行低效</h2>
+      <ol class="bar-list">
+        <li class="bar-row"><span class="bar-label">定位 QueryUserReq</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-value">4m30s</span></li>
+        <li class="bar-row"><span class="bar-label">定位公共字段规范</span><span class="bar-track"><span class="bar-fill" style="width:50%"></span></span><span class="bar-value">2m15s</span></li>
+        <li class="bar-row"><span class="bar-label">错误 DAO 路径尝试</span><span class="bar-track"><span class="bar-fill" style="width:43%"></span></span><span class="bar-value">1m56s</span></li>
+      </ol>
+    </section>
+
+    <nav class="page-nav"><a href="index.html">← 返回管理摘要</a><a href="execution-evidence.html#bottleneck-evidence">查看瓶颈证据 →</a></nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>执行耗时分析 · Session 执行质量摘要</title>
+  <link rel="stylesheet" href="assets/report.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="breadcrumb" aria-label="面包屑"><a href="index.html">管理摘要</a><span aria-hidden="true">/</span><span>执行耗时分析</span></nav>
+    <header class="page-header">
+      <p class="eyebrow">Topic 01</p>
+      <h1>执行耗时分析</h1>
+      <p class="lede">回答三个问题：总共花了多久、时间集中在哪里，以及模型生成速度是否构成主要瓶颈。</p>
+    </header>
+
+    <section class="panel executive-summary" aria-labelledby="time-conclusion">
+      <p class="eyebrow">耗时结论</p>
+      <p id="time-conclusion">Session 总时长合计 32.5 min，TOP3 阶段占 75%；主要优化空间在反复搜索和错误路径探索，不在模型 Token 产出速度。</p>
+    </section>
+
+    <section class="panel" aria-labelledby="global-title">
+      <h2 id="global-title">全局概览</h2>
+      <div class="stat-grid">
+        <div class="stat"><strong>5</strong><span>Session 数</span></div>
+        <div class="stat"><strong>48</strong><span>总请求数</span></div>
+        <div class="stat"><strong>32.5 min</strong><span>Session 总时长合计</span></div>
+        <div class="stat"><strong>8.2 min</strong><span>工具执行时长 · 25.2%</span></div>
+        <div class="stat"><strong>24.3 min</strong><span>模型工作时长 · 74.8%</span></div>
+        <div class="stat"><strong>1,250,000</strong><span>总 Input Tokens</span></div>
+        <div class="stat"><strong>45,000</strong><span>总 Output Tokens</span></div>
+        <div class="stat"><strong>30.86 tok/s</strong><span>加权 Token 产出速率</span></div>
+      </div>
+      <div class="callout info">
+        <strong>Input 吞吐率：</strong>按总 Input Tokens ÷ 模型工作总时长复算，采用 <strong>857.14 tok/s</strong>。
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="top5-title">
+      <p class="eyebrow">集中度</p>
+      <h2 id="top5-title">耗时 TOP5 阶段</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>排名</th><th>Agent</th><th>任务</th><th class="number">工具调用</th><th class="number">总耗时</th><th class="number">占比</th><th>主要低效原因</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>SubAgent_3</td><td>实现用户查询接口</td><td class="number">17</td><td class="number">8m45s</td><td class="number">38%</td><td>反复搜索 5 次、反复定位 3 次、DAO 路径尝试失败</td></tr>
+            <tr><td>2</td><td>SubAgent_2</td><td>数据模型与数据库映射</td><td class="number">12</td><td class="number">5m20s</td><td class="number">23%</td><td>ORM 文件命名模式未命中，搜索 3 次</td></tr>
+            <tr><td>3</td><td>SubAgent_4</td><td>实现用户创建接口</td><td class="number">9</td><td class="number">3m10s</td><td class="number">14%</td><td>校验函数关键词首次选择错误</td></tr>
+            <tr><td>4</td><td>SubAgent_5</td><td>编写单元测试</td><td class="number">7</td><td class="number">2m30s</td><td class="number">11%</td><td>无明显低效</td></tr>
+            <tr><td>5</td><td>SubAgent_1</td><td>任务理解与设计评审</td><td class="number">5</td><td class="number">1m45s</td><td class="number">8%</td><td>无明显低效</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="execution-evidence.html#intent-detail">查看全量意图耗时证据 →</a></p>
+    </section>
+
+    <section class="panel" aria-labelledby="rate-title">
+      <h2 id="rate-title">模型速率与口径</h2>
+      <div class="two-column">
+        <div>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>Token 产出速率（均值 / 中位 / P90）</th><td>16.2 / 15.2 / 25.0 tok/s</td></tr>
+                <tr><th>Input 吞吐率（均值 / 中位 / P90）</th><td>680.0 / 620.0 / 950.0 tok/s</td></tr>
+                <tr><th>Token 产出速率（最小 / 最大）</th><td>8.5 / 28.0 tok/s</td></tr>
+                <tr><th>Input 吞吐率（最小 / 最大）</th><td>350.0 / 1200.0 tok/s</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="callout danger">
+          <strong>指标冲突已处理</strong>
+          <p>原报告摘要还出现过 18.5 tok/s 和 2450.0 tok/s，但没有与其对应的一致总量范围。本页使用可由总 Token 和 24.3 min 模型工作时长复算的 30.86 tok/s 与 857.14 tok/s。</p>
+        </div>
+      </div>
+      <dl class="definition-list">
+        <dt>Session 总时长</dt><dd>第一次 <code>[request]</code> 到最后一次 <code>[response]</code> 的实际日志时间。</dd>
+        <dt>工具执行时长</dt><dd>所有 <code>[functionCall]</code> 到对应 <code>[toolResult]</code> 的时间之和。</dd>
+        <dt>模型工作时长</dt><dd>Session 总时长减去工具执行时长。</dd>
+        <dt>加权 Token 速率</dt><dd>所有 Session 的总 Output Tokens 除以模型工作总时长。</dd>
+      </dl>
+    </section>
+
+    <nav class="page-nav"><a href="index.html">← 返回管理摘要</a><a href="execution-evidence.html#intent-detail">查看耗时证据 →</a></nav>
+  </main>
+</body>
+</html>
