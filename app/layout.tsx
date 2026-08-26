@@ -2,16 +2,15 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SDD Repository Dashboard',
+  title: 'SDD 个人运行观察',
   description:
-    'Repository-level SDD operations dashboard with separate New Spec and Implement stages.',
+    '个人 Session 使用情况与单次 SDD 全流程看板。',
   metadataBase: new URL(
     'https://sdd-repository-dashboard.zhangyc970514.chatgpt.site',
   ),
   openGraph: {
-    title: 'SDD Repository Dashboard',
-    description:
-      'Repository-level SDD operations dashboard with separate New Spec and Implement stages.',
+    title: 'SDD 个人运行观察',
+    description: '个人 Session 使用情况与单次 SDD 全流程看板。',
     url: 'https://sdd-repository-dashboard.zhangyc970514.chatgpt.site',
     siteName: 'SDD Repository Dashboard',
     images: [
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'SDD Repository Dashboard',
+        alt: 'SDD 个人运行观察',
       },
     ],
     locale: 'zh_CN',
@@ -27,9 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SDD Repository Dashboard',
-    description:
-      'Repository-level SDD operations dashboard with separate New Spec and Implement stages.',
+    title: 'SDD 个人运行观察',
+    description: '个人 Session 使用情况与单次 SDD 全流程看板。',
     images: ['/og.png'],
   },
 };
