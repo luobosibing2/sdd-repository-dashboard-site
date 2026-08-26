@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     '个人 Session 使用情况与单次 SDD 全流程看板。',
   metadataBase: new URL(
-    'https://sdd-repository-dashboard.zhangyc970514.chatgpt.site',
+    'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
   ),
   openGraph: {
     title: 'SDD 个人运行观察',
     description: '个人 Session 使用情况与单次 SDD 全流程看板。',
-    url: 'https://sdd-repository-dashboard.zhangyc970514.chatgpt.site',
-    siteName: 'SDD Repository Dashboard',
+    url: 'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
+    siteName: 'SDD 个人运行观察',
     images: [
       {
         url: '/og.png',
