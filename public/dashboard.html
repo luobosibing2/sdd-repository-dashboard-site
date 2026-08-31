@@ -823,7 +823,7 @@
       };
       const renderTasks = (model) => {
         const rows = taskSeed.map((seed, index) => taskFor(seed, model, index));
-        root.querySelector('[data-task-body]').innerHTML = rows.map((task) => '<tr><td><code>' + task.id + '</code></td><td><code>' + task.spec + '</code></td><td><span class="bi-task-name" title="' + esc(task.name) + '">' + esc(task.name) + '</span></td><td><span class="bi-status" data-tone="' + task.tone + '">' + task.status + '</span></td><td>' + task.hours.toFixed(1) + ' 小时</td><td>' + fmtTokens(task.tokens) + '</td><td>' + fmtInt(task.code) + '</td><td>' + task.tools + '</td><td>' + task.start + '</td><td><button class="bi-table-action" type="button" data-task-detail="' + task.id + '">查看详情</button></td></tr>').join('');
+        root.querySelector('[data-task-body]').innerHTML = rows.map((task) => '<tr><td><code>' + task.id + '</code></td><td><code>' + task.spec + '</code></td><td><span class="bi-task-name" title="' + esc(task.name) + '">' + esc(task.name) + '</span></td><td><span class="bi-status" data-tone="' + task.tone + '">' + task.status + '</span></td><td>' + task.hours.toFixed(1) + ' 小时</td><td>' + fmtTokens(task.tokens) + '</td><td>' + fmtInt(task.code) + '</td><td>' + task.tools + '</td><td>' + task.start + '</td><td><a class="bi-table-action" href="/reports/step6/index.html" target="_blank" rel="noreferrer" title="打开 Step6 执行质量摘要">查看详情</a></td></tr>').join('');
         root.querySelector('[data-task-caption]').textContent = model.d.label + ' · ' + model.r.label + ' · 最近 10 条任务记录';
         root.querySelector('[data-table-total]').textContent = '共 ' + fmtInt(model.tasks) + ' 条';
         const pageCount = Math.max(1, Math.ceil(model.tasks / 10));
@@ -921,8 +921,6 @@
           return;
         }
         if (event.target.closest('[data-export]')) { showToast('导出任务已创建（演示），实际数据接入后可下载完整明细'); return; }
-        const detail = event.target.closest('[data-task-detail]');
-        if (detail) { showToast('已打开 ' + detail.dataset.taskDetail + ' 的任务详情（演示）'); }
       });
       populateFilters();
       renderAll();
