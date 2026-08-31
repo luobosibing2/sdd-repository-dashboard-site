@@ -2,23 +2,23 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SDD 执行成本观察',
+  title: 'SDD 数字化看板',
   description:
-    '管理口代码仓总览与六阶段 SDD / Implement 平均成本对比。',
+    '管理口 SDD 执行效率说明：周期指标、任务明细、趋势对比与每日简报。',
   metadataBase: new URL(
     'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
   ),
   openGraph: {
-    title: 'SDD 执行成本观察',
-    description: '管理口代码仓总览与六阶段 SDD / Implement 平均成本对比。',
+    title: 'SDD 数字化看板',
+    description: '管理口 SDD 执行效率说明：周期指标、任务明细、趋势对比与每日简报。',
     url: 'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
-    siteName: 'SDD 执行成本观察',
+    siteName: 'SDD 数字化看板',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'SDD 执行成本观察',
+        alt: 'SDD 数字化看板 · 执行效率说明',
       },
     ],
     locale: 'zh_CN',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SDD 执行成本观察',
-    description: '管理口代码仓总览与六阶段 SDD / Implement 平均成本对比。',
+    title: 'SDD 数字化看板',
+    description: '管理口 SDD 执行效率说明：周期指标、任务明细、趋势对比与每日简报。',
     images: ['/og.png'],
   },
 };
