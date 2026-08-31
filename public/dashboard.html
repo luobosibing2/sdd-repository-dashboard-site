@@ -504,6 +504,115 @@
     #sdd-dashboard :focus-visible { outline: 3px solid rgba(47, 116, 208, 0.3); outline-offset: 2px; }
     #sdd-dashboard .bi-footer { display: flex; justify-content: space-between; gap: 16px; padding-top: 16px; color: var(--faint); font-size: 10px; }
 
+    #sdd-dashboard .bi-nav { display: inline-flex; align-items: center; gap: 3px; flex: 0 0 auto; padding: 3px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255, 255, 255, 0.72); }
+    #sdd-dashboard .bi-nav-button { border: 0; border-radius: 6px; padding: 7px 10px; color: var(--muted); background: transparent; font-size: 11px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-nav-button:hover { color: var(--blue-deep); background: var(--blue-soft); }
+    #sdd-dashboard .bi-nav-button[data-active="true"] { color: #fff; background: var(--blue); box-shadow: 0 3px 8px rgba(47, 116, 208, 0.2); }
+
+    #sdd-dashboard .bi-import-screen { min-width: 0; }
+    #sdd-dashboard .bi-import-header { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 9px; }
+    #sdd-dashboard .bi-import-header h2 { margin-top: 4px; font-size: clamp(28px, 4vw, 44px); font-weight: 840; letter-spacing: -0.06em; line-height: 1; }
+    #sdd-dashboard .bi-import-header p { margin-top: 7px; color: var(--muted); font-size: 12px; }
+    #sdd-dashboard .bi-upload-button { display: inline-flex; align-items: center; gap: 8px; min-height: 39px; border: 1px solid var(--blue); border-radius: 9px; padding: 8px 13px; color: #fff; background: var(--blue); box-shadow: 0 7px 16px rgba(47, 116, 208, 0.2); font-size: 12px; font-weight: 850; }
+    #sdd-dashboard .bi-upload-button::before { content: "↑"; font-size: 17px; line-height: 0.8; }
+    #sdd-dashboard .bi-upload-button:hover { background: var(--blue-deep); }
+    #sdd-dashboard .bi-import-schedule { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-bottom: 17px; color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .bi-import-schedule strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #sdd-dashboard .bi-import-schedule span { color: var(--blue); font-weight: 850; }
+    #sdd-dashboard .bi-import-schedule .bi-demo-tag { margin-left: 3px; }
+    #sdd-dashboard .bi-import-kpi-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-import-kpi { display: grid; min-height: 91px; align-content: space-between; gap: 8px; border: 1px solid var(--line); border-radius: 12px; padding: 12px 13px; background: rgba(255, 255, 255, 0.93); }
+    #sdd-dashboard .bi-import-kpi-label { color: var(--muted); font-size: 10px; font-weight: 780; }
+    #sdd-dashboard .bi-import-kpi-value { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 27px; font-weight: 850; letter-spacing: -0.08em; line-height: 1; }
+    #sdd-dashboard .bi-import-kpi[data-tone="warn"] .bi-import-kpi-value,
+    #sdd-dashboard .bi-import-kpi[data-tone="processing"] .bi-import-kpi-value { color: var(--amber); }
+    #sdd-dashboard .bi-import-kpi[data-tone="danger"] .bi-import-kpi-value { color: var(--red); }
+    #sdd-dashboard .bi-import-kpi[data-tone="good"] .bi-import-kpi-value { color: var(--teal); }
+    #sdd-dashboard .bi-import-kpi small { color: var(--faint); font-size: 9px; }
+    #sdd-dashboard .bi-storage-card { padding: 16px 18px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-storage-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
+    #sdd-dashboard .bi-storage-head h3 { font-size: 15px; font-weight: 830; }
+    #sdd-dashboard .bi-storage-head p { margin-top: 3px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-storage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    #sdd-dashboard .bi-storage-item { display: grid; gap: 4px; padding-left: 10px; border-left: 3px solid var(--blue); }
+    #sdd-dashboard .bi-storage-item:nth-child(2) { border-color: var(--teal); }
+    #sdd-dashboard .bi-storage-item:nth-child(3) { border-color: var(--violet); }
+    #sdd-dashboard .bi-storage-item:nth-child(4) { border-color: var(--amber); }
+    #sdd-dashboard .bi-storage-item span { color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-storage-item strong { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 20px; letter-spacing: -0.08em; }
+    #sdd-dashboard .bi-storage-item small { color: var(--faint); font-size: 9px; }
+    #sdd-dashboard .bi-batch-card { overflow: hidden; }
+    #sdd-dashboard .bi-batch-card .bi-card-head { padding: 16px 18px 13px; margin: 0; }
+    #sdd-dashboard .bi-batch-table-scroll { overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    #sdd-dashboard .bi-batch-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; }
+    #sdd-dashboard .bi-batch-table th,
+    #sdd-dashboard .bi-batch-table td { padding: 11px 12px; border-bottom: 1px solid #edf1f4; text-align: left; vertical-align: middle; }
+    #sdd-dashboard .bi-batch-table th { color: var(--faint); background: #fbfcfd; font-size: 9px; font-weight: 850; letter-spacing: 0.06em; white-space: nowrap; }
+    #sdd-dashboard .bi-batch-table td { color: var(--ink-soft); font-size: 10px; }
+    #sdd-dashboard .bi-batch-table tbody tr:last-child td { border-bottom: 0; }
+    #sdd-dashboard .bi-batch-table tbody tr:hover { background: #f8fbff; }
+    #sdd-dashboard .bi-batch-table tbody tr[data-batch-row] { cursor: pointer; }
+    #sdd-dashboard .bi-batch-table code { color: var(--blue-deep); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 800; }
+    #sdd-dashboard .bi-import-status { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; padding: 4px 7px; font-size: 9px; font-weight: 850; white-space: nowrap; }
+    #sdd-dashboard .bi-import-status::before { width: 6px; height: 6px; border-radius: 50%; background: currentColor; content: ""; }
+    #sdd-dashboard .bi-import-status[data-tone="pending"],
+    #sdd-dashboard .bi-import-status[data-tone="uploaded"],
+    #sdd-dashboard .bi-import-status[data-tone="running"] { color: var(--blue-deep); background: var(--blue-soft); }
+    #sdd-dashboard .bi-import-status[data-tone="processing"] { color: var(--amber); background: var(--amber-soft); }
+    #sdd-dashboard .bi-import-status[data-tone="published"],
+    #sdd-dashboard .bi-import-status[data-tone="stored"] { color: var(--teal); background: var(--teal-soft); }
+    #sdd-dashboard .bi-import-status[data-tone="failed"],
+    #sdd-dashboard .bi-import-status[data-tone="missing"] { color: var(--red); background: var(--red-soft); }
+    #sdd-dashboard .bi-batch-actions { display: inline-flex; align-items: center; gap: 9px; }
+    #sdd-dashboard .bi-import-action { border: 0; padding: 0; color: var(--blue-deep); background: transparent; font-size: 10px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-import-action:hover { text-decoration: underline; }
+    #sdd-dashboard .bi-import-action[data-tone="danger"] { color: var(--red); }
+    #sdd-dashboard .bi-import-action[data-tone="muted"] { color: var(--muted); }
+    #sdd-dashboard .bi-batch-footer { display: flex; justify-content: space-between; gap: 12px; padding: 11px 18px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-import-progress { margin-top: 16px; border: 1px solid rgba(47, 116, 208, 0.25); border-radius: 13px; padding: 15px 17px; background: linear-gradient(115deg, #f1f7ff, #fff); }
+    #sdd-dashboard .bi-import-progress-head { display: flex; align-items: end; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+    #sdd-dashboard .bi-import-progress-head strong { font-size: 13px; font-weight: 820; }
+    #sdd-dashboard .bi-import-progress-head span { color: var(--blue-deep); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 850; }
+    #sdd-dashboard .bi-progress-track { height: 9px; overflow: hidden; border-radius: 999px; background: #dce9f7; }
+    #sdd-dashboard .bi-progress-fill { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #6aa7ec); transition: width 200ms ease; }
+    #sdd-dashboard .bi-import-progress p { margin-top: 8px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-lifecycle { display: grid; grid-template-columns: repeat(9, minmax(58px, 1fr)); gap: 7px; margin: 13px 0 0; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-lifecycle li { position: relative; display: grid; justify-items: center; gap: 5px; color: var(--faint); font-size: 8px; text-align: center; }
+    #sdd-dashboard .bi-lifecycle li::before { width: 11px; height: 11px; border: 2px solid #c7d6e3; border-radius: 50%; background: #fff; content: ""; }
+    #sdd-dashboard .bi-lifecycle li[data-active="true"] { color: var(--blue-deep); font-weight: 800; }
+    #sdd-dashboard .bi-lifecycle li[data-active="true"]::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 3px rgba(47, 116, 208, 0.12); }
+    #sdd-dashboard .bi-lifecycle li[data-done="true"] { color: var(--teal); }
+    #sdd-dashboard .bi-lifecycle li[data-done="true"]::before { border-color: var(--teal); background: var(--teal); }
+    #sdd-dashboard .bi-import-note { margin-top: 9px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-drawer-backdrop { position: fixed; z-index: 20; inset: 0; background: rgba(16, 43, 68, 0.28); backdrop-filter: blur(2px); }
+    #sdd-dashboard .bi-import-drawer { position: fixed; z-index: 21; top: 0; right: 0; display: grid; grid-template-rows: auto 1fr; width: min(500px, 100%); height: 100vh; overflow: hidden; border-left: 1px solid var(--line-strong); background: #f7fafc; box-shadow: -16px 0 35px rgba(16, 43, 68, 0.16); }
+    #sdd-dashboard .bi-import-drawer-header { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding: 20px 21px 17px; border-bottom: 1px solid var(--line); background: #fff; }
+    #sdd-dashboard .bi-import-drawer-header h2 { margin-top: 4px; font-size: 23px; font-weight: 840; letter-spacing: -0.045em; }
+    #sdd-dashboard .bi-import-drawer-header p { margin-top: 5px; color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .bi-drawer-close { display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--muted); background: #fff; font-size: 19px; line-height: 1; }
+    #sdd-dashboard .bi-drawer-close:hover { color: var(--blue-deep); background: var(--blue-soft); }
+    #sdd-dashboard .bi-import-drawer-body { overflow-y: auto; padding: 17px 21px 30px; }
+    #sdd-dashboard .bi-drawer-lifecycle { display: grid; gap: 0; margin: 0 0 17px; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-drawer-lifecycle li { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 9px; min-height: 27px; color: var(--faint); font-size: 10px; }
+    #sdd-dashboard .bi-drawer-lifecycle li::before { position: relative; z-index: 1; display: grid; width: 15px; height: 15px; place-items: center; border: 2px solid #c7d6e3; border-radius: 50%; background: #fff; content: ""; }
+    #sdd-dashboard .bi-drawer-lifecycle li:not(:last-child)::after { position: absolute; top: 15px; left: 6px; width: 2px; height: 19px; background: #dce6ee; content: ""; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state="done"] { color: var(--teal); font-weight: 760; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state="done"]::before { border-color: var(--teal); background: var(--teal); }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state="active"] { color: var(--blue-deep); font-weight: 820; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state="active"]::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 3px rgba(47, 116, 208, 0.12); }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state="error"] { color: var(--red); font-weight: 820; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state="error"]::before { border-color: var(--red); background: var(--red); }
+    #sdd-dashboard .bi-drawer-block { margin-top: 15px; border: 1px solid var(--line); border-radius: 11px; padding: 13px; background: #fff; }
+    #sdd-dashboard .bi-drawer-block h3 { margin-bottom: 10px; font-size: 12px; font-weight: 830; }
+    #sdd-dashboard .bi-drawer-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 12px; }
+    #sdd-dashboard .bi-drawer-fact { display: grid; gap: 2px; }
+    #sdd-dashboard .bi-drawer-fact span { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-drawer-fact strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; letter-spacing: -0.04em; }
+    #sdd-dashboard .bi-drawer-errors { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-drawer-errors li { display: grid; grid-template-columns: 8px minmax(0, 1fr); gap: 7px; color: var(--ink-soft); font-size: 10px; }
+    #sdd-dashboard .bi-drawer-errors li::before { width: 7px; height: 7px; margin-top: 4px; border-radius: 50%; background: var(--red); content: ""; }
+    #sdd-dashboard .bi-drawer-footnote { margin-top: 14px; color: var(--faint); font-size: 9px; line-height: 1.5; }
+
     @media (max-width: 1250px) {
       #sdd-dashboard .bi-header { align-items: start; flex-direction: column; gap: 17px; }
       #sdd-dashboard .bi-controls { justify-content: start; width: 100%; }
@@ -512,6 +621,7 @@
       #sdd-dashboard .bi-kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #sdd-dashboard .bi-bottom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #sdd-dashboard .bi-bottom-grid .bi-analysis-card:first-child { grid-column: 1 / -1; }
+      #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width: 980px) {
@@ -520,6 +630,7 @@
       #sdd-dashboard .bi-brief { position: static; }
       #sdd-dashboard .bi-brief-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #sdd-dashboard .bi-distribution-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-storage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 680px) {
@@ -542,12 +653,27 @@
       #sdd-dashboard .bi-brief-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #sdd-dashboard .bi-table-meta { align-items: start; flex-direction: column; }
       #sdd-dashboard .bi-footer { align-items: start; flex-direction: column; gap: 5px; }
+      #sdd-dashboard .bi-header { gap: 13px; }
+      #sdd-dashboard .bi-nav { width: 100%; }
+      #sdd-dashboard .bi-nav-button { flex: 1 1 0; }
+      #sdd-dashboard .bi-import-header { align-items: start; flex-direction: column; }
+      #sdd-dashboard .bi-upload-button { width: 100%; justify-content: center; }
+      #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      #sdd-dashboard .bi-storage-card { padding: 14px; }
+      #sdd-dashboard .bi-storage-grid { gap: 8px; }
+      #sdd-dashboard .bi-batch-card .bi-card-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .bi-batch-footer { align-items: start; flex-direction: column; padding-right: 14px; padding-left: 14px; }
+      #sdd-dashboard .bi-lifecycle { grid-template-columns: repeat(5, minmax(55px, 1fr)); row-gap: 10px; }
+      #sdd-dashboard .bi-import-drawer-header { padding-right: 15px; padding-left: 15px; }
+      #sdd-dashboard .bi-import-drawer-body { padding-right: 15px; padding-left: 15px; }
     }
 
     @media (max-width: 410px) {
       #sdd-dashboard .bi-kpi-grid { grid-template-columns: minmax(0, 1fr); }
       #sdd-dashboard .bi-distribution-body { grid-template-columns: minmax(0, 1fr); justify-items: center; }
       #sdd-dashboard .bi-legend { width: 100%; }
+      #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-storage-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -567,7 +693,11 @@
           <p>全面洞察大部门 SDD 落地情况，驱动持续改进</p>
         </div>
       </div>
-      <div class="bi-controls" aria-label="全局筛选">
+      <nav class="bi-nav" aria-label="看板页面切换">
+        <button class="bi-nav-button" type="button" data-screen-button="dashboard" data-active="true">执行效率看板</button>
+        <button class="bi-nav-button" type="button" data-screen-button="import">数据导入中心</button>
+      </nav>
+      <div class="bi-controls" data-dashboard-only aria-label="全局筛选">
         <div class="bi-filter">
           <label for="bi-department">部门</label>
           <div class="bi-select-wrap"><select class="bi-select" id="bi-department" data-filter-department aria-label="选择部门"></select></div>
@@ -583,9 +713,9 @@
       </div>
     </header>
 
-    <div class="bi-context"><span data-context>当前范围：<strong>数字化研发部</strong> · 2026-06-01 ~ 2026-06-30</span><span class="bi-demo-tag">演示数据 · 静态夹具</span></div>
+    <div class="bi-context" data-dashboard-only><span data-context>当前范围：<strong>数字化研发部</strong> · 2026-06-01 ~ 2026-06-30</span><span class="bi-demo-tag">演示数据 · 静态夹具</span></div>
 
-    <div class="bi-layout">
+    <div class="bi-layout" data-dashboard-only>
       <main class="bi-main">
         <section class="bi-section" aria-labelledby="kpi-title">
           <header class="bi-section-head">
@@ -649,8 +779,55 @@
         <footer class="bi-brief-footer"><span>数据来源：SDD 平台</span><span>仅供参考</span></footer>
       </aside>
     </div>
+
+    <section class="bi-import-screen" data-import-screen data-screen="import" aria-labelledby="import-title" hidden>
+      <header class="bi-import-header">
+        <div><span class="bi-eyebrow">数据流水线</span><h2 id="import-title">数据导入中心</h2><p>从 TAR 上传到主看板发布，每个批次都有可追踪的处理状态。</p></div>
+        <button class="bi-upload-button" type="button" data-upload-tar>上传 TAR</button>
+      </header>
+      <div class="bi-import-schedule"><strong>每日批处理：01:00</strong><span>→</span><strong>每日发布：06:00</strong><span class="bi-demo-tag">演示数据 · 不连接真实存储</span></div>
+
+      <section class="bi-import-kpi-grid" aria-label="导入状态概览">
+        <article class="bi-import-kpi"><span class="bi-import-kpi-label">今日上传</span><strong class="bi-import-kpi-value" data-import-today>12</strong><small>已接收 TAR 包</small></article>
+        <article class="bi-import-kpi" data-tone="warn"><span class="bi-import-kpi-label">待处理</span><strong class="bi-import-kpi-value" data-import-pending>4</strong><small>等待夜间批处理</small></article>
+        <article class="bi-import-kpi" data-tone="processing"><span class="bi-import-kpi-label">处理中</span><strong class="bi-import-kpi-value" data-import-processing>1</strong><small>正在解析校验</small></article>
+        <article class="bi-import-kpi" data-tone="danger"><span class="bi-import-kpi-label">失败</span><strong class="bi-import-kpi-value" data-import-failed>2</strong><small>需要查看错误</small></article>
+        <article class="bi-import-kpi" data-tone="good"><span class="bi-import-kpi-label">已发布快照</span><strong class="bi-import-kpi-value">06-02</strong><small>最近一次生效日期</small></article>
+      </section>
+
+      <section class="bi-card bi-storage-card" aria-labelledby="storage-title">
+        <header class="bi-storage-head"><div><h3 id="storage-title">存储概览</h3><p>原始包、保留数据和临时空间的使用情况。</p></div><span class="bi-scope-tag">存储监控</span></header>
+        <div class="bi-storage-grid">
+          <div class="bi-storage-item"><span>原始上传</span><strong>8.6 GB</strong><small>本月累计接收</small></div>
+          <div class="bi-storage-item"><span>实际保留</span><strong>1.2 GB</strong><small>解析后的有效数据</small></div>
+          <div class="bi-storage-item"><span>本月释放</span><strong>7.4 GB</strong><small>清理原始 TAR</small></div>
+          <div class="bi-storage-item"><span>临时区</span><strong>520 MB</strong><small>等待处理与校验</small></div>
+        </div>
+      </section>
+
+      <section class="bi-card bi-batch-card" aria-labelledby="batch-title">
+        <header class="bi-card-head"><div><span class="bi-eyebrow">批次追踪</span><h3 id="batch-title">导入批次列表</h3><p>点击批次查看处理链路、字段覆盖和解析错误。</p></div><span class="bi-scope-tag" data-batch-count>6 个批次</span></header>
+        <div class="bi-batch-table-scroll">
+          <table class="bi-batch-table">
+            <colgroup><col style="width:112px"><col style="width:110px"><col style="width:86px"><col style="width:78px"><col style="width:70px"><col style="width:124px"><col style="width:78px"><col style="width:118px"></colgroup>
+            <thead><tr><th>Bundle ID</th><th>部门</th><th>文件大小</th><th>上传时间</th><th>任务数</th><th>状态</th><th>生效日期</th><th>操作</th></tr></thead>
+            <tbody data-batch-body></tbody>
+          </table>
+        </div>
+        <footer class="bi-batch-footer"><span>状态说明：TAR 已上传不代表主看板立即变化，需经过夜间处理和发布。</span><span>数据保留策略：解析成功后释放原始包</span></footer>
+      </section>
+      <section class="bi-import-progress" data-upload-progress hidden aria-live="polite">
+        <div class="bi-import-progress-head"><strong data-upload-file>正在上传 sdd_20260602_new.tar</strong><span data-upload-percent>18%</span></div>
+        <div class="bi-progress-track"><i class="bi-progress-fill" data-upload-fill></i></div>
+        <p data-upload-stage>上传中 · 请保持页面打开</p>
+        <ol class="bi-lifecycle" data-upload-lifecycle></ol>
+        <p class="bi-import-note">上传完成后会进入“等待夜间处理”，主看板将在下一次发布快照后刷新。</p>
+      </section>
+    </section>
   </div>
   <div class="bi-toast" data-toast role="status" aria-live="polite"></div>
+  <div class="bi-drawer-backdrop" data-drawer-backdrop hidden></div>
+  <aside class="bi-import-drawer" data-import-drawer role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden></aside>
 
   <script>
     (() => {
@@ -686,6 +863,15 @@
         { text: 'AI 生成代码质量波动（评审驳回率 15%）', level: '中' },
         { text: '任务耗时偏长（超过 6 小时占 16%）', level: '中' },
         { text: '工具调用效率低（单任务平均超过 20 次）', level: '低' }
+      ];
+      const importLifecycle = ['上传中', '已上传', '等待夜间处理', '预检中', '解析中', '数据校验中', '已入库', '待发布', '已发布'];
+      const importBatches = [
+        { id: 'B0602-01', dept: '数研', size: '486 MB', uploaded: '06-02 16:30', tasks: '86', status: '待处理', tone: 'pending', effective: '06-03', phase: 2, deletable: true, process: '2026-06-03 01:00', publish: '2026-06-03 06:00', raw: '486 MB', retained: '68 MB', released: '418 MB', detected: '86', parsed: '84', partial: '2', html: '84', missingReport: '2', specLinked: '73', specPending: '11', tokenCoverage: '83 / 86', codeCoverage: '82 / 86', errors: ['sdd_0021 · 缺少 Spec ID', 'sdd_0047 · 缺少 Token', 'sdd_0053 · Step6 HTML 不存在'] },
+        { id: 'B0601-03', dept: '数研', size: '123 MB', uploaded: '06-01 15:10', tasks: '61', status: '已发布', tone: 'published', effective: '06-02', phase: 9, deletable: false, process: '2026-06-02 01:00', publish: '2026-06-02 06:00', raw: '123 MB', retained: '17 MB', released: '106 MB', detected: '61', parsed: '61', partial: '0', html: '61', missingReport: '0', specLinked: '61', specPending: '0', tokenCoverage: '61 / 61', codeCoverage: '61 / 61', errors: [] },
+        { id: 'B0601-02', dept: 'AI 应用部', size: '518 MB', uploaded: '06-01 14:45', tasks: '—', status: '失败', tone: 'failed', effective: '—', phase: 5, deletable: false, process: '未安排', publish: '未安排', raw: '518 MB', retained: '0 MB', released: '518 MB', detected: '—', parsed: '0', partial: '—', html: '0', missingReport: '—', specLinked: '—', specPending: '—', tokenCoverage: '—', codeCoverage: '—', errors: ['TAR 内缺少 manifest.json', '无法识别任务目录结构', '解析器在第 2 个文件处中止'] },
+        { id: 'B0531-04', dept: '平台研发部', size: '302 MB', uploaded: '05-31 11:20', tasks: '72', status: '数据缺失', tone: 'missing', effective: '06-03', phase: 6, deletable: false, process: '2026-06-02 01:00', publish: '2026-06-03 06:00', raw: '302 MB', retained: '49 MB', released: '253 MB', detected: '72', parsed: '68', partial: '4', html: '66', missingReport: '6', specLinked: '64', specPending: '8', tokenCoverage: '67 / 72', codeCoverage: '65 / 72', errors: ['sdd_0178 · 缺少代码量字段', 'sdd_0184 · Token 数据为空', 'sdd_0191 · Step6 HTML 不完整'] },
+        { id: 'B0531-03', dept: '数研', size: '198 MB', uploaded: '05-31 10:05', tasks: '49', status: '处理中', tone: 'processing', effective: '06-02', phase: 5, deletable: false, process: '2026-06-02 01:00', publish: '2026-06-02 06:00', raw: '198 MB', retained: '31 MB', released: '167 MB', detected: '49', parsed: '42', partial: '7', html: '42', missingReport: '7', specLinked: '39', specPending: '10', tokenCoverage: '44 / 49', codeCoverage: '43 / 49', errors: ['sdd_0152 · 正在等待 Step6 文件', 'sdd_0159 · 字段校验中'] },
+        { id: 'B0530-08', dept: '基础架构部', size: '72 MB', uploaded: '05-30 09:10', tasks: '28', status: '已入库', tone: 'stored', effective: '06-02', phase: 7, deletable: false, process: '2026-06-01 01:00', publish: '待发布', raw: '72 MB', retained: '13 MB', released: '59 MB', detected: '28', parsed: '28', partial: '0', html: '28', missingReport: '0', specLinked: '27', specPending: '1', tokenCoverage: '28 / 28', codeCoverage: '28 / 28', errors: [] }
       ];
       const departments = {
         digital: {
@@ -723,7 +909,7 @@
         week: { labels: ['第 1 周', '第 2 周', '第 3 周', '第 4 周', '第 5 周'], tasks: [486, 562, 598, 612, 540], completion: [77, 80, 82, 85, 84], active: [728, 846, 902, 948, 881] },
         month: { labels: ['1 月', '2 月', '3 月', '4 月', '5 月', '6 月'], tasks: [1680, 1812, 1940, 2084, 2216, 2356], completion: [71, 74, 76, 79, 81, 83], active: [914, 988, 1046, 1108, 1186, 1243] }
       };
-      const state = { department: 'digital', range: 'month', trendMode: 'day', page: 1, refresh: 0 };
+      const state = { department: 'digital', range: 'month', trendMode: 'day', page: 1, refresh: 0, screen: 'dashboard', deletedBatches: [], uploadsAdded: 0, importSummary: { pending: 4, processing: 1, failed: 2 }, uploadVisible: false, uploadPercent: 18, uploadStage: 0, uploadFile: 'sdd_20260602_new.tar', uploadTimer: null };
       const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
       const fmtInt = (value) => Math.round(value).toLocaleString('en-US');
       const fmtTokens = (value) => value >= 1000000 ? (value / 1000000).toFixed(1) + 'M' : Math.round(value / 1000) + 'K';
@@ -863,6 +1049,100 @@
       const renderImprovements = () => {
         root.querySelector('[data-improvement-list]').innerHTML = improvements.map((item, index) => '<li class="bi-improvement-row"><span class="bi-improvement-index">' + (index + 1) + '</span><span class="bi-improvement-text">' + item.text + '</span><span class="bi-severity" data-level="' + item.level + '">' + item.level + '</span></li>').join('');
       };
+      const batchFor = (id) => importBatches.find((batch) => batch.id === id);
+      const lifecycleState = (batch, index) => {
+        if (batch.phase >= 9) return 'done';
+        if (batch.tone === 'failed' || batch.tone === 'missing') return index === batch.phase - 1 ? 'error' : index < batch.phase - 1 ? 'done' : '';
+        return index < batch.phase - 1 ? 'done' : index === batch.phase - 1 ? 'active' : '';
+      };
+      const renderImport = () => {
+        const visible = importBatches.filter((batch) => !state.deletedBatches.includes(batch.id));
+        root.querySelector('[data-import-today]').textContent = String(12 + state.uploadsAdded);
+        root.querySelector('[data-import-pending]').textContent = String(Math.max(0, state.importSummary.pending));
+        root.querySelector('[data-import-processing]').textContent = String(Math.max(0, state.importSummary.processing));
+        root.querySelector('[data-import-failed]').textContent = String(Math.max(0, state.importSummary.failed));
+        root.querySelector('[data-batch-count]').textContent = visible.length + ' 个批次';
+        root.querySelector('[data-batch-body]').innerHTML = visible.map((batch) => {
+          const actions = batch.status === '失败' ? '<button class="bi-import-action" type="button" data-batch-view="' + batch.id + '">查看</button><button class="bi-import-action" type="button" data-batch-retry="' + batch.id + '">重试</button>' : '<button class="bi-import-action" type="button" data-batch-view="' + batch.id + '">查看</button>' + (batch.deletable ? '<button class="bi-import-action" data-tone="danger" type="button" data-batch-delete="' + batch.id + '">删除</button>' : '');
+          return '<tr data-batch-row="' + batch.id + '" tabindex="0" aria-label="查看批次 ' + batch.id + '"><td><code>' + batch.id + '</code></td><td>' + batch.dept + '</td><td>' + batch.size + '</td><td>' + batch.uploaded + '</td><td>' + batch.tasks + '</td><td><span class="bi-import-status" data-tone="' + batch.tone + '">' + batch.status + '</span></td><td>' + batch.effective + '</td><td><span class="bi-batch-actions">' + actions + '</span></td></tr>';
+        }).join('');
+        renderUploadProgress();
+      };
+      const renderUploadProgress = () => {
+        const panel = root.querySelector('[data-upload-progress]');
+        panel.hidden = !state.uploadVisible;
+        if (!state.uploadVisible) return;
+        root.querySelector('[data-upload-file]').textContent = (state.uploadPercent >= 100 ? '上传完成：' : '正在上传 ') + state.uploadFile;
+        root.querySelector('[data-upload-percent]').textContent = state.uploadPercent + '%';
+        root.querySelector('[data-upload-fill]').style.width = state.uploadPercent + '%';
+        root.querySelector('[data-upload-stage]').textContent = state.uploadPercent >= 100 ? '等待夜间处理 · 计划 2026-06-03 01:00 执行' : importLifecycle[state.uploadStage] + ' · 请保持页面打开';
+        root.querySelector('[data-upload-lifecycle]').innerHTML = importLifecycle.map((label, index) => '<li data-active="' + (index === state.uploadStage && state.uploadPercent < 100) + '" data-done="' + (state.uploadPercent >= 100 && index <= 2) + '">' + label + '</li>').join('');
+      };
+      const renderDrawer = (batch) => {
+        const lifecycle = importLifecycle.map((label, index) => '<li data-state="' + lifecycleState(batch, index) + '"><span>' + label + '</span></li>').join('');
+        const errors = batch.errors.length ? '<ul class="bi-drawer-errors">' + batch.errors.map((error) => '<li>' + error + '</li>').join('') + '</ul>' : '<p class="bi-drawer-footnote">当前批次未发现解析错误。</p>';
+        root.querySelector('[data-import-drawer]').innerHTML = '<header class="bi-import-drawer-header"><div><span class="bi-eyebrow">批次详情</span><h2 id="drawer-title">' + batch.id + '</h2><p>' + batch.dept + ' · ' + batch.status + '</p></div><button class="bi-drawer-close" type="button" data-drawer-close aria-label="关闭批次详情">×</button></header><div class="bi-import-drawer-body"><ol class="bi-drawer-lifecycle" aria-label="导入状态流转">' + lifecycle + '</ol><section class="bi-drawer-block"><h3>时间计划</h3><div class="bi-drawer-facts"><div class="bi-drawer-fact"><span>上传时间</span><strong>' + batch.uploaded + '</strong></div><div class="bi-drawer-fact"><span>计划处理</span><strong>' + batch.process + '</strong></div><div class="bi-drawer-fact"><span>计划发布</span><strong>' + batch.publish + '</strong></div><div class="bi-drawer-fact"><span>生效日期</span><strong>' + batch.effective + '</strong></div></div></section><section class="bi-drawer-block"><h3>空间占用</h3><div class="bi-drawer-facts"><div class="bi-drawer-fact"><span>原始 TAR</span><strong>' + batch.raw + '</strong></div><div class="bi-drawer-fact"><span>最终保留</span><strong>' + batch.retained + '</strong></div><div class="bi-drawer-fact"><span>释放空间</span><strong>' + batch.released + '</strong></div></div></section><section class="bi-drawer-block"><h3>解析与字段覆盖</h3><div class="bi-drawer-facts"><div class="bi-drawer-fact"><span>检测任务</span><strong>' + batch.detected + '</strong></div><div class="bi-drawer-fact"><span>成功解析</span><strong>' + batch.parsed + '</strong></div><div class="bi-drawer-fact"><span>部分缺失</span><strong>' + batch.partial + '</strong></div><div class="bi-drawer-fact"><span>Step6 HTML</span><strong>' + batch.html + ' · 缺 ' + batch.missingReport + '</strong></div><div class="bi-drawer-fact"><span>Spec ID 已关联</span><strong>' + batch.specLinked + '</strong></div><div class="bi-drawer-fact"><span>Spec ID 待关联</span><strong>' + batch.specPending + '</strong></div><div class="bi-drawer-fact"><span>Token 数据覆盖</span><strong>' + batch.tokenCoverage + '</strong></div><div class="bi-drawer-fact"><span>代码量数据覆盖</span><strong>' + batch.codeCoverage + '</strong></div></div></section><section class="bi-drawer-block"><h3>解析错误</h3>' + errors + '</section><p class="bi-drawer-footnote">TAR 已上传不代表主看板立即变化；只有完成入库并进入发布快照后，管理看板才会更新。</p></div>';
+        root.querySelector('[data-drawer-backdrop]').hidden = false;
+        root.querySelector('[data-import-drawer]').hidden = false;
+      };
+      const openDrawer = (id) => { const batch = batchFor(id); if (batch) renderDrawer(batch); };
+      const closeDrawer = () => { root.querySelector('[data-drawer-backdrop]').hidden = true; root.querySelector('[data-import-drawer]').hidden = true; };
+      const startUpload = (filename) => {
+        if (state.uploadTimer) { showToast('已有 TAR 正在上传，请稍候'); return; }
+        state.uploadVisible = true;
+        state.uploadFile = filename || 'sdd_20260602_new.tar';
+        const milestones = [18, 46, 73, 100];
+        let step = 0;
+        state.uploadPercent = milestones[step];
+        state.uploadStage = 0;
+        renderUploadProgress();
+        showToast('已开始上传 ' + state.uploadFile + '（演示）');
+        state.uploadTimer = setInterval(() => {
+          step += 1;
+          state.uploadPercent = milestones[step];
+          state.uploadStage = state.uploadPercent >= 73 ? 2 : state.uploadPercent >= 46 ? 1 : 0;
+          if (state.uploadPercent >= 100) {
+            clearInterval(state.uploadTimer);
+            state.uploadTimer = null;
+            const newId = 'B0602-02';
+            if (!batchFor(newId)) importBatches.unshift({ id: newId, dept: '数字化研发部', size: '待计算', uploaded: '刚刚', tasks: '—', status: '待处理', tone: 'pending', effective: '06-03', phase: 2, deletable: true, process: '2026-06-03 01:00', publish: '2026-06-03 06:00', raw: '待计算', retained: '—', released: '—', detected: '—', parsed: '—', partial: '—', html: '—', missingReport: '—', specLinked: '—', specPending: '—', tokenCoverage: '—', codeCoverage: '—', errors: [] });
+            state.uploadsAdded += 1;
+            state.importSummary.pending += 1;
+            renderImport();
+            showToast('TAR 已上传，当前进入“等待夜间处理”');
+            return;
+          }
+          renderUploadProgress();
+        }, 650);
+      };
+      const retryBatch = (id) => {
+        const batch = batchFor(id);
+        if (!batch) return;
+        batch.status = '处理中';
+        batch.tone = 'processing';
+        batch.phase = 5;
+        state.importSummary.failed = Math.max(0, state.importSummary.failed - 1);
+        state.importSummary.processing += 1;
+        renderImport();
+        showToast(id + ' 已重新提交，正在预检');
+        setTimeout(() => {
+          batch.status = '待处理';
+          batch.tone = 'pending';
+          batch.phase = 2;
+          state.importSummary.processing = Math.max(0, state.importSummary.processing - 1);
+          state.importSummary.pending += 1;
+          renderImport();
+        }, 1500);
+      };
+      const deleteBatch = (id) => {
+        const batch = batchFor(id);
+        if (!batch || !batch.deletable) return;
+        state.deletedBatches.push(id);
+        state.importSummary.pending = Math.max(0, state.importSummary.pending - 1);
+        closeDrawer();
+        renderImport();
+        showToast(id + ' 已删除，尚未进入处理队列');
+      };
       const renderBrief = (model) => {
         const brief = model.brief;
         const metrics = [
@@ -896,6 +1176,17 @@
         renderImprovements();
         renderBrief(model);
       };
+      const renderScreen = () => {
+        const isImport = state.screen === 'import';
+        root.querySelectorAll('[data-dashboard-only]').forEach((element) => { element.hidden = isImport; });
+        root.querySelector('[data-import-screen]').hidden = !isImport;
+        root.querySelectorAll('[data-screen-button]').forEach((button) => { button.dataset.active = button.dataset.screenButton === state.screen ? 'true' : 'false'; });
+        if (isImport) renderImport();
+      };
+      const syncScreen = () => {
+        state.screen = window.location.hash.replace(/^#/, '') === 'import' ? 'import' : 'dashboard';
+        renderScreen();
+      };
       const populateFilters = () => {
         const department = root.querySelector('[data-filter-department]');
         department.innerHTML = Object.entries(departments).map(([key, value]) => '<option value="' + key + '">' + value.label + '</option>').join('');
@@ -909,6 +1200,8 @@
         if (event.target.matches('[data-filter-range]')) { state.range = event.target.value; state.page = 1; renderAll(); showToast('已切换统计范围，周期指标已更新'); }
       });
       root.addEventListener('click', (event) => {
+        const screenButton = event.target.closest('[data-screen-button]');
+        if (screenButton) { window.location.hash = screenButton.dataset.screenButton === 'import' ? 'import' : ''; return; }
         const trendButton = event.target.closest('[data-trend-mode]');
         if (trendButton) { state.trendMode = trendButton.dataset.trendMode; renderTrend(modelFor()); return; }
         const pageButton = event.target.closest('[data-page]');
@@ -921,9 +1214,25 @@
           return;
         }
         if (event.target.closest('[data-export]')) { showToast('导出任务已创建（演示），实际数据接入后可下载完整明细'); return; }
+        if (event.target.closest('[data-upload-tar]')) { startUpload(); return; }
+        if (event.target.closest('[data-drawer-close]') || event.target === root.querySelector('[data-drawer-backdrop]')) { closeDrawer(); return; }
+        const viewBatch = event.target.closest('[data-batch-view]');
+        if (viewBatch) { openDrawer(viewBatch.dataset.batchView); return; }
+        const retry = event.target.closest('[data-batch-retry]');
+        if (retry) { retryBatch(retry.dataset.batchRetry); return; }
+        const remove = event.target.closest('[data-batch-delete]');
+        if (remove) { deleteBatch(remove.dataset.batchDelete); return; }
+        const batchRow = event.target.closest('[data-batch-row]');
+        if (batchRow && !event.target.closest('button')) { openDrawer(batchRow.dataset.batchRow); }
       });
+      root.addEventListener('keydown', (event) => {
+        const batchRow = event.target.closest('[data-batch-row]');
+        if (batchRow && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); openDrawer(batchRow.dataset.batchRow); }
+      });
+      window.addEventListener('hashchange', syncScreen);
       populateFilters();
       renderAll();
+      syncScreen();
     })();
   </script>
 </div>

@@ -1494,6 +1494,115 @@ html&gt;body{padding:0}&lt;/style&gt;
     #sdd-dashboard :focus-visible { outline: 3px solid rgba(47, 116, 208, 0.3); outline-offset: 2px; }
     #sdd-dashboard .bi-footer { display: flex; justify-content: space-between; gap: 16px; padding-top: 16px; color: var(--faint); font-size: 10px; }
 
+    #sdd-dashboard .bi-nav { display: inline-flex; align-items: center; gap: 3px; flex: 0 0 auto; padding: 3px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255, 255, 255, 0.72); }
+    #sdd-dashboard .bi-nav-button { border: 0; border-radius: 6px; padding: 7px 10px; color: var(--muted); background: transparent; font-size: 11px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-nav-button:hover { color: var(--blue-deep); background: var(--blue-soft); }
+    #sdd-dashboard .bi-nav-button[data-active=&quot;true&quot;] { color: #fff; background: var(--blue); box-shadow: 0 3px 8px rgba(47, 116, 208, 0.2); }
+
+    #sdd-dashboard .bi-import-screen { min-width: 0; }
+    #sdd-dashboard .bi-import-header { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 9px; }
+    #sdd-dashboard .bi-import-header h2 { margin-top: 4px; font-size: clamp(28px, 4vw, 44px); font-weight: 840; letter-spacing: -0.06em; line-height: 1; }
+    #sdd-dashboard .bi-import-header p { margin-top: 7px; color: var(--muted); font-size: 12px; }
+    #sdd-dashboard .bi-upload-button { display: inline-flex; align-items: center; gap: 8px; min-height: 39px; border: 1px solid var(--blue); border-radius: 9px; padding: 8px 13px; color: #fff; background: var(--blue); box-shadow: 0 7px 16px rgba(47, 116, 208, 0.2); font-size: 12px; font-weight: 850; }
+    #sdd-dashboard .bi-upload-button::before { content: &quot;↑&quot;; font-size: 17px; line-height: 0.8; }
+    #sdd-dashboard .bi-upload-button:hover { background: var(--blue-deep); }
+    #sdd-dashboard .bi-import-schedule { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-bottom: 17px; color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .bi-import-schedule strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    #sdd-dashboard .bi-import-schedule span { color: var(--blue); font-weight: 850; }
+    #sdd-dashboard .bi-import-schedule .bi-demo-tag { margin-left: 3px; }
+    #sdd-dashboard .bi-import-kpi-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-import-kpi { display: grid; min-height: 91px; align-content: space-between; gap: 8px; border: 1px solid var(--line); border-radius: 12px; padding: 12px 13px; background: rgba(255, 255, 255, 0.93); }
+    #sdd-dashboard .bi-import-kpi-label { color: var(--muted); font-size: 10px; font-weight: 780; }
+    #sdd-dashboard .bi-import-kpi-value { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 27px; font-weight: 850; letter-spacing: -0.08em; line-height: 1; }
+    #sdd-dashboard .bi-import-kpi[data-tone=&quot;warn&quot;] .bi-import-kpi-value,
+    #sdd-dashboard .bi-import-kpi[data-tone=&quot;processing&quot;] .bi-import-kpi-value { color: var(--amber); }
+    #sdd-dashboard .bi-import-kpi[data-tone=&quot;danger&quot;] .bi-import-kpi-value { color: var(--red); }
+    #sdd-dashboard .bi-import-kpi[data-tone=&quot;good&quot;] .bi-import-kpi-value { color: var(--teal); }
+    #sdd-dashboard .bi-import-kpi small { color: var(--faint); font-size: 9px; }
+    #sdd-dashboard .bi-storage-card { padding: 16px 18px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-storage-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
+    #sdd-dashboard .bi-storage-head h3 { font-size: 15px; font-weight: 830; }
+    #sdd-dashboard .bi-storage-head p { margin-top: 3px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-storage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    #sdd-dashboard .bi-storage-item { display: grid; gap: 4px; padding-left: 10px; border-left: 3px solid var(--blue); }
+    #sdd-dashboard .bi-storage-item:nth-child(2) { border-color: var(--teal); }
+    #sdd-dashboard .bi-storage-item:nth-child(3) { border-color: var(--violet); }
+    #sdd-dashboard .bi-storage-item:nth-child(4) { border-color: var(--amber); }
+    #sdd-dashboard .bi-storage-item span { color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-storage-item strong { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 20px; letter-spacing: -0.08em; }
+    #sdd-dashboard .bi-storage-item small { color: var(--faint); font-size: 9px; }
+    #sdd-dashboard .bi-batch-card { overflow: hidden; }
+    #sdd-dashboard .bi-batch-card .bi-card-head { padding: 16px 18px 13px; margin: 0; }
+    #sdd-dashboard .bi-batch-table-scroll { overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    #sdd-dashboard .bi-batch-table { width: 100%; min-width: 760px; border-collapse: collapse; table-layout: fixed; }
+    #sdd-dashboard .bi-batch-table th,
+    #sdd-dashboard .bi-batch-table td { padding: 11px 12px; border-bottom: 1px solid #edf1f4; text-align: left; vertical-align: middle; }
+    #sdd-dashboard .bi-batch-table th { color: var(--faint); background: #fbfcfd; font-size: 9px; font-weight: 850; letter-spacing: 0.06em; white-space: nowrap; }
+    #sdd-dashboard .bi-batch-table td { color: var(--ink-soft); font-size: 10px; }
+    #sdd-dashboard .bi-batch-table tbody tr:last-child td { border-bottom: 0; }
+    #sdd-dashboard .bi-batch-table tbody tr:hover { background: #f8fbff; }
+    #sdd-dashboard .bi-batch-table tbody tr[data-batch-row] { cursor: pointer; }
+    #sdd-dashboard .bi-batch-table code { color: var(--blue-deep); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 800; }
+    #sdd-dashboard .bi-import-status { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; padding: 4px 7px; font-size: 9px; font-weight: 850; white-space: nowrap; }
+    #sdd-dashboard .bi-import-status::before { width: 6px; height: 6px; border-radius: 50%; background: currentColor; content: &quot;&quot;; }
+    #sdd-dashboard .bi-import-status[data-tone=&quot;pending&quot;],
+    #sdd-dashboard .bi-import-status[data-tone=&quot;uploaded&quot;],
+    #sdd-dashboard .bi-import-status[data-tone=&quot;running&quot;] { color: var(--blue-deep); background: var(--blue-soft); }
+    #sdd-dashboard .bi-import-status[data-tone=&quot;processing&quot;] { color: var(--amber); background: var(--amber-soft); }
+    #sdd-dashboard .bi-import-status[data-tone=&quot;published&quot;],
+    #sdd-dashboard .bi-import-status[data-tone=&quot;stored&quot;] { color: var(--teal); background: var(--teal-soft); }
+    #sdd-dashboard .bi-import-status[data-tone=&quot;failed&quot;],
+    #sdd-dashboard .bi-import-status[data-tone=&quot;missing&quot;] { color: var(--red); background: var(--red-soft); }
+    #sdd-dashboard .bi-batch-actions { display: inline-flex; align-items: center; gap: 9px; }
+    #sdd-dashboard .bi-import-action { border: 0; padding: 0; color: var(--blue-deep); background: transparent; font-size: 10px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-import-action:hover { text-decoration: underline; }
+    #sdd-dashboard .bi-import-action[data-tone=&quot;danger&quot;] { color: var(--red); }
+    #sdd-dashboard .bi-import-action[data-tone=&quot;muted&quot;] { color: var(--muted); }
+    #sdd-dashboard .bi-batch-footer { display: flex; justify-content: space-between; gap: 12px; padding: 11px 18px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-import-progress { margin-top: 16px; border: 1px solid rgba(47, 116, 208, 0.25); border-radius: 13px; padding: 15px 17px; background: linear-gradient(115deg, #f1f7ff, #fff); }
+    #sdd-dashboard .bi-import-progress-head { display: flex; align-items: end; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+    #sdd-dashboard .bi-import-progress-head strong { font-size: 13px; font-weight: 820; }
+    #sdd-dashboard .bi-import-progress-head span { color: var(--blue-deep); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 850; }
+    #sdd-dashboard .bi-progress-track { height: 9px; overflow: hidden; border-radius: 999px; background: #dce9f7; }
+    #sdd-dashboard .bi-progress-fill { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #6aa7ec); transition: width 200ms ease; }
+    #sdd-dashboard .bi-import-progress p { margin-top: 8px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-lifecycle { display: grid; grid-template-columns: repeat(9, minmax(58px, 1fr)); gap: 7px; margin: 13px 0 0; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-lifecycle li { position: relative; display: grid; justify-items: center; gap: 5px; color: var(--faint); font-size: 8px; text-align: center; }
+    #sdd-dashboard .bi-lifecycle li::before { width: 11px; height: 11px; border: 2px solid #c7d6e3; border-radius: 50%; background: #fff; content: &quot;&quot;; }
+    #sdd-dashboard .bi-lifecycle li[data-active=&quot;true&quot;] { color: var(--blue-deep); font-weight: 800; }
+    #sdd-dashboard .bi-lifecycle li[data-active=&quot;true&quot;]::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 3px rgba(47, 116, 208, 0.12); }
+    #sdd-dashboard .bi-lifecycle li[data-done=&quot;true&quot;] { color: var(--teal); }
+    #sdd-dashboard .bi-lifecycle li[data-done=&quot;true&quot;]::before { border-color: var(--teal); background: var(--teal); }
+    #sdd-dashboard .bi-import-note { margin-top: 9px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-drawer-backdrop { position: fixed; z-index: 20; inset: 0; background: rgba(16, 43, 68, 0.28); backdrop-filter: blur(2px); }
+    #sdd-dashboard .bi-import-drawer { position: fixed; z-index: 21; top: 0; right: 0; display: grid; grid-template-rows: auto 1fr; width: min(500px, 100%); height: 100vh; overflow: hidden; border-left: 1px solid var(--line-strong); background: #f7fafc; box-shadow: -16px 0 35px rgba(16, 43, 68, 0.16); }
+    #sdd-dashboard .bi-import-drawer-header { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding: 20px 21px 17px; border-bottom: 1px solid var(--line); background: #fff; }
+    #sdd-dashboard .bi-import-drawer-header h2 { margin-top: 4px; font-size: 23px; font-weight: 840; letter-spacing: -0.045em; }
+    #sdd-dashboard .bi-import-drawer-header p { margin-top: 5px; color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .bi-drawer-close { display: grid; width: 31px; height: 31px; place-items: center; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--muted); background: #fff; font-size: 19px; line-height: 1; }
+    #sdd-dashboard .bi-drawer-close:hover { color: var(--blue-deep); background: var(--blue-soft); }
+    #sdd-dashboard .bi-import-drawer-body { overflow-y: auto; padding: 17px 21px 30px; }
+    #sdd-dashboard .bi-drawer-lifecycle { display: grid; gap: 0; margin: 0 0 17px; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-drawer-lifecycle li { position: relative; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 9px; min-height: 27px; color: var(--faint); font-size: 10px; }
+    #sdd-dashboard .bi-drawer-lifecycle li::before { position: relative; z-index: 1; display: grid; width: 15px; height: 15px; place-items: center; border: 2px solid #c7d6e3; border-radius: 50%; background: #fff; content: &quot;&quot;; }
+    #sdd-dashboard .bi-drawer-lifecycle li:not(:last-child)::after { position: absolute; top: 15px; left: 6px; width: 2px; height: 19px; background: #dce6ee; content: &quot;&quot;; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state=&quot;done&quot;] { color: var(--teal); font-weight: 760; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state=&quot;done&quot;]::before { border-color: var(--teal); background: var(--teal); }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state=&quot;active&quot;] { color: var(--blue-deep); font-weight: 820; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state=&quot;active&quot;]::before { border-color: var(--blue); background: var(--blue); box-shadow: 0 0 0 3px rgba(47, 116, 208, 0.12); }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state=&quot;error&quot;] { color: var(--red); font-weight: 820; }
+    #sdd-dashboard .bi-drawer-lifecycle li[data-state=&quot;error&quot;]::before { border-color: var(--red); background: var(--red); }
+    #sdd-dashboard .bi-drawer-block { margin-top: 15px; border: 1px solid var(--line); border-radius: 11px; padding: 13px; background: #fff; }
+    #sdd-dashboard .bi-drawer-block h3 { margin-bottom: 10px; font-size: 12px; font-weight: 830; }
+    #sdd-dashboard .bi-drawer-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 12px; }
+    #sdd-dashboard .bi-drawer-fact { display: grid; gap: 2px; }
+    #sdd-dashboard .bi-drawer-fact span { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-drawer-fact strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; letter-spacing: -0.04em; }
+    #sdd-dashboard .bi-drawer-errors { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-drawer-errors li { display: grid; grid-template-columns: 8px minmax(0, 1fr); gap: 7px; color: var(--ink-soft); font-size: 10px; }
+    #sdd-dashboard .bi-drawer-errors li::before { width: 7px; height: 7px; margin-top: 4px; border-radius: 50%; background: var(--red); content: &quot;&quot;; }
+    #sdd-dashboard .bi-drawer-footnote { margin-top: 14px; color: var(--faint); font-size: 9px; line-height: 1.5; }
+
     @media (max-width: 1250px) {
       #sdd-dashboard .bi-header { align-items: start; flex-direction: column; gap: 17px; }
       #sdd-dashboard .bi-controls { justify-content: start; width: 100%; }
@@ -1502,6 +1611,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       #sdd-dashboard .bi-kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #sdd-dashboard .bi-bottom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #sdd-dashboard .bi-bottom-grid .bi-analysis-card:first-child { grid-column: 1 / -1; }
+      #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
     @media (max-width: 980px) {
@@ -1510,6 +1620,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       #sdd-dashboard .bi-brief { position: static; }
       #sdd-dashboard .bi-brief-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #sdd-dashboard .bi-distribution-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-storage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 680px) {
@@ -1532,12 +1643,27 @@ html&gt;body{padding:0}&lt;/style&gt;
       #sdd-dashboard .bi-brief-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #sdd-dashboard .bi-table-meta { align-items: start; flex-direction: column; }
       #sdd-dashboard .bi-footer { align-items: start; flex-direction: column; gap: 5px; }
+      #sdd-dashboard .bi-header { gap: 13px; }
+      #sdd-dashboard .bi-nav { width: 100%; }
+      #sdd-dashboard .bi-nav-button { flex: 1 1 0; }
+      #sdd-dashboard .bi-import-header { align-items: start; flex-direction: column; }
+      #sdd-dashboard .bi-upload-button { width: 100%; justify-content: center; }
+      #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      #sdd-dashboard .bi-storage-card { padding: 14px; }
+      #sdd-dashboard .bi-storage-grid { gap: 8px; }
+      #sdd-dashboard .bi-batch-card .bi-card-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .bi-batch-footer { align-items: start; flex-direction: column; padding-right: 14px; padding-left: 14px; }
+      #sdd-dashboard .bi-lifecycle { grid-template-columns: repeat(5, minmax(55px, 1fr)); row-gap: 10px; }
+      #sdd-dashboard .bi-import-drawer-header { padding-right: 15px; padding-left: 15px; }
+      #sdd-dashboard .bi-import-drawer-body { padding-right: 15px; padding-left: 15px; }
     }
 
     @media (max-width: 410px) {
       #sdd-dashboard .bi-kpi-grid { grid-template-columns: minmax(0, 1fr); }
       #sdd-dashboard .bi-distribution-body { grid-template-columns: minmax(0, 1fr); justify-items: center; }
       #sdd-dashboard .bi-legend { width: 100%; }
+      #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-storage-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1557,7 +1683,11 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;p&gt;全面洞察大部门 SDD 落地情况，驱动持续改进&lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;bi-controls&quot; aria-label=&quot;全局筛选&quot;&gt;
+      &lt;nav class=&quot;bi-nav&quot; aria-label=&quot;看板页面切换&quot;&gt;
+        &lt;button class=&quot;bi-nav-button&quot; type=&quot;button&quot; data-screen-button=&quot;dashboard&quot; data-active=&quot;true&quot;&gt;执行效率看板&lt;/button&gt;
+        &lt;button class=&quot;bi-nav-button&quot; type=&quot;button&quot; data-screen-button=&quot;import&quot;&gt;数据导入中心&lt;/button&gt;
+      &lt;/nav&gt;
+      &lt;div class=&quot;bi-controls&quot; data-dashboard-only aria-label=&quot;全局筛选&quot;&gt;
         &lt;div class=&quot;bi-filter&quot;&gt;
           &lt;label for=&quot;bi-department&quot;&gt;部门&lt;/label&gt;
           &lt;div class=&quot;bi-select-wrap&quot;&gt;&lt;select class=&quot;bi-select&quot; id=&quot;bi-department&quot; data-filter-department aria-label=&quot;选择部门&quot;&gt;&lt;/select&gt;&lt;/div&gt;
@@ -1573,9 +1703,9 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;/div&gt;
     &lt;/header&gt;
 
-    &lt;div class=&quot;bi-context&quot;&gt;&lt;span data-context&gt;当前范围：&lt;strong&gt;数字化研发部&lt;/strong&gt; · 2026-06-01 ~ 2026-06-30&lt;/span&gt;&lt;span class=&quot;bi-demo-tag&quot;&gt;演示数据 · 静态夹具&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;bi-context&quot; data-dashboard-only&gt;&lt;span data-context&gt;当前范围：&lt;strong&gt;数字化研发部&lt;/strong&gt; · 2026-06-01 ~ 2026-06-30&lt;/span&gt;&lt;span class=&quot;bi-demo-tag&quot;&gt;演示数据 · 静态夹具&lt;/span&gt;&lt;/div&gt;
 
-    &lt;div class=&quot;bi-layout&quot;&gt;
+    &lt;div class=&quot;bi-layout&quot; data-dashboard-only&gt;
       &lt;main class=&quot;bi-main&quot;&gt;
         &lt;section class=&quot;bi-section&quot; aria-labelledby=&quot;kpi-title&quot;&gt;
           &lt;header class=&quot;bi-section-head&quot;&gt;
@@ -1639,8 +1769,55 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;footer class=&quot;bi-brief-footer&quot;&gt;&lt;span&gt;数据来源：SDD 平台&lt;/span&gt;&lt;span&gt;仅供参考&lt;/span&gt;&lt;/footer&gt;
       &lt;/aside&gt;
     &lt;/div&gt;
+
+    &lt;section class=&quot;bi-import-screen&quot; data-import-screen data-screen=&quot;import&quot; aria-labelledby=&quot;import-title&quot; hidden&gt;
+      &lt;header class=&quot;bi-import-header&quot;&gt;
+        &lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;数据流水线&lt;/span&gt;&lt;h2 id=&quot;import-title&quot;&gt;数据导入中心&lt;/h2&gt;&lt;p&gt;从 TAR 上传到主看板发布，每个批次都有可追踪的处理状态。&lt;/p&gt;&lt;/div&gt;
+        &lt;button class=&quot;bi-upload-button&quot; type=&quot;button&quot; data-upload-tar&gt;上传 TAR&lt;/button&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;bi-import-schedule&quot;&gt;&lt;strong&gt;每日批处理：01:00&lt;/strong&gt;&lt;span&gt;→&lt;/span&gt;&lt;strong&gt;每日发布：06:00&lt;/strong&gt;&lt;span class=&quot;bi-demo-tag&quot;&gt;演示数据 · 不连接真实存储&lt;/span&gt;&lt;/div&gt;
+
+      &lt;section class=&quot;bi-import-kpi-grid&quot; aria-label=&quot;导入状态概览&quot;&gt;
+        &lt;article class=&quot;bi-import-kpi&quot;&gt;&lt;span class=&quot;bi-import-kpi-label&quot;&gt;今日上传&lt;/span&gt;&lt;strong class=&quot;bi-import-kpi-value&quot; data-import-today&gt;12&lt;/strong&gt;&lt;small&gt;已接收 TAR 包&lt;/small&gt;&lt;/article&gt;
+        &lt;article class=&quot;bi-import-kpi&quot; data-tone=&quot;warn&quot;&gt;&lt;span class=&quot;bi-import-kpi-label&quot;&gt;待处理&lt;/span&gt;&lt;strong class=&quot;bi-import-kpi-value&quot; data-import-pending&gt;4&lt;/strong&gt;&lt;small&gt;等待夜间批处理&lt;/small&gt;&lt;/article&gt;
+        &lt;article class=&quot;bi-import-kpi&quot; data-tone=&quot;processing&quot;&gt;&lt;span class=&quot;bi-import-kpi-label&quot;&gt;处理中&lt;/span&gt;&lt;strong class=&quot;bi-import-kpi-value&quot; data-import-processing&gt;1&lt;/strong&gt;&lt;small&gt;正在解析校验&lt;/small&gt;&lt;/article&gt;
+        &lt;article class=&quot;bi-import-kpi&quot; data-tone=&quot;danger&quot;&gt;&lt;span class=&quot;bi-import-kpi-label&quot;&gt;失败&lt;/span&gt;&lt;strong class=&quot;bi-import-kpi-value&quot; data-import-failed&gt;2&lt;/strong&gt;&lt;small&gt;需要查看错误&lt;/small&gt;&lt;/article&gt;
+        &lt;article class=&quot;bi-import-kpi&quot; data-tone=&quot;good&quot;&gt;&lt;span class=&quot;bi-import-kpi-label&quot;&gt;已发布快照&lt;/span&gt;&lt;strong class=&quot;bi-import-kpi-value&quot;&gt;06-02&lt;/strong&gt;&lt;small&gt;最近一次生效日期&lt;/small&gt;&lt;/article&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;bi-card bi-storage-card&quot; aria-labelledby=&quot;storage-title&quot;&gt;
+        &lt;header class=&quot;bi-storage-head&quot;&gt;&lt;div&gt;&lt;h3 id=&quot;storage-title&quot;&gt;存储概览&lt;/h3&gt;&lt;p&gt;原始包、保留数据和临时空间的使用情况。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;bi-scope-tag&quot;&gt;存储监控&lt;/span&gt;&lt;/header&gt;
+        &lt;div class=&quot;bi-storage-grid&quot;&gt;
+          &lt;div class=&quot;bi-storage-item&quot;&gt;&lt;span&gt;原始上传&lt;/span&gt;&lt;strong&gt;8.6 GB&lt;/strong&gt;&lt;small&gt;本月累计接收&lt;/small&gt;&lt;/div&gt;
+          &lt;div class=&quot;bi-storage-item&quot;&gt;&lt;span&gt;实际保留&lt;/span&gt;&lt;strong&gt;1.2 GB&lt;/strong&gt;&lt;small&gt;解析后的有效数据&lt;/small&gt;&lt;/div&gt;
+          &lt;div class=&quot;bi-storage-item&quot;&gt;&lt;span&gt;本月释放&lt;/span&gt;&lt;strong&gt;7.4 GB&lt;/strong&gt;&lt;small&gt;清理原始 TAR&lt;/small&gt;&lt;/div&gt;
+          &lt;div class=&quot;bi-storage-item&quot;&gt;&lt;span&gt;临时区&lt;/span&gt;&lt;strong&gt;520 MB&lt;/strong&gt;&lt;small&gt;等待处理与校验&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;bi-card bi-batch-card&quot; aria-labelledby=&quot;batch-title&quot;&gt;
+        &lt;header class=&quot;bi-card-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;批次追踪&lt;/span&gt;&lt;h3 id=&quot;batch-title&quot;&gt;导入批次列表&lt;/h3&gt;&lt;p&gt;点击批次查看处理链路、字段覆盖和解析错误。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;bi-scope-tag&quot; data-batch-count&gt;6 个批次&lt;/span&gt;&lt;/header&gt;
+        &lt;div class=&quot;bi-batch-table-scroll&quot;&gt;
+          &lt;table class=&quot;bi-batch-table&quot;&gt;
+            &lt;colgroup&gt;&lt;col style=&quot;width:112px&quot;&gt;&lt;col style=&quot;width:110px&quot;&gt;&lt;col style=&quot;width:86px&quot;&gt;&lt;col style=&quot;width:78px&quot;&gt;&lt;col style=&quot;width:70px&quot;&gt;&lt;col style=&quot;width:124px&quot;&gt;&lt;col style=&quot;width:78px&quot;&gt;&lt;col style=&quot;width:118px&quot;&gt;&lt;/colgroup&gt;
+            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bundle ID&lt;/th&gt;&lt;th&gt;部门&lt;/th&gt;&lt;th&gt;文件大小&lt;/th&gt;&lt;th&gt;上传时间&lt;/th&gt;&lt;th&gt;任务数&lt;/th&gt;&lt;th&gt;状态&lt;/th&gt;&lt;th&gt;生效日期&lt;/th&gt;&lt;th&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+            &lt;tbody data-batch-body&gt;&lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;footer class=&quot;bi-batch-footer&quot;&gt;&lt;span&gt;状态说明：TAR 已上传不代表主看板立即变化，需经过夜间处理和发布。&lt;/span&gt;&lt;span&gt;数据保留策略：解析成功后释放原始包&lt;/span&gt;&lt;/footer&gt;
+      &lt;/section&gt;
+      &lt;section class=&quot;bi-import-progress&quot; data-upload-progress hidden aria-live=&quot;polite&quot;&gt;
+        &lt;div class=&quot;bi-import-progress-head&quot;&gt;&lt;strong data-upload-file&gt;正在上传 sdd_20260602_new.tar&lt;/strong&gt;&lt;span data-upload-percent&gt;18%&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;bi-progress-track&quot;&gt;&lt;i class=&quot;bi-progress-fill&quot; data-upload-fill&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;p data-upload-stage&gt;上传中 · 请保持页面打开&lt;/p&gt;
+        &lt;ol class=&quot;bi-lifecycle&quot; data-upload-lifecycle&gt;&lt;/ol&gt;
+        &lt;p class=&quot;bi-import-note&quot;&gt;上传完成后会进入“等待夜间处理”，主看板将在下一次发布快照后刷新。&lt;/p&gt;
+      &lt;/section&gt;
+    &lt;/section&gt;
   &lt;/div&gt;
   &lt;div class=&quot;bi-toast&quot; data-toast role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;bi-drawer-backdrop&quot; data-drawer-backdrop hidden&gt;&lt;/div&gt;
+  &lt;aside class=&quot;bi-import-drawer&quot; data-import-drawer role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;drawer-title&quot; hidden&gt;&lt;/aside&gt;
 
   &lt;script&gt;
     (() =&gt; {
@@ -1676,6 +1853,15 @@ html&gt;body{padding:0}&lt;/style&gt;
         { text: &#x27;AI 生成代码质量波动（评审驳回率 15%）&#x27;, level: &#x27;中&#x27; },
         { text: &#x27;任务耗时偏长（超过 6 小时占 16%）&#x27;, level: &#x27;中&#x27; },
         { text: &#x27;工具调用效率低（单任务平均超过 20 次）&#x27;, level: &#x27;低&#x27; }
+      ];
+      const importLifecycle = [&#x27;上传中&#x27;, &#x27;已上传&#x27;, &#x27;等待夜间处理&#x27;, &#x27;预检中&#x27;, &#x27;解析中&#x27;, &#x27;数据校验中&#x27;, &#x27;已入库&#x27;, &#x27;待发布&#x27;, &#x27;已发布&#x27;];
+      const importBatches = [
+        { id: &#x27;B0602-01&#x27;, dept: &#x27;数研&#x27;, size: &#x27;486 MB&#x27;, uploaded: &#x27;06-02 16:30&#x27;, tasks: &#x27;86&#x27;, status: &#x27;待处理&#x27;, tone: &#x27;pending&#x27;, effective: &#x27;06-03&#x27;, phase: 2, deletable: true, process: &#x27;2026-06-03 01:00&#x27;, publish: &#x27;2026-06-03 06:00&#x27;, raw: &#x27;486 MB&#x27;, retained: &#x27;68 MB&#x27;, released: &#x27;418 MB&#x27;, detected: &#x27;86&#x27;, parsed: &#x27;84&#x27;, partial: &#x27;2&#x27;, html: &#x27;84&#x27;, missingReport: &#x27;2&#x27;, specLinked: &#x27;73&#x27;, specPending: &#x27;11&#x27;, tokenCoverage: &#x27;83 / 86&#x27;, codeCoverage: &#x27;82 / 86&#x27;, errors: [&#x27;sdd_0021 · 缺少 Spec ID&#x27;, &#x27;sdd_0047 · 缺少 Token&#x27;, &#x27;sdd_0053 · Step6 HTML 不存在&#x27;] },
+        { id: &#x27;B0601-03&#x27;, dept: &#x27;数研&#x27;, size: &#x27;123 MB&#x27;, uploaded: &#x27;06-01 15:10&#x27;, tasks: &#x27;61&#x27;, status: &#x27;已发布&#x27;, tone: &#x27;published&#x27;, effective: &#x27;06-02&#x27;, phase: 9, deletable: false, process: &#x27;2026-06-02 01:00&#x27;, publish: &#x27;2026-06-02 06:00&#x27;, raw: &#x27;123 MB&#x27;, retained: &#x27;17 MB&#x27;, released: &#x27;106 MB&#x27;, detected: &#x27;61&#x27;, parsed: &#x27;61&#x27;, partial: &#x27;0&#x27;, html: &#x27;61&#x27;, missingReport: &#x27;0&#x27;, specLinked: &#x27;61&#x27;, specPending: &#x27;0&#x27;, tokenCoverage: &#x27;61 / 61&#x27;, codeCoverage: &#x27;61 / 61&#x27;, errors: [] },
+        { id: &#x27;B0601-02&#x27;, dept: &#x27;AI 应用部&#x27;, size: &#x27;518 MB&#x27;, uploaded: &#x27;06-01 14:45&#x27;, tasks: &#x27;—&#x27;, status: &#x27;失败&#x27;, tone: &#x27;failed&#x27;, effective: &#x27;—&#x27;, phase: 5, deletable: false, process: &#x27;未安排&#x27;, publish: &#x27;未安排&#x27;, raw: &#x27;518 MB&#x27;, retained: &#x27;0 MB&#x27;, released: &#x27;518 MB&#x27;, detected: &#x27;—&#x27;, parsed: &#x27;0&#x27;, partial: &#x27;—&#x27;, html: &#x27;0&#x27;, missingReport: &#x27;—&#x27;, specLinked: &#x27;—&#x27;, specPending: &#x27;—&#x27;, tokenCoverage: &#x27;—&#x27;, codeCoverage: &#x27;—&#x27;, errors: [&#x27;TAR 内缺少 manifest.json&#x27;, &#x27;无法识别任务目录结构&#x27;, &#x27;解析器在第 2 个文件处中止&#x27;] },
+        { id: &#x27;B0531-04&#x27;, dept: &#x27;平台研发部&#x27;, size: &#x27;302 MB&#x27;, uploaded: &#x27;05-31 11:20&#x27;, tasks: &#x27;72&#x27;, status: &#x27;数据缺失&#x27;, tone: &#x27;missing&#x27;, effective: &#x27;06-03&#x27;, phase: 6, deletable: false, process: &#x27;2026-06-02 01:00&#x27;, publish: &#x27;2026-06-03 06:00&#x27;, raw: &#x27;302 MB&#x27;, retained: &#x27;49 MB&#x27;, released: &#x27;253 MB&#x27;, detected: &#x27;72&#x27;, parsed: &#x27;68&#x27;, partial: &#x27;4&#x27;, html: &#x27;66&#x27;, missingReport: &#x27;6&#x27;, specLinked: &#x27;64&#x27;, specPending: &#x27;8&#x27;, tokenCoverage: &#x27;67 / 72&#x27;, codeCoverage: &#x27;65 / 72&#x27;, errors: [&#x27;sdd_0178 · 缺少代码量字段&#x27;, &#x27;sdd_0184 · Token 数据为空&#x27;, &#x27;sdd_0191 · Step6 HTML 不完整&#x27;] },
+        { id: &#x27;B0531-03&#x27;, dept: &#x27;数研&#x27;, size: &#x27;198 MB&#x27;, uploaded: &#x27;05-31 10:05&#x27;, tasks: &#x27;49&#x27;, status: &#x27;处理中&#x27;, tone: &#x27;processing&#x27;, effective: &#x27;06-02&#x27;, phase: 5, deletable: false, process: &#x27;2026-06-02 01:00&#x27;, publish: &#x27;2026-06-02 06:00&#x27;, raw: &#x27;198 MB&#x27;, retained: &#x27;31 MB&#x27;, released: &#x27;167 MB&#x27;, detected: &#x27;49&#x27;, parsed: &#x27;42&#x27;, partial: &#x27;7&#x27;, html: &#x27;42&#x27;, missingReport: &#x27;7&#x27;, specLinked: &#x27;39&#x27;, specPending: &#x27;10&#x27;, tokenCoverage: &#x27;44 / 49&#x27;, codeCoverage: &#x27;43 / 49&#x27;, errors: [&#x27;sdd_0152 · 正在等待 Step6 文件&#x27;, &#x27;sdd_0159 · 字段校验中&#x27;] },
+        { id: &#x27;B0530-08&#x27;, dept: &#x27;基础架构部&#x27;, size: &#x27;72 MB&#x27;, uploaded: &#x27;05-30 09:10&#x27;, tasks: &#x27;28&#x27;, status: &#x27;已入库&#x27;, tone: &#x27;stored&#x27;, effective: &#x27;06-02&#x27;, phase: 7, deletable: false, process: &#x27;2026-06-01 01:00&#x27;, publish: &#x27;待发布&#x27;, raw: &#x27;72 MB&#x27;, retained: &#x27;13 MB&#x27;, released: &#x27;59 MB&#x27;, detected: &#x27;28&#x27;, parsed: &#x27;28&#x27;, partial: &#x27;0&#x27;, html: &#x27;28&#x27;, missingReport: &#x27;0&#x27;, specLinked: &#x27;27&#x27;, specPending: &#x27;1&#x27;, tokenCoverage: &#x27;28 / 28&#x27;, codeCoverage: &#x27;28 / 28&#x27;, errors: [] }
       ];
       const departments = {
         digital: {
@@ -1713,7 +1899,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         week: { labels: [&#x27;第 1 周&#x27;, &#x27;第 2 周&#x27;, &#x27;第 3 周&#x27;, &#x27;第 4 周&#x27;, &#x27;第 5 周&#x27;], tasks: [486, 562, 598, 612, 540], completion: [77, 80, 82, 85, 84], active: [728, 846, 902, 948, 881] },
         month: { labels: [&#x27;1 月&#x27;, &#x27;2 月&#x27;, &#x27;3 月&#x27;, &#x27;4 月&#x27;, &#x27;5 月&#x27;, &#x27;6 月&#x27;], tasks: [1680, 1812, 1940, 2084, 2216, 2356], completion: [71, 74, 76, 79, 81, 83], active: [914, 988, 1046, 1108, 1186, 1243] }
       };
-      const state = { department: &#x27;digital&#x27;, range: &#x27;month&#x27;, trendMode: &#x27;day&#x27;, page: 1, refresh: 0 };
+      const state = { department: &#x27;digital&#x27;, range: &#x27;month&#x27;, trendMode: &#x27;day&#x27;, page: 1, refresh: 0, screen: &#x27;dashboard&#x27;, deletedBatches: [], uploadsAdded: 0, importSummary: { pending: 4, processing: 1, failed: 2 }, uploadVisible: false, uploadPercent: 18, uploadStage: 0, uploadFile: &#x27;sdd_20260602_new.tar&#x27;, uploadTimer: null };
       const esc = (value) =&gt; String(value).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, (char) =&gt; ({ &#x27;&amp;&#x27;: &#x27;&amp;amp;&#x27;, &#x27;&lt;&#x27;: &#x27;&amp;lt;&#x27;, &#x27;&gt;&#x27;: &#x27;&amp;gt;&#x27;, &#x27;&quot;&#x27;: &#x27;&amp;quot;&#x27;, &quot;&#x27;&quot;: &#x27;&amp;#39;&#x27; }[char]));
       const fmtInt = (value) =&gt; Math.round(value).toLocaleString(&#x27;en-US&#x27;);
       const fmtTokens = (value) =&gt; value &gt;= 1000000 ? (value / 1000000).toFixed(1) + &#x27;M&#x27; : Math.round(value / 1000) + &#x27;K&#x27;;
@@ -1853,6 +2039,100 @@ html&gt;body{padding:0}&lt;/style&gt;
       const renderImprovements = () =&gt; {
         root.querySelector(&#x27;[data-improvement-list]&#x27;).innerHTML = improvements.map((item, index) =&gt; &#x27;&lt;li class=&quot;bi-improvement-row&quot;&gt;&lt;span class=&quot;bi-improvement-index&quot;&gt;&#x27; + (index + 1) + &#x27;&lt;/span&gt;&lt;span class=&quot;bi-improvement-text&quot;&gt;&#x27; + item.text + &#x27;&lt;/span&gt;&lt;span class=&quot;bi-severity&quot; data-level=&quot;&#x27; + item.level + &#x27;&quot;&gt;&#x27; + item.level + &#x27;&lt;/span&gt;&lt;/li&gt;&#x27;).join(&#x27;&#x27;);
       };
+      const batchFor = (id) =&gt; importBatches.find((batch) =&gt; batch.id === id);
+      const lifecycleState = (batch, index) =&gt; {
+        if (batch.phase &gt;= 9) return &#x27;done&#x27;;
+        if (batch.tone === &#x27;failed&#x27; || batch.tone === &#x27;missing&#x27;) return index === batch.phase - 1 ? &#x27;error&#x27; : index &lt; batch.phase - 1 ? &#x27;done&#x27; : &#x27;&#x27;;
+        return index &lt; batch.phase - 1 ? &#x27;done&#x27; : index === batch.phase - 1 ? &#x27;active&#x27; : &#x27;&#x27;;
+      };
+      const renderImport = () =&gt; {
+        const visible = importBatches.filter((batch) =&gt; !state.deletedBatches.includes(batch.id));
+        root.querySelector(&#x27;[data-import-today]&#x27;).textContent = String(12 + state.uploadsAdded);
+        root.querySelector(&#x27;[data-import-pending]&#x27;).textContent = String(Math.max(0, state.importSummary.pending));
+        root.querySelector(&#x27;[data-import-processing]&#x27;).textContent = String(Math.max(0, state.importSummary.processing));
+        root.querySelector(&#x27;[data-import-failed]&#x27;).textContent = String(Math.max(0, state.importSummary.failed));
+        root.querySelector(&#x27;[data-batch-count]&#x27;).textContent = visible.length + &#x27; 个批次&#x27;;
+        root.querySelector(&#x27;[data-batch-body]&#x27;).innerHTML = visible.map((batch) =&gt; {
+          const actions = batch.status === &#x27;失败&#x27; ? &#x27;&lt;button class=&quot;bi-import-action&quot; type=&quot;button&quot; data-batch-view=&quot;&#x27; + batch.id + &#x27;&quot;&gt;查看&lt;/button&gt;&lt;button class=&quot;bi-import-action&quot; type=&quot;button&quot; data-batch-retry=&quot;&#x27; + batch.id + &#x27;&quot;&gt;重试&lt;/button&gt;&#x27; : &#x27;&lt;button class=&quot;bi-import-action&quot; type=&quot;button&quot; data-batch-view=&quot;&#x27; + batch.id + &#x27;&quot;&gt;查看&lt;/button&gt;&#x27; + (batch.deletable ? &#x27;&lt;button class=&quot;bi-import-action&quot; data-tone=&quot;danger&quot; type=&quot;button&quot; data-batch-delete=&quot;&#x27; + batch.id + &#x27;&quot;&gt;删除&lt;/button&gt;&#x27; : &#x27;&#x27;);
+          return &#x27;&lt;tr data-batch-row=&quot;&#x27; + batch.id + &#x27;&quot; tabindex=&quot;0&quot; aria-label=&quot;查看批次 &#x27; + batch.id + &#x27;&quot;&gt;&lt;td&gt;&lt;code&gt;&#x27; + batch.id + &#x27;&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&#x27; + batch.dept + &#x27;&lt;/td&gt;&lt;td&gt;&#x27; + batch.size + &#x27;&lt;/td&gt;&lt;td&gt;&#x27; + batch.uploaded + &#x27;&lt;/td&gt;&lt;td&gt;&#x27; + batch.tasks + &#x27;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;bi-import-status&quot; data-tone=&quot;&#x27; + batch.tone + &#x27;&quot;&gt;&#x27; + batch.status + &#x27;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&#x27; + batch.effective + &#x27;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;bi-batch-actions&quot;&gt;&#x27; + actions + &#x27;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&#x27;;
+        }).join(&#x27;&#x27;);
+        renderUploadProgress();
+      };
+      const renderUploadProgress = () =&gt; {
+        const panel = root.querySelector(&#x27;[data-upload-progress]&#x27;);
+        panel.hidden = !state.uploadVisible;
+        if (!state.uploadVisible) return;
+        root.querySelector(&#x27;[data-upload-file]&#x27;).textContent = (state.uploadPercent &gt;= 100 ? &#x27;上传完成：&#x27; : &#x27;正在上传 &#x27;) + state.uploadFile;
+        root.querySelector(&#x27;[data-upload-percent]&#x27;).textContent = state.uploadPercent + &#x27;%&#x27;;
+        root.querySelector(&#x27;[data-upload-fill]&#x27;).style.width = state.uploadPercent + &#x27;%&#x27;;
+        root.querySelector(&#x27;[data-upload-stage]&#x27;).textContent = state.uploadPercent &gt;= 100 ? &#x27;等待夜间处理 · 计划 2026-06-03 01:00 执行&#x27; : importLifecycle[state.uploadStage] + &#x27; · 请保持页面打开&#x27;;
+        root.querySelector(&#x27;[data-upload-lifecycle]&#x27;).innerHTML = importLifecycle.map((label, index) =&gt; &#x27;&lt;li data-active=&quot;&#x27; + (index === state.uploadStage &amp;&amp; state.uploadPercent &lt; 100) + &#x27;&quot; data-done=&quot;&#x27; + (state.uploadPercent &gt;= 100 &amp;&amp; index &lt;= 2) + &#x27;&quot;&gt;&#x27; + label + &#x27;&lt;/li&gt;&#x27;).join(&#x27;&#x27;);
+      };
+      const renderDrawer = (batch) =&gt; {
+        const lifecycle = importLifecycle.map((label, index) =&gt; &#x27;&lt;li data-state=&quot;&#x27; + lifecycleState(batch, index) + &#x27;&quot;&gt;&lt;span&gt;&#x27; + label + &#x27;&lt;/span&gt;&lt;/li&gt;&#x27;).join(&#x27;&#x27;);
+        const errors = batch.errors.length ? &#x27;&lt;ul class=&quot;bi-drawer-errors&quot;&gt;&#x27; + batch.errors.map((error) =&gt; &#x27;&lt;li&gt;&#x27; + error + &#x27;&lt;/li&gt;&#x27;).join(&#x27;&#x27;) + &#x27;&lt;/ul&gt;&#x27; : &#x27;&lt;p class=&quot;bi-drawer-footnote&quot;&gt;当前批次未发现解析错误。&lt;/p&gt;&#x27;;
+        root.querySelector(&#x27;[data-import-drawer]&#x27;).innerHTML = &#x27;&lt;header class=&quot;bi-import-drawer-header&quot;&gt;&lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;批次详情&lt;/span&gt;&lt;h2 id=&quot;drawer-title&quot;&gt;&#x27; + batch.id + &#x27;&lt;/h2&gt;&lt;p&gt;&#x27; + batch.dept + &#x27; · &#x27; + batch.status + &#x27;&lt;/p&gt;&lt;/div&gt;&lt;button class=&quot;bi-drawer-close&quot; type=&quot;button&quot; data-drawer-close aria-label=&quot;关闭批次详情&quot;&gt;×&lt;/button&gt;&lt;/header&gt;&lt;div class=&quot;bi-import-drawer-body&quot;&gt;&lt;ol class=&quot;bi-drawer-lifecycle&quot; aria-label=&quot;导入状态流转&quot;&gt;&#x27; + lifecycle + &#x27;&lt;/ol&gt;&lt;section class=&quot;bi-drawer-block&quot;&gt;&lt;h3&gt;时间计划&lt;/h3&gt;&lt;div class=&quot;bi-drawer-facts&quot;&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;上传时间&lt;/span&gt;&lt;strong&gt;&#x27; + batch.uploaded + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;计划处理&lt;/span&gt;&lt;strong&gt;&#x27; + batch.process + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;计划发布&lt;/span&gt;&lt;strong&gt;&#x27; + batch.publish + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;生效日期&lt;/span&gt;&lt;strong&gt;&#x27; + batch.effective + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;bi-drawer-block&quot;&gt;&lt;h3&gt;空间占用&lt;/h3&gt;&lt;div class=&quot;bi-drawer-facts&quot;&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;原始 TAR&lt;/span&gt;&lt;strong&gt;&#x27; + batch.raw + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;最终保留&lt;/span&gt;&lt;strong&gt;&#x27; + batch.retained + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;释放空间&lt;/span&gt;&lt;strong&gt;&#x27; + batch.released + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;bi-drawer-block&quot;&gt;&lt;h3&gt;解析与字段覆盖&lt;/h3&gt;&lt;div class=&quot;bi-drawer-facts&quot;&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;检测任务&lt;/span&gt;&lt;strong&gt;&#x27; + batch.detected + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;成功解析&lt;/span&gt;&lt;strong&gt;&#x27; + batch.parsed + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;部分缺失&lt;/span&gt;&lt;strong&gt;&#x27; + batch.partial + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;Step6 HTML&lt;/span&gt;&lt;strong&gt;&#x27; + batch.html + &#x27; · 缺 &#x27; + batch.missingReport + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;Spec ID 已关联&lt;/span&gt;&lt;strong&gt;&#x27; + batch.specLinked + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;Spec ID 待关联&lt;/span&gt;&lt;strong&gt;&#x27; + batch.specPending + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;Token 数据覆盖&lt;/span&gt;&lt;strong&gt;&#x27; + batch.tokenCoverage + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-drawer-fact&quot;&gt;&lt;span&gt;代码量数据覆盖&lt;/span&gt;&lt;strong&gt;&#x27; + batch.codeCoverage + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;section class=&quot;bi-drawer-block&quot;&gt;&lt;h3&gt;解析错误&lt;/h3&gt;&#x27; + errors + &#x27;&lt;/section&gt;&lt;p class=&quot;bi-drawer-footnote&quot;&gt;TAR 已上传不代表主看板立即变化；只有完成入库并进入发布快照后，管理看板才会更新。&lt;/p&gt;&lt;/div&gt;&#x27;;
+        root.querySelector(&#x27;[data-drawer-backdrop]&#x27;).hidden = false;
+        root.querySelector(&#x27;[data-import-drawer]&#x27;).hidden = false;
+      };
+      const openDrawer = (id) =&gt; { const batch = batchFor(id); if (batch) renderDrawer(batch); };
+      const closeDrawer = () =&gt; { root.querySelector(&#x27;[data-drawer-backdrop]&#x27;).hidden = true; root.querySelector(&#x27;[data-import-drawer]&#x27;).hidden = true; };
+      const startUpload = (filename) =&gt; {
+        if (state.uploadTimer) { showToast(&#x27;已有 TAR 正在上传，请稍候&#x27;); return; }
+        state.uploadVisible = true;
+        state.uploadFile = filename || &#x27;sdd_20260602_new.tar&#x27;;
+        const milestones = [18, 46, 73, 100];
+        let step = 0;
+        state.uploadPercent = milestones[step];
+        state.uploadStage = 0;
+        renderUploadProgress();
+        showToast(&#x27;已开始上传 &#x27; + state.uploadFile + &#x27;（演示）&#x27;);
+        state.uploadTimer = setInterval(() =&gt; {
+          step += 1;
+          state.uploadPercent = milestones[step];
+          state.uploadStage = state.uploadPercent &gt;= 73 ? 2 : state.uploadPercent &gt;= 46 ? 1 : 0;
+          if (state.uploadPercent &gt;= 100) {
+            clearInterval(state.uploadTimer);
+            state.uploadTimer = null;
+            const newId = &#x27;B0602-02&#x27;;
+            if (!batchFor(newId)) importBatches.unshift({ id: newId, dept: &#x27;数字化研发部&#x27;, size: &#x27;待计算&#x27;, uploaded: &#x27;刚刚&#x27;, tasks: &#x27;—&#x27;, status: &#x27;待处理&#x27;, tone: &#x27;pending&#x27;, effective: &#x27;06-03&#x27;, phase: 2, deletable: true, process: &#x27;2026-06-03 01:00&#x27;, publish: &#x27;2026-06-03 06:00&#x27;, raw: &#x27;待计算&#x27;, retained: &#x27;—&#x27;, released: &#x27;—&#x27;, detected: &#x27;—&#x27;, parsed: &#x27;—&#x27;, partial: &#x27;—&#x27;, html: &#x27;—&#x27;, missingReport: &#x27;—&#x27;, specLinked: &#x27;—&#x27;, specPending: &#x27;—&#x27;, tokenCoverage: &#x27;—&#x27;, codeCoverage: &#x27;—&#x27;, errors: [] });
+            state.uploadsAdded += 1;
+            state.importSummary.pending += 1;
+            renderImport();
+            showToast(&#x27;TAR 已上传，当前进入“等待夜间处理”&#x27;);
+            return;
+          }
+          renderUploadProgress();
+        }, 650);
+      };
+      const retryBatch = (id) =&gt; {
+        const batch = batchFor(id);
+        if (!batch) return;
+        batch.status = &#x27;处理中&#x27;;
+        batch.tone = &#x27;processing&#x27;;
+        batch.phase = 5;
+        state.importSummary.failed = Math.max(0, state.importSummary.failed - 1);
+        state.importSummary.processing += 1;
+        renderImport();
+        showToast(id + &#x27; 已重新提交，正在预检&#x27;);
+        setTimeout(() =&gt; {
+          batch.status = &#x27;待处理&#x27;;
+          batch.tone = &#x27;pending&#x27;;
+          batch.phase = 2;
+          state.importSummary.processing = Math.max(0, state.importSummary.processing - 1);
+          state.importSummary.pending += 1;
+          renderImport();
+        }, 1500);
+      };
+      const deleteBatch = (id) =&gt; {
+        const batch = batchFor(id);
+        if (!batch || !batch.deletable) return;
+        state.deletedBatches.push(id);
+        state.importSummary.pending = Math.max(0, state.importSummary.pending - 1);
+        closeDrawer();
+        renderImport();
+        showToast(id + &#x27; 已删除，尚未进入处理队列&#x27;);
+      };
       const renderBrief = (model) =&gt; {
         const brief = model.brief;
         const metrics = [
@@ -1886,6 +2166,17 @@ html&gt;body{padding:0}&lt;/style&gt;
         renderImprovements();
         renderBrief(model);
       };
+      const renderScreen = () =&gt; {
+        const isImport = state.screen === &#x27;import&#x27;;
+        root.querySelectorAll(&#x27;[data-dashboard-only]&#x27;).forEach((element) =&gt; { element.hidden = isImport; });
+        root.querySelector(&#x27;[data-import-screen]&#x27;).hidden = !isImport;
+        root.querySelectorAll(&#x27;[data-screen-button]&#x27;).forEach((button) =&gt; { button.dataset.active = button.dataset.screenButton === state.screen ? &#x27;true&#x27; : &#x27;false&#x27;; });
+        if (isImport) renderImport();
+      };
+      const syncScreen = () =&gt; {
+        state.screen = window.location.hash.replace(/^#/, &#x27;&#x27;) === &#x27;import&#x27; ? &#x27;import&#x27; : &#x27;dashboard&#x27;;
+        renderScreen();
+      };
       const populateFilters = () =&gt; {
         const department = root.querySelector(&#x27;[data-filter-department]&#x27;);
         department.innerHTML = Object.entries(departments).map(([key, value]) =&gt; &#x27;&lt;option value=&quot;&#x27; + key + &#x27;&quot;&gt;&#x27; + value.label + &#x27;&lt;/option&gt;&#x27;).join(&#x27;&#x27;);
@@ -1899,6 +2190,8 @@ html&gt;body{padding:0}&lt;/style&gt;
         if (event.target.matches(&#x27;[data-filter-range]&#x27;)) { state.range = event.target.value; state.page = 1; renderAll(); showToast(&#x27;已切换统计范围，周期指标已更新&#x27;); }
       });
       root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
+        const screenButton = event.target.closest(&#x27;[data-screen-button]&#x27;);
+        if (screenButton) { window.location.hash = screenButton.dataset.screenButton === &#x27;import&#x27; ? &#x27;import&#x27; : &#x27;&#x27;; return; }
         const trendButton = event.target.closest(&#x27;[data-trend-mode]&#x27;);
         if (trendButton) { state.trendMode = trendButton.dataset.trendMode; renderTrend(modelFor()); return; }
         const pageButton = event.target.closest(&#x27;[data-page]&#x27;);
@@ -1911,9 +2204,25 @@ html&gt;body{padding:0}&lt;/style&gt;
           return;
         }
         if (event.target.closest(&#x27;[data-export]&#x27;)) { showToast(&#x27;导出任务已创建（演示），实际数据接入后可下载完整明细&#x27;); return; }
+        if (event.target.closest(&#x27;[data-upload-tar]&#x27;)) { startUpload(); return; }
+        if (event.target.closest(&#x27;[data-drawer-close]&#x27;) || event.target === root.querySelector(&#x27;[data-drawer-backdrop]&#x27;)) { closeDrawer(); return; }
+        const viewBatch = event.target.closest(&#x27;[data-batch-view]&#x27;);
+        if (viewBatch) { openDrawer(viewBatch.dataset.batchView); return; }
+        const retry = event.target.closest(&#x27;[data-batch-retry]&#x27;);
+        if (retry) { retryBatch(retry.dataset.batchRetry); return; }
+        const remove = event.target.closest(&#x27;[data-batch-delete]&#x27;);
+        if (remove) { deleteBatch(remove.dataset.batchDelete); return; }
+        const batchRow = event.target.closest(&#x27;[data-batch-row]&#x27;);
+        if (batchRow &amp;&amp; !event.target.closest(&#x27;button&#x27;)) { openDrawer(batchRow.dataset.batchRow); }
       });
+      root.addEventListener(&#x27;keydown&#x27;, (event) =&gt; {
+        const batchRow = event.target.closest(&#x27;[data-batch-row]&#x27;);
+        if (batchRow &amp;&amp; (event.key === &#x27;Enter&#x27; || event.key === &#x27; &#x27;)) { event.preventDefault(); openDrawer(batchRow.dataset.batchRow); }
+      });
+      window.addEventListener(&#x27;hashchange&#x27;, syncScreen);
       populateFilters();
       renderAll();
+      syncScreen();
     })();
   &lt;/script&gt;
 &lt;/div&gt;
