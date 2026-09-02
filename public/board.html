@@ -1632,6 +1632,24 @@ html&gt;body{padding:0}&lt;/style&gt;
     #sdd-dashboard .bi-overview-panel-head h3 { font-size: 17px; font-weight: 830; letter-spacing: -0.035em; }
     #sdd-dashboard .bi-overview-panel-head p { margin-top: 4px; color: var(--muted); font-size: 10px; }
     #sdd-dashboard .bi-stage-overview { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    #sdd-dashboard .bi-three-stage-panel { padding-bottom: 13px; }
+    #sdd-dashboard .bi-three-stage-table-scroll { overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    #sdd-dashboard .bi-three-stage-table { width: 100%; min-width: 730px; border-collapse: collapse; table-layout: fixed; }
+    #sdd-dashboard .bi-three-stage-table th,
+    #sdd-dashboard .bi-three-stage-table td { padding: 12px 11px; border-bottom: 1px solid #edf1f4; text-align: left; vertical-align: middle; }
+    #sdd-dashboard .bi-three-stage-table th { color: var(--faint); background: #fbfcfd; font-size: 9px; font-weight: 850; letter-spacing: 0.04em; white-space: nowrap; }
+    #sdd-dashboard .bi-three-stage-table td { color: var(--ink-soft); font-size: 10px; }
+    #sdd-dashboard .bi-three-stage-table tbody tr:last-child td { border-bottom: 0; }
+    #sdd-dashboard .bi-three-stage-table tbody tr:hover { background: #f8fbff; }
+    #sdd-dashboard .bi-three-stage-table td:first-child { color: var(--ink); font-weight: 820; }
+    #sdd-dashboard .bi-stage-icon { display: inline-grid; width: 22px; height: 22px; margin-right: 6px; place-items: center; border-radius: 7px; color: #fff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-weight: 850; vertical-align: middle; }
+    #sdd-dashboard .bi-stage-icon[data-tone=&quot;spec&quot;] { background: var(--blue); }
+    #sdd-dashboard .bi-stage-icon[data-tone=&quot;plan&quot;] { background: var(--teal); }
+    #sdd-dashboard .bi-stage-icon[data-tone=&quot;code&quot;] { background: var(--violet); }
+    #sdd-dashboard .bi-stage-main { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 850; }
+    #sdd-dashboard .bi-stage-change { color: var(--teal); font-size: 10px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-stage-table-note { margin-top: 10px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-overview-distribution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
     #sdd-dashboard .bi-overview-stage { position: relative; display: grid; min-height: 194px; align-content: space-between; gap: 13px; border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #fbfdff; }
     #sdd-dashboard .bi-overview-stage:not(:last-child)::after { position: absolute; z-index: 1; top: 38px; right: -14px; width: 18px; height: 2px; background: linear-gradient(90deg, var(--blue), var(--teal)); content: &quot;&quot;; }
     #sdd-dashboard .bi-overview-stage:not(:last-child)::before { position: absolute; z-index: 2; top: 34px; right: -14px; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 6px solid var(--teal); content: &quot;&quot;; }
@@ -1763,6 +1781,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       #sdd-dashboard .bi-brief { position: static; }
       #sdd-dashboard .bi-brief-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #sdd-dashboard .bi-distribution-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-overview-distribution-grid { grid-template-columns: minmax(0, 1fr); }
       #sdd-dashboard .bi-storage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #sdd-dashboard .bi-improvement-head,
       #sdd-dashboard .bi-improvement-item { grid-template-columns: 35px minmax(0, 1fr) 82px 44px 66px; gap: 8px; padding-right: 14px; padding-left: 14px; }
@@ -1955,9 +1974,28 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;/header&gt;
       &lt;section class=&quot;bi-overview-kpis&quot; data-overview-kpis aria-label=&quot;SDD 整体关键指标&quot;&gt;&lt;/section&gt;
 
-      &lt;section class=&quot;bi-card bi-overview-panel&quot; aria-labelledby=&quot;stage-overview-title&quot;&gt;
-        &lt;header class=&quot;bi-overview-panel-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;第二部分&lt;/span&gt;&lt;h3 id=&quot;stage-overview-title&quot;&gt;SDD 四阶段概览&lt;/h3&gt;&lt;p&gt;把 E2E 拆开，看清每个阶段的 Token、耗时和产物规模。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;bi-scope-tag&quot;&gt;平均口径&lt;/span&gt;&lt;/header&gt;
-        &lt;div class=&quot;bi-stage-overview&quot; data-stage-overview&gt;&lt;/div&gt;
+      &lt;section class=&quot;bi-card bi-overview-panel bi-three-stage-panel&quot; aria-labelledby=&quot;stage-overview-title&quot;&gt;
+        &lt;header class=&quot;bi-overview-panel-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;第二部分&lt;/span&gt;&lt;h3 id=&quot;stage-overview-title&quot;&gt;SDD 三大阶段表现&lt;/h3&gt;&lt;p&gt;规格 → 计划 → 代码，准确率、端到端耗时与 Token 按本期平均口径对齐。&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;bi-scope-tag&quot;&gt;本期平均&lt;/span&gt;&lt;/header&gt;
+        &lt;div class=&quot;bi-three-stage-table-scroll&quot;&gt;
+          &lt;table class=&quot;bi-three-stage-table&quot;&gt;
+            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;阶段&lt;/th&gt;&lt;th&gt;平均一次性准确率&lt;/th&gt;&lt;th&gt;较上周期&lt;/th&gt;&lt;th&gt;平均端到端耗时&lt;/th&gt;&lt;th&gt;较上周期&lt;/th&gt;&lt;th&gt;平均 Token 消耗&lt;/th&gt;&lt;th&gt;较上周期&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+            &lt;tbody data-three-stage-body&gt;&lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;bi-stage-table-note&quot;&gt;三项环比均为绿色改善方向；代码生成阶段的耗时与 Token 是当前主要成本消耗点。&lt;/p&gt;
+      &lt;/section&gt;
+
+      &lt;section class=&quot;bi-overview-distribution-grid&quot; aria-label=&quot;任务耗时与代码量分布&quot;&gt;
+        &lt;article class=&quot;bi-card bi-distribution-card&quot;&gt;
+          &lt;header class=&quot;bi-card-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;第三部分 · 任务耗时&lt;/span&gt;&lt;h3&gt;SDD 任务耗时分布&lt;/h3&gt;&lt;p&gt;按单次任务 E2E 耗时区间统计。&lt;/p&gt;&lt;/div&gt;&lt;strong class=&quot;bi-scope-tag&quot; data-overview-task-total-tag&gt;2,356 条&lt;/strong&gt;&lt;/header&gt;
+          &lt;div class=&quot;bi-distribution-body&quot;&gt;&lt;div class=&quot;bi-donut&quot; data-overview-time-donut role=&quot;img&quot; aria-label=&quot;任务耗时分布环图&quot;&gt;&lt;div class=&quot;bi-donut-center&quot;&gt;&lt;strong data-overview-donut-total&gt;2,356&lt;/strong&gt;&lt;span&gt;任务总数&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;bi-legend&quot; data-overview-time-legend&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;p class=&quot;bi-card-foot&quot;&gt;平均耗时：&lt;strong data-overview-average-hours&gt;4.2 小时&lt;/strong&gt;&lt;/p&gt;
+        &lt;/article&gt;
+        &lt;article class=&quot;bi-card bi-distribution-card&quot;&gt;
+          &lt;header class=&quot;bi-card-head&quot;&gt;&lt;div&gt;&lt;span class=&quot;bi-eyebrow&quot;&gt;第三部分 · 代码量&lt;/span&gt;&lt;h3&gt;SDD 代码量分布&lt;/h3&gt;&lt;p&gt;按生成代码行数区间统计，纵轴为占比。&lt;/p&gt;&lt;/div&gt;&lt;strong class=&quot;bi-scope-tag&quot;&gt;6 个区间&lt;/strong&gt;&lt;/header&gt;
+          &lt;div class=&quot;bi-code-chart&quot; data-overview-code-chart aria-label=&quot;代码量分布柱状图&quot;&gt;&lt;/div&gt;
+          &lt;p class=&quot;bi-card-foot&quot;&gt;平均代码量：&lt;strong data-overview-average-code&gt;1,856 行&lt;/strong&gt;&lt;/p&gt;
+        &lt;/article&gt;
       &lt;/section&gt;
 
       &lt;section class=&quot;bi-card bi-improvement-panel&quot; aria-labelledby=&quot;improvement-title&quot;&gt;
@@ -2395,6 +2433,36 @@ html&gt;body{padding:0}&lt;/style&gt;
         return fmtInt(stage.output) + &#x27; 行&#x27;;
       };
       const stageFilesText = (key, stage) =&gt; key === &#x27;plan&#x27; ? stage.files.toFixed(1) + &#x27; 个&#x27; : fmtInt(stage.files) + &#x27; 个&#x27;;
+      const threeStageBase = [
+        { key: &#x27;spec&#x27;, label: &#x27;规格文档生成&#x27;, icon: &#x27;文&#x27;, tone: &#x27;spec&#x27;, accuracy: 78.3, accuracyChange: &#x27;↑ 6.1pct&#x27;, hours: 1.8, timeChange: &#x27;↓ 12.5%&#x27;, tokens: 28600, tokenChange: &#x27;↓ 6.2%&#x27; },
+        { key: &#x27;plan&#x27;, label: &#x27;执行计划生成&#x27;, icon: &#x27;列&#x27;, tone: &#x27;plan&#x27;, accuracy: 81.2, accuracyChange: &#x27;↑ 4.3pct&#x27;, hours: 2.6, timeChange: &#x27;↓ 9.3%&#x27;, tokens: 37200, tokenChange: &#x27;↓ 4.7%&#x27; },
+        { key: &#x27;code&#x27;, label: &#x27;代码生成&#x27;, icon: &#x27;码&#x27;, tone: &#x27;code&#x27;, accuracy: 76.7, accuracyChange: &#x27;↑ 3.8pct&#x27;, hours: 4.5, timeChange: &#x27;↓ 8.7%&#x27;, tokens: 82100, tokenChange: &#x27;↓ 5.4%&#x27; }
+      ];
+      const threeStageFor = (model) =&gt; threeStageBase.map((stage) =&gt; {
+        const deptDelta = (model.completion - 82.6) * 0.08;
+        const timeScale = model.r.timeFactor * (0.95 + model.d.factor * 0.05);
+        const tokenScale = model.r.tokenFactor * (0.95 + model.d.factor * 0.05);
+        return { ...stage, accuracy: Math.max(0, Math.min(100, stage.accuracy + deptDelta + (state.range === &#x27;week&#x27; ? 0.5 : state.range === &#x27;prior&#x27; ? -0.4 : 0))), hours: stage.hours * timeScale, tokens: Math.round(stage.tokens * tokenScale) };
+      });
+      const renderThreeStage = (model) =&gt; {
+        root.querySelector(&#x27;[data-three-stage-body]&#x27;).innerHTML = threeStageFor(model).map((stage) =&gt; &#x27;&lt;tr&gt;&lt;td&gt;&lt;span class=&quot;bi-stage-icon&quot; data-tone=&quot;&#x27; + stage.tone + &#x27;&quot;&gt;&#x27; + stage.icon + &#x27;&lt;/span&gt;&#x27; + stage.label + &#x27;&lt;/td&gt;&lt;td&gt;&lt;strong class=&quot;bi-stage-main&quot;&gt;&#x27; + stage.accuracy.toFixed(1) + &#x27;%&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;bi-stage-change&quot;&gt;&#x27; + stage.accuracyChange + &#x27;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;strong class=&quot;bi-stage-main&quot;&gt;&#x27; + stage.hours.toFixed(1) + &#x27; 小时&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;bi-stage-change&quot;&gt;&#x27; + stage.timeChange + &#x27;&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;strong class=&quot;bi-stage-main&quot;&gt;&#x27; + fmtTokens(stage.tokens) + &#x27;&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;bi-stage-change&quot;&gt;&#x27; + stage.tokenChange + &#x27;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&#x27;).join(&#x27;&#x27;);
+      };
+      const renderOverviewDistributions = (model) =&gt; {
+        const timeTotal = model.timeDist.reduce((sum, value) =&gt; sum + value, 0);
+        let cursor = 0;
+        const stops = model.timeDist.map((value, index) =&gt; { const start = cursor; cursor += value; return stageColors[index] + &#x27; &#x27; + start + &#x27;% &#x27; + cursor + &#x27;%&#x27;; }).join(&#x27;, &#x27;);
+        const donut = root.querySelector(&#x27;[data-overview-time-donut]&#x27;);
+        donut.style.background = &#x27;conic-gradient(&#x27; + stops + &#x27;)&#x27;;
+        donut.setAttribute(&#x27;aria-label&#x27;, &#x27;任务耗时分布：&#x27; + timeLabels.map((label, index) =&gt; label + &#x27; &#x27; + model.timeDist[index] + &#x27;%&#x27;).join(&#x27;、&#x27;));
+        root.querySelector(&#x27;[data-overview-donut-total]&#x27;).textContent = fmtInt(model.tasks);
+        root.querySelector(&#x27;[data-overview-task-total-tag]&#x27;).textContent = fmtInt(model.tasks) + &#x27; 条&#x27;;
+        root.querySelector(&#x27;[data-overview-average-hours]&#x27;).textContent = model.hours.toFixed(1) + &#x27; 小时&#x27;;
+        const baseCounts = [330, 542, 659, 424, 260, 141];
+        root.querySelector(&#x27;[data-overview-time-legend]&#x27;).innerHTML = model.timeDist.map((percent, index) =&gt; &#x27;&lt;div class=&quot;bi-legend-row&quot;&gt;&lt;i class=&quot;bi-legend-dot&quot; style=&quot;background:&#x27; + stageColors[index] + &#x27;&quot;&gt;&lt;/i&gt;&lt;span&gt;&#x27; + timeLabels[index] + &#x27;&lt;/span&gt;&lt;strong&gt;&#x27; + percent + &#x27;%&lt;/strong&gt;&lt;small&gt;&#x27; + fmtInt(Math.round(baseCounts[index] * model.tasks / 2356)) + &#x27; 条&lt;/small&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;);
+        const maxCode = Math.max.apply(null, model.codeDist);
+        root.querySelector(&#x27;[data-overview-code-chart]&#x27;).innerHTML = model.codeDist.map((percent, index) =&gt; &#x27;&lt;div class=&quot;bi-code-bar&quot;&gt;&lt;strong&gt;&#x27; + percent + &#x27;%&lt;/strong&gt;&lt;span class=&quot;bi-code-fill&quot; style=&quot;height:&#x27; + Math.max(10, Math.round(percent / maxCode * 126)) + &#x27;px&quot;&gt;&lt;/span&gt;&lt;span class=&quot;bi-code-label&quot;&gt;&#x27; + codeLabels[index] + &#x27;&lt;/span&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;);
+        root.querySelector(&#x27;[data-overview-average-code]&#x27;).textContent = fmtInt(model.code) + &#x27; 行&#x27;;
+      };
       const renderOverviewScreen = (model) =&gt; {
         const kpis = [
           { label: &#x27;SDD 任务数&#x27;, value: fmtInt(model.tasks), change: &#x27;↑ 18.4%&#x27;, icon: &#x27;任&#x27; },
@@ -2404,11 +2472,8 @@ html&gt;body{padding:0}&lt;/style&gt;
         ];
         root.querySelector(&#x27;[data-overview-kpis]&#x27;).innerHTML = kpis.map((item) =&gt; &#x27;&lt;article class=&quot;bi-overview-kpi&quot; data-tone=&quot;&#x27; + (item.tone || &#x27;normal&#x27;) + &#x27;&quot;&gt;&lt;div class=&quot;bi-overview-kpi-top&quot;&gt;&lt;span class=&quot;bi-overview-kpi-label&quot;&gt;&#x27; + item.label + &#x27;&lt;/span&gt;&lt;span class=&quot;bi-overview-kpi-mark&quot;&gt;&#x27; + item.icon + &#x27;&lt;/span&gt;&lt;/div&gt;&lt;strong class=&quot;bi-overview-kpi-value&quot;&gt;&#x27; + item.value + &#x27;&lt;/strong&gt;&lt;span class=&quot;bi-overview-kpi-change&quot;&gt;&#x27; + item.change + &#x27;&lt;/span&gt;&lt;span class=&quot;bi-overview-kpi-note&quot;&gt;&#x27; + (item.note || &#x27;当前范围的周期平均&#x27;) + &#x27;&lt;/span&gt;&lt;/article&gt;&#x27;).join(&#x27;&#x27;);
         root.querySelector(&#x27;[data-overview-scope]&#x27;).textContent = model.d.label + &#x27; · &#x27; + model.r.label;
-        root.querySelector(&#x27;[data-stage-overview]&#x27;).innerHTML = overviewStageOrder.map((key, index) =&gt; {
-          const stage = model.stages[key];
-          const arrow = index &lt; overviewStageOrder.length - 1 ? &#x27;&#x27; : &#x27;&#x27;;
-          return &#x27;&lt;article class=&quot;bi-overview-stage&quot;&gt;&lt;div&gt;&lt;div class=&quot;bi-overview-stage-head&quot;&gt;&lt;strong&gt;&#x27; + overviewStageLabel[key] + &#x27;&lt;/strong&gt;&lt;span&gt;0&#x27; + (index + 1) + &#x27;&lt;/span&gt;&lt;/div&gt;&lt;p class=&quot;bi-overview-stage-sub&quot;&gt;&#x27; + overviewStageSub[key] + &#x27;&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;bi-stage-metrics&quot;&gt;&lt;div class=&quot;bi-stage-metric&quot;&gt;&lt;span&gt;平均 Token&lt;/span&gt;&lt;strong&gt;&#x27; + fmtTokens(stage.tokens) + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-stage-metric&quot;&gt;&lt;span&gt;平均耗时&lt;/span&gt;&lt;strong&gt;&#x27; + fmtDuration(stage.duration) + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;bi-stage-output&quot;&gt;&lt;span&gt;&#x27; + stage.outputLabel + &#x27;&lt;/span&gt;&lt;strong&gt;&#x27; + stageOutputText(key, stage) + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;bi-stage-output&quot;&gt;&lt;span&gt;&#x27; + stage.filesLabel + &#x27;&lt;/span&gt;&lt;strong&gt;&#x27; + stageFilesText(key, stage) + &#x27;&lt;/strong&gt;&lt;/div&gt;&lt;button class=&quot;bi-stage-link&quot; type=&quot;button&quot; data-open-analysis=&quot;&#x27; + (key === &#x27;implement&#x27; ? &#x27;implement-token&#x27; : key) + &#x27;&quot;&gt;查看阶段分析 →&lt;/button&gt;&#x27; + arrow + &#x27;&lt;/article&gt;&#x27;;
-        }).join(&#x27;&#x27;);
+        renderThreeStage(model);
+        renderOverviewDistributions(model);
         root.querySelector(&#x27;[data-improvement-items]&#x27;).innerHTML = improvementItems.map((item) =&gt; &#x27;&lt;div class=&quot;bi-improvement-item&quot;&gt;&lt;span class=&quot;bi-improvement-index&quot;&gt;&#x27; + item.index + &#x27;&lt;/span&gt;&lt;div class=&quot;bi-improvement-copy&quot;&gt;&lt;strong&gt;&#x27; + item.title + &#x27;&lt;/strong&gt;&lt;span&gt;&#x27; + item.summary + &#x27;&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;bi-improvement-impact&quot;&gt;&#x27; + item.impact + &#x27;&lt;/span&gt;&lt;span class=&quot;bi-severity&quot; data-level=&quot;&#x27; + item.level + &#x27;&quot;&gt;&#x27; + item.level + &#x27;&lt;/span&gt;&lt;button class=&quot;bi-improvement-view&quot; type=&quot;button&quot; data-open-analysis=&quot;&#x27; + item.id + &#x27;&quot;&gt;查看分析 →&lt;/button&gt;&lt;/div&gt;&#x27;).join(&#x27;&#x27;);
       };
       const renderAnalysisScreen = (model, improvementId) =&gt; {
