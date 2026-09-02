@@ -624,12 +624,13 @@
     #sdd-dashboard .bi-screen-head-side strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
     #sdd-dashboard .bi-back-link { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line-strong); border-radius: 8px; padding: 6px 9px; color: var(--blue-deep); background: #fff; font-size: 10px; font-weight: 820; }
     #sdd-dashboard .bi-back-link:hover { background: var(--blue-soft); }
-    #sdd-dashboard .bi-overview-kpis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 9px; margin-bottom: 18px; }
+    #sdd-dashboard .bi-overview-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin-bottom: 18px; }
     #sdd-dashboard .bi-overview-kpi { display: grid; min-height: 132px; align-content: space-between; gap: 10px; border: 1px solid var(--line); border-radius: 13px; padding: 13px; background: #fff; box-shadow: 0 8px 22px rgba(31, 68, 99, 0.06); }
     #sdd-dashboard .bi-overview-kpi-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     #sdd-dashboard .bi-overview-kpi-label { color: var(--muted); font-size: 10px; font-weight: 790; }
     #sdd-dashboard .bi-overview-kpi-value { display: block; margin-top: 8px; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: clamp(21px, 2.6vw, 31px); font-weight: 860; letter-spacing: -0.08em; line-height: 1; }
     #sdd-dashboard .bi-overview-kpi-change { color: var(--teal); font-size: 9px; font-weight: 820; }
+    #sdd-dashboard .bi-overview-kpi[data-tone="scale"] .bi-overview-kpi-change { color: var(--muted); }
     #sdd-dashboard .bi-overview-kpi[data-tone="warning"] { border-color: rgba(209, 138, 43, 0.45); background: linear-gradient(145deg, #fff, #fffaf0); }
     #sdd-dashboard .bi-overview-kpi[data-tone="warning"] .bi-overview-kpi-value { color: var(--amber); }
     #sdd-dashboard .bi-overview-kpi[data-tone="warning"] .bi-overview-kpi-change { color: var(--amber); }
@@ -673,8 +674,6 @@
     #sdd-dashboard .bi-severity[data-level="高"] { color: var(--red); background: var(--red-soft); }
     #sdd-dashboard .bi-severity[data-level="中"] { color: var(--amber); background: var(--amber-soft); }
     #sdd-dashboard .bi-severity[data-level="低"] { color: var(--muted); background: #f0f3f5; }
-    #sdd-dashboard .bi-quality-note { display: flex; align-items: start; gap: 10px; margin: 0 0 16px; border-left: 3px solid var(--amber); border-radius: 0 10px 10px 0; padding: 11px 13px; color: var(--muted); background: var(--amber-soft); font-size: 10px; }
-    #sdd-dashboard .bi-quality-note strong { color: var(--ink-soft); white-space: nowrap; }
 
     #sdd-dashboard .bi-analysis-summary { display: grid; grid-template-columns: minmax(0, 1.55fr) repeat(3, minmax(120px, 0.62fr)); gap: 9px; margin-bottom: 16px; }
     #sdd-dashboard .bi-analysis-summary-card { display: grid; min-height: 88px; align-content: space-between; gap: 8px; border: 1px solid var(--line); border-radius: 11px; padding: 12px; background: #fff; }
@@ -965,7 +964,6 @@
         <div class="bi-screen-head-side"><strong data-overview-scope>数字化研发部 · 2026-06-01 ~ 2026-06-30</strong><span>部门筛选用于查看范围，不用于组织排名</span></div>
       </header>
       <section class="bi-overview-kpis" data-overview-kpis aria-label="SDD 整体关键指标"></section>
-      <div class="bi-quality-note"><strong>质量口径待确认</strong><span>“一次生成准确率”当前展示的是演示值。一次究竟指首次代码生成、首次 Implement 还是完整 SDD，准确究竟以 Compile、DT、Judge、人工验收还是无需二轮修改判定，需先完成指标定义。</span></div>
 
       <section class="bi-card bi-overview-panel" aria-labelledby="stage-overview-title">
         <header class="bi-overview-panel-head"><div><span class="bi-eyebrow">第二部分</span><h3 id="stage-overview-title">SDD 四阶段概览</h3><p>把 E2E 拆开，看清每个阶段的 Token、耗时和产物规模。</p></div><span class="bi-scope-tag">平均口径</span></header>
@@ -1411,10 +1409,8 @@
         const kpis = [
           { label: 'SDD 任务数', value: fmtInt(model.tasks), change: '↑ 18.4%', icon: '任' },
           { label: '任务完成率', value: model.completion.toFixed(1) + '%', change: '↑ 5.3ppt', icon: '✓' },
-          { label: '一次生成准确率', value: '—', change: '指标定义待确认', icon: '首', tone: 'warning', note: '一次与准确的判定口径尚未确认' },
-          { label: '平均 Token 消耗', value: fmtTokens(model.tokens), change: '↓ 6.8%（下降为优）', icon: 'T' },
-          { label: '平均 E2E 耗时', value: fmtHours(model.hours), change: '↓ 0.7 小时（下降为优）', icon: '时' },
-          { label: '平均生成代码量', value: fmtInt(model.code) + ' 行', change: '规模指标 · 不判断优劣', icon: '<>', note: '用于观察产出规模' }
+          { label: '活跃用户数', value: fmtInt(model.active) + ' 人', change: '↑ 12.6%', icon: '人' },
+          { label: '平均生成代码量', value: fmtInt(model.code) + ' 行', change: '规模指标 · 不判断优劣', icon: '<>', tone: 'scale', note: '用于观察产出规模' }
         ];
         root.querySelector('[data-overview-kpis]').innerHTML = kpis.map((item) => '<article class="bi-overview-kpi" data-tone="' + (item.tone || 'normal') + '"><div class="bi-overview-kpi-top"><span class="bi-overview-kpi-label">' + item.label + '</span><span class="bi-overview-kpi-mark">' + item.icon + '</span></div><strong class="bi-overview-kpi-value">' + item.value + '</strong><span class="bi-overview-kpi-change">' + item.change + '</span><span class="bi-overview-kpi-note">' + (item.note || '当前范围的周期平均') + '</span></article>').join('');
         root.querySelector('[data-overview-scope]').textContent = model.d.label + ' · ' + model.r.label;
