@@ -613,6 +613,144 @@
     #sdd-dashboard .bi-drawer-errors li::before { width: 7px; height: 7px; margin-top: 4px; border-radius: 50%; background: var(--red); content: ""; }
     #sdd-dashboard .bi-drawer-footnote { margin-top: 14px; color: var(--faint); font-size: 9px; line-height: 1.5; }
 
+    #sdd-dashboard .bi-overview-screen,
+    #sdd-dashboard .bi-analysis-screen,
+    #sdd-dashboard .bi-self-screen { min-width: 0; }
+    #sdd-dashboard .bi-screen-head { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin: 8px 0 18px; }
+    #sdd-dashboard .bi-screen-head-copy { display: grid; gap: 5px; min-width: 0; }
+    #sdd-dashboard .bi-screen-head h2 { font-size: clamp(27px, 4vw, 43px); font-weight: 840; letter-spacing: -0.065em; line-height: 1; }
+    #sdd-dashboard .bi-screen-head p { max-width: 670px; color: var(--muted); font-size: 12px; }
+    #sdd-dashboard .bi-screen-head-side { display: grid; justify-items: end; gap: 7px; color: var(--muted); font-size: 10px; text-align: right; }
+    #sdd-dashboard .bi-screen-head-side strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    #sdd-dashboard .bi-back-link { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line-strong); border-radius: 8px; padding: 6px 9px; color: var(--blue-deep); background: #fff; font-size: 10px; font-weight: 820; }
+    #sdd-dashboard .bi-back-link:hover { background: var(--blue-soft); }
+    #sdd-dashboard .bi-overview-kpis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 9px; margin-bottom: 18px; }
+    #sdd-dashboard .bi-overview-kpi { display: grid; min-height: 132px; align-content: space-between; gap: 10px; border: 1px solid var(--line); border-radius: 13px; padding: 13px; background: #fff; box-shadow: 0 8px 22px rgba(31, 68, 99, 0.06); }
+    #sdd-dashboard .bi-overview-kpi-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    #sdd-dashboard .bi-overview-kpi-label { color: var(--muted); font-size: 10px; font-weight: 790; }
+    #sdd-dashboard .bi-overview-kpi-value { display: block; margin-top: 8px; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: clamp(21px, 2.6vw, 31px); font-weight: 860; letter-spacing: -0.08em; line-height: 1; }
+    #sdd-dashboard .bi-overview-kpi-change { color: var(--teal); font-size: 9px; font-weight: 820; }
+    #sdd-dashboard .bi-overview-kpi[data-tone="warning"] { border-color: rgba(209, 138, 43, 0.45); background: linear-gradient(145deg, #fff, #fffaf0); }
+    #sdd-dashboard .bi-overview-kpi[data-tone="warning"] .bi-overview-kpi-value { color: var(--amber); }
+    #sdd-dashboard .bi-overview-kpi[data-tone="warning"] .bi-overview-kpi-change { color: var(--amber); }
+    #sdd-dashboard .bi-overview-kpi-note { color: var(--faint); font-size: 9px; line-height: 1.35; }
+    #sdd-dashboard .bi-overview-kpi-note strong { color: var(--amber); font-weight: 820; }
+    #sdd-dashboard .bi-overview-kpi-mark { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 7px; color: var(--blue-deep); background: var(--blue-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 850; }
+    #sdd-dashboard .bi-overview-panel { margin-bottom: 16px; padding: 17px 18px; }
+    #sdd-dashboard .bi-overview-panel-head { display: flex; align-items: end; justify-content: space-between; gap: 15px; margin-bottom: 14px; }
+    #sdd-dashboard .bi-overview-panel-head h3 { font-size: 17px; font-weight: 830; letter-spacing: -0.035em; }
+    #sdd-dashboard .bi-overview-panel-head p { margin-top: 4px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-stage-overview { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    #sdd-dashboard .bi-overview-stage { position: relative; display: grid; min-height: 194px; align-content: space-between; gap: 13px; border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: #fbfdff; }
+    #sdd-dashboard .bi-overview-stage:not(:last-child)::after { position: absolute; z-index: 1; top: 38px; right: -14px; width: 18px; height: 2px; background: linear-gradient(90deg, var(--blue), var(--teal)); content: ""; }
+    #sdd-dashboard .bi-overview-stage:not(:last-child)::before { position: absolute; z-index: 2; top: 34px; right: -14px; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 6px solid var(--teal); content: ""; }
+    #sdd-dashboard .bi-overview-stage-head { display: flex; align-items: start; justify-content: space-between; gap: 7px; }
+    #sdd-dashboard .bi-overview-stage-head strong { font-size: 15px; font-weight: 840; }
+    #sdd-dashboard .bi-overview-stage-head span { color: var(--blue-deep); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 850; }
+    #sdd-dashboard .bi-overview-stage-sub { margin-top: 3px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-stage-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    #sdd-dashboard .bi-stage-metric { display: grid; gap: 3px; }
+    #sdd-dashboard .bi-stage-metric span { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-stage-metric strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 17px; letter-spacing: -0.07em; line-height: 1; }
+    #sdd-dashboard .bi-stage-output { display: flex; justify-content: space-between; gap: 8px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-stage-output strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; }
+    #sdd-dashboard .bi-stage-link { border: 0; padding: 0; color: var(--blue-deep); background: transparent; font-size: 9px; font-weight: 820; text-align: left; }
+    #sdd-dashboard .bi-stage-link:hover { text-decoration: underline; }
+    #sdd-dashboard .bi-improvement-panel { overflow: hidden; padding: 0; }
+    #sdd-dashboard .bi-improvement-panel .bi-overview-panel-head { margin: 0; padding: 17px 18px 13px; }
+    #sdd-dashboard .bi-improvement-table { border-top: 1px solid var(--line); }
+    #sdd-dashboard .bi-improvement-head,
+    #sdd-dashboard .bi-improvement-item { display: grid; grid-template-columns: 42px minmax(0, 1fr) minmax(95px, 0.23fr) 50px 80px; align-items: center; gap: 12px; padding: 11px 18px; }
+    #sdd-dashboard .bi-improvement-head { color: var(--faint); background: #fbfcfd; font-size: 9px; font-weight: 850; letter-spacing: 0.06em; }
+    #sdd-dashboard .bi-improvement-item { min-height: 58px; border-top: 1px solid #edf1f4; }
+    #sdd-dashboard .bi-improvement-index { display: grid; width: 25px; height: 25px; place-items: center; border-radius: 7px; color: var(--blue-deep); background: var(--blue-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 850; }
+    #sdd-dashboard .bi-improvement-copy { min-width: 0; }
+    #sdd-dashboard .bi-improvement-copy strong { display: block; overflow: hidden; color: var(--ink-soft); font-size: 11px; font-weight: 810; text-overflow: ellipsis; white-space: nowrap; }
+    #sdd-dashboard .bi-improvement-copy span { display: block; margin-top: 2px; overflow: hidden; color: var(--muted); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    #sdd-dashboard .bi-improvement-impact { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; }
+    #sdd-dashboard .bi-improvement-view { border: 0; padding: 0; color: var(--blue-deep); background: transparent; font-size: 10px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-improvement-view:hover { text-decoration: underline; }
+    #sdd-dashboard .bi-severity[data-level="高"] { color: var(--red); background: var(--red-soft); }
+    #sdd-dashboard .bi-severity[data-level="中"] { color: var(--amber); background: var(--amber-soft); }
+    #sdd-dashboard .bi-severity[data-level="低"] { color: var(--muted); background: #f0f3f5; }
+    #sdd-dashboard .bi-quality-note { display: flex; align-items: start; gap: 10px; margin: 0 0 16px; border-left: 3px solid var(--amber); border-radius: 0 10px 10px 0; padding: 11px 13px; color: var(--muted); background: var(--amber-soft); font-size: 10px; }
+    #sdd-dashboard .bi-quality-note strong { color: var(--ink-soft); white-space: nowrap; }
+
+    #sdd-dashboard .bi-analysis-summary { display: grid; grid-template-columns: minmax(0, 1.55fr) repeat(3, minmax(120px, 0.62fr)); gap: 9px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-analysis-summary-card { display: grid; min-height: 88px; align-content: space-between; gap: 8px; border: 1px solid var(--line); border-radius: 11px; padding: 12px; background: #fff; }
+    #sdd-dashboard .bi-analysis-summary-card span { color: var(--muted); font-size: 9px; font-weight: 760; }
+    #sdd-dashboard .bi-analysis-summary-card strong { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 22px; letter-spacing: -0.08em; line-height: 1; }
+    #sdd-dashboard .bi-analysis-summary-card p { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-analysis-summary-card.primary { border-color: rgba(47, 116, 208, 0.25); background: linear-gradient(135deg, #f0f6ff, #fff); }
+    #sdd-dashboard .bi-analysis-summary-card.primary strong { color: var(--blue-deep); }
+    #sdd-dashboard .bi-analysis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-analysis-panel { padding: 16px 17px; }
+    #sdd-dashboard .bi-analysis-panel h3 { font-size: 15px; font-weight: 830; letter-spacing: -0.03em; }
+    #sdd-dashboard .bi-analysis-panel > p { margin-top: 4px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-analysis-bars { display: grid; gap: 14px; margin-top: 17px; }
+    #sdd-dashboard .bi-analysis-bar { display: grid; grid-template-columns: 76px minmax(0, 1fr) 59px; align-items: center; gap: 9px; }
+    #sdd-dashboard .bi-analysis-bar-label { color: var(--ink-soft); font-size: 10px; font-weight: 790; }
+    #sdd-dashboard .bi-analysis-bar-track { height: 10px; overflow: hidden; border-radius: 999px; background: #edf2f5; }
+    #sdd-dashboard .bi-analysis-bar-fill { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--blue), #74b0ee); }
+    #sdd-dashboard .bi-analysis-bar:nth-child(2) .bi-analysis-bar-fill { background: linear-gradient(90deg, #62a9dc, #91c8d2); }
+    #sdd-dashboard .bi-analysis-bar:nth-child(3) .bi-analysis-bar-fill { background: linear-gradient(90deg, #88bfb3, #b0d5c8); }
+    #sdd-dashboard .bi-analysis-bar:nth-child(4) .bi-analysis-bar-fill { background: linear-gradient(90deg, var(--amber), #e3ba6c); }
+    #sdd-dashboard .bi-analysis-bar-value { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; text-align: right; }
+    #sdd-dashboard .bi-analysis-bar-share { color: var(--muted); font-size: 9px; text-align: right; }
+    #sdd-dashboard .bi-analysis-output { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; margin-top: 16px; }
+    #sdd-dashboard .bi-analysis-output-card { display: grid; gap: 5px; border: 1px solid var(--line); border-radius: 10px; padding: 11px; background: #fbfdff; }
+    #sdd-dashboard .bi-analysis-output-card span { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-analysis-output-card strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 18px; letter-spacing: -0.07em; }
+    #sdd-dashboard .bi-analysis-evidence { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 14px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-analysis-evidence-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid var(--line); border-radius: 11px; padding: 13px 15px; background: #fff; }
+    #sdd-dashboard .bi-analysis-evidence-card > div { display: grid; gap: 4px; }
+    #sdd-dashboard .bi-analysis-evidence-card span { color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-analysis-evidence-card strong { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 22px; letter-spacing: -0.08em; }
+    #sdd-dashboard .bi-analysis-button { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--blue); border-radius: 8px; padding: 7px 10px; color: #fff; background: var(--blue); font-size: 10px; font-weight: 820; white-space: nowrap; }
+    #sdd-dashboard .bi-analysis-button:hover { background: var(--blue-deep); }
+    #sdd-dashboard .bi-analysis-cta { display: flex; align-items: center; justify-content: space-between; gap: 14px; border: 1px solid rgba(29, 156, 138, 0.25); border-radius: 11px; padding: 13px 15px; background: var(--teal-soft); }
+    #sdd-dashboard .bi-analysis-cta p { color: var(--ink-soft); font-size: 10px; }
+    #sdd-dashboard .bi-analysis-cta strong { display: block; margin-bottom: 3px; font-size: 12px; }
+    #sdd-dashboard .bi-analysis-cta button { border: 1px solid var(--teal); border-radius: 8px; padding: 7px 10px; color: #fff; background: var(--teal); font-size: 10px; font-weight: 820; white-space: nowrap; }
+
+    #sdd-dashboard .bi-self-flow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 9px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-self-step { position: relative; min-height: 128px; border: 1px solid var(--line); border-radius: 11px; padding: 12px; background: #fff; }
+    #sdd-dashboard .bi-self-step:not(:last-child)::after { position: absolute; top: 34px; right: -12px; width: 14px; height: 2px; background: var(--blue); content: ""; }
+    #sdd-dashboard .bi-self-step h3 { margin-top: 7px; font-size: 11px; font-weight: 830; }
+    #sdd-dashboard .bi-self-step p { margin-top: 7px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+    #sdd-dashboard .bi-self-step-index { color: var(--blue-deep); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-weight: 850; }
+    #sdd-dashboard .bi-self-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+    #sdd-dashboard .bi-self-panel { padding: 16px 17px; }
+    #sdd-dashboard .bi-self-panel h3 { font-size: 15px; font-weight: 830; }
+    #sdd-dashboard .bi-self-panel > p { margin-top: 4px; color: var(--muted); font-size: 10px; }
+    #sdd-dashboard .bi-self-list { display: grid; gap: 8px; margin: 15px 0 0; padding: 0; list-style: none; }
+    #sdd-dashboard .bi-self-list li { display: grid; grid-template-columns: 26px minmax(0, 1fr); align-items: start; gap: 8px; border-bottom: 1px solid #edf1f4; padding-bottom: 8px; }
+    #sdd-dashboard .bi-self-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    #sdd-dashboard .bi-self-list-index { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 7px; color: var(--teal); background: var(--teal-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-weight: 850; }
+    #sdd-dashboard .bi-self-list strong { display: block; color: var(--ink-soft); font-size: 10px; font-weight: 810; }
+    #sdd-dashboard .bi-self-list span { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; line-height: 1.4; }
+    #sdd-dashboard .bi-self-effect { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    #sdd-dashboard .bi-self-effect-card { display: grid; gap: 5px; border-radius: 10px; padding: 11px; background: #f7fafc; }
+    #sdd-dashboard .bi-self-effect-card span { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-self-effect-card strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 18px; letter-spacing: -0.07em; }
+    #sdd-dashboard .bi-task-drawer { position: fixed; z-index: 21; top: 0; right: 0; display: grid; grid-template-rows: auto 1fr; width: min(520px, 100%); height: 100vh; overflow: hidden; border-left: 1px solid var(--line-strong); background: #f7fafc; box-shadow: -16px 0 35px rgba(16, 43, 68, 0.16); }
+    #sdd-dashboard .bi-task-drawer-header { display: flex; align-items: start; justify-content: space-between; gap: 14px; padding: 20px 21px 17px; border-bottom: 1px solid var(--line); background: #fff; }
+    #sdd-dashboard .bi-task-drawer-header h2 { margin-top: 4px; font-size: 23px; font-weight: 840; letter-spacing: -0.045em; }
+    #sdd-dashboard .bi-task-drawer-header p { margin-top: 5px; color: var(--muted); font-size: 11px; }
+    #sdd-dashboard .bi-task-drawer-body { overflow-y: auto; padding: 17px 21px 30px; }
+    #sdd-dashboard .bi-task-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    #sdd-dashboard .bi-task-fact { display: grid; gap: 3px; border: 1px solid var(--line); border-radius: 9px; padding: 10px; background: #fff; }
+    #sdd-dashboard .bi-task-fact span { color: var(--muted); font-size: 9px; }
+    #sdd-dashboard .bi-task-fact strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; letter-spacing: -0.04em; }
+    #sdd-dashboard .bi-task-stage-table { margin-top: 14px; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    #sdd-dashboard .bi-task-stage-row { display: grid; grid-template-columns: minmax(92px, 1fr) repeat(3, minmax(64px, 0.8fr)); gap: 8px; padding: 9px 11px; border-bottom: 1px solid #edf1f4; font-size: 9px; }
+    #sdd-dashboard .bi-task-stage-row:last-child { border-bottom: 0; }
+    #sdd-dashboard .bi-task-stage-row strong { color: var(--ink-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; }
+    #sdd-dashboard .bi-task-stage-row span { color: var(--muted); }
+    #sdd-dashboard .bi-task-stage-row.header { color: var(--faint); background: #fbfcfd; font-weight: 850; }
+    #sdd-dashboard .bi-task-report-link { display: inline-flex; align-items: center; justify-content: center; margin-top: 14px; border: 1px solid var(--blue); border-radius: 8px; padding: 8px 10px; color: #fff; background: var(--blue); font-size: 10px; font-weight: 820; }
+    #sdd-dashboard .bi-task-report-link:hover { background: var(--blue-deep); }
+
     @media (max-width: 1250px) {
       #sdd-dashboard .bi-header { align-items: start; flex-direction: column; gap: 17px; }
       #sdd-dashboard .bi-controls { justify-content: start; width: 100%; }
@@ -622,6 +760,12 @@
       #sdd-dashboard .bi-bottom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #sdd-dashboard .bi-bottom-grid .bi-analysis-card:first-child { grid-column: 1 / -1; }
       #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-overview-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-stage-overview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-overview-stage::after,
+      #sdd-dashboard .bi-overview-stage::before { display: none; }
+      #sdd-dashboard .bi-analysis-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-analysis-summary-card.primary { grid-column: 1 / -1; }
     }
 
     @media (max-width: 980px) {
@@ -631,6 +775,15 @@
       #sdd-dashboard .bi-brief-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       #sdd-dashboard .bi-distribution-grid { grid-template-columns: minmax(0, 1fr); }
       #sdd-dashboard .bi-storage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-improvement-head,
+      #sdd-dashboard .bi-improvement-item { grid-template-columns: 35px minmax(0, 1fr) 82px 44px 66px; gap: 8px; padding-right: 14px; padding-left: 14px; }
+      #sdd-dashboard .bi-analysis-grid,
+      #sdd-dashboard .bi-analysis-evidence,
+      #sdd-dashboard .bi-self-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-analysis-output { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-self-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-self-step:nth-child(3)::after,
+      #sdd-dashboard .bi-self-step:nth-child(6)::after { display: none; }
     }
 
     @media (max-width: 680px) {
@@ -666,6 +819,25 @@
       #sdd-dashboard .bi-lifecycle { grid-template-columns: repeat(5, minmax(55px, 1fr)); row-gap: 10px; }
       #sdd-dashboard .bi-import-drawer-header { padding-right: 15px; padding-left: 15px; }
       #sdd-dashboard .bi-import-drawer-body { padding-right: 15px; padding-left: 15px; }
+      #sdd-dashboard .bi-screen-head { align-items: start; flex-direction: column; }
+      #sdd-dashboard .bi-screen-head-side { justify-items: start; text-align: left; }
+      #sdd-dashboard .bi-overview-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      #sdd-dashboard .bi-stage-overview { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-overview-stage::after,
+      #sdd-dashboard .bi-overview-stage::before { display: none; }
+      #sdd-dashboard .bi-improvement-head { display: none; }
+      #sdd-dashboard .bi-improvement-item { grid-template-columns: 28px minmax(0, 1fr) auto; gap: 8px; padding: 12px 14px; }
+      #sdd-dashboard .bi-improvement-impact { grid-column: 2; grid-row: 2; }
+      #sdd-dashboard .bi-improvement-item .bi-severity { grid-column: 3; grid-row: 1; }
+      #sdd-dashboard .bi-improvement-view { grid-column: 3; grid-row: 2; }
+      #sdd-dashboard .bi-analysis-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-analysis-summary-card.primary { grid-column: 1 / -1; }
+      #sdd-dashboard .bi-analysis-output { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-self-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #sdd-dashboard .bi-self-step::after { display: none; }
+      #sdd-dashboard .bi-self-effect { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-task-drawer-header,
+      #sdd-dashboard .bi-task-drawer-body { padding-right: 15px; padding-left: 15px; }
     }
 
     @media (max-width: 410px) {
@@ -674,6 +846,12 @@
       #sdd-dashboard .bi-legend { width: 100%; }
       #sdd-dashboard .bi-import-kpi-grid { grid-template-columns: minmax(0, 1fr); }
       #sdd-dashboard .bi-storage-grid { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-overview-kpis { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-analysis-summary,
+      #sdd-dashboard .bi-analysis-output { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-analysis-summary-card.primary { grid-column: auto; }
+      #sdd-dashboard .bi-self-flow { grid-template-columns: minmax(0, 1fr); }
+      #sdd-dashboard .bi-task-facts { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -695,6 +873,7 @@
       </div>
       <nav class="bi-nav" aria-label="看板页面切换">
         <button class="bi-nav-button" type="button" data-screen-button="dashboard" data-active="true">执行效率看板</button>
+        <button class="bi-nav-button" type="button" data-screen-button="analysis">改进分析</button>
         <button class="bi-nav-button" type="button" data-screen-button="import">数据导入中心</button>
       </nav>
       <div class="bi-controls" data-dashboard-only aria-label="全局筛选">
@@ -715,7 +894,7 @@
 
     <div class="bi-context" data-dashboard-only><span data-context>当前范围：<strong>数字化研发部</strong> · 2026-06-01 ~ 2026-06-30</span><span class="bi-demo-tag">演示数据 · 静态夹具</span></div>
 
-    <div class="bi-layout" data-dashboard-only>
+    <div class="bi-layout" data-dashboard-only data-legacy-dashboard hidden>
       <main class="bi-main">
         <section class="bi-section" aria-labelledby="kpi-title">
           <header class="bi-section-head">
@@ -780,6 +959,59 @@
       </aside>
     </div>
 
+    <section class="bi-overview-screen" data-overview-screen data-dashboard-only data-screen="dashboard" aria-labelledby="overview-title">
+      <header class="bi-screen-head">
+        <div class="bi-screen-head-copy"><span class="bi-eyebrow">第一层 · 管理概览</span><h2 id="overview-title">SDD 整体运行情况</h2><p>用落地规模、生成质量、执行成本和产出能力回答：SDD 到底落地得怎么样。</p></div>
+        <div class="bi-screen-head-side"><strong data-overview-scope>数字化研发部 · 2026-06-01 ~ 2026-06-30</strong><span>部门筛选用于查看范围，不用于组织排名</span></div>
+      </header>
+      <section class="bi-overview-kpis" data-overview-kpis aria-label="SDD 整体关键指标"></section>
+      <div class="bi-quality-note"><strong>质量口径待确认</strong><span>“一次生成准确率”当前展示的是演示值。一次究竟指首次代码生成、首次 Implement 还是完整 SDD，准确究竟以 Compile、DT、Judge、人工验收还是无需二轮修改判定，需先完成指标定义。</span></div>
+
+      <section class="bi-card bi-overview-panel" aria-labelledby="stage-overview-title">
+        <header class="bi-overview-panel-head"><div><span class="bi-eyebrow">第二部分</span><h3 id="stage-overview-title">SDD 四阶段概览</h3><p>把 E2E 拆开，看清每个阶段的 Token、耗时和产物规模。</p></div><span class="bi-scope-tag">平均口径</span></header>
+        <div class="bi-stage-overview" data-stage-overview></div>
+      </section>
+
+      <section class="bi-card bi-improvement-panel" aria-labelledby="improvement-title">
+        <header class="bi-overview-panel-head"><div><span class="bi-eyebrow">第三部分</span><h3 id="improvement-title">本期 Top 改进事务</h3><p>首页只呈现最值得关注的问题，不做部门排名或人员赛马。</p></div><span class="bi-scope-tag">问题 → 分析 → 改进</span></header>
+        <div class="bi-improvement-table">
+          <div class="bi-improvement-head" aria-hidden="true"><span>序号</span><span>本期重点问题</span><span>影响范围</span><span>严重度</span><span>操作</span></div>
+          <div data-improvement-items></div>
+        </div>
+      </section>
+      <footer class="bi-footer"><span>数据边界：管理口演示数据，不代表实时生产指标</span><span>质量、效率、产能与改进分别对应不同消费对象</span></footer>
+    </section>
+
+    <section class="bi-analysis-screen" data-analysis-screen data-dashboard-only data-screen="analysis" aria-labelledby="analysis-title" hidden>
+      <header class="bi-screen-head">
+        <div class="bi-screen-head-copy"><button class="bi-back-link" type="button" data-back-overview>← 返回整体运行情况</button><span class="bi-eyebrow">第二层 · 执行效率 / 改进分析</span><h2 id="analysis-title" data-analysis-title>Implement 阶段 Token 消耗偏高</h2><p data-analysis-description>定位问题发生在哪个阶段，并把 E2E 拆成可解释的投入与产出。</p></div>
+        <div class="bi-screen-head-side"><strong data-analysis-scope>数字化研发部 · 本期</strong><span data-analysis-impact>影响任务：18%</span></div>
+      </header>
+      <section class="bi-analysis-summary" data-analysis-summary></section>
+      <section class="bi-analysis-grid" aria-label="阶段效率分析">
+        <article class="bi-card bi-analysis-panel"><span class="bi-eyebrow">投入一</span><h3>各阶段 Token 消耗</h3><p>模型资源主要花在哪个阶段。</p><div class="bi-analysis-bars" data-analysis-token-bars></div></article>
+        <article class="bi-card bi-analysis-panel"><span class="bi-eyebrow">投入二</span><h3>各阶段耗时</h3><p>端到端耗时拆成 New Spec、Design、Plan、Implement。</p><div class="bi-analysis-bars" data-analysis-time-bars></div></article>
+      </section>
+      <section class="bi-card bi-analysis-panel" aria-labelledby="analysis-output-title"><span class="bi-eyebrow">产出规模</span><h3 id="analysis-output-title">投入与产出对照</h3><p>文档、Plans、代码行和文件数分别保持自己的单位。</p><div class="bi-analysis-output" data-analysis-output></div></section>
+      <section class="bi-analysis-evidence"><article class="bi-analysis-evidence-card"><div><span>受影响任务</span><strong data-analysis-affected>38</strong><span>本期任务中出现该问题的示例数量</span></div><button class="bi-analysis-button" type="button" data-open-task-evidence>查看任务证据</button></article><article class="bi-analysis-evidence-card"><div><span>当前判断</span><strong data-analysis-judgment>投入偏高</strong><span data-analysis-judgment-note>Token 与耗时同时偏高，需要进入改进闭环。</span></div></article></section>
+      <div class="bi-analysis-cta"><div><strong>发现问题以后，是否形成了改进？</strong><p>继续查看 Self-Improving 详情：问题、根因、措施、Cards、Units 和效果。</p></div><button type="button" data-open-self>进入 Self-Improving 详情 →</button></div>
+      <footer class="bi-footer"><span>第二层不展示首页任务大表，只保留阶段分布和证据入口</span><span>统计范围：<span data-analysis-footer-scope>本期演示数据</span></span></footer>
+    </section>
+
+    <section class="bi-self-screen" data-self-screen data-dashboard-only data-screen="self" aria-labelledby="self-title" hidden>
+      <header class="bi-screen-head">
+        <div class="bi-screen-head-copy"><button class="bi-back-link" type="button" data-back-analysis>← 返回改进分析</button><span class="bi-eyebrow">第三层 · Self-Improving</span><h2 id="self-title" data-self-title>Implement 阶段 Token 消耗偏高</h2><p>发现问题以后，我们做了什么；哪些经验已经沉淀，是否形成可复用的知识。</p></div>
+        <div class="bi-screen-head-side"><strong data-self-scope>数字化研发部 · 本期</strong><span>静态改进案例</span></div>
+      </header>
+      <div class="bi-self-flow" data-self-flow></div>
+      <section class="bi-self-grid">
+        <article class="bi-card bi-self-panel"><span class="bi-eyebrow">沉淀一</span><h3>Experience Cards</h3><p>把一次改进中的操作规律提炼成可复用卡片。</p><ul class="bi-self-list" data-experience-cards></ul></article>
+        <article class="bi-card bi-self-panel"><span class="bi-eyebrow">沉淀二</span><h3>Knowledge Units</h3><p>把跨任务可复用的规则沉淀为知识单元。</p><ul class="bi-self-list" data-knowledge-units></ul></article>
+      </section>
+      <section class="bi-card bi-self-panel"><span class="bi-eyebrow">效果闭环</span><h3>预期与实际效果</h3><p>当前为演示判断，真实效果需要后续批次复测确认。</p><div class="bi-self-effect" data-self-effect></div><button class="bi-analysis-button" type="button" data-open-task-evidence>查看 Task / Session 证据</button></section>
+      <footer class="bi-footer"><span>Self-Improving 结果不等于已接入真实知识库</span><span>可继续下钻到 Task / Session 证据</span></footer>
+    </section>
+
     <section class="bi-import-screen" data-import-screen data-screen="import" aria-labelledby="import-title" hidden>
       <header class="bi-import-header">
         <div><span class="bi-eyebrow">数据流水线</span><h2 id="import-title">数据导入中心</h2><p>从 TAR 上传到主看板发布，每个批次都有可追踪的处理状态。</p></div>
@@ -828,6 +1060,7 @@
   <div class="bi-toast" data-toast role="status" aria-live="polite"></div>
   <div class="bi-drawer-backdrop" data-drawer-backdrop hidden></div>
   <aside class="bi-import-drawer" data-import-drawer role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden></aside>
+  <aside class="bi-task-drawer" data-task-drawer role="dialog" aria-modal="true" aria-labelledby="task-drawer-title" hidden></aside>
 
   <script>
     (() => {
@@ -873,6 +1106,19 @@
         { id: 'B0531-03', dept: '数研', size: '198 MB', uploaded: '05-31 10:05', tasks: '49', status: '处理中', tone: 'processing', effective: '06-02', phase: 5, deletable: false, process: '2026-06-02 01:00', publish: '2026-06-02 06:00', raw: '198 MB', retained: '31 MB', released: '167 MB', detected: '49', parsed: '42', partial: '7', html: '42', missingReport: '7', specLinked: '39', specPending: '10', tokenCoverage: '44 / 49', codeCoverage: '43 / 49', errors: ['sdd_0152 · 正在等待 Step6 文件', 'sdd_0159 · 字段校验中'] },
         { id: 'B0530-08', dept: '基础架构部', size: '72 MB', uploaded: '05-30 09:10', tasks: '28', status: '已入库', tone: 'stored', effective: '06-02', phase: 7, deletable: false, process: '2026-06-01 01:00', publish: '待发布', raw: '72 MB', retained: '13 MB', released: '59 MB', detected: '28', parsed: '28', partial: '0', html: '28', missingReport: '0', specLinked: '27', specPending: '1', tokenCoverage: '28 / 28', codeCoverage: '28 / 28', errors: [] }
       ];
+      const stageBase = {
+        spec: { label: 'New Spec', sub: '规格生成', tokens: 26400, duration: 42, outputLabel: '文档', output: 1320, filesLabel: '生成/修改文件', files: 8 },
+        design: { label: 'Design', sub: '详设生成', tokens: 41800, duration: 68, outputLabel: '文档', output: 2180, filesLabel: '生成/修改文件', files: 11 },
+        plan: { label: 'Plan', sub: '执行计划', tokens: 18200, duration: 31, outputLabel: 'Plans', output: 7.4, filesLabel: '计划项', files: 7.4 },
+        implement: { label: 'Implement', sub: '代码实现', tokens: 326000, duration: 2280, outputLabel: '代码', output: 812, filesLabel: '修改文件', files: 13 }
+      };
+      const improvementItems = [
+        { id: 'implement-token', index: '01', title: 'Implement 阶段 Token 消耗偏高', impact: '18% 任务', level: '高', summary: '模型资源集中在代码实现阶段，平均 Token 明显高于其它阶段。', affected: 38, stage: 'implement', judgment: '投入偏高', judgmentNote: 'Token 与耗时同时偏高，需要进入改进闭环。', problem: 'Implement 阶段 Token 消耗高', phenomenon: '影响任务 38 个；平均 Token 612K，高于当前基准 326K。', cause: ['重复代码检索，入口位置不明确', '上下文探索路径过长，文件读取反复发生', '代码生成后缺少一次性校验，带来返工'], actions: ['新增代码入口位置知识，缩短首次检索路径', '优化运行时 Knowledge Retrieval，减少重复文件读取', '在 Implement 前置一次范围校验，降低二轮修改'], cards: ['EC-021 · CLI 入口定位规律', 'EC-022 · 重复检索识别', 'EC-023 · 代码范围校验', 'EC-024 · 返工信号记录'], units: ['KU-021 · CLI Command Registration Knowledge'], expected: '预计 Implement 平均 Token 下降 18%', actual: '示例复测：下降 11%（待真实批次确认）' },
+        { id: 'first-pass', index: '02', title: '一次生成后 DT 不通过', impact: '14% 任务', level: '高', summary: '首轮生成后仍需补充修改，质量口径和证据需要先统一。', affected: 29, stage: 'implement', judgment: '质量待确认', judgmentNote: '一次生成准确率尚未完成定义，当前只记录问题样例。', problem: '一次生成后 DT 不通过', phenomenon: '影响任务 29 个；首轮生成后出现 DT 失败或补丁修改。', cause: ['一次生成的边界尚未统一', 'DT 失败原因没有在生成前回灌', '测试覆盖与规格验收点没有完全对齐'], actions: ['确认一次生成的统计分母、分子和判定时点', '把高频 DT 失败模式加入生成前检查', '建立首轮结果到改进项的闭环标记'], cards: ['EC-031 · 首轮失败模式', 'EC-032 · DT 前置检查'], units: ['KU-031 · First-pass Acceptance Boundary'], expected: '预计一次生成准确率提升 10ppt', actual: '当前暂无可确认的真实效果' },
+        { id: 'design-time', index: '03', title: 'Design 阶段耗时异常', impact: '9% 任务', level: '中', summary: '详设阶段耗时拉长，部分任务的输入范围需要重新收敛。', affected: 19, stage: 'design', judgment: '时间偏高', judgmentNote: 'Design 占 E2E 的时间比例高于基准样例。', problem: 'Design 阶段耗时异常', phenomenon: '影响任务 19 个；详设平均耗时 112 秒，高于基准 68 秒。', cause: ['规格边界存在重复解释', '接口和错误处理章节需要多轮补充', '详设模板缺少复用的领域约束'], actions: ['收敛规格到可验收边界', '补齐详设模板中的错误处理约束', '沉淀可复用的接口设计片段'], cards: ['EC-041 · 详设边界收敛'], units: ['KU-041 · Design Section Checklist'], expected: '预计 Design 平均耗时下降 20%', actual: '示例暂无复测结果' },
+        { id: 'spec-size', index: '04', title: 'Spec 生成内容过大', impact: '8% 任务', level: '中', summary: '规格文档规模偏大，可能增加后续上下文和评审成本。', affected: 17, stage: 'spec', judgment: '规模偏大', judgmentNote: '规格行数超过当前代码仓平均范围。', problem: 'Spec 生成内容过大', phenomenon: '影响任务 17 个；规格文档超过 1,900 行。', cause: ['需求与实现细节混写', '验收标准没有分层', '历史约束未做去重'], actions: ['把实现细节移入 Design', '将验收标准按需求编号分层', '清理重复历史约束'], cards: ['EC-051 · Spec 粒度边界'], units: ['KU-051 · Spec Granularity Guide'], expected: '预计规格文档平均缩短 15%', actual: '示例暂无复测结果' },
+        { id: 'plan-rework', index: '05', title: 'Plan 反复修改', impact: '6% 任务', level: '低', summary: '计划项在执行过程中多次重排，影响后续实现节奏。', affected: 13, stage: 'plan', judgment: '节奏波动', judgmentNote: '计划修改次数需要和规格变更分开统计。', problem: 'Plan 反复修改', phenomenon: '影响任务 13 个；平均计划修改 2.3 次。', cause: ['任务拆解颗粒度不一致', '实现边界在 Plan 阶段尚未冻结'], actions: ['统一 Plan 项的完成定义', '在进入 Implement 前记录范围冻结点'], cards: ['EC-061 · Plan 完成定义'], units: ['KU-061 · Plan Granularity Rule'], expected: '预计计划重排次数下降 25%', actual: '示例暂无复测结果' }
+      ];
       const departments = {
         digital: {
           label: '数字化研发部', factor: 1, active: 1243, tasks: 2356, completion: 82.6, hours: 4.2, tokens: 85200, code: 1856,
@@ -909,11 +1155,12 @@
         week: { labels: ['第 1 周', '第 2 周', '第 3 周', '第 4 周', '第 5 周'], tasks: [486, 562, 598, 612, 540], completion: [77, 80, 82, 85, 84], active: [728, 846, 902, 948, 881] },
         month: { labels: ['1 月', '2 月', '3 月', '4 月', '5 月', '6 月'], tasks: [1680, 1812, 1940, 2084, 2216, 2356], completion: [71, 74, 76, 79, 81, 83], active: [914, 988, 1046, 1108, 1186, 1243] }
       };
-      const state = { department: 'digital', range: 'month', trendMode: 'day', page: 1, refresh: 0, screen: 'dashboard', deletedBatches: [], uploadsAdded: 0, importSummary: { pending: 4, processing: 1, failed: 2 }, uploadVisible: false, uploadPercent: 18, uploadStage: 0, uploadFile: 'sdd_20260602_new.tar', uploadTimer: null };
+      const state = { department: 'digital', range: 'month', trendMode: 'day', page: 1, refresh: 0, screen: 'dashboard', activeImprovement: 'implement-token', deletedBatches: [], uploadsAdded: 0, importSummary: { pending: 4, processing: 1, failed: 2 }, uploadVisible: false, uploadPercent: 18, uploadStage: 0, uploadFile: 'sdd_20260602_new.tar', uploadTimer: null };
       const esc = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
       const fmtInt = (value) => Math.round(value).toLocaleString('en-US');
       const fmtTokens = (value) => value >= 1000000 ? (value / 1000000).toFixed(1) + 'M' : Math.round(value / 1000) + 'K';
       const fmtHours = (value) => value >= 1 ? value.toFixed(1) + ' 小时' : Math.round(value * 60) + ' 分钟';
+      const fmtDuration = (seconds) => seconds >= 3600 ? Math.floor(seconds / 3600) + '小时' + (Math.floor(seconds / 60) % 60 ? Math.floor(seconds / 60) % 60 + '分' : '') : Math.floor(seconds / 60) ? Math.floor(seconds / 60) + '分' + (seconds % 60 ? seconds % 60 + '秒' : '') : seconds + '秒';
       const selected = () => ({ department: departments[state.department], range: ranges[state.range] });
       const scaledTrend = (model) => {
         const base = trendBase[state.trendMode];
@@ -927,6 +1174,12 @@
           active: base.active.map((value) => Math.max(1, Math.round(value * userScale)))
         };
       };
+      const stagesFor = (department, range) => Object.fromEntries(Object.entries(stageBase).map(([key, stage]) => {
+        const scale = department.factor * range.tokenFactor;
+        const timeScale = range.timeFactor * (0.92 + department.factor * 0.08);
+        const outputScale = range.codeFactor * (0.92 + department.factor * 0.08);
+        return [key, { ...stage, tokens: Math.round(stage.tokens * scale), duration: Math.max(1, Math.round(stage.duration * timeScale)), output: typeof stage.output === 'number' ? Number((stage.output * outputScale).toFixed(1)) : stage.output, files: typeof stage.files === 'number' ? Number((stage.files * outputScale).toFixed(1)) : stage.files, added: key === 'implement' ? Math.round(812 * outputScale) : null, deleted: key === 'implement' ? Math.round(216 * outputScale) : null }];
+      }));
       const modelFor = () => {
         const picked = selected();
         const d = picked.department;
@@ -945,6 +1198,8 @@
           timeDist: d.timeDist,
           codeDist: d.codeDist,
           brief: d.brief,
+          stages: stagesFor(d, r),
+          firstPass: null,
           trend: scaledTrend({ active: Math.round(d.active * r.userFactor), tasks: Math.max(1, Math.round(d.tasks * r.factor)), completion })
         };
       };
@@ -1086,7 +1341,7 @@
         root.querySelector('[data-import-drawer]').hidden = false;
       };
       const openDrawer = (id) => { const batch = batchFor(id); if (batch) renderDrawer(batch); };
-      const closeDrawer = () => { root.querySelector('[data-drawer-backdrop]').hidden = true; root.querySelector('[data-import-drawer]').hidden = true; };
+      const closeDrawer = () => { root.querySelector('[data-drawer-backdrop]').hidden = true; root.querySelector('[data-import-drawer]').hidden = true; root.querySelector('[data-task-drawer]').hidden = true; };
       const startUpload = (filename) => {
         if (state.uploadTimer) { showToast('已有 TAR 正在上传，请稍候'); return; }
         state.uploadVisible = true;
@@ -1143,6 +1398,75 @@
         renderImport();
         showToast(id + ' 已删除，尚未进入处理队列');
       };
+      const overviewStageOrder = ['spec', 'design', 'plan', 'implement'];
+      const overviewStageLabel = { spec: 'New Spec', design: 'Design', plan: 'Plan', implement: 'Implement' };
+      const overviewStageSub = { spec: '规格生成', design: '详设生成', plan: '执行计划', implement: '代码实现' };
+      const stageOutputText = (key, stage) => {
+        if (key === 'plan') return stage.output.toFixed(1) + ' 个';
+        if (key === 'implement') return fmtInt(stage.output) + ' LOC';
+        return fmtInt(stage.output) + ' 行';
+      };
+      const stageFilesText = (key, stage) => key === 'plan' ? stage.files.toFixed(1) + ' 个' : fmtInt(stage.files) + ' 个';
+      const renderOverviewScreen = (model) => {
+        const kpis = [
+          { label: 'SDD 任务数', value: fmtInt(model.tasks), change: '↑ 18.4%', icon: '任' },
+          { label: '任务完成率', value: model.completion.toFixed(1) + '%', change: '↑ 5.3ppt', icon: '✓' },
+          { label: '一次生成准确率', value: '—', change: '指标定义待确认', icon: '首', tone: 'warning', note: '一次与准确的判定口径尚未确认' },
+          { label: '平均 Token 消耗', value: fmtTokens(model.tokens), change: '↓ 6.8%（下降为优）', icon: 'T' },
+          { label: '平均 E2E 耗时', value: fmtHours(model.hours), change: '↓ 0.7 小时（下降为优）', icon: '时' },
+          { label: '平均生成代码量', value: fmtInt(model.code) + ' 行', change: '规模指标 · 不判断优劣', icon: '<>', note: '用于观察产出规模' }
+        ];
+        root.querySelector('[data-overview-kpis]').innerHTML = kpis.map((item) => '<article class="bi-overview-kpi" data-tone="' + (item.tone || 'normal') + '"><div class="bi-overview-kpi-top"><span class="bi-overview-kpi-label">' + item.label + '</span><span class="bi-overview-kpi-mark">' + item.icon + '</span></div><strong class="bi-overview-kpi-value">' + item.value + '</strong><span class="bi-overview-kpi-change">' + item.change + '</span><span class="bi-overview-kpi-note">' + (item.note || '当前范围的周期平均') + '</span></article>').join('');
+        root.querySelector('[data-overview-scope]').textContent = model.d.label + ' · ' + model.r.label;
+        root.querySelector('[data-stage-overview]').innerHTML = overviewStageOrder.map((key, index) => {
+          const stage = model.stages[key];
+          const arrow = index < overviewStageOrder.length - 1 ? '' : '';
+          return '<article class="bi-overview-stage"><div><div class="bi-overview-stage-head"><strong>' + overviewStageLabel[key] + '</strong><span>0' + (index + 1) + '</span></div><p class="bi-overview-stage-sub">' + overviewStageSub[key] + '</p></div><div class="bi-stage-metrics"><div class="bi-stage-metric"><span>平均 Token</span><strong>' + fmtTokens(stage.tokens) + '</strong></div><div class="bi-stage-metric"><span>平均耗时</span><strong>' + fmtDuration(stage.duration) + '</strong></div></div><div class="bi-stage-output"><span>' + stage.outputLabel + '</span><strong>' + stageOutputText(key, stage) + '</strong></div><div class="bi-stage-output"><span>' + stage.filesLabel + '</span><strong>' + stageFilesText(key, stage) + '</strong></div><button class="bi-stage-link" type="button" data-open-analysis="' + (key === 'implement' ? 'implement-token' : key) + '">查看阶段分析 →</button>' + arrow + '</article>';
+        }).join('');
+        root.querySelector('[data-improvement-items]').innerHTML = improvementItems.map((item) => '<div class="bi-improvement-item"><span class="bi-improvement-index">' + item.index + '</span><div class="bi-improvement-copy"><strong>' + item.title + '</strong><span>' + item.summary + '</span></div><span class="bi-improvement-impact">' + item.impact + '</span><span class="bi-severity" data-level="' + item.level + '">' + item.level + '</span><button class="bi-improvement-view" type="button" data-open-analysis="' + item.id + '">查看分析 →</button></div>').join('');
+      };
+      const renderAnalysisScreen = (model, improvementId) => {
+        const item = improvementItems.find((entry) => entry.id === improvementId) || improvementItems[0];
+        state.activeImprovement = item.id;
+        const stageKeys = overviewStageOrder;
+        const totalTokens = stageKeys.reduce((sum, key) => sum + model.stages[key].tokens, 0);
+        const totalTime = stageKeys.reduce((sum, key) => sum + model.stages[key].duration, 0);
+        const stage = model.stages[item.stage] || model.stages.implement;
+        root.querySelector('[data-analysis-title]').textContent = item.title;
+        root.querySelector('[data-analysis-description]').textContent = '定位问题发生在哪个阶段，并把 E2E 拆成可解释的投入与产出。';
+        root.querySelector('[data-analysis-scope]').textContent = model.d.label + ' · ' + model.r.label;
+        root.querySelector('[data-analysis-impact]').textContent = '影响范围：' + item.impact;
+        root.querySelector('[data-analysis-summary]').innerHTML = '<article class="bi-analysis-summary-card primary"><span>当前问题</span><strong>' + item.problem + '</strong><p>' + item.phenomenon + '</p></article><article class="bi-analysis-summary-card"><span>问题阶段</span><strong>' + overviewStageLabel[item.stage] + '</strong><p>' + overviewStageSub[item.stage] + '</p></article><article class="bi-analysis-summary-card"><span>受影响任务</span><strong>' + item.affected + '</strong><p>示例任务数量</p></article><article class="bi-analysis-summary-card"><span>分析范围</span><strong>' + fmtInt(model.tasks) + '</strong><p>当前有效任务</p></article>';
+        const maxToken = Math.max.apply(null, stageKeys.map((key) => model.stages[key].tokens));
+        root.querySelector('[data-analysis-token-bars]').innerHTML = stageKeys.map((key) => { const value = model.stages[key].tokens; return '<div class="bi-analysis-bar"><span class="bi-analysis-bar-label">' + overviewStageLabel[key] + '</span><span class="bi-analysis-bar-track"><i class="bi-analysis-bar-fill" style="width:' + (value / maxToken * 100).toFixed(1) + '%"></i></span><span class="bi-analysis-bar-value">' + fmtTokens(value) + '<small class="bi-analysis-bar-share"> ' + (value / totalTokens * 100).toFixed(1) + '%</small></span></div>'; }).join('');
+        const maxTime = Math.max.apply(null, stageKeys.map((key) => model.stages[key].duration));
+        root.querySelector('[data-analysis-time-bars]').innerHTML = stageKeys.map((key) => { const value = model.stages[key].duration; return '<div class="bi-analysis-bar"><span class="bi-analysis-bar-label">' + overviewStageLabel[key] + '</span><span class="bi-analysis-bar-track"><i class="bi-analysis-bar-fill" style="width:' + (value / maxTime * 100).toFixed(1) + '%"></i></span><span class="bi-analysis-bar-value">' + fmtDuration(value) + '<small class="bi-analysis-bar-share"> ' + (value / totalTime * 100).toFixed(1) + '%</small></span></div>'; }).join('');
+        root.querySelector('[data-analysis-output]').innerHTML = stageKeys.map((key) => { const entry = model.stages[key]; return '<div class="bi-analysis-output-card"><span>' + overviewStageLabel[key] + ' · ' + entry.outputLabel + '</span><strong>' + stageOutputText(key, entry) + '</strong><span>' + entry.filesLabel + '：' + stageFilesText(key, entry) + '</span></div>'; }).join('');
+        root.querySelector('[data-analysis-affected]').textContent = String(item.affected);
+        root.querySelector('[data-analysis-judgment]').textContent = item.judgment;
+        root.querySelector('[data-analysis-judgment-note]').textContent = item.judgmentNote;
+        root.querySelector('[data-analysis-footer-scope]').textContent = model.d.label + ' · ' + model.r.label;
+      };
+      const renderSelfScreen = (model, improvementId) => {
+        const item = improvementItems.find((entry) => entry.id === improvementId) || improvementItems[0];
+        state.activeImprovement = item.id;
+        root.querySelector('[data-self-title]').textContent = item.title;
+        root.querySelector('[data-self-scope]').textContent = model.d.label + ' · ' + model.r.label;
+        const flow = [['01', '问题', item.problem], ['02', '现象 / 影响', item.phenomenon], ['03', '根因', item.cause.join('；')], ['04', '改进措施', item.actions.join('；')], ['05', '沉淀', item.cards.length + ' 张 Experience Cards · ' + item.units.length + ' 个 Knowledge Units'], ['06', '效果', item.actual]];
+        root.querySelector('[data-self-flow]').innerHTML = flow.map((entry) => '<article class="bi-self-step"><span class="bi-self-step-index">' + entry[0] + '</span><h3>' + entry[1] + '</h3><p>' + entry[2] + '</p></article>').join('');
+        root.querySelector('[data-experience-cards]').innerHTML = item.cards.map((card, index) => '<li><span class="bi-self-list-index">C' + String(index + 1).padStart(2, '0') + '</span><div><strong>' + card + '</strong><span>将本次改进中的操作规律保留为可复用卡片。</span></div></li>').join('');
+        root.querySelector('[data-knowledge-units]').innerHTML = item.units.map((unit, index) => '<li><span class="bi-self-list-index">K' + String(index + 1).padStart(2, '0') + '</span><div><strong>' + unit + '</strong><span>用于后续任务的检索和前置约束。</span></div></li>').join('');
+        root.querySelector('[data-self-effect]').innerHTML = '<div class="bi-self-effect-card"><span>预期效果</span><strong>' + item.expected + '</strong></div><div class="bi-self-effect-card"><span>实际效果</span><strong>' + item.actual + '</strong></div>';
+      };
+      const renderTaskEvidence = (model, improvementId) => {
+        const item = improvementItems.find((entry) => entry.id === improvementId) || improvementItems[0];
+        const task = taskSeed[0];
+        const stageKeys = overviewStageOrder;
+        const stageRows = stageKeys.map((key) => { const stage = model.stages[key]; return '<div class="bi-task-stage-row"><span>' + overviewStageLabel[key] + '</span><strong>' + fmtTokens(stage.tokens) + '</strong><strong>' + fmtDuration(stage.duration) + '</strong><strong>' + stageOutputText(key, stage) + '</strong></div>'; }).join('');
+        root.querySelector('[data-task-drawer]').innerHTML = '<header class="bi-task-drawer-header"><div><span class="bi-eyebrow">第四层 · Task / Session 证据</span><h2 id="task-drawer-title">' + task.name + '</h2><p>' + task.id + ' · ' + task.spec + '</p></div><button class="bi-drawer-close" type="button" data-drawer-close aria-label="关闭任务证据">×</button></header><div class="bi-task-drawer-body"><div class="bi-task-facts"><div class="bi-task-fact"><span>Task ID</span><strong>' + task.id + '</strong></div><div class="bi-task-fact"><span>Session ID</span><strong>sdd_20260602_0001</strong></div><div class="bi-task-fact"><span>Spec ID</span><strong>' + task.spec + '</strong></div><div class="bi-task-fact"><span>关联问题</span><strong>' + item.id + '</strong></div></div><div class="bi-task-stage-table"><div class="bi-task-stage-row header"><span>阶段</span><span>Token</span><span>耗时</span><span>产物</span></div>' + stageRows + '</div><a class="bi-task-report-link" href="/reports/step6/index.html" target="_blank" rel="noreferrer">打开 Step6 执行质量摘要 →</a><p class="bi-drawer-footnote">本层只展示示例 Task / Session 证据；Step6 报告是现有静态 HTML 资产。</p></div>';
+        root.querySelector('[data-drawer-backdrop]').hidden = false;
+        root.querySelector('[data-task-drawer]').hidden = false;
+      };
       const renderBrief = (model) => {
         const brief = model.brief;
         const metrics = [
@@ -1175,16 +1499,29 @@
         renderTeams(model);
         renderImprovements();
         renderBrief(model);
+        renderOverviewScreen(model);
+        renderAnalysisScreen(model, state.activeImprovement);
+        renderSelfScreen(model, state.activeImprovement);
       };
       const renderScreen = () => {
         const isImport = state.screen === 'import';
-        root.querySelectorAll('[data-dashboard-only]').forEach((element) => { element.hidden = isImport; });
+        root.querySelectorAll('[data-dashboard-only]').forEach((element) => { element.hidden = isImport || element.hasAttribute('data-legacy-dashboard'); });
         root.querySelector('[data-import-screen]').hidden = !isImport;
-        root.querySelectorAll('[data-screen-button]').forEach((button) => { button.dataset.active = button.dataset.screenButton === state.screen ? 'true' : 'false'; });
+        root.querySelector('[data-overview-screen]').hidden = isImport || state.screen !== 'dashboard';
+        root.querySelector('[data-analysis-screen]').hidden = isImport || state.screen !== 'analysis';
+        root.querySelector('[data-self-screen]').hidden = isImport || state.screen !== 'self';
+        const activeNav = state.screen === 'self' ? 'analysis' : state.screen;
+        root.querySelectorAll('[data-screen-button]').forEach((button) => { button.dataset.active = button.dataset.screenButton === activeNav ? 'true' : 'false'; });
         if (isImport) renderImport();
+        if (state.screen === 'analysis') renderAnalysisScreen(modelFor(), state.activeImprovement);
+        if (state.screen === 'self') renderSelfScreen(modelFor(), state.activeImprovement);
       };
       const syncScreen = () => {
-        state.screen = window.location.hash.replace(/^#/, '') === 'import' ? 'import' : 'dashboard';
+        const hash = window.location.hash.replace(/^#/, '');
+        if (hash === 'import') state.screen = 'import';
+        else if (hash.indexOf('analysis/') === 0) { state.screen = 'analysis'; state.activeImprovement = decodeURIComponent(hash.split('/')[1] || state.activeImprovement); }
+        else if (hash.indexOf('self/') === 0) { state.screen = 'self'; state.activeImprovement = decodeURIComponent(hash.split('/')[1] || state.activeImprovement); }
+        else state.screen = 'dashboard';
         renderScreen();
       };
       const populateFilters = () => {
@@ -1201,7 +1538,15 @@
       });
       root.addEventListener('click', (event) => {
         const screenButton = event.target.closest('[data-screen-button]');
-        if (screenButton) { window.location.hash = screenButton.dataset.screenButton === 'import' ? 'import' : ''; return; }
+        if (screenButton) {
+          window.location.hash = screenButton.dataset.screenButton === 'import' ? 'import' : screenButton.dataset.screenButton === 'analysis' ? 'analysis/implement-token' : '';
+          return;
+        }
+        const analysisButton = event.target.closest('[data-open-analysis]');
+        if (analysisButton) { window.location.hash = 'analysis/' + encodeURIComponent(analysisButton.dataset.openAnalysis); return; }
+        if (event.target.closest('[data-back-overview]')) { window.location.hash = ''; return; }
+        if (event.target.closest('[data-back-analysis]')) { window.location.hash = 'analysis/' + encodeURIComponent(state.activeImprovement); return; }
+        if (event.target.closest('[data-open-self]')) { window.location.hash = 'self/' + encodeURIComponent(state.activeImprovement); return; }
         const trendButton = event.target.closest('[data-trend-mode]');
         if (trendButton) { state.trendMode = trendButton.dataset.trendMode; renderTrend(modelFor()); return; }
         const pageButton = event.target.closest('[data-page]');
@@ -1216,6 +1561,7 @@
         if (event.target.closest('[data-export]')) { showToast('导出任务已创建（演示），实际数据接入后可下载完整明细'); return; }
         if (event.target.closest('[data-upload-tar]')) { startUpload(); return; }
         if (event.target.closest('[data-drawer-close]') || event.target === root.querySelector('[data-drawer-backdrop]')) { closeDrawer(); return; }
+        if (event.target.closest('[data-open-task-evidence]')) { renderTaskEvidence(modelFor(), state.activeImprovement); return; }
         const viewBatch = event.target.closest('[data-batch-view]');
         if (viewBatch) { openDrawer(viewBatch.dataset.batchView); return; }
         const retry = event.target.closest('[data-batch-retry]');

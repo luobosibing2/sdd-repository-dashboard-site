@@ -4,13 +4,13 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'SDD 数字化看板',
   description:
-    '管理口 SDD 执行效率说明与数据导入中心：周期指标、任务明细、批次状态和每日简报。',
+    '管理口 SDD 三层效率看板与数据导入中心：整体运行、改进分析、Self-Improving 和任务证据。',
   metadataBase: new URL(
     'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
   ),
   openGraph: {
     title: 'SDD 数字化看板',
-    description: '管理口 SDD 执行效率说明与数据导入中心：周期指标、任务明细、批次状态和每日简报。',
+    description: '管理口 SDD 三层效率看板与数据导入中心：整体运行、改进分析、Self-Improving 和任务证据。',
     url: 'https://sdd-repository-dashboard.chengyizhou970514.chatgpt.site',
     siteName: 'SDD 数字化看板',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SDD 数字化看板',
-    description: '管理口 SDD 执行效率说明与数据导入中心：周期指标、任务明细、批次状态和每日简报。',
+    description: '管理口 SDD 三层效率看板与数据导入中心：整体运行、改进分析、Self-Improving 和任务证据。',
     images: ['/og.png'],
   },
 };
