@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SDD 数字化看板 V1 架构与输入数据差距评审：说明当前方案、已经具备的数据，以及仍需补齐的看板输入合同。"
+    />
+    <title>SDD 看板 · 架构与输入数据差距评审</title>
+    <style>
+      :root {
+        --ink: #102f33;
+        --ink-soft: #315157;
+        --muted: #667b7f;
+        --paper: #f3f7f6;
+        --paper-deep: #e8efed;
+        --panel: #fbfdfc;
+        --line: #cfdad7;
+        --line-strong: #a9bdb8;
+        --teal: #087b72;
+        --teal-dark: #075f59;
+        --teal-soft: #dff1ed;
+        --blue: #2d5f86;
+        --blue-soft: #e3edf5;
+        --amber: #a86f08;
+        --amber-soft: #f7ecd1;
+        --red: #b9473f;
+        --red-soft: #f8e4e0;
+        --slate: #526a70;
+        --shadow: 0 18px 50px rgba(21, 55, 58, 0.09);
+        --display: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+        --body: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background-color: var(--paper);
+        background-image:
+          linear-gradient(rgba(58, 96, 95, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(58, 96, 95, 0.035) 1px, transparent 1px);
+        background-size: 24px 24px;
+        font-family: var(--body);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      a { color: inherit; }
+      button { color: inherit; font: inherit; }
+      h1, h2, h3, p { margin: 0; }
+      section[id] { scroll-margin-top: 86px; }
+
+      .skip-link {
+        position: fixed;
+        z-index: 100;
+        top: 10px;
+        left: 10px;
+        transform: translateY(-160%);
+        border-radius: 8px;
+        padding: 10px 14px;
+        color: white;
+        background: var(--ink);
+      }
+      .skip-link:focus { transform: translateY(0); }
+
+      .topbar {
+        position: sticky;
+        z-index: 30;
+        top: 0;
+        border-bottom: 1px solid rgba(169, 189, 184, 0.72);
+        background: rgba(243, 247, 246, 0.92);
+        backdrop-filter: blur(18px);
+      }
+      .topbar-inner {
+        display: flex;
+        width: min(1440px, calc(100% - 40px));
+        min-height: 62px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+      }
+      .brand-mark {
+        display: grid;
+        width: 31px;
+        height: 31px;
+        place-items: center;
+        border-radius: 7px;
+        color: white;
+        background: var(--teal);
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .topnav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+      }
+      .topnav a {
+        border-radius: 7px;
+        padding: 7px 10px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 720;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .topnav a:hover,
+      .topnav a:focus-visible { color: var(--teal-dark); background: var(--teal-soft); outline: none; }
+
+      .page {
+        width: min(1440px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 34px 0 70px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.72fr);
+        gap: 18px;
+      }
+      .hero-main,
+      .hero-aside {
+        min-height: 370px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(251, 253, 252, 0.94);
+        box-shadow: var(--shadow);
+      }
+      .hero-main {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(28px, 5vw, 68px);
+      }
+      .hero-main::after {
+        position: absolute;
+        top: 34px;
+        right: 0;
+        width: 7px;
+        height: 166px;
+        background: linear-gradient(var(--teal) 0 43%, var(--amber) 43% 69%, var(--red) 69%);
+        content: "";
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--teal-dark);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 28px; height: 1px; background: currentColor; content: ""; }
+      h1 {
+        max-width: 820px;
+        margin-top: 25px;
+        font-family: var(--display);
+        font-size: clamp(38px, 6.3vw, 82px);
+        font-weight: 780;
+        letter-spacing: -0.075em;
+        line-height: 0.98;
+      }
+      .hero-lede {
+        max-width: 820px;
+        margin-top: 24px;
+        color: var(--ink-soft);
+        font-size: clamp(16px, 2vw, 21px);
+        line-height: 1.55;
+      }
+      .verdict {
+        display: inline-flex;
+        margin-top: 30px;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(185, 71, 63, 0.28);
+        border-radius: 999px;
+        padding: 9px 13px 9px 10px;
+        color: #8f352f;
+        background: var(--red-soft);
+        font-size: 13px;
+        font-weight: 780;
+      }
+      .verdict i { width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(185, 71, 63, 0.12); }
+
+      .hero-aside {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        padding: 24px;
+      }
+      .aside-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+      .aside-title strong { font-size: 14px; }
+      .aside-title span { color: var(--muted); font-family: var(--mono); font-size: 10px; }
+      .verdict-grid { display: grid; margin-top: 12px; }
+      .verdict-row {
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 12px;
+        border-bottom: 1px solid var(--line);
+        padding: 16px 0;
+      }
+      .verdict-row:last-child { border-bottom: 0; }
+      .verdict-row span { color: var(--muted); font-size: 12px; font-weight: 700; }
+      .verdict-row strong { font-size: 14px; line-height: 1.45; }
+      .tone-good { color: var(--teal-dark); }
+      .tone-warn { color: var(--amber); }
+      .tone-risk { color: var(--red); }
+
+      .summary-strip {
+        display: grid;
+        grid-template-columns: 1.25fr repeat(3, minmax(150px, 0.55fr));
+        margin-top: 18px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+      }
+      .summary-intro,
+      .summary-stat { padding: 18px 20px; }
+      .summary-intro { border-right: 1px solid var(--line); }
+      .summary-intro strong { display: block; font-size: 15px; }
+      .summary-intro span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+      .summary-stat { display: grid; border-right: 1px solid var(--line); }
+      .summary-stat:last-child { border-right: 0; }
+      .summary-stat strong { font-family: var(--display); font-size: 31px; line-height: 1; }
+      .summary-stat span { margin-top: 6px; color: var(--muted); font-size: 11px; font-weight: 730; }
+
+      .section { margin-top: 58px; }
+      .section-head {
+        display: grid;
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 22px;
+        margin-bottom: 22px;
+        align-items: start;
+      }
+      .section-index {
+        color: var(--teal-dark);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+      }
+      .section-title h2 {
+        font-family: var(--display);
+        font-size: clamp(28px, 4vw, 48px);
+        font-weight: 760;
+        letter-spacing: -0.055em;
+        line-height: 1.04;
+      }
+      .section-title p { max-width: 860px; margin-top: 9px; color: var(--muted); }
+
+      .architecture-board {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 25px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+      .architecture-board::before {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(8, 123, 114, 0.06), transparent 42%, rgba(45, 95, 134, 0.05));
+        pointer-events: none;
+        content: "";
+      }
+      .flow-toolbar {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+      .flow-toolbar strong { font-size: 13px; }
+      .flow-legend { display: flex; gap: 14px; flex-wrap: wrap; }
+      .legend-item { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; }
+      .legend-line { width: 19px; height: 2px; background: var(--teal); }
+      .legend-line.storage { background: var(--blue); }
+      .legend-line.pending { height: 0; border-top: 2px dashed var(--amber); background: transparent; }
+
+      .process-scroll { position: relative; margin: 19px -2px 0; overflow-x: auto; padding: 2px 2px 8px; }
+      .process-map { position: relative; min-width: 1160px; }
+      .time-ruler {
+        display: grid;
+        grid-template-columns: 126px 1.2fr 1fr 1.15fr 1fr 1.15fr;
+        gap: 12px;
+        margin-bottom: 10px;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 9px;
+      }
+      .time-ruler span { border-top: 1px solid var(--line-strong); padding-top: 7px; }
+      .time-ruler span:first-child { border-top-color: transparent; }
+      .time-ruler strong { display: block; margin-top: 2px; color: var(--ink-soft); font-size: 10px; }
+
+      .process-lane {
+        display: grid;
+        grid-template-columns: 126px minmax(0, 1fr);
+        gap: 12px;
+        border-top: 1px solid var(--line);
+        padding: 14px 0;
+      }
+      .process-lane:last-child { border-bottom: 1px solid var(--line); }
+      .lane-label { padding: 9px 9px 0 0; }
+      .lane-label span { color: var(--teal-dark); font-family: var(--mono); font-size: 9px; font-weight: 820; letter-spacing: 0.05em; }
+      .lane-label strong { display: block; margin-top: 4px; font-size: 12px; }
+      .lane-label small { display: block; margin-top: 5px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+      .lane-track { display: grid; grid-template-columns: 1.2fr 1fr 1.15fr 1fr 1.15fr; gap: 12px; }
+      .process-card {
+        position: relative;
+        min-height: 166px;
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--teal);
+        border-radius: 10px;
+        padding: 13px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+      .process-card[data-tone="storage"] { border-top-color: var(--blue); }
+      .process-card[data-tone="decision"] { border-top-color: var(--amber); }
+      .process-card:not(:last-child)::after {
+        position: absolute;
+        z-index: 3;
+        top: 42px;
+        right: -14px;
+        width: 14px;
+        height: 1px;
+        background: var(--teal);
+        content: "";
+      }
+      .process-card:not(:last-child)::before {
+        position: absolute;
+        z-index: 4;
+        top: 39px;
+        right: -14px;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        border-left: 5px solid var(--teal);
+        content: "";
+      }
+      .card-step { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+      .card-step b { color: var(--teal); font-family: var(--mono); font-size: 9px; }
+      .card-step em { color: var(--muted); font-family: var(--mono); font-size: 8px; font-style: normal; }
+      .process-card h3 { margin-top: 10px; font-size: 13px; line-height: 1.25; }
+      .process-card > p { margin-top: 7px; color: var(--muted); font-size: 9px; line-height: 1.5; }
+      .card-io { margin-top: 9px; border-top: 1px solid var(--line); padding-top: 8px; }
+      .card-io span { display: block; color: var(--ink-soft); font-family: var(--mono); font-size: 8px; line-height: 1.55; }
+      .pending-control {
+        display: block;
+        margin-top: 9px;
+        border: 1px dashed rgba(168, 111, 8, 0.55);
+        border-radius: 6px;
+        padding: 5px 6px;
+        color: #805607;
+        background: rgba(247, 236, 209, 0.58);
+        font-size: 8px;
+        line-height: 1.45;
+      }
+
+      .state-flow {
+        display: grid;
+        position: relative;
+        grid-template-columns: 126px minmax(0, 1fr);
+        gap: 12px;
+        margin-top: 13px;
+      }
+      .state-flow-label { color: var(--muted); font-family: var(--mono); font-size: 9px; font-weight: 800; }
+      .state-track { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+      .state-track span { border-radius: 5px; padding: 4px 7px; color: var(--teal-dark); background: var(--teal-soft); font-family: var(--mono); font-size: 8px; font-weight: 780; }
+      .state-track i { color: var(--line-strong); font-size: 10px; font-style: normal; }
+      .state-track .state-error { color: var(--red); background: var(--red-soft); }
+
+      .data-rails {
+        display: grid;
+        position: relative;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .data-rail {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px;
+        background: rgba(243, 247, 246, 0.76);
+      }
+      .data-rail-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+      .data-rail-head strong { color: var(--blue); font-family: var(--mono); font-size: 10px; }
+      .data-rail-head span { color: var(--muted); font-size: 9px; }
+      .rail-chain { display: flex; margin-top: 11px; align-items: stretch; gap: 5px; }
+      .rail-chain span { display: grid; flex: 1 1 0; min-height: 48px; place-items: center; border-radius: 7px; padding: 7px; color: var(--ink-soft); background: white; font-size: 8px; line-height: 1.35; text-align: center; }
+      .rail-chain i { align-self: center; color: var(--line-strong); font-size: 9px; font-style: normal; }
+      .failure-branch {
+        display: grid;
+        position: relative;
+        grid-template-columns: 126px minmax(0, 1fr);
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .failure-branch > span { color: var(--red); font-family: var(--mono); font-size: 9px; font-weight: 820; }
+      .failure-copy { border: 1px solid rgba(185, 71, 63, 0.22); border-radius: 8px; padding: 9px 11px; color: var(--ink-soft); background: rgba(248, 228, 224, 0.56); font-size: 9px; }
+      .failure-copy strong { color: var(--red); }
+
+      .principle-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .principle {
+        min-height: 116px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px;
+        background: rgba(251, 253, 252, 0.88);
+      }
+      .principle span { color: var(--teal-dark); font-family: var(--mono); font-size: 10px; font-weight: 800; }
+      .principle strong { display: block; margin-top: 9px; font-size: 14px; }
+      .principle p { margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+      .callout {
+        display: grid;
+        grid-template-columns: minmax(190px, 0.35fr) minmax(0, 1fr);
+        gap: 24px;
+        border: 1px solid rgba(185, 71, 63, 0.24);
+        border-left: 5px solid var(--red);
+        border-radius: 12px;
+        padding: 22px;
+        background: #fff9f8;
+      }
+      .callout-label { color: var(--red); font-family: var(--mono); font-size: 11px; font-weight: 850; }
+      .callout strong { display: block; margin-top: 8px; font-family: var(--display); font-size: 24px; line-height: 1.2; }
+      .callout p { color: var(--ink-soft); }
+
+      .filter-bar {
+        display: flex;
+        margin-bottom: 14px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .filter-copy { color: var(--muted); font-size: 12px; }
+      .filter-buttons { display: flex; gap: 7px; flex-wrap: wrap; }
+      .filter-button {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 11px;
+        background: var(--panel);
+        font-size: 11px;
+        font-weight: 760;
+        cursor: pointer;
+      }
+      .filter-button:hover { border-color: var(--line-strong); }
+      .filter-button:focus-visible { outline: 3px solid rgba(8, 123, 114, 0.18); outline-offset: 2px; }
+      .filter-button[data-active="true"] { border-color: var(--teal); color: white; background: var(--teal); }
+
+      .matrix-wrap {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+      .matrix-scroll { overflow-x: auto; }
+      .matrix { width: 100%; min-width: 1040px; border-collapse: collapse; table-layout: fixed; }
+      .matrix col:nth-child(1) { width: 11%; }
+      .matrix col:nth-child(2) { width: 18%; }
+      .matrix col:nth-child(3) { width: 22%; }
+      .matrix col:nth-child(4) { width: 24%; }
+      .matrix col:nth-child(5) { width: 25%; }
+      .matrix th {
+        position: sticky;
+        z-index: 2;
+        top: 0;
+        border-bottom: 1px solid var(--line-strong);
+        padding: 13px 14px;
+        color: var(--muted);
+        background: var(--paper-deep);
+        font-size: 10px;
+        font-weight: 820;
+        letter-spacing: 0.04em;
+        text-align: left;
+      }
+      .matrix td { border-bottom: 1px solid var(--line); padding: 14px; vertical-align: top; font-size: 12px; line-height: 1.55; }
+      .matrix tr:last-child td { border-bottom: 0; }
+      .matrix tr[hidden] { display: none; }
+      .matrix td:nth-child(2) { font-weight: 780; }
+      .matrix td:nth-child(3),
+      .matrix td:nth-child(4) { color: var(--ink-soft); }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 999px;
+        padding: 4px 8px;
+        font-size: 10px;
+        font-weight: 820;
+        white-space: nowrap;
+      }
+      .status::before { width: 6px; height: 6px; border-radius: 50%; content: ""; }
+      .status.missing { color: var(--red); background: var(--red-soft); }
+      .status.missing::before { background: var(--red); }
+      .status.conditional { color: var(--amber); background: var(--amber-soft); }
+      .status.conditional::before { background: var(--amber); }
+      .status.available { color: var(--teal-dark); background: var(--teal-soft); }
+      .status.available::before { background: var(--teal); }
+      code, .code {
+        border-radius: 4px;
+        padding: 1px 4px;
+        color: var(--blue);
+        background: var(--blue-soft);
+        font-family: var(--mono);
+        font-size: 0.92em;
+      }
+      .matrix-caption {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        border-top: 1px solid var(--line);
+        padding: 13px 15px;
+        color: var(--muted);
+        background: #f7faf9;
+        font-size: 10px;
+      }
+
+      .layer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .layer-card {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        min-height: 260px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        background: var(--panel);
+      }
+      .layer-card > span { color: var(--teal-dark); font-family: var(--mono); font-size: 10px; font-weight: 830; }
+      .layer-card h3 { margin-top: 11px; font-family: var(--display); font-size: 23px; letter-spacing: -0.04em; }
+      .layer-card ul { margin: 16px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 12px; }
+      .layer-card li + li { margin-top: 7px; }
+      .layer-foot { align-self: end; margin-top: 18px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--red); font-size: 11px; font-weight: 760; }
+
+      .contract-board {
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        gap: 14px;
+      }
+      .contract-list,
+      .contract-sample {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--panel);
+      }
+      .contract-list { padding: 22px; }
+      .contract-group + .contract-group { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 20px; }
+      .contract-group span { color: var(--teal-dark); font-family: var(--mono); font-size: 10px; font-weight: 800; }
+      .contract-group strong { display: block; margin-top: 7px; font-size: 15px; }
+      .contract-tags { display: flex; margin-top: 10px; gap: 6px; flex-wrap: wrap; }
+      .contract-tags code { border: 1px solid #c9d9e5; padding: 4px 6px; }
+      .contract-sample { overflow: hidden; background: #102d31; }
+      .sample-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid rgba(219, 239, 235, 0.17);
+        padding: 14px 17px;
+        color: #b8d3ce;
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+      pre {
+        margin: 0;
+        overflow-x: auto;
+        padding: 22px;
+        color: #dcefeb;
+        font-family: var(--mono);
+        font-size: 11px;
+        line-height: 1.65;
+        tab-size: 2;
+      }
+      .json-key { color: #9ed8cf; }
+      .json-note { color: #f2c676; }
+
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .review-card {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 14px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        padding: 18px;
+        background: var(--panel);
+      }
+      .review-num {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border-radius: 8px;
+        color: white;
+        background: var(--ink);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 800;
+      }
+      .review-card h3 { font-size: 14px; }
+      .review-card p { margin-top: 5px; color: var(--muted); font-size: 11px; }
+
+      .boundary {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 23px;
+        background: var(--paper-deep);
+      }
+      .boundary h2 { font-family: var(--display); font-size: 30px; letter-spacing: -0.04em; }
+      .boundary-copy p { color: var(--ink-soft); font-size: 12px; }
+      .boundary-copy p + p { margin-top: 10px; }
+      .source-list { margin: 14px 0 0; padding-left: 18px; color: var(--muted); font-family: var(--mono); font-size: 10px; }
+      .source-list li + li { margin-top: 6px; }
+
+      .footer {
+        display: flex;
+        margin-top: 28px;
+        justify-content: space-between;
+        gap: 20px;
+        border-top: 1px solid var(--line-strong);
+        padding-top: 18px;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+
+      @media (max-width: 1120px) {
+        .layer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .summary-strip { grid-template-columns: 1fr repeat(3, minmax(125px, 0.45fr)); }
+      }
+
+      @media (max-width: 820px) {
+        .topbar-inner { width: min(100% - 24px, 1440px); }
+        .brand span:last-child { display: none; }
+        .page { width: min(100% - 24px, 1440px); padding-top: 22px; }
+        .hero { grid-template-columns: 1fr; }
+        .hero-main, .hero-aside { min-height: auto; }
+        .summary-strip { grid-template-columns: repeat(3, 1fr); }
+        .summary-intro { grid-column: 1 / -1; border-right: 0; border-bottom: 1px solid var(--line); }
+        .section-head { grid-template-columns: 1fr; gap: 6px; }
+        .flow-toolbar { align-items: flex-start; flex-direction: column; }
+        .process-map { min-width: 0; }
+        .time-ruler { display: none; }
+        .process-lane { grid-template-columns: 1fr; }
+        .lane-label { padding: 0; }
+        .lane-track { grid-template-columns: 1fr; }
+        .process-card { min-height: auto; }
+        .process-card:not(:last-child)::after,
+        .process-card:not(:last-child)::before { display: none; }
+        .state-flow, .failure-branch { grid-template-columns: 1fr; }
+        .principle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .callout, .contract-board, .boundary { grid-template-columns: 1fr; }
+        .review-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 560px) {
+        .topnav a:nth-child(2), .topnav a:nth-child(3) { display: none; }
+        .hero-main { padding: 30px 23px 34px; }
+        h1 { font-size: clamp(38px, 13vw, 58px); }
+        .summary-strip { grid-template-columns: 1fr; }
+        .summary-stat { border-right: 0; border-bottom: 1px solid var(--line); }
+        .summary-stat:last-child { border-bottom: 0; }
+        .architecture-board { padding: 16px; }
+        .data-rails, .principle-grid, .layer-grid { grid-template-columns: 1fr; }
+        .rail-chain { align-items: stretch; flex-direction: column; }
+        .rail-chain i { transform: rotate(90deg); }
+        .filter-bar { align-items: flex-start; flex-direction: column; }
+        .matrix-caption, .footer { align-items: flex-start; flex-direction: column; }
+      }
+
+      @media print {
+        body { background: white; }
+        .topbar, .filter-buttons { display: none; }
+        .page { width: 100%; padding: 0; }
+        .hero-main, .hero-aside, .architecture-board, .matrix-wrap { box-shadow: none; }
+        .section { break-inside: avoid; }
+        .matrix-scroll { overflow: visible; }
+        .matrix { min-width: 0; font-size: 9px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand"><span class="brand-mark">SDD</span><span>架构与输入数据差距评审</span></div>
+        <nav class="topnav" aria-label="页面目录">
+          <a href="#architecture">当前方案</a>
+          <a href="#gap">数据差距</a>
+          <a href="#layers">看板四层</a>
+          <a href="#contract">输入合同</a>
+          <a href="#decision">评审决议</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page" id="main">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-main">
+          <p class="eyebrow">Architecture Review · 2026-09-04</p>
+          <h1 id="page-title">系统能收文件，<br />还不能解释每个数字。</h1>
+          <p class="hero-lede">这份评审把 SDD 看板 V1 的软件架构和真实数据需求放在同一张图上：保留正确的存储与 T+1 方向，同时标出从 Session 证据到管理指标之间尚未补齐的输入。</p>
+          <span class="verdict"><i aria-hidden="true"></i>方向通过 · 实施准入暂不通过</span>
+        </div>
+        <aside class="hero-aside" aria-label="评审摘要">
+          <div class="aside-title"><strong>评审摘要</strong><span>REVIEW / V1</span></div>
+          <div class="verdict-grid">
+            <div class="verdict-row"><span>架构方向</span><strong class="tone-good">PostgreSQL + NAS/NFS + T+1 可保留</strong></div>
+            <div class="verdict-row"><span>当前能力</span><strong>上传、归档、批处理和 Session 证据定位</strong></div>
+            <div class="verdict-row"><span>核心缺口</span><strong class="tone-risk">Task / Spec / 用户 / 质量 / 产出 / 改进效果</strong></div>
+            <div class="verdict-row"><span>下一准入物</span><strong class="tone-warn">版本化输入 Schema + 指标血缘合同</strong></div>
+          </div>
+        </aside>
+      </section>
+
+      <div class="summary-strip" aria-label="输入差距统计">
+        <div class="summary-intro"><strong>当前可见看板输入盘点</strong><span>按“能否由 V1 明确的数据合同稳定取得”分类，不把原始日志中的潜在信息当成已接通字段。</span></div>
+        <div class="summary-stat"><strong class="tone-risk">9</strong><span>明确缺少</span></div>
+        <div class="summary-stat"><strong class="tone-warn">8</strong><span>条件性 / 未冻结</span></div>
+        <div class="summary-stat"><strong class="tone-good">6</strong><span>已有基础</span></div>
+      </div>
+
+      <section class="section" id="architecture" aria-labelledby="architecture-title">
+        <header class="section-head">
+          <span class="section-index">A / CURRENT PLAN</span>
+          <div class="section-title"><h2 id="architecture-title">现在的方案：一条 T+1 证据加工线</h2><p>两个上报文件进入上传服务，大文件落 NAS/NFS，结构化事实进入 PostgreSQL；夜间完成解析、聚合和快照发布，管理看板只查询数据库。</p></div>
+        </header>
+
+        <div class="architecture-board">
+          <div class="flow-toolbar">
+            <strong>V1 端到端数据流 · 服务泳道视图</strong>
+            <div class="flow-legend" aria-label="流程图图例">
+              <span class="legend-item"><i class="legend-line"></i>方案已定义的处理步骤</span>
+              <span class="legend-item"><i class="legend-line storage"></i>数据库 / 文件持久化</span>
+              <span class="legend-item"><i class="legend-line pending"></i>评审发现的待冻结控制点</span>
+            </div>
+          </div>
+
+          <div class="process-scroll">
+            <div class="process-map" aria-label="SDD 看板 V1 详细 T+1 证据加工流程">
+              <div class="time-ruler" aria-hidden="true">
+                <span>TIME</span>
+                <span>D 日 · Session 完成<strong>持续产生证据</strong></span>
+                <span>D 日 · 打包上报<strong>持续上传</strong></span>
+                <span>D+1 01:00<strong>夜间处理启动</strong></span>
+                <span>D+1 01:00–06:00<strong>抽取、校验、聚合</strong></span>
+                <span>D+1 06:00<strong>发布管理快照</strong></span>
+              </div>
+
+              <section class="process-lane" aria-label="生产与上传泳道">
+                <header class="lane-label"><span>LANE 01</span><strong>生产与上传</strong><small>SDD 执行环境<br />+ Upload Service</small></header>
+                <div class="lane-track">
+                  <article class="process-card">
+                    <div class="card-step"><b>01 / SESSION</b><em>producer</em></div>
+                    <h3>主会话结束，产出完整分析</h3>
+                    <p>Agent 日志、Tool Call、阶段耗时、异常、效率分析、Cards、KU、Session Summary 与 HTML。</p>
+                    <div class="card-io"><span>IN · Session events</span><span>OUT · analysis artifacts</span></div>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>02 / PACKAGE</b><em>generator</em></div>
+                    <h3>确定性生成两文件</h3>
+                    <p>Raw Log 先压缩成 <code>.log.zst</code>，再生成结构化摘要与传输包。</p>
+                    <div class="card-io"><span>OUT · upload_payload.json</span><span>OUT · session.tar.gz</span></div>
+                    <span class="pending-control">待冻结：旧包兼容、多日志 manifest</span>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>03 / RECEIVE</b><em>upload service</em></div>
+                    <h3>创建上传任务并接收文件</h3>
+                    <p>D 日持续上传；Upload Service 只接收和建任务，不解析大型日志或计算 Dashboard。</p>
+                    <div class="card-io"><span>STATE · UPLOADING</span><span>SCOPE · per upload</span></div>
+                    <span class="pending-control">待冻结：两文件原子配对、断点续传</span>
+                  </article>
+                  <article class="process-card" data-tone="storage">
+                    <div class="card-step"><b>04 / VALIDATE</b><em>db + nfs</em></div>
+                    <h3>校验并分开落位</h3>
+                    <p>校验 package 文件名、大小和 SHA；上传元数据写 PostgreSQL，TAR 写 NAS/NFS staging。</p>
+                    <div class="card-io"><span>PG · upload metadata</span><span>NFS · staging/&lt;upload_id&gt;/</span></div>
+                    <span class="pending-control">待冻结：幂等键、revision、并发冲突</span>
+                  </article>
+                  <article class="process-card" data-tone="decision">
+                    <div class="card-step"><b>05 / QUEUE</b><em>status gate</em></div>
+                    <h3>进入夜间待处理集合</h3>
+                    <p>通过上传与基础校验后，任务进入 <code>READY_FOR_BATCH</code>，等待 Scheduler 选择。</p>
+                    <div class="card-io"><span>STATE · VALIDATED</span><span>STATE · READY_FOR_BATCH</span></div>
+                  </article>
+                </div>
+              </section>
+
+              <section class="process-lane" aria-label="夜间处理泳道">
+                <header class="lane-label"><span>LANE 02</span><strong>夜间处理</strong><small>Scheduler<br />+ Processing Service</small></header>
+                <div class="lane-track">
+                  <article class="process-card">
+                    <div class="card-step"><b>06 / SCHEDULE</b><em>D+1 01:00</em></div>
+                    <h3>Scheduler 启动固定批次</h3>
+                    <p>每晚查询所有 <code>READY_FOR_BATCH</code> 上传任务，交给 Processing Worker。</p>
+                    <div class="card-io"><span>IN · ready uploads</span><span>STATE · PROCESSING</span></div>
+                    <span class="pending-control">待冻结：watermark、迟到与回补</span>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>07 / SCAN</b><em>stream</em></div>
+                    <h3>流式扫描 TAR entries</h3>
+                    <p>逐项读取传输包并识别 Raw、Trace、Analysis、Self-Improving、Report 与 Metadata。</p>
+                    <div class="card-io"><span>IN · package.tar.gz</span><span>OUT · classified entries</span></div>
+                    <span class="pending-control">待冻结：路径、链接、炸弹与配额检查</span>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>08 / EXTRACT</b><em>parser</em></div>
+                    <h3>结构化抽取与 Artifact 分类</h3>
+                    <p>从 payload 和分析 JSON/CSV 中抽取 Session/Stage 数据；文件按类型进入 canonical layout。</p>
+                    <div class="card-io"><span>OUT · structured metrics</span><span>OUT · artifact inventory</span></div>
+                    <span class="pending-control">待冻结：schema、单位、stage taxonomy</span>
+                  </article>
+                  <article class="process-card" data-tone="storage">
+                    <div class="card-step"><b>09 / PERSIST</b><em>dual write</em></div>
+                    <h3>结构化数据与证据双路持久化</h3>
+                    <p>指标和 Artifact 索引写 PostgreSQL；Raw、Trace、Analysis、Cards、KU 与 HTML 写 NAS/NFS。</p>
+                    <div class="card-io"><span>PG · metrics + index</span><span>NFS · sessions/&lt;session_id&gt;/</span></div>
+                    <span class="pending-control">待冻结：跨存储失败补偿与唯一写入者</span>
+                  </article>
+                  <article class="process-card" data-tone="decision">
+                    <div class="card-step"><b>10 / VERIFY</b><em>publish gate</em></div>
+                    <h3>完整性校验并形成处理结果</h3>
+                    <p>检查结构化字段、Artifact 与 Raw Log 完整性；成功后标为 <code>PROCESSED</code>。</p>
+                    <div class="card-io"><span>PASS · eligible to aggregate</span><span>FAIL · error / partial</span></div>
+                    <span class="pending-control">待冻结：PARTIAL_SUCCESS 是否进入看板</span>
+                  </article>
+                </div>
+              </section>
+
+              <section class="process-lane" aria-label="聚合与发布泳道">
+                <header class="lane-label"><span>LANE 03</span><strong>聚合与发布</strong><small>Analytics Service<br />+ Dashboard Service</small></header>
+                <div class="lane-track">
+                  <article class="process-card" data-tone="storage">
+                    <div class="card-step"><b>11 / FACT</b><em>session grain</em></div>
+                    <h3>形成 Session / Stage Facts</h3>
+                    <p>把每次合格 Session 的基础事实固化为后续聚合输入，而不是让 Dashboard 重新读文件。</p>
+                    <div class="card-io"><span>PG · session_metrics</span><span>PG · stage_metrics</span></div>
+                    <span class="pending-control">待冻结：Task/Spec/Session/Attempt 关系</span>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>12 / DAILY</b><em>daily grain</em></div>
+                    <h3>生成日级管理指标</h3>
+                    <p>按业务日期聚合有效 Session，支持任务规模、耗时、阶段表现和 Self-Improving 汇总。</p>
+                    <div class="card-io"><span>IN · session facts</span><span>OUT · daily_metrics</span></div>
+                    <span class="pending-control">待冻结：有效任务分母与业务日期</span>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>13 / MONTHLY</b><em>period grain</em></div>
+                    <h3>月级增量聚合与 Top 计算</h3>
+                    <p>累积月度指标，并基于问题数据计算阶段表现、分布、Top 改进事务。</p>
+                    <div class="card-io"><span>OUT · monthly_metrics</span><span>OUT · improvement_item</span></div>
+                    <span class="pending-control">待冻结：issue taxonomy、严重度和排序公式</span>
+                  </article>
+                  <article class="process-card" data-tone="storage">
+                    <div class="card-step"><b>14 / SNAPSHOT</b><em>release unit</em></div>
+                    <h3>生成 Dashboard Snapshot</h3>
+                    <p>把本次可发布的日/月聚合组织为稳定快照，避免页面读取处理中数据。</p>
+                    <div class="card-io"><span>PG · published snapshot</span><span>STATE · PUBLISHED</span></div>
+                    <span class="pending-control">待冻结：snapshot ID、输入清单与原子切换</span>
+                  </article>
+                  <article class="process-card">
+                    <div class="card-step"><b>15 / CONSUME</b><em>D+1 06:00</em></div>
+                    <h3>看板查询与 Session 下钻</h3>
+                    <p>Dashboard API 提供筛选、查询、分页；Artifact URL 打开 HTML 或下载证据。</p>
+                    <div class="card-io"><span>UI · management dashboard</span><span>DRILL · session report</span></div>
+                    <span class="pending-control">待冻结：访问控制、HTML 隔离与审计</span>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="state-flow" aria-label="上传与处理状态流转">
+            <span class="state-flow-label">NORMAL STATE</span>
+            <div class="state-track"><span>UPLOADING</span><i>→</i><span>UPLOADED</span><i>→</i><span>VALIDATED</span><i>→</i><span>READY_FOR_BATCH</span><i>→</i><span>PROCESSING</span><i>→</i><span>PROCESSED</span><i>→</i><span>PUBLISHED</span><i>／</i><span class="state-error">FAILED / PARTIAL</span></div>
+          </div>
+
+          <div class="data-rails" aria-label="PostgreSQL 与 NAS 数据去向">
+            <section class="data-rail">
+              <div class="data-rail-head"><strong>POSTGRESQL / STRUCTURED CONTROL PLANE</strong><span>Dashboard 只查询这里</span></div>
+              <div class="rail-chain"><span>upload_batch<br />status / error</span><i>→</i><span>session_metrics<br />stage_metrics</span><i>→</i><span>daily / monthly<br />improvement</span><i>→</i><span>artifact index<br />snapshot</span></div>
+            </section>
+            <section class="data-rail">
+              <div class="data-rail-head"><strong>NAS / NFS / EVIDENCE PLANE</strong><span>长期证据与短期 staging</span></div>
+              <div class="rail-chain"><span>staging/<br />package.tar.gz</span><i>→</i><span>raw / trace<br />analysis</span><i>→</i><span>cards / KU<br />HTML report</span><i>→</i><span>校验后 TAR<br />保留 3–7 天</span></div>
+            </section>
+          </div>
+
+          <div class="failure-branch">
+            <span>EXCEPTION PATH</span>
+            <div class="failure-copy"><strong>任何一个环节失败都不能直接发布为成功。</strong>上传失败、校验失败、解析失败与 Artifact 不完整要分开记录；当前方案仍需冻结 <code>PARTIAL_SUCCESS</code> 的发布策略、幂等重跑和数据库/NFS 双写补偿。</div>
+          </div>
+        </div>
+
+        <div class="principle-grid" aria-label="建议保留的架构决策">
+          <article class="principle"><span>KEEP / 01</span><strong>结构化数据与文件分离</strong><p>PostgreSQL 不承担文件系统职责。</p></article>
+          <article class="principle"><span>KEEP / 02</span><strong>Raw Evidence 是一级资产</strong><p>日志长期保留，支持审计与重算。</p></article>
+          <article class="principle"><span>KEEP / 03</span><strong>Dashboard 不读取 TAR</strong><p>查询阶段只消费发布后的结构化数据。</p></article>
+          <article class="principle"><span>KEEP / 04</span><strong>V1 不引入 Kafka</strong><p>T+1 批处理不需要实时事件总线。</p></article>
+          <article class="principle"><span>KEEP / 05</span><strong>相对 object_key</strong><p>数据库不固化物理存储根路径。</p></article>
+          <article class="principle"><span>KEEP / 06</span><strong>ArtifactStorage 抽象</strong><p>保留后续对象存储迁移入口，但不夸大迁移成本。</p></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="problem-title">
+        <div class="callout">
+          <div><span class="callout-label">THE CENTRAL GAP</span><strong id="problem-title">表名已经有了，事实还没有。</strong></div>
+          <p>现方案列出了 <code>session_metrics</code>、<code>stage_metrics</code>、<code>daily_metrics</code>、<code>monthly_metrics</code> 和 <code>improvement_item</code>，但没有冻结事实粒度、主键、维度、分子分母、时间口径、来源字段、UNKNOWN 语义与 transformation version。因此它能说明“指标存在哪里”，还不能说明“指标为什么是这个值”。</p>
+        </div>
+      </section>
+
+      <section class="section" id="gap" aria-labelledby="gap-title">
+        <header class="section-head">
+          <span class="section-index">B / INPUT GAP</span>
+          <div class="section-title"><h2 id="gap-title">方案与看板之间，还差哪些输入</h2><p>“缺少”表示现有上报合同没有来源；“条件性”表示可能从 TAR 或运行状态中提取，但口径尚未冻结；“已有基础”表示 V1 已经有明确的原始字段或系统事件可以承接。</p></div>
+        </header>
+
+        <div class="filter-bar">
+          <span class="filter-copy" data-filter-summary>显示全部 23 项输入</span>
+          <div class="filter-buttons" role="group" aria-label="按可得性筛选">
+            <button class="filter-button" type="button" data-filter="all" data-active="true">全部 23</button>
+            <button class="filter-button" type="button" data-filter="missing">缺少 9</button>
+            <button class="filter-button" type="button" data-filter="conditional">条件性 8</button>
+            <button class="filter-button" type="button" data-filter="available">已有 6</button>
+          </div>
+        </div>
+
+        <div class="matrix-wrap">
+          <div class="matrix-scroll">
+            <table class="matrix">
+              <colgroup><col /><col /><col /><col /><col /></colgroup>
+              <thead><tr><th>可得性</th><th>看板数据</th><th>当前方案提供什么</th><th>为什么还不够</th><th>最小新增输入 / 合同</th></tr></thead>
+              <tbody>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>部门与组织筛选</td><td>只有 <code>session_id</code> 和上传元数据。</td><td>Session 无法归属部门、团队、代码仓；同名组织和人员转岗也无法处理。</td><td><code>department_id</code> · <code>team_id</code> · <code>repository_id</code> · 有效期</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>活跃用户数</td><td>没有稳定的用户或执行者身份。</td><td>不能去重，也没有“活跃”的时间窗口和资格规则。</td><td><code>actor_id</code> · actor type · activity timestamp · active rule</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>Task / Spec / Session 关系</td><td>只有 <code>session_id</code>、<code>session_trace_id</code>。</td><td>不能下钻到 Task/Spec，也不能证明一个 Session 就是一条看板任务。</td><td><code>task_id</code> · <code>task_name</code> · <code>spec_id</code> · <code>attempt_id</code> · cardinality</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>任务完成率与执行状态</td><td>有上传、处理、发布状态。</td><td>流水线状态不等于任务完成；缺少完成权威和多 attempt 归并规则。</td><td><code>execution_status</code> · terminal outcome · completion authority · denominator rule</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>阶段一次性准确率</td><td>没有 first-attempt 或质量 verdict。</td><td>无法计算 Spec / Plan / Code 首次生成是否通过。</td><td>attempt boundary · DT/test/review verdict · numerator/denominator · retry count</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>生成代码量与分布</td><td>Artifact 可以保存文件，但没有代码产出 fact。</td><td>无法区分原有代码、Agent 生成、人工修改、返工和删除。</td><td>base/head SHA · added/deleted LOC · language · provenance · measurement version</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>阶段产出规模</td><td>没有文档行数、Plan 数、计划项数和阶段文件关系。</td><td>最终目录不能可靠回答“哪个阶段产出了多少”。</td><td><code>output_fact</code> · stage key · output type · quantity · file relation</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>Self-Improving 实际效果</td><td>可以保存 Experience Cards 和 Knowledge Units。</td><td>产出知识不等于后续任务使用了知识，更不等于效果可归因。</td><td>intervention ID · KU/Card version · usage event · baseline/retest cohort · measurement window</td></tr>
+                <tr data-status="missing"><td><span class="status missing">缺少</span></td><td>实际货币成本</td><td>方案没有正式 Token fact，也没有价格数据。</td><td>Token 数不能直接换算成本；模型、缓存、推理 Token 和费率会变化。</td><td>model/provider/version · token categories · price version · currency · billing rule</td></tr>
+
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>SDD 任务数</td><td>可以统计 Session 数。</td><td>只有在“一 Task = 一 Session”且 attempt 去重后才成立。</td><td>Task identity · Session relation · deduplication · valid-task rule</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>E2E 耗时与分布</td><td>payload 声称有 <code>stage_duration</code>。</td><td>阶段简单求和会重复计算并行时间，也不含等待、暂停和排队。</td><td><code>execution_started_at</code> · <code>ended_at</code> · timezone · wall-clock rule</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>阶段耗时</td><td>已有 <code>stage_duration</code> 名称。</td><td>缺 shape、单位、起止边界，以及不同 SDD 的 stage taxonomy。</td><td>canonical stage key · taxonomy version · start/end · duration source</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>阶段 Token 与占比</td><td>TAR 报告里可能存在 Token；当前字段清单未明确。</td><td>不能从 <code>agent_tool_stats</code> 的名字推断包含 Token，也缺调用到阶段的映射。</td><td><code>model_call_fact</code> · input/output/cache/reasoning tokens · stage relation</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>Top 改进事务</td><td>已有 <code>process_anomalies</code> 和宽泛的 <code>improvement_item</code>。</td><td>缺 taxonomy、去重键、严重度规则、影响分母、证据强度和排序公式。</td><td>issue occurrence · taxonomy version · severity rubric · affected object · rank version</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>问题根因与改进措施</td><td>分析 Artifact 里可能有自然语言内容。</td><td>没有稳定结构，也没有“模型推断 / 人工确认 / 事实”的边界。</td><td>structured analysis schema · evidence refs · confirmation status · reviewer</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>导入字段覆盖率</td><td>可以记录解析错误和 Artifact。</td><td>没有 expected-field 清单、字段级 validation result 和 parser version。</td><td>manifest · expected schema · validation finding · parser/schema version</td></tr>
+                <tr data-status="conditional"><td><span class="status conditional">条件性</span></td><td>发布快照与环比</td><td>方案提出 Daily/Monthly Metrics 和 Dashboard Snapshot。</td><td>缺业务日期、watermark、迟到回补、输入清单、版本和原子切换。</td><td><code>snapshot_id</code> · as-of date · generated_at · input set · transform version</td></tr>
+
+                <tr data-status="available"><td><span class="status available">已有基础</span></td><td>上传元数据</td><td><code>upload_id</code> · Session ID · 上传时间 · 包名 · 大小 · SHA · 状态 · 错误。</td><td>可支撑粗粒度上传管理，但仍需补 attempt 幂等。</td><td>保留现有字段，增加 revision 与 idempotency key。</td></tr>
+                <tr data-status="available"><td><span class="status available">已有基础</span></td><td>Artifact 索引与下载</td><td>类型、相对 object key、文件名、content type、压缩、大小、SHA、状态。</td><td>主体模型合理；缺完整 manifest 和访问控制。</td><td>增加 source path、retention class、ACL 与 manifest closure。</td></tr>
+                <tr data-status="available"><td><span class="status available">已有基础</span></td><td>Raw Log 保存</td><td>压缩前后大小和 SHA、<code>.log.zst</code> 长期保存。</td><td>需要明确原始 SHA 是上传方声明还是服务端流式验证。</td><td>支持多日志的 <code>artifacts[]</code>，明确验证责任。</td></tr>
+                <tr data-status="available"><td><span class="status available">已有基础</span></td><td>异常、知识消费、Cards</td><td><code>process_anomalies</code> · <code>knowledge_consumption</code> · <code>experience_cards</code>。</td><td>可保存单 Session 原始结果，跨 Session 统计仍需统一 schema。</td><td>稳定 ID · version · evidence refs · null/unknown semantics。</td></tr>
+                <tr data-status="available"><td><span class="status available">已有基础</span></td><td>HTML 报告下钻</td><td>Artifact 目录保持相对链接结构，并按 Session 提供 URL。</td><td>能力方向成立，但必须补同源隔离、CSP、权限和审计。</td><td>isolated origin · sandbox policy · signed URL / auth check。</td></tr>
+                <tr data-status="available"><td><span class="status available">已有基础</span></td><td>存储接收 / 保留 / 释放量</td><td>package size 与 Artifact stored/original size 可聚合。</td><td>可计算历史容量；“临时区实时占用”仍需要基础设施监控。</td><td>统一压缩口径 · storage event · filesystem telemetry。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="matrix-caption"><span>判断基准：V1 文档中明确的字段和系统事件。</span><span>不把“理论上可以解析 Raw Log”视为稳定的数据接口。</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="layers" aria-labelledby="layers-title">
+        <header class="section-head">
+          <span class="section-index">C / DASHBOARD LAYERS</span>
+          <div class="section-title"><h2 id="layers-title">差距落在看板的哪一层</h2><p>四层页面并不是同一种数据：管理聚合、问题诊断、改进闭环和任务证据分别需要不同权威来源。</p></div>
+        </header>
+        <div class="layer-grid">
+          <article class="layer-card"><span>L1 / MANAGEMENT</span><h3>整体运行情况</h3><ul><li>任务数、完成率、活跃用户</li><li>一次性准确率、耗时、Token</li><li>代码量分布与 Top 改进</li></ul><p class="layer-foot">主要缺口：组织、Task、执行结果、代码产出、质量 verdict</p></article>
+          <article class="layer-card"><span>L2 / DIAGNOSIS</span><h3>执行效率 / 改进分析</h3><ul><li>四阶段投入与产出</li><li>受影响任务及比例</li><li>当前判断与证据入口</li></ul><p class="layer-foot">主要缺口：阶段 taxonomy、Token、output fact、issue 分母</p></article>
+          <article class="layer-card"><span>L3 / IMPROVEMENT</span><h3>Self-Improving</h3><ul><li>问题、现象、根因、措施</li><li>Cards 与 Knowledge Units</li><li>预期效果与实际效果</li></ul><p class="layer-foot">主要缺口：intervention、知识消费、复测与归因边界</p></article>
+          <article class="layer-card"><span>L4 / EVIDENCE</span><h3>Task / Session 证据</h3><ul><li>Task、Spec、Session、问题</li><li>阶段 Token、耗时、产物</li><li>Step6 报告和原始证据</li></ul><p class="layer-foot">主要缺口：身份关系、attempt、阶段事实与证据血缘</p></article>
+        </div>
+      </section>
+
+      <section class="section" id="contract" aria-labelledby="contract-title">
+        <header class="section-head">
+          <span class="section-index">D / MINIMUM CONTRACT</span>
+          <div class="section-title"><h2 id="contract-title">进入实现前，最少补齐四组事实</h2><p>这不是要求立刻增加四套服务，而是要求在一个版本化输入合同中把身份、执行、质量与发布关系说清楚。</p></div>
+        </header>
+        <div class="contract-board">
+          <div class="contract-list">
+            <div class="contract-group"><span>GROUP 01</span><strong>身份与归属</strong><div class="contract-tags"><code>repository</code><code>department</code><code>actor</code><code>task</code><code>spec</code><code>session</code><code>attempt</code><code>upload</code><code>batch</code></div></div>
+            <div class="contract-group"><span>GROUP 02</span><strong>执行与投入产出</strong><div class="contract-tags"><code>execution_status</code><code>started_at</code><code>ended_at</code><code>stage_fact</code><code>model_call</code><code>tool_call</code><code>output_fact</code></div></div>
+            <div class="contract-group"><span>GROUP 03</span><strong>质量与改进</strong><div class="contract-tags"><code>quality_verdict</code><code>first_attempt</code><code>issue_occurrence</code><code>intervention</code><code>knowledge_usage</code><code>retest</code></div></div>
+            <div class="contract-group"><span>GROUP 04</span><strong>导入与发布</strong><div class="contract-tags"><code>artifact_manifest</code><code>validation_result</code><code>lifecycle_event</code><code>parser_version</code><code>dashboard_snapshot</code></div></div>
+          </div>
+          <div class="contract-sample" aria-label="建议输入合同骨架">
+            <div class="sample-head"><span>upload_payload.json / contract skeleton</span><span>illustrative · not final schema</span></div>
+            <pre>{
+  <span class="json-key">"schema_version"</span>: "2.x",
+  <span class="json-key">"identity"</span>: {
+    <span class="json-key">"department_id"</span>: <span class="json-note">"required for dashboard scope"</span>,
+    <span class="json-key">"repository_id"</span>: "...",
+    <span class="json-key">"task_id"</span>: "...",
+    <span class="json-key">"spec_id"</span>: "...",
+    <span class="json-key">"session_id"</span>: "...",
+    <span class="json-key">"attempt_id"</span>: "..."
+  },
+  <span class="json-key">"execution"</span>: {
+    <span class="json-key">"status"</span>: <span class="json-note">"business outcome, not upload state"</span>,
+    <span class="json-key">"started_at"</span>: "...",
+    <span class="json-key">"ended_at"</span>: "...",
+    <span class="json-key">"timezone"</span>: "Asia/Shanghai"
+  },
+  <span class="json-key">"stages"</span>: [
+    {
+      <span class="json-key">"stage_key"</span>: "implement",
+      <span class="json-key">"taxonomy_version"</span>: "...",
+      <span class="json-key">"duration_ms"</span>: 0,
+      <span class="json-key">"token_usage"</span>: { "input": 0, "output": 0 },
+      <span class="json-key">"outputs"</span>: []
+    }
+  ],
+  <span class="json-key">"quality"</span>: {
+    <span class="json-key">"first_attempt"</span>: true,
+    <span class="json-key">"verdict"</span>: <span class="json-note">"PASS | FAIL | UNKNOWN"</span>,
+    <span class="json-key">"evidence_refs"</span>: []
+  },
+  <span class="json-key">"artifacts"</span>: [
+    { <span class="json-key">"path"</span>: "...", <span class="json-key">"type"</span>: "RAW_LOG", <span class="json-key">"sha256"</span>: "..." }
+  ]
+}</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="decision" aria-labelledby="decision-title">
+        <header class="section-head">
+          <span class="section-index">E / REVIEW GATE</span>
+          <div class="section-title"><h2 id="decision-title">建议的正式评审决议</h2><p>同意存储与批处理总体方向；数据合同、安全合同和运行正确性合同退回补充，补齐后再批准实施。</p></div>
+        </header>
+        <div class="review-grid">
+          <article class="review-card"><span class="review-num">01</span><div><h3>指标字典与数据血缘</h3><p>逐项写清看板字段、公式、粒度、维度、时间、源字段、缺失规则和证据入口。</p></div></article>
+          <article class="review-card"><span class="review-num">02</span><div><h3>核心身份与幂等</h3><p>冻结 Repository / Department / User / Task / Spec / Session / Attempt / Upload / Batch 的关系。</p></div></article>
+          <article class="review-card"><span class="review-num">03</span><div><h3>版本化 Schema 与 Manifest</h3><p>提供 JSON Schema、字段类型、单位、枚举、UNKNOWN 语义、旧版本兼容和完整 Artifact 清单。</p></div></article>
+          <article class="review-card"><span class="review-num">04</span><div><h3>T+1 Snapshot 语义</h3><p>明确业务日期、时区、watermark、迟到、回补、重跑、partial data、输入清单和原子发布。</p></div></article>
+          <article class="review-card"><span class="review-num">05</span><div><h3>上传、TAR 与 HTML 安全</h3><p>补认证授权、脱敏、加密、审计、解包限制、同源隔离、CSP 和下载策略。</p></div></article>
+          <article class="review-card"><span class="review-num">06</span><div><h3>容量、吞吐与灾备</h3><p>用真实样本给出包大小、压缩率、日峰值、年度容量、批处理吞吐、备份、RPO 和 RTO。</p></div></article>
+        </div>
+      </section>
+
+      <section class="section boundary" aria-labelledby="boundary-title">
+        <div><span class="section-index">EVIDENCE BOUNDARY</span><h2 id="boundary-title">这是一份合同差距评审，不是真实数据接入验收。</h2></div>
+        <div class="boundary-copy">
+          <p>当前仓库只证明看板希望展示哪些字段：页面本身是静态夹具，刷新、导出和 TAR 上传均为浏览器内模拟。仓库中没有真实的 Upload / Processing / Analytics / Dashboard Service，也没有 PostgreSQL、NFS 或运行时解析链路。</p>
+          <p>当前仓库还没有 <code>generate_upload_data.py</code>、真实 <code>upload_payload.json</code> 样本或真实 TAR。因此本页对“已有字段”的判断来自架构方案文本，仍需回到生产者实现和真实样本复核。</p>
+          <ul class="source-list">
+            <li>方案来源：pasted-text.txt · 软件架构方案 V1</li>
+            <li>看板入口：app/page.tsx → /dashboard.html</li>
+            <li>看板字段：public/dashboard.html · 当前管理概览 / 改进 / Self-Improving / 导入中心</li>
+            <li>评审日期：2026-09-04 · 只读证据盘点后整理</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer"><span>SDD DIGITAL DASHBOARD / ARCHITECTURE REVIEW</span><span>方向通过 · 数据合同补齐后再进入实现</span></footer>
+    </main>
+
+    <script>
+      (() => {
+        const buttons = Array.from(document.querySelectorAll('[data-filter]'));
+        const rows = Array.from(document.querySelectorAll('tbody tr[data-status]'));
+        const summary = document.querySelector('[data-filter-summary]');
+        const labels = { all: '全部', missing: '明确缺少', conditional: '条件性', available: '已有基础' };
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            let visible = 0;
+            buttons.forEach((item) => { item.dataset.active = String(item === button); });
+            rows.forEach((row) => {
+              const show = filter === 'all' || row.dataset.status === filter;
+              row.hidden = !show;
+              if (show) visible += 1;
+            });
+            summary.textContent = `显示${labels[filter]} ${visible} 项输入`;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
